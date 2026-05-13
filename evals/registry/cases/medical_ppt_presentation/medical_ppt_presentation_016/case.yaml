@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_016
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a general practitioner. Please prepare a lecture PPT on comorbidity management of the “three highs” (hypertension, diabetes, and dyslipidemia) in adults, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: The “three highs” are preventable and controllable, reduction of overall cardiovascular–renal–vascular risk, ASCVD risk stratification and management prioritization, key points of screening and follow-up management for high-risk populations.
+  **Visual materials**: Flowchart of first-visit screening and overall risk stratification for the “three highs”; diagram of stepwise escalation of lipid-lowering therapy and the combination-therapy pathway; trend chart of diabetes prevalence and target-achievement rates in China (optional).
+  **Constraints & format**: 14–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (The “three highs” are preventable and controllable, reduction of overall cardiovascular–renal–vascular risk, ASCVD risk stratification and management prioritization, key points of screening and follow-up management for high-risk populations).
+  3. Include the visual materials specified (Flowchart of first-visit screening and overall risk stratification for the “three highs”; diagram of stepwise escalation of lipid-lowering therapy and the combination-therapy pathway; trend chart of diabetes prevalence and target-achievement rates in China (optional)).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_016/01_template.pptx

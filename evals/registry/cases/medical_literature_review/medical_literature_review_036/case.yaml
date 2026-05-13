@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_036
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a physician in the Department of Pulmonary and Critical Care Medicine. In outpatient practice, you have managed multiple adult patients with moderate-to-severe COPD. In some patients, the estimated benefit of the novel nebulized inhaled PDE3/4 inhibitor ensifentrine (Ensifentrine) varies depending on prior inhaled maintenance regimens and exacerbation-history stratification, and there is uncertainty regarding whether ensifentrine can be positioned as a strategy to replace or reduce ICS. Therefore, you plan to write a scoping review (evidence mapping) or a systematic review for an academic and clinical audience, to support treatment positioning and decision-making in adult COPD.
+  
+  Review topic: “Efficacy and clinical positioning of the inhaled PDE3/4 dual inhibitor ensifentrine (Ensifentrine) in adult COPD.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Evidence map under different background inhaled therapies and exacerbation-history stratifications;
+  2. Outcomes including magnitude of lung function improvement and time to onset of effect;
+  3. Changes in acute exacerbation risk and population heterogeneity;
+  4. Symptom and quality-of-life scale outcomes, and discussion of evidence related to ICS replacement/reduction and changes in adverse events.
+  
+  Search and inclusion must use the following keywords: COPD、ensifentrine/Ohtuvayre、nebulized inhalation、maintenance therapy、exacerbation. A standardized reference list is required at the end of the review; present the screening process using a PRISMA flow diagram, summarize key outcomes across different baseline therapies/exacerbation histories using a stratified evidence matrix table, and use a mechanistic pathway figure to link PDE3/4 dual inhibition to clinical outcomes.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

@@ -1,0 +1,36 @@
+case_id: soap_documentation/soap_documentation_022
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 15, 2024, a 24-year-old freelance graphic designer, Xiao Li (pseudonym), hurried into the psychiatry clinic. Based on the following summarized clinic dialogue, chief complaint/history, and physical examination findings, analyze the patient’s condition and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient entered the exam room with a rapid gait and began speaking before the clinician was fully seated. Chief complaint: “My brain is going too fast and I can’t concentrate. It’s severely affecting my work efficiency. I suspect I have adult ADHD and I hope you can prescribe focus medications.”
+  
+  He spoke at a very rapid rate and stated: “Doctor, I checked the rating scales online—everything matches. My head right now is like having fifty browser tabs open, and I can’t close any of them! Over the past three weeks, I took on three big projects. I have so many ideas—I feel like a genius, like I’m about to lead a revolution in the design world. But I just can’t sit still. As soon as I start one thing, I want to move to the next. Now I have a pile of half-finished work, and clients are rushing me.”
+  
+  When asked about sleep, he dismissively waved his hand: “That’s exactly what I find amazing! Recently I only sleep 2 to 3 hours a day, sometimes I even stay up all night drawing, but the next morning I’m not tired at all. Instead I feel full of energy—more awake than ever before. I think sleeping is just a waste of time.”
+  
+  Regarding the course, he added: “Actually, two months ago I was doing terribly. I felt like a loser. I stayed in bed every day; even after sleeping 12 hours I didn’t want to move, and I even missed deadlines. I thought it was job burnout, but I didn’t expect that these past few weeks I suddenly ‘woke up.’ It’s just that my attention is too scattered—I need medication to help me focus.”
+  
+  **Past Medical History and Family History:**
+  Previously healthy. No known drug allergies. During university (2 years ago), he was diagnosed by the campus clinic with a “major depressive episode” due to low mood and took “sertraline.” The patient reported: “After taking the medication, I felt more panicky, couldn’t sit still, like my heart was on fire,” and he discontinued it on his own. Six months ago, he had a motorcycle speeding accident resulting in a tibial fracture, now healed. He denies any family history of schizophrenia or epilepsy.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 37.1°C; heart rate 96/min; blood pressure 138/88 mmHg; respiratory rate 20/min; SpO2 99%.  
+  General: Normally developed, moderately nourished. Clothing brightly colored with somewhat exaggerated, mismatched styling. Frequent and intense eye contact; appears overly excited.  
+  Mental status examination: Clear consciousness; fully oriented. Actively engages. Increased amount of speech with very rapid rate; verbose and difficult to interrupt (pressured speech). Flight of ideas with rapid topic shifts. Grandiose ideas (believes he has special abilities to change the industry). Elevated mood with irritability; becomes noticeably impatient when the clinician attempts to interrupt. Attention is easily drawn to environmental stimuli (even the printer noise in the hallway captures his attention).  
+  Neurologic: Mild fine tremor in both hands (possibly related to emotional agitation); otherwise neurologic exam unremarkable. Thyroid palpation reveals no enlargement.  
+  Ancillary tests (results available): Urine toxicology (amphetamines, cannabis, opioids) all negative. Thyroid function (TSH, FT4) within normal range.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_022/01_attachment.pdf

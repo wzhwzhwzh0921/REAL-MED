@@ -1,0 +1,56 @@
+case_id: soap_documentation/soap_documentation_033
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 15, 2024, a 72-year-old retired construction worker, Mr. Zhang Wei (pseudonym), presented to the orthopedic outpatient clinic accompanied by his spouse for evaluation of severe right shoulder pain and functional impairment. The following SOAP note should be written based on the provided clinic dialogue summary, chief complaint/history, and physical examination findings.
+  **Chief Complaint and History of Present Illness:**
+  The patient entered the exam room supporting his right elbow with his right hand, with a slight right-leaning posture. He reported: “My right shoulder hurts like hell, I can’t lift my arm at all—especially at night, it hurts so much I can’t sleep.”
+  
+  Mr. Zhang stated: “Doctor, this shoulder started feeling uncomfortable about three months ago. I was carrying a box of old books, and I heard a ‘click’ in my shoulder. I didn’t think much of it—I figured I’m old and my bones are stiff. A month ago I went to a community clinic; the doctor said it was ‘fifty shoulder’ (periarthritis of the shoulder), that is frozen shoulder, and told me I had to exercise through the pain—do that ‘wall-climbing’ exercise every day.”
+  
+  He sighed and pointed to his shoulder: “I did what they said—I clenched my teeth and did the wall-climbing every day. But two weeks ago, when I was really reaching up hard, I suddenly felt a ‘snap’ inside the shoulder—severe pain like something tore. Since then, this arm has been completely useless. Forget wall-climbing—I can’t even lift a cup of water by myself. Nights are the worst; if I roll over and press on the right side, the pain wakes me up immediately. It feels like a drill boring into the bone.”
+  
+  His spouse added: “Yes, doctor. He used to work in construction and was very strong. But over the past half month it’s been really worrying—he needs me to help him put his arm through sleeves when dressing. The community doctor said the more it hurts, the more he should practice, but I feel like the more he practices, the worse it gets. Now this arm feels like it’s not even real—he can’t generate any strength at all.”
+  **Past Medical History and Family History:**
+  Past medical history: Hypertension for 15 years; takes amlodipine 5 mg/day long-term with acceptable blood pressure control. History of mild lumbar spinal stenosis.
+  
+  Medications: Amlodipine 5 mg/day.
+  
+  Allergies: Mild penicillin allergy (rash).
+  
+  Endocrine/metabolic history: No history of diabetes mellitus (specifically noted as important). No history of thyroid disease.
+  
+  Social history: 30-year smoking history; quit smoking 10 years ago. Retired construction worker.
+  
+  Family history: Not provided.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8℃; heart rate 76/min; blood pressure 138/82 mmHg; respiratory rate 16/min; SpO2 97%.
+  
+  General: Normally developed, well nourished, alert and oriented. On entering the room, he demonstrated an obvious shoulder-elevating protective posture.
+  
+  Inspection (shoulder): No erythema or swelling of the right shoulder. Compared with the left side, the right supraspinous fossa appeared relatively flattened with mild atrophy.
+  
+  Palpation: Localized deep tenderness over the greater tuberosity of the right humerus and the subacromial space. Subtle crepitus palpable with passive rotation of the upper arm.
+  
+  Range of motion (key findings):
+  1) Active ROM: When asked to lift the right arm, the patient attempted but was unable to elevate it; abduction only to approximately 45°, with marked shoulder-hiking compensation.
+  2) Passive ROM: With examiner-assisted passive elevation, forward flexion and abduction could reach 160° (pain at end range, but no clear mechanical/bony block). Passive external rotation was normal (45°).
+  
+  Special tests:
+  1) Drop Arm Test: Positive (after passive elevation, the arm could not be maintained and dropped when released).
+  2) Empty Can (Jobe’s) Test: Positive; resisted strength 3/5.
+  3) Neer impingement sign: Positive.
+  
+  Neurovascular: Distal sensation symmetric in both upper extremities. Radial pulses strong (2+).
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_033/01_attachment.pdf

@@ -1,0 +1,18 @@
+case_id: dosage_calculation/dosage_calculation_020
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  1) Patient information: A 60-year-old male, body weight 81.5 kg, ascites: tense/refractory_suspected. Current oral diuretics: spironolactone 400 mg/day and furosemide 160 mg/day. It has been 7 days since the last dose adjustment. Recent electrolytes/renal function: serum potassium 4.7 mmol/L, serum sodium 128 mmol/L, Scr 1.6 mg/dL, eGFR 45 mL/min/1.73m². 24-hour urine output 700 mL. Body weight change +0.2 kg/day. No hyperkalemia. Not elderly.
+  
+  2) Calculation tasks:
+  (1) Calculate and determine whether the current diuretic regimen has reached the guideline maximum dose.
+  (2) If the guideline maximum dose has been reached, calculate the “remaining allowable up-titration margin” and provide the conclusion (this should be 0).
+  (3) Based on the reassessment interval and clinical indicators, determine whether second-line therapy evaluation should be triggered rather than continuing dose escalation.
+  Requirements: Provide a step-by-step calculation process, and explicitly state how to avoid misreading “≤ maximum dose” as “< maximum dose”.
+  
+  Please calculate this patient’s monitoring_recommendations.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

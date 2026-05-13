@@ -1,0 +1,47 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_029
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Hospital Pharmacy Department — Monthly Procurement Plan Task Notice:
+  
+  This month’s inventory check found two high-risk situations at the same time: one is products with “rigid clinical demand, but on-hand stock is no longer sufficient to cover the routine medication cycle” (involving an oral anti-infective preparation and a compound antibacterial powder for injection); the other is products with relatively low stock but with near-expiry risk, for which purchase quantities must be carefully controlled. This task focuses only on the above two products for which “inventory is no longer sufficient to ensure continuous supply,” and requires you to complete the calculations and decisions. In your write-up, explicitly state: shortage risk, reasons for replenishment, replenishment quantity, estimated procurement amount, and whether staged delivery is needed or whether department-to-department stock reallocation should be done first.
+  
+  Note: The stem will not provide any generic name or brand name. You must uniquely match the specific products in the attached list based on dosage form/specification/indication clues before performing calculations.
+  
+  1) Shortage product identification and information extraction (two products):
+  - Target product 1: an oral anti-infective tablet, specification “100 mg/tablet”.
+  - Target product 2: a compound antibacterial powder for injection, specification “0.75 g/vial (one component 0.5 g + another component 0.25 g)”.
+  (1) Identify the generic name of each drug and query its inventory and unit price (complete for both products above).
+  (2) In the .xlsx, list for each product: current inventory, reorder threshold (replenishment alert line), unit price, expiry date, and storage location.
+  
+  2) Oral anti-infective tablets (100 mg/tablet) — inventory validation and replenishment quantity calculation:
+  (1) Identify the generic name of this drug and query its inventory and unit price.
+  (2) Using the common adult dosing “200 mg per dose, twice daily,” calculate the number of tablets needed per dose and per day.
+  (3) Calculate the total number of tablets needed for a “7-day course”.
+  (4) Deduct this result from the current inventory, then determine whether the remaining inventory is still below the reorder threshold; if below, calculate the minimum number of tablets to purchase to “replenish up to the threshold” (round up to a whole tablet), and calculate the corresponding procurement amount (unit price per the list).
+  
+  3) Compound antibacterial powder for injection (0.75 g/vial) — replenishment quantity and cost calculation:
+  (1) Identify the generic name of this drug and query its inventory and unit price.
+  (2) Based on ward-reported usage “12 vials per day for 5 consecutive days,” verify the total 5-day demand in vials and compare it with current inventory.
+  (3) Provide the minimum number of vials to procure this time such that “inventory − expected 5-day usage + procurement quantity” reaches the reorder threshold (fully make up any shortfall), and calculate the procurement amount.
+  (4) Add in the narrative: this product is an injectable antibacterial; a shortage will directly affect continuity of inpatient anti-infective therapy, so replenishment should be prioritized.
+  
+  Please return the above xlsx and docx within 48 hours (file name: Department–Name–March 2026 Procurement Plan).
+  
+  Attachment: drug inventory list `01_inventory.xlsx` (270 items). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_029` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_029/01_inventory.xlsx
+mcp_question_id: v5_032

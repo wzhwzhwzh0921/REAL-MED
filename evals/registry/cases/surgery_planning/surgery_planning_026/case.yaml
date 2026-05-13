@@ -1,0 +1,26 @@
+case_id: surgery_planning/surgery_planning_026
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior orthopedic surgeon managing a 48-year-old physically active patient with symptomatic valgus malalignment and isolated lateral femorotibial osteoarthritis undergoing joint-preserving distal femoral realignment. The case focuses on intraoperative fixation decisions and early postoperative concerns about osteotomy healing and stability.
+  
+  - 48-year-old active patient; BMI 26.3 kg/m²; ASA 1–2.
+  - Chronic, activity-limiting lateral knee pain from isolated lateral femorotibial osteoarthritis with symptomatic valgus malalignment despite nonoperative management.
+  - Exam: valgus alignment and lateral joint-line tenderness; no ligamentous instability.
+  - No concomitant ligament procedure and no tibial tubercle procedure planned.
+  - Standing full-length radiographs: valgus mechanical malalignment with mFTA approximately 189° (range 184°–197°).
+  - Deformity analysis: valgus primarily femoral (LDFA about 83°); MPTA assessed and not the dominant contributor.
+  - Goal: joint-preserving realignment to unload the lateral compartment and maintain sports participation; target neutral mechanical axis (mFTA 180°).
+  - Operation: lateral opening wedge distal femoral osteotomy (DFO) for correction of valgus malalignment.
+  
+  **Q1 — Intraoperative decision-making (hinge compromise)** Intraoperatively, after exposure and creation of the planned correction cut and controlled opening of the gap to achieve the preplanned neutral mechanical axis target (mFTA 180°), you note that the medial cortical hinge has partially fractured and the osteotomy gap is less stable than expected under fluoroscopic stress. In this setting of an intraoperative hinge compromise with instability after opening-gap correction for valgus malalignment, what is your immediate stepwise management—how do you confirm the degree/direction of hinge failure, what changes (if any) do you make to fixation strategy and gap grafting/substitution, and what technical pitfalls must be avoided to prevent postoperative loss of correction or nonunion?
+  
+  **Q2 — Postoperative complication management (delayed union vs loss of fixation)** The immediate postoperative course is uncomplicated, but at the 6-week follow-up the patient reports persistent, disproportionate pain localized to the lateral distal femur near the bony cut site, worse with attempts to advance weight bearing, and slower-than-expected functional progress despite adherence to rehabilitation. There is no fever, wound drainage, or erythema; the calf is soft without swelling or tenderness; distal pulses and motor/sensory exam are intact. Standard postoperative radiographs show maintained overall limb alignment, but there is minimal interval callus formation and only partial bridging across the osteotomy surface; the hardware appears intact, but there is subtle widening at the osteotomy gap with concern for early micromotion versus delayed biologic healing. In this postoperative scenario after major distal femoral realignment for valgus knee osteoarthritis, what are the most likely causes of delayed union/early nonunion versus secondary loss of fixation, and what evidence-based diagnostic and management plan should be implemented (including when to obtain CT, how to modify weight bearing, and indications for revision), and what prevention strategy would you apply in future cases to optimize mechanical stability and biologic healing?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop hinge failure confirmation/fixation-grafting changes/pitfalls; delayed union vs fixation loss causes/diagnostics-management/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_026/01_case_file.docx

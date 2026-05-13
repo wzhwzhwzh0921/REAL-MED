@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_002
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a hematologist. Please prepare a lecture PPT on myelofibrosis (primary/secondary), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: WHO 2022 definition, differentiation between prefibrotic myelofibrosis and overt PMF, extramedullary hematopoiesis and related symptoms, assessment and decision-making for splenomegaly and anemia burden.
+  **Visual materials**: Flowchart of MF diagnosis and molecular testing; management pathway diagram guided by symptoms–splenomegaly–anemia; trend chart of different types with age of onset and prevalence trends.
+  **Constraints & format**: 14–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (WHO 2022 definition, differentiation between prefibrotic myelofibrosis and overt PMF, extramedullary hematopoiesis and related symptoms, assessment and decision-making for splenomegaly and anemia burden).
+  3. Include the visual materials specified (Flowchart of MF diagnosis and molecular testing; management pathway diagram guided by symptoms–splenomegaly–anemia; trend chart of different types with age of onset and prevalence trends).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_002/01_template.pptx

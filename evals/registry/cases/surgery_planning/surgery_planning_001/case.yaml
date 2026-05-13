@@ -1,0 +1,27 @@
+case_id: surgery_planning/surgery_planning_001
+task_type: surgery_planning
+prompt: |
+  <<<
+  <<<
+  <<<
+  <<<
+  [Task Prompt]
+  You are a senior breast surgeon. The case below describes a 22-year-old African American woman undergoing oncologic excision of a rapidly enlarging left breast mass with immediate reconstruction considerations; two sequential clinical scenarios are presented addressing intraoperative and early postoperative decision-making.
+  
+  - 22-year-old African American woman with a rapidly enlarging left breast mass (present for 3 months) with clear nipple/skin leakage and 1 week of aching pain radiating down the left arm.
+  - Family history: paternal aunt with breast cancer at age 39.
+  - Exam: visibly enlarged left breast with a firm dominant mass; no palpable axillary lymphadenopathy.
+  - Targeted ultrasound: 9.0 × 9.0 × 4.5 cm heterogeneous hypoechoic mass with small cystic areas at the 12–1 o’clock position; anterior margin within 1 cm of the skin; posterior margin abutting the pectoralis muscle; no other breast or axillary lesions (BI-RADS 4b).
+  - Core needle biopsy: 22-gauge, four passes → reported as fibroadenoma, but concern remains for under-sampled phyllodes tumor given size/rapid growth/imaging features.
+  - Planned approach: oncologic resection aiming for adequate margins with reconstruction considerations discussed preoperatively.
+  
+  **Q1 — Intraoperative decision-making** Intraoperatively, after removing a giant, well-encapsulated tumor, you find the inferior skin flap is markedly thinned compared with the upper pole, and the posterior aspect of the specimen is essentially at the pectoralis fascia/muscle plane. You must judge nipple–areolar complex and surrounding skin perfusion, and decide whether additional skin or chest-wall-side margins are required before proceeding with reconstruction. How would you make real-time intraoperative decisions to prioritize oncologic safety (adequate margins, including posterior and skin margins if needed) while minimizing risks of inferior-flap necrosis, implant/tissue-expander visibility and rippling, and postoperative contour deformity—specifically, what key steps would you take for margin management, flap handling/assessment, and immediate versus staged reconstruction strategy, and what pitfalls must be avoided?
+  
+  **Q2 — Postoperative complication management** On postoperative day 2 after surgery for a very large left breast mass (preoperatively close to the overlying skin and chest wall on imaging), she reports 12 hours of worsening deep left breast pain and pressure, with increasing firmness of the lower breast mound. She has no major comorbidities, does not smoke, and has no history of bleeding disorders; a closed-suction drain is in place. Exam shows the inferior breast skin is cool with progressive duskiness and sluggish capillary refill compared with the upper pole (nipple–areola complex less affected); the breast mound is tense and tender; drain output has decreased despite increasing fullness. She is afebrile with stable vital signs; labs show a mild drop in hemoglobin compared with the immediate postoperative value and a normal white blood cell count. What is the most likely postoperative complication, how would you confirm the diagnosis and distinguish it from hematoma or early infection, and what stepwise evidence-based management should be instituted to salvage viable skin/soft tissue and prevent exposure of underlying reconstruction? Additionally, what perioperative prevention strategies would you apply in future patients with a large tumor-to-breast ratio and variable skin-flap thickness?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop go/no-go logic, margin/perfusion management; differential diagnosis, time-sensitive workup, evidence-based management). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_001/01_case_file.docx

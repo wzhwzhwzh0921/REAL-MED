@@ -1,0 +1,41 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_031
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  The Department of Anesthesiology has triggered an “increasing usage” alert. During stocktaking, you found that the inventory of 3 items in the pharmacy storeroom has fallen below the reorder warning threshold (all are high unit-price drugs or emergency/perioperative-related medications). You must immediately create a replenishment plan and calculate the total cost. Note: the stem will not provide any drug generic name or brand name; you must first uniquely match each item to a specific product in the attached list using clues such as dosage form/specification/indication features/expiry date/storage location, and only then perform the calculations.
+  
+  Sub-question 1 (Oral formulation calculation): An oral formulation described as “460 mg × capsules” is planned for symptomatic treatment of postoperative constipation in anesthesiology. It will be dispensed to 1 patient according to “3 capsules per dose, twice daily, for 3 consecutive days.” Please calculate:
+  (1) Identify the drug’s generic name, and query its current inventory and unit price.
+  (2) How many capsules in total does this patient need to receive (must be an integer number of capsules)?
+  (3) After dispensing, how many capsules will remain in inventory? Will the remaining stock still be below the reorder warning threshold?
+  (4) If you want to replenish in one order to “just reach the warning threshold,” how many capsules must be purchased and what is the cost (CNY, keep 2 decimal places)?
+  
+  Sub-question 2 (Injectable drug replenishment amount): An anesthesiology-related injectable drug described as “10 ml: contains active ingredient 119.2 mg.” Please calculate:
+  (1) Identify the drug’s generic name, and query its current inventory and unit price.
+  (2) To “replenish immediately up to the warning threshold,” what is the minimum number of vials/ampoules that must be purchased?
+  (3) What is the total replenishment cost this time (CNY, keep 2 decimal places)?
+  (4) Also state the storage location (bin/location) of this drug (for picking/checking).
+  
+  Sub-question 3 (Nasal spray emergency stock): A perioperative sedative nasal spray described as “1 ml: 300 μg/8 sprays (15 μg per spray).” Anesthesiology requests urgent arrival first, “only replenishing up to the warning threshold.” Please calculate:
+  (1) Identify the drug’s generic name, and query its current inventory and unit price.
+  (2) How many boxes must be purchased?
+  (3) What is the replenishment cost this time (CNY, keep 2 decimal places)?
+  (4) Verify whether this item’s expiry date is later than 2028-03 (Yes/No).
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (267 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_031` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_031/01_inventory.xlsx
+mcp_question_id: v5_034

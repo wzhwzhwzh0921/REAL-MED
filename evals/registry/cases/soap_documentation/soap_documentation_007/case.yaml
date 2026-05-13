@@ -1,0 +1,42 @@
+case_id: soap_documentation/soap_documentation_007
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 15, 2024, a 53-year-old man, Li Qiang (pseudonym), a senior software engineer, presented to the urology clinic with an employee health check report and appeared mildly anxious. He sought evaluation of lower urinary tract symptoms and a recently elevated prostate-specific antigen (PSA) value.
+  **Chief Complaint and History of Present Illness:**
+  **Chief complaint:** “Difficulty urinating and increased nocturia for 5 months; elevated prostate marker found on physical exam 3 days ago.”
+  
+  **HPI:** The patient brought a newly issued workplace physical examination report. He stated: “Doctor, please help me look at this report. PSA 7.8—does that mean it’s just benign prostatic hyperplasia? I searched online and it says men my age all have this problem. In the past half year I do feel urinating is not as smooth as before, especially in the morning right after getting up—I have to stand by the toilet for a long time before I can start urinating. The stream is thin and intermittent, and I always feel I’m not emptying completely. In the past two months I’ve been getting up more at night too—three or four times a night, and I can’t sleep well.”
+  
+  He added with a sigh: “I work in IT and I’m busy—sitting for more than ten hours at a time. Is it because sitting too long causes pressure? I didn’t take it seriously at first, but this time the lab value is high, so I got a bit scared. Mainly... my dad passed away early. At 68 he died of ‘bone cancer.’ At that time, his whole body had severe bone pain, and they never found where the primary tumor was. Even though my issue is urination, I keep worrying—afraid I might have inherited something bad.”
+  
+  External health check result provided: total PSA (tPSA) 7.8 ng/mL.
+  
+  **Past Medical History and Family History:**
+  **Past medical history:** Hypertension for 5 years; takes amlodipine besylate regularly with acceptable blood pressure control. Denies diabetes mellitus and coronary heart disease. No history of surgery or trauma.
+  
+  **Allergies:** Allergic to “sulfonamide” drugs.
+  
+  **Family history:** Father died at age 68 of “bone cancer” (exact type unknown); mother alive.
+  
+  **Physical Examination Findings:**
+  **Vital signs:** Temperature 36.8°C; heart rate 76/min; blood pressure 138/88 mmHg; respiratory rate 16/min.
+  
+  **General:** Normal development; moderate nutrition; alert and oriented; spontaneous positioning.
+  
+  **Abdominal and genitourinary exam:** Abdomen soft and flat; no tenderness or rebound; no palpable masses. No costovertebral angle tenderness bilaterally. No tenderness along the course of both ureters. No suprapubic bladder distension (patient had just voided).
+  
+  **Digital rectal examination (DRE):** Prostate enlarged to grade II (approximately egg-sized) with a shallower central sulcus. Most of the gland had medium consistency with rubbery resilience “like the tip of the nose” (consistent with hyperplasia). However, a localized firm nodule ~0.8 cm was palpated in the left lobe peripheral zone, with slightly unclear borders; minimal/no tenderness. No blood on the glove after withdrawal.
+  
+  **Outside test (health check):** tPSA 7.8 ng/mL.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_007/01_attachment.pdf

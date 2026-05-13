@@ -1,0 +1,23 @@
+case_id: dosage_calculation/dosage_calculation_026
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  [Case Description]
+  [Patient Information]
+  A 45-year-old male with polycythemia vera (PV) on follow-up. Baseline Hct 58.0%. Current recheck Hct 57.0%. Planned target Hct 44.0% (guideline target is to maintain Hct <45%). No single phlebotomy volume has been planned yet (0 mL). The interval/frequency of phlebotomy has not been specified. No hemodynamic instability. No concerns for extreme body habitus/blood volume.
+  
+  [Calculation/Execution Tasks]
+  1) Determine whether the current Hct meets the target threshold of “<45%”.
+  2) If not at goal: based on authoritative guideline text-based rules that can be implemented, provide a recommended range for single-session phlebotomy volume and optional frequency (weekly or every 2 weeks), and state that Hct needs to be rechecked and continued until the target is achieved, then maintained.
+  3) Clearly state whether there exists any guideline formula that can be used to derive “total volume to remove / single-session volume” from the current Hct, target Hct, and blood volume; if none exists, explain that no derived formula may be falsely presented as a guideline.
+  
+  [Response Requirements]
+  Requirement: Provide step-by-step reasoning and final conclusions.
+  (This problem stipulates: per the 2022 Chinese PV guideline, during induction phase each phlebotomy is 300–450 mL, 1–2 times per week, until Hct <45%.)
+  (This problem stipulates: PV induction-phase phlebotomy frequency is once weekly, until Hct <45%.)
+  (This problem stipulates: per ELN 2018 induction-phase phlebotomy: 300–450 mL per session, once every 2 days or twice weekly, until Hct <45%.) Please calculate this patient’s guidelinelimitationsandneedforindividualization.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

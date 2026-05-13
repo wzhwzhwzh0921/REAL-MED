@@ -1,0 +1,48 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_022
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Several recent outpatient pediatric visits involve infections, post-chemotherapy abnormal blood counts, and short-course anesthesia. When receiving prescriptions, the pediatric pharmacist must convert the “recommended dose calculated by the child’s weight or body surface area” into dispensable quantities (number of sachets/tablets/vials, or mL), while simultaneously checking inventory and the replenishment alert threshold to prevent overdosing, unreasonable dose-splitting, or inventory dropping below the alert line after dispensing. Note: the stem will not contain any drug generic name or brand name; you must first uniquely match the specific product in the attached list using the dosage form/specification/indication clues, and then perform calculations.
+  
+  Using “Outpatient Prescription Review & Dispensing Record” as the template, complete 1 **.docx** (including the calculation process) and also submit 1 **.xlsx** (summarizing only key numbers: weight, daily dose, per-dose dose, units per dose, total units for the full course, remaining inventory, and whether it is below the alert threshold). Each sub-question is independent. The prescription scenarios are as follows:
+  
+  2）A 6-year-old child, weight 20 kg, diagnosis: acute uncomplicated lower urinary tract infection. Prescription: “oral enteric-coated tablets (50 mg per tablet). Per the package insert for pediatrics: **6 mg/kg/day**, **divided into 4 doses**, treatment course **7 days**.” Please calculate:
+  (1) Identify the generic name of this drug, and query inventory and unit price  
+  (2) Total mg per day  
+  (3) mg per dose  
+  (4) Number of tablets per dose (round to whole tablets as clinically feasible, rounding up)  
+  (5) Total number of tablets for 7 days  
+  (6) After dispensing, whether the remaining inventory is below the replenishment alert threshold  
+  
+  3）A 10 kg infant/young child, needs oral granules for “tonsillitis” (each sachet contains **37.5 mg** active ingredient; must be dissolved in water before administration). The physician plans dosing for “general infection”: **15 mg/kg/day**, **divided into 3 doses**, treatment course **5 days**. Please calculate:
+  (1) Identify the generic name of this drug, and query inventory and unit price  
+  (2) Total mg per day  
+  (3) mg per dose  
+  (4) Number of sachets per dose (round up to whole sachets)  
+  (5) Total number of sachets for 5 days  
+  (6) Remaining inventory after dispensing and whether the replenishment alert threshold is reached/breached  
+  
+  4）A 4-year-old child, weight 16 kg, post-chemotherapy leukopenia; planned medication: “lyophilized powder for **subcutaneous injection**, **after reconstitution each vial contains 150 μg in 1 mL**.” Order: **5 μg/kg/day**, once daily, for **6 days**. Please calculate:
+  (1) Identify the generic name of this drug, and query inventory and unit price  
+  (2) μg required per day  
+  (3) Volume (mL) to be withdrawn per day  
+  (4) Dispensing as whole vials in the outpatient setting: how many vials per day, and how many vials total for 6 days  
+  (5) After dispensing, whether the remaining inventory is below the replenishment alert threshold  
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (319 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_022` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_022/01_inventory.xlsx
+mcp_question_id: v5_022

@@ -1,0 +1,26 @@
+case_id: surgery_planning/surgery_planning_027
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior orthopedic surgeon managing a young adult with a chronically unstable, posttraumatic multiligamentous right knee and significant valgus malalignment, where joint-preserving reconstruction is being considered despite advanced degeneration. Two sequential clinical scenarios are presented; answer both questions in turn, integrating sound surgical judgment and evidence-based management.
+  
+  - 25-year-old woman with a chronic right knee problem after a motorcycle-related multiligamentous knee injury 2 years ago; arthroplasty considered undesirable due to age.
+  - Symptoms over ~15 months: worsening pain, recurrent effusions, and persistent instability/giving-way episodes.
+  - Prior surgery: ACL reconstruction with artificial ligament augmentation.
+  - Preop neurovascular status: no neurovascular deficits; intact motor function (including ankle/toe dorsiflexion), normal sensation throughout the foot, and palpable distal pulses.
+  - Exam: obvious genu valgum; posterior tibial sag; full range of motion; 3+ posterior drawer and 3+ posterolateral drawer; 3+ varus laxity and 2+ valgus laxity; anterior drawer limited by a posteriorly positioned tibia.
+  - Imaging (alignment): long-leg radiographs show 17° valgus deformity with mechanical axis deviation 6.2 cm laterally and low mLDFA of 73.5°, suggesting predominantly distal femoral malalignment; lateral femoral condyle and lateral tibial plateau bone loss with posterior tibial migration.
+  - MRI: near-complete medial and lateral meniscal deficiency; decreased MCL thickness; partial LCL tear with popliteus atrophy/tendon thinning consistent with chronic posterolateral corner insufficiency; extensive chondral loss with cortical erosions in both femoral condyles; occult lateral tibial plateau fracture.
+  - Planned operation: diagnostic arthroscopy and possible combined realignment and biologic/ligamentous stabilization.
+  
+  **Q1 — Intraoperative decision-making** During arthroscopy you find end-stage posttraumatic degeneration: grade 4 bipolar cartilage loss in the lateral compartment, grade 3 changes medially, complete loss of both menisci, and multiple loose bodies. The prior artificial ACL graft appears firm and stable, but the lateral femoral condyle and tibial plateau bone stock appear compromised, raising concern for future tunnel placement. What is your intraoperative plan regarding (1) whether to proceed with biologic salvage versus stage procedures, (2) how to prioritize loose-body removal/debridement versus corrective realignment and ligament/posterolateral corner reconstruction, and (3) which technical steps and pitfalls are critical to preserve future reconstruction options given bone-stock and tunnel-trajectory constraints?
+  
+  **Q2 — Postoperative common peroneal nerve palsy** On postoperative day 2 after surgical management of this chronically unstable, posttraumatic right knee with longstanding valgus malalignment, she reports new tingling over the dorsum of the foot and lateral shin and difficulty walking. Examination shows inability to dorsiflex the ankle and extend the great toe (0–1/5 strength), with decreased sensation in the superficial and deep peroneal nerve distributions; plantarflexion is preserved. The calf is soft and non-tender, compartments are not tense, and distal pulses and capillary refill remain normal. The knee is moderately swollen without excessive drainage, and there is no fever; she is wearing a postoperative brace and a bulky dressing. What is the most likely mechanism of this postoperative foot drop, how should the injury be confirmed and graded (including immediate bedside steps and appropriate use/timing of imaging and electrodiagnostic testing), and what is an evidence-based management plan—including indications and timing for observation versus urgent surgical exploration—and prevention strategies for future cases?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop proceed/stage priorities, debridement/realignment/ligament sequencing, tunnel/bone-stock pitfalls; peroneal palsy mechanism, confirm/grade with imaging/EDX timing, management/exploration thresholds, prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_027/01_case_file.docx

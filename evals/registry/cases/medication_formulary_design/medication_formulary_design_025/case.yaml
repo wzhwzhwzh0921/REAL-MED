@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_025
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the joint formulary lead from the Rheumatology & Immunology Department and the Clinical Pharmacy Department of a tertiary (Grade A, Class III) hospital. You are establishing a standardized medication reference for a standardized-management outpatient clinic for axial spondyloarthritis (axSpA). The clinic population is mainly young and middle-aged patients in the active stage; most are covered by urban employee basic medical insurance. Prescription decisions must balance rapid prescribing, refill management, and risk checks, while meeting patients’ real-world needs for convenient administration and long-term accessibility/affordability (with preference for convenient routes such as oral/SC over IV when clinically appropriate).
+  
+  **Formulary construction principles:**
+  - Include medications within NMPA-approved indication scope, and for any off-label (beyond approved indication) use, annotate in the table the evidence level, evidence source, and applicable boundaries.
+  - When multiple brands exist under the same generic name, select 1 representative brand, prioritizing those with high insurance accessibility and mature/established clinical use.
+  - Item-by-item, label the reimbursement category (Class A/B/C) and payment attributes (insurance-covered / self-pay / national-negotiation, etc.).
+  
+  **Tasks:**
+  1. Compile the drug categories for the axSpA formulary, stratify and classify them by therapeutic positioning, and indicate for each category the corresponding NMPA approval status and an evidence framework for off-label use.
+  2. Provide several single-disease prescription examples covering typical treatment phases and common combination pathways, reflecting representative combinations for initiation, adjustment, and maintenance strategies.
+  3. Provide several prescription examples for axSpA with comorbidities or special situations, explaining the decision logic for drug selection and dose/interval adjustments across dimensions including efficacy, organ function, infection risk, and peri-treatment management.
+  4. Provide strong/high-visibility alerts on key safety risks for formulary drugs, covering severe adverse event warnings, screening and monitoring, drug–drug interactions, laboratory-threshold triggers, and conditions requiring treatment interruption.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

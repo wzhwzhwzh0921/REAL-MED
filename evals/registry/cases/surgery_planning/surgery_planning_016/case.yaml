@@ -1,0 +1,26 @@
+case_id: surgery_planning/surgery_planning_016
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior hand surgeon. The case below concerns acute loss of active little-finger flexion shortly after collagenase clostridium histolyticum (Xiapex) treatment for Dupuytren’s contracture, requiring urgent diagnostic and operative decision-making across two sequential scenarios.
+  - Male patient in his 40s; right-hand dominant.
+  - Condition: symptomatic Dupuytren’s flexion contracture affecting the little finger metacarpophalangeal joint.
+  - Exam/anatomy: thick palpable palmar cord in line with the little finger.
+  - Treatment context: minimally invasive, enzyme-based cord weakening using collagenase clostridium histolyticum (Xiapex), performed as an outpatient injection-based technique.
+  - Timing: acute event within 24–48 hours after injection/treatment with sudden “snap”/sudden functional change.
+  - Symptoms: minimal/mild pain; new weakness with gripping and inability to make a full fist.
+  - Skin and vascular/neurologic status: skin intact without open wounds; warm, well-perfused fingertip with brisk capillary refill; sensibility intact with normal two-point discrimination; no numbness or color change.
+  - Motion pattern: passive motion relatively preserved; active flexion markedly impaired/absent in the little finger.
+  - No systemic/local red flags: no signs of infection or compartment syndrome.
+  
+  **Q1 — Intraoperative decision-making** The patient is taken to theatre for urgent surgical exploration after acute loss of active flexion following enzymatic injection. Intraoperatively, deep to the injected cord, you encounter inflamed, friable soft tissue and pathologic Dupuytren cord; both flexor digitorum superficialis and flexor digitorum profundus to the little finger are completely ruptured with fresh-appearing tendon ends at the level of the diseased cord, within the flexor sheath zone relevant to tendon glide. Based on these intraoperative findings, what is your operative plan: will you attempt immediate primary repair of one or both tendons versus proceed with a staged reconstruction, and how will you manage the diseased cord and inflamed soft tissue in the repair zone? What key technical steps will you use to maximize repair strength and tendon glide, and what specific pitfalls increase the risks of gapping, adhesions, or rerupture?
+  
+  **Q2 — Postoperative complication management** A man returns to the hand clinic 36 hours after outpatient enzyme-based cord weakening for a palmar fibromatosis–related little-finger contracture, reporting a sudden “snap” at home followed immediately by inability to actively bend the little finger; pain is mild and there is no numbness or color change. Exam shows intact skin with localized swelling and bruising in the palm along the line of the little-finger cord; the little finger rests relatively extended compared with pre-treatment position; active flexion is absent at the distal interphalangeal joint and markedly reduced at the proximal interphalangeal joint while passive motion at both joints is preserved; tenodesis effect is diminished in the little finger; grip strength is significantly decreased; capillary refill is brisk and two-point discrimination is normal; there are no signs of infection or compartment syndrome. What is the most likely postoperative complication causing this acute loss of active little-finger flexion, and how should the diagnosis be confirmed and managed within the first 24–48 hours (including rehabilitation considerations and prevention strategies for future treatments)?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (operative plan/primary repair vs staged reconstruction/cord-soft tissue management/technical steps/pitfalls; likely complication/confirm diagnosis/urgent management/rehab-prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_016/01_case_file.docx

@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_022
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the prescription management lead in the Dermatology Department of a tertiary Grade A hospital. Commissioned by the hospital’s Pharmacy & Therapeutics and Medical Insurance Management departments, you will create a unified Excel formulary reference table for a specialty clinic dedicated to pemphigus and bullous pemphigoid, for joint use by physicians and clinical pharmacists for lookup and prescribing. The target population is mainly moderate-to-severe pemphigus vulgaris/pemphigus foliaceus and bullous pemphigoid. Insurance coverage and out-of-pocket affordability vary markedly; some patients prefer long-term oral maintenance therapy, while others can accept intensified regimens using biologics/injectable therapies.
+  
+  **Formulary construction principles:**
+  - Use NMPA-approved indications as the primary axis; when off-label use is involved, simultaneously annotate the evidence source, level of evidence, applicable boundaries, and key informed-consent points.
+  - For the same generic name, select only one representative brand; prioritize options within the NRDL and with high in-hospital accessibility.
+  - Uniformly label reimbursement category and payment attributes (Class A/Class B/national-negotiation/self-pay, etc.).
+  
+  **Tasks:**
+  1. Organize formulary drug categories and stratify them by therapeutic positioning; explain each category’s NMPA approval status and the framework for off-label use evidence.
+  2. Create several single-disease prescription examples covering typical combinations across different treatment stages, disease-severity strata, route-of-administration preferences, and relapse management.
+  3. Create several prescription examples for comorbidities or special situations, explaining drug selection and dose-adjustment logic across dimensions including infection risk, hepatic/renal function, pregnancy/lactation, drug–drug interactions, perioperative management, and long-term monitoring.
+  4. Provide strong/high-visibility alerts for key safety risks, covering severe infection/reactivation, bone marrow suppression and hepatotoxicity, metabolic complications, infusion/allergic reactions, immunoglobulin decline, teratogenicity and reproductive risk, baseline screening, and follow-up monitoring.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

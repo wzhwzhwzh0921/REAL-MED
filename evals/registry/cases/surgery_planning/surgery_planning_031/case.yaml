@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_031
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior pediatric surgeon. The case below describes a 4-year-old girl with lifelong severe constipation who is diagnosed with ultrashort-segment Hirschsprung’s disease very close to the dentate line and undergoes definitive reconstruction; you must make key intraoperative technical choices and manage an early postoperative deterioration.
+  - 4-year-old girl; born at 29 weeks’ gestation from a twin pregnancy; birth weight 1013 g.
+  - History: severe constipation since infancy requiring glycerin enemas and stimulant laxatives; bowel movements only every 4–5 days.
+  - Triggering course: after taking polyethylene glycol electrolyte solution twice for chronic constipation, she develops rapidly progressive abdominal distension and inability to pass stool.
+  - Abdominal radiograph: large retained stool burden.
+  - Contrast enema: marked fecal loading with dilation from the rectum through the sigmoid; with straining the rectum appears smooth and tapers in a funnel shape toward the anus.
+  - Anorectal manometry: absence of the rectoanal inhibitory reflex.
+  - Pathology: under general anesthesia, full-thickness rectal biopsy taken 2 cm proximal to the dentate line shows very sparse ganglion cells in the myenteric plexus, consistent with Hirschsprung disease limited to the distal rectum (ultrashort-segment).
+  - Plan: definitive reconstructive operation for ultrashort-segment Hirschsprung disease.
+  
+  **Q1 — Intraoperative decision-making** During the definitive operation, intraoperative mapping confirms aganglionosis extends to very near the dentate line. The posterior anorectal wall is notably thick, raising concern that leaving an intact muscular cuff could create a constricting ring postoperatively. Given aganglionosis extending close to the dentate line, what is your intraoperative plan for (a) the distal level of the anastomosis relative to the dentate line in the posterior, lateral, and anterior quadrants, and (b) how you will modify the distal muscular cuff/posterior wall to prevent postoperative obstruction or stricture while preserving continence—what key technical steps and pitfalls must be considered?
+  
+  **Q2 — Postoperative complication management** After definitive surgery for distal functional bowel obstruction consistent with Hirschsprung’s disease involving the very distal rectum, on postoperative day 3 she develops progressive abdominal distension, decreased stool output, and poor tolerance of oral intake; parents report only scant liquid stool and increasing irritability. She has intermittent fever to 38.6°C and mild tachycardia. Exam shows a markedly distended, tympanitic abdomen with diffuse tenderness but no peritoneal rigidity; the perianal area appears intact without wound breakdown. Labs show leukocytosis and mild metabolic acidosis. Plain abdominal radiograph shows diffuse colonic and small-bowel gaseous distension without free air. The team is concerned about early postoperative obstruction versus Hirschsprung-associated enterocolitis (HAEC), with possibilities including an anastomotic narrowing/stricture, a retained obstructing distal rectal segment/cuff effect, or postoperative edema causing functional obstruction, with HAEC as a competing or concurrent diagnosis. In this postoperative scenario, what are the most likely anatomic/operative causes of early obstruction, what diagnostic workup should be performed to distinguish mechanical obstruction from HAEC, and what is the stepwise management plan (including decompression/irrigation, antibiotics, dilation, and indications for reoperation), as well as prevention strategies for future very low reconstructions?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (distal anastomosis level; cuff/posterior-wall modification steps/pitfalls; early obstruction anatomic causes; workup mechanical vs HAEC; stepwise management/indications for reoperation; prevention strategies). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_031/01_case_file.docx

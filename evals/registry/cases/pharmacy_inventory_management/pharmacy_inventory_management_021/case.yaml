@@ -1,0 +1,47 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_021
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  ICU Pharmacy Team on-duty task: Recently, multiple medication orders have involved “weight-based dosing that also requires dose reduction in elderly patients / with impaired renal function.” The clinical meaning of such regimens is that drug exposure is closely related to body weight and renal clearance capacity. Elderly patients are more prone to accumulation and adverse reactions due to age-related decline in glomerular filtration; therefore, you must verify step-by-step: “body weight → per-dose/daily dose → number of vials/tablets → total course amount → inventory and reorder threshold.” Note: The stem will not provide any drug generic names or brand names. You must uniquely match the specific product in the attached list using clues such as dosage form/specification/indication/route, and only then perform calculations.
+  
+  Complete identification, calculations, and verification according to the following sub-questions:
+  
+  1）Identification (no calculations required):
+  (1) Identify the drug’s generic name, and query its inventory and unit price;
+  (2) From the attached inventory list, circle all products for which the package insert dosing “requires weight-based conversion,” and list: dosage form, specification/strength, current inventory quantity, reorder threshold, and expiration date.
+  
+  2）Dose calculation + inventory verification (elderly acute heart failure, loading + maintenance):
+  The order plans to use “a positive inotrope/vasodilator for short-term intravenous treatment of acute heart failure.” Patient: 78 years old, body weight 60 kg. Requirements:
+  (1) Identify the drug’s generic name, and query its inventory and unit price;
+  (2) Verify against the package insert and calculate the loading dose (in μg and mg) and the volume to withdraw (mL);
+  (3) Verify against the package insert and calculate the total maintenance dose to be administered over 12 hours (in μg and mg), and convert it to “how many vials” are needed (dispense whole vials only; round up);
+  (4) Using “12 hours of maintenance” as one usage amount, perform an inventory deduction check: after deduction, is the remaining inventory below the reorder threshold?
+  
+  3）Dose calculation + inventory verification (transplant recipient CMV prophylaxis/therapy IV infusion product, renal function impact):
+  The order plans to use “an intravenous infusion solution (contains glucose) used for CMV-risk prophylaxis in organ transplant recipients / treatment of CMV retinitis in immunocompromised patients.” Patient: 70 years old, body weight 55 kg, Scr 176 μmol/L. First estimate CrCl using the Cockcroft–Gault formula (male, use actual body weight):  
+  CrCl (mL/min) = (140 − age) × weight (kg) ÷ (0.818 × Scr [μmol/L]).  
+  Dose-adjustment rules follow what is specified in this question (use the rules stated in the stem as the standard):
+  (1) Identify the drug’s generic name, and query its inventory and unit price;
+  (2) Calculate CrCl, and based on it select the appropriate dosing frequency and “dose per administration (mg)”;
+  (3) Convert to “how many bags per dose” (round up), and calculate the total amount for a 7-day course;
+  (4) Perform an inventory deduction check using the 7-day course total: after deduction, is the remaining inventory below the reorder threshold?
+  
+  Please add medication safety key points in no more than 3 lines: must include at least “lower starting dose in the elderly / infusion-rate requirements,” “renal function reassessment and adverse reaction monitoring,” and “inventory and expiration-date reminders.”
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (303 items). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_021` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_021/01_inventory.xlsx
+mcp_question_id: v5_021

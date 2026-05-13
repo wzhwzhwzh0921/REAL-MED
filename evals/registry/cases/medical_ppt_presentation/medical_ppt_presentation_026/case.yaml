@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_026
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are an intensive care medicine physician. Please prepare a lecture PPT on difficult weaning/prolonged invasive mechanical ventilation management and Sub-ICU tiered admission, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: complications of prolonged mechanical ventilation and infection burden, HAP/VAP risk stratification, outcome assessment and communication on level of care/intensity of admission, key management points for difficult weaning and team-based collaboration.
+  **Visual materials**: flowchart for HAP/VAP definitions and diagnostic workflow; pathway diagram for sampling–empiric therapy–reassessment–adjustment; charts/figures on ventilator-associated infection burden and outcomes.
+  **Constraints & format**: 12–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 12–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (complications of prolonged mechanical ventilation and infection burden, HAP/VAP risk stratification, outcome assessment and communication on level of care/intensity of admission, key management points for difficult weaning and team-based collaboration).
+  3. Include the visual materials specified (flowchart for HAP/VAP definitions and diagnostic workflow; pathway diagram for sampling–empiric therapy–reassessment–adjustment; charts/figures on ventilator-associated infection burden and outcomes).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_026/01_template.pptx

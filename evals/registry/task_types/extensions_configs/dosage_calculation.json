@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "medcal": {
+      "enabled": true,
+      "type": "stdio",
+      "command": "python3",
+      "args": [
+        "-m",
+        "medcal"
+      ],
+      "env": {
+        "PYTHONPATH": "${REPO_ROOT}/mcp_servers"
+      },
+      "description": "82 medical calculation tools (renal, body metrics, pharmacokinetics, cardiac, hemodynamics, respiratory, acid-base, electrolytes, hepatology, burn, endocrine, toxicology, oncology, neurology, dialysis, nutrition, hematology, nuclear medicine)."
+    }
+  },
+  "skills": {
+    "code": {
+      "enabled": true
+    },
+    "docx": {
+      "enabled": true
+    },
+    "xlsx": {
+      "enabled": true
+    },
+    "pdf": {
+      "enabled": true
+    },
+    "web-search": {
+      "enabled": true
+    }
+  }
+}

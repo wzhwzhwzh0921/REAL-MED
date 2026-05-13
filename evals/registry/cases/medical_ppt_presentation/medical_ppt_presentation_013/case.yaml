@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_013
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a gastroenterologist (hepatology/endoscopy). Please prepare a lecture PPT on esophagogastric variceal rupture and bleeding (portal hypertension), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: mechanisms from CSPH → varices → rupture, risk factors for bleeding, 6-week mortality endpoint, MELD prognosis.
+  **Visual materials**: emergency workflow flowchart for suspected EVB; stepwise ladder diagram for secondary prophylaxis; trend chart of HVPG thresholds vs 6-week outcomes.
+  **Constraints & format**: 14–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (mechanisms from CSPH → varices → rupture, risk factors for bleeding, 6-week mortality endpoint, MELD prognosis).
+  3. Include the visual materials specified (emergency workflow flowchart for suspected EVB; stepwise ladder diagram for secondary prophylaxis; trend chart of HVPG thresholds vs 6-week outcomes).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_013/01_template.pptx

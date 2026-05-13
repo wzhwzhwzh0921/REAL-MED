@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_025
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are an emergency department physician who has evaluated multiple adult outpatients with suspected intracranial hemorrhage. You have observed that during peak nighttime visits, there are simultaneous queues for head CT and delays in radiology reporting. You plan to introduce AI-assisted head CT hemorrhage detection and triage, but you are concerned about real-world effectiveness and performance drift after version iterations. Therefore, you will write a systematic review on this topic for clinical decision-making and implementation planning in the emergency setting.
+  
+  Review topic: “Clinical effectiveness and real-world performance of AI-assisted diagnosis for intracranial hemorrhage on brain CT in adult emergency patients.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Evidence on the diagnostic accuracy of AI-assisted head CT for intracranial hemorrhage;
+  2. Improvements in triage efficiency and time-related metrics;
+  3. Real-world clinical outcomes and effectiveness;
+  4. Version iteration/performance drift and re-validation.
+  
+  Search and inclusion must use the following keywords: intracranial hemorrhage、head CT、AI/深度学习、triage、real-world. A standardized reference list is required at the end of the review; it is recommended to present the screening process using a PRISMA flow diagram, summarize study populations/algorithm versions/outcome metrics using an evidence comparison table, and present evidence quality using risk-of-bias and heterogeneity plots.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

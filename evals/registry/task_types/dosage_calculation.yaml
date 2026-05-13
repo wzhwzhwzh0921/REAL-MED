@@ -1,0 +1,28 @@
+# Task type: dosage_calculation
+# Pediatric / clinical dosage calculation. All numeric computations must go through the medcal MCP (`medcal_*` tools). Output is a Word document.
+
+task_type: dosage_calculation
+description: "Pediatric / clinical dosage calculation. All numeric computations must go through the medcal MCP (`medcal_*` tools). Output is a Word document."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - code
+  - docx
+
+extensions_config: task_types/extensions_configs/dosage_calculation.json
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "*.docx"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

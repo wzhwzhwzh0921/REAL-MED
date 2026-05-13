@@ -1,0 +1,39 @@
+case_id: soap_documentation/soap_documentation_047
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 12, 2024, a 74-year-old retired factory manager, Liu Jianguo (pseudonym), presented to the orthopedic clinic, arriving with difficulty and supported by his son. Please analyze his condition based on the clinic conversation summary, chief complaint, history, and physical examination findings below, and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient appeared distressed, holding his lower back and walking with great difficulty. Chief complaint: “Severe low back pain with weakness for 2 weeks, worsened to the point of being unable to get out of bed.”
+  
+  The patient stated: “Doctor, my lower back has had disc problems before. Usually I just use medicated plasters and manage. But two weeks ago, I had a big sneeze, and I heard a ‘crack’ in my back. It hurt so much I teared up. I thought it was the old problem acting up. I lay at home for two weeks, but the more I stayed in bed, the worse it got. Now even turning over in bed feels like torture—deep, piercing pain in my bones.”
+  
+  He paused and, licking his cracked lips, continued: “And lately I feel extremely tired and weak all over. Another strange thing is I feel thirsty all the time and I’m drinking a lot more water. I used to have benign prostatic hyperplasia, but these past few days I’ve been getting up four or five times a night to urinate, and the urine volume is a lot. I can’t sleep well. Am I just old, and all my parts are wearing out?”
+  
+  His son added: “Doctor, my dad is usually pretty robust. But over the past half month his complexion has been getting worse—very pale. His appetite is down by half, and he feels nauseated when he sees greasy foods. We had an X-ray at a community hospital and they said it was an ‘osteoporotic fracture.’ They prescribed calcium tablets and painkillers, but it hasn’t helped. In the last two days I’ve also noticed he seems a bit confused and slower to respond, so I brought him to a larger hospital to be checked.”
+  
+  **Past Medical History and Family History:**
+  Past medical history: Hypertension for 10 years, with acceptable control on amlodipine; lumbar disc herniation at L4/L5 diagnosed 5 years ago; benign prostatic hyperplasia (BPH). No history of diabetes mellitus. No history of malignant tumors.  
+  Allergies: Allergic to “sulfonamide drugs.”  
+  Family history: Not provided.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8°C; heart rate 88 beats/min; blood pressure 145/90 mmHg; respiratory rate 20 breaths/min; SpO₂ 96% (room air).  
+  General: Alert/clear consciousness, but fatigued with mildly slowed responses. Marked pallor of the face and palpebral conjunctiva; dry lips. Passive positioning; appears painful with position changes.  
+  Cardiopulmonary: Lungs clear to auscultation bilaterally; no crackles or wheezes. Regular heart rhythm; no pathologic murmurs over valve areas.  
+  Abdomen: Soft and flat; no tenderness or rebound; liver and spleen not palpable below costal margins.  
+  Spine and extremities: Marked percussion tenderness and deep palpation tenderness over the L3 spinous process and paraspinal region; paraspinal muscle spasm/tension. Straight-leg raise test negative. Bilateral lower-extremity strength testing limited by pain with suboptimal cooperation; sensation grossly normal. Mild bilateral ankle pitting edema.  
+  Ancillary tests (community hospital labs from yesterday, brought by patient): CBC—Hb 88 g/L (normocytic anemia), WBC 5.2×10^9/L, PLT 160×10^9/L; ESR 95 mm/h.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_047/01_attachment.pdf

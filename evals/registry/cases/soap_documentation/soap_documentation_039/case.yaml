@@ -1,0 +1,38 @@
+case_id: soap_documentation/soap_documentation_039
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior orthopedic physician. On the afternoon of May 20, 2024, a 48-year-old middle school mathematics teacher, Li Mei (pseudonym), presents for evaluation. Based on the following clinic dialogue summary, chief complaint/history, and physical examination findings, analyze the condition and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  **Chief complaint:** “Right thigh mass noticed for 6 months; recently feels the pant leg has become noticeably tighter.”
+  
+  The patient arrived in professional attire with a normal gait, but when sitting down she habitually tugged at the right pant leg. She states: “Doctor, please take a look at my leg. About half a year ago when I was showering, I felt my right thigh seemed about one size thicker than the left. At the time I thought it was just middle-age weight gain and uneven fat distribution, so I didn’t take it seriously. But over the last two months something feels off. The custom-made dress pants I used to wear—now this right leg feels like it’s bursting, uncomfortably tight. It’s obviously bulging.”
+  
+  Pointing to the anterior aspect of the right thigh, she continues: “Five years ago I also had a ‘lipoma’ on my left arm. It was removed and it was benign. I figured this time it’s the same old problem, just in a different place. Usually it doesn’t hurt or itch, but when I stand at the lectern for a long time (one class is 45 minutes), the right leg feels especially heavy. And there’s another strange thing—when I squat down to pick something up, deep inside the thigh there’s a kind of ‘fullness/pressure’ feeling, like there’s a balloon inside about to expand. It gets better when I stand up.”
+  
+  **Past Medical History and Family History:**
+  Past medical history: Hypertension diagnosed 3 years ago; controlled on oral amlodipine besylate with stable blood pressure.  
+  Surgical history: “Left forearm subcutaneous lipoma excision” at an outside hospital 5 years ago; pathology showed benign findings.  
+  Allergies: Penicillin allergy.  
+  Social history: No smoking or alcohol use.  
+  Family history: No family history of similar tumors.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8°C; heart rate 76/min; blood pressure 138/88 mmHg; respiratory rate 16/min; SpO2 99%.  
+  General: Normal development; well-nourished. Clear consciousness; cooperative with examination. No palpable enlargement of superficial lymph nodes.
+  
+  Focused exam (right thigh):  
+  Inspection: Lower limbs are asymmetric in girth. Diffuse full/bulging prominence is visible on the anterior aspect of the mid-right thigh. No skin erythema, no distended superficial veins, no hyperpigmentation.  
+  Measurement: Mid-thigh circumference—right 54 cm; left 49 cm.  
+  Palpation: A large mass is palpable deep to the quadriceps region, approximately 12 cm × 8 cm. The mass is primarily subfascial (beneath the deep fascia). Consistency is solid and relatively firm/tough (hard-rubber-like; not the typical soft feel of a lipoma). No significant tenderness. Margins are relatively clear, but mobility at the base is poor; it is not freely movable with pushing. Skin temperature is normal. Distal limb perfusion and sensation are normal.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_039/01_attachment.pdf

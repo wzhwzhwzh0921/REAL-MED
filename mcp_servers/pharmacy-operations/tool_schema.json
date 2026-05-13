@@ -1,0 +1,392 @@
+{
+  "server_name": "pharmacy-ops-mcp",
+  "transport": "stdio-jsonrpc",
+  "tools": [
+    {
+      "name": "initialize_session",
+      "description": "【第一步必须调用】为当前题目创建一个 MCP 会话，返回 session_id。所有其他 pharmacy_ops 工具均需要 session_id 才能工作。传入题目的 question_id（如 v5_019），即可获得专属 session_id 及本题可用查询预算。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "description": "题目 ID，如 v5_019、v5_043。在题目 prompt 的【数据来源】中可找到。"
+          }
+        },
+        "required": [
+          "question_id"
+        ]
+      }
+    },
+    {
+      "name": "search_drug_catalog",
+      "description": "按关键词粗召回当前题目作用域内的候选药品。适合第一步找药，不保证唯一命中。返回候选列表，每项包含 drug_id、通用名、品牌名、剂型、规格、单位、医保类型。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "object"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          }
+        },
+        "required": [
+          "session_id",
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "get_drug_base_info",
+      "description": "读取指定 drug_id 的药品主数据。适合在 search_drug_catalog 之后做消歧。返回 drug_base_info，对象内包含通用名、品牌名、剂型、规格、包装规格，以及该题快照对应的基础字段。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "drug_id"
+        ]
+      }
+    },
+    {
+      "name": "get_inventory_record",
+      "description": "读取指定 drug_id 的库存快照。返回 inventory_record，对象内包含原始库存量、会话内库存量、单位、补货警戒线、库位、单位价格等。用于发药后核对库存变化和预警线。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "drug_id"
+        ]
+      }
+    },
+    {
+      "name": "get_batch_record",
+      "description": "读取指定 drug_id 的批次和效期信息。返回 batch_record，对象内通常包含批号和效期至。适合 FEFO、近效期预警和交接记录场景。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "drug_id"
+        ]
+      }
+    },
+    {
+      "name": "get_clinical_rule",
+      "description": "读取指定 drug_id 的说明书/药学规则。返回 clinical_rule，对象内包含适应症、用法用量、禁忌、儿童用药、老年用药、孕妇用药、不良反应、医保类型等字段。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "drug_id"
+        ]
+      }
+    },
+    {
+      "name": "get_reimbursement_rule",
+      "description": "读取指定 drug_id 的医保与支付相关规则。返回 reimbursement_rule，对象内包含医保类型，以及与支付判断相关的适应症、禁忌和特殊人群字段。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "drug_id"
+        ]
+      }
+    },
+    {
+      "name": "create_dispense_record",
+      "description": "创建一条发药/摆药记录，不回写 Excel。返回新建记录对象，包含 record_id、record_type、status、drug_id、quantity、unit、batch_no、note。适合把领药操作结构化落盘。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "batch_no": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "drug_id",
+          "quantity"
+        ]
+      }
+    },
+    {
+      "name": "create_inventory_warning",
+      "description": "创建一条库存预警记录，不回写 Excel。返回新建记录对象，包含 record_id、warning_type、severity、drug_id、note。适合记录低库存、近效期、缺货风险。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          },
+          "warning_type": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "drug_id",
+          "warning_type"
+        ]
+      }
+    },
+    {
+      "name": "create_audit_note",
+      "description": "创建一条审方或药学审核意见，不回写 Excel。返回新建记录对象，包含 record_id、decision、reason、note、可选 drug_id。适合审方题和 ADE 题。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "decision"
+        ]
+      }
+    },
+    {
+      "name": "create_insurance_intercept",
+      "description": "创建一条医保拦截记录，不回写 Excel。返回新建记录对象，包含 record_id、decision、reason、note、可选 drug_id。适合医保限制、转自费、材料不足等场景。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "decision",
+          "reason"
+        ]
+      }
+    },
+    {
+      "name": "create_handoff_note",
+      "description": "创建一条交班或交接记录，不回写 Excel。返回新建记录对象，包含 record_id、shift、note、可选 drug_id。适合夜班交接、近效期提醒、待跟进事项。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "shift": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "note"
+        ]
+      }
+    },
+    {
+      "name": "update_inventory_balance",
+      "description": "更新指定 drug_id 的会话内库存，不回写 Excel。支持 decrease、increase、set 三种模式。返回 before、after、unit，用于记录发药、补货或人工更正后的库存变化。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "drug_id": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "decrease",
+              "increase",
+              "set"
+            ]
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "drug_id",
+          "mode",
+          "quantity"
+        ]
+      }
+    },
+    {
+      "name": "update_record_status",
+      "description": "更新已创建记录的状态，不回写 Excel。输入 record_id 和新 status。返回更新后的完整记录对象，适合把 created 记录推进到 completed、intercepted、reviewed 等状态。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "record_id",
+          "status"
+        ]
+      }
+    },
+    {
+      "name": "update_audit_decision",
+      "description": "更新已创建的 audit_note 或 insurance_intercept 结论，不回写 Excel。返回更新后的完整记录对象，适合补充材料后重判或调整审核意见。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id",
+          "record_id",
+          "decision"
+        ]
+      }
+    },
+    {
+      "name": "export_operation_log",
+      "description": "导出当前会话的完整结果快照。返回 export_path，以及 records、inventory_state、events、remaining_budget 等内容。适合作为 xlsx/docx 评测后端或回放依据。",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "session_id"
+        ]
+      }
+    }
+  ]
+}

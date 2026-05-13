@@ -1,0 +1,40 @@
+case_id: soap_documentation/soap_documentation_003
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior otolaryngologist. On the morning of November 15, 2024, a 48-year-old middle school mathematics teacher, Ms. Li Xiu (pseudonym), presents to the clinic accompanied by her husband. Please analyze her condition based on the following summarized clinic dialogue, chief complaint/history, and physical examination findings, and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  The patient appears mildly anxious and involuntarily tilts her head while speaking, attempting to hear you with her left ear. Her chief complaint is: “My right ear feels like it’s stuffed with cotton—full and blocked, and I can’t hear clearly—for almost 3 months.”
+  
+  Ms. Li states: “Doctor, this ear has really been tormenting me. Three months ago I caught a cold. My nose was very congested, and my right ear also started feeling muffled, like water got in and wouldn’t come out. I already have allergic rhinitis, so I thought it was just from the cold and that it would get better once the cold resolved. But after the cold got better, the ear still felt blocked.”
+  
+  She sighs and continues: “About a month and a half ago, I went to a community clinic. The doctor said it was ‘otitis media with effusion,’ and they did a puncture and drained a tube of yellow fluid. For the first few days after that I felt much better, and my hearing returned. But less than two weeks later, that blocked feeling came back, and now there’s also a constant buzzing sound in my ear. Recently, when I get up in the morning and brush my teeth, I have a habit of sniffing, and the phlegm I spit out occasionally has a little blood streaking. I figured it might be because I’ve been teaching a lot lately and the weather is very dry, so I didn’t take it too seriously. But this ear just won’t get better, and it’s really affecting my teaching.”
+  
+  Her husband adds: “She usually has a lot of work stress, and these past few months she keeps saying she’s tired. Besides the ear issue, two days ago she felt a lump on the right side of her neck. It doesn’t hurt or itch. We thought it might be lymph node swelling from the ear inflammation. She took a few days of anti-inflammatory medicine, but it hasn’t gone down. Please take a careful look.”
+  **Past Medical History and Family History:**
+  Past medical history is significant for allergic rhinitis for more than 10 years, with exacerbations during seasonal changes. She has had hypertension for 5 years and takes amlodipine besylate regularly with stable blood pressure control. She denies diabetes mellitus and coronary artery disease. No history of smoking or alcohol use. Both parents are alive. No family history of hearing loss.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8°C; heart rate 76/min; blood pressure 135/82 mmHg; respiratory rate 16/min; oxygen saturation 99%.
+  
+  General: Normal development; average nourishment; alert and oriented; answers questions appropriately.
+  
+  Ear examination:
+  - Left ear: External auditory canal patent; tympanic membrane normal in color with clear landmarks.
+  - Right ear: External auditory canal without erythema or swelling; tympanic membrane markedly retracted with absent light reflex; amber-colored middle-ear effusion visible through the tympanic membrane with an air–fluid level and bubbles. Rinne test right side negative (bone conduction > air conduction). Weber test lateralizes to the right.
+  
+  Nasal examination: Bilateral inferior turbinate mucosa pale and edematous (consistent with allergic rhinitis changes); nasal septum approximately midline; anterior rhinoscopy shows no obvious neoplasm.
+  
+  Neck examination: Neck supple; trachea midline. In the upper right neck (deep to the sternocleidomastoid muscle, corresponding to Level II), a lymph node approximately 2.0 cm x 1.5 cm is palpated; relatively firm; borders fairly well-defined; mobility moderate; no significant tenderness. No enlarged lymph nodes palpated in the left neck.
+  
+  Oropharynx: Pharyngeal mucosa without hyperemia; bilateral tonsils Grade I enlargement; no purulent secretions observed.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_003/01_attachment.pdf

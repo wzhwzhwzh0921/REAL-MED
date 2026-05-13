@@ -1,0 +1,45 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_013
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Emergency prescription pre-audit simulation task. Scenario: An emergency physician prescribes an IV infusion antibacterial drug for a patient with community-acquired pneumonia who is **16 years old** and weighs **52 kg**. During pharmacist pre-audit, a pop-up alert indicates that this class of drugs has clear safety risks in minors, and the package insert restricts use in those **under 18 years old**, so the regimen should be changed. Meanwhile, multiple drugs are in use in this hospital; some package inserts state “patients with a history of allergic reactions to this product or similar components must not use it.” The prescription audit must simultaneously identify and avoid these risks. Note: The stem will not show any generic name or brand name of any drug; you must uniquely match the specific product in the attached list based on clues such as dosage form/specification/indication/contraindications, and only then perform calculations.
+  
+  Please complete the following subtasks and fill in the calculations and conclusions item by item in the xlsx (retain key calculation steps):
+  
+  1) [Identification: summary of allergy-risk products]
+  (1) Identify the generic names and query inventory and unit price: from the drugs listed in the attached inventory list, find all products that state “patients with a history of allergic reactions to this drug or similar components should not use it” (total **4** products).
+  (2) In the xlsx, write the names of these 4 products, and for each use **one sentence** to summarize its clinical meaning (describe from a patient-safety perspective; do not write the four characters equivalent to “allergy contraindicated”).
+  
+  2) [Calculation-A: inventory check for an IV-infusion antibacterial drug] The original IV-infusion regimen is to be changed to execute the order as written for “dose per administration, times per day, and course days.” This drug is a small-volume injection (specification per the list), used for anti-infective treatment via IV infusion.
+  (1) Identify the generic name and query inventory and unit price.
+  (2) Based on the order and this injection specification, calculate: how many ampoules/vials are needed per dose (round up), and how many in total for the full course.
+  (3) Check: after dispensing, will inventory fall below the reorder alert threshold?
+  
+  3) [Calculation-B: dose ratio check for a powder for injection combined with a β-lactam + near-expiry alert] Plan to use a “powder for injection that must be combined with a certain β-lactam injection at a **1:2** ratio (calculated by active ingredient; content per vial per the list).” Dosing is set as: for this powder for injection, execute the order as written for “total daily dose, number of divided doses, and course days,” administered by IV infusion.
+  (1) Identify the generic name and query inventory and unit price.
+  (2) Calculate: how many grams of this powder are needed per administration, how many vials that equals (round up), and total vials needed for the full course.
+  (3) Also calculate: at a **1:2** ratio, the corresponding β-lactam injection “how many grams per day should be paired/prepared.”
+  (4) Check: after dispensing, will this powder’s inventory fall below the reorder alert threshold? In the remarks column, also flag its expiry risk (based on the list).
+  
+  4) [Calculation-C: pediatric restriction & inventory check for a local anesthetic used as diluent] A physician plans, for “intramuscular injection of penicillin,” to select a “2 mL small-ampoule injection used only as a diluent for IM penicillin (content per ampoule per the list).” The plan is to administer according to “**2–4 mL** per **800,000 units** of penicillin”; penicillin is prescribed as “units per dose, times per day, and course days” per the order, and choose the upper-limit plan of “4 mL per 800,000 units.”
+  (1) Identify the generic name and query inventory and unit price.
+  (2) Calculate: how many mL of diluent are needed per dose, how many ampoules that equals (round up), and total ampoules needed for the full course.
+  (3) Audit: this diluent has restrictions for “infants and young children”; determine whether it is triggered given this case is **16 years old**; and check whether post-dispensing inventory will fall below the reorder alert threshold (if insufficient, write handling recommendations: switch to another diluent / adjust supply, etc.).
+  
+  Attachment: drug inventory list `01_inventory.xlsx` (282 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_013` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_013/01_inventory.xlsx
+mcp_question_id: v5_013

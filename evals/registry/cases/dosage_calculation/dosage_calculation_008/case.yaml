@@ -1,0 +1,17 @@
+case_id: dosage_calculation/dosage_calculation_008
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 60-year-old male with heart failure complicated by chronic renal function impairment (oliguria). Hb 10.8 g/dL. Arterial blood gas: SaO2 0.95, PaO2 80 mmHg. Central venous catheter blood oxygen saturation ScvO2 62% (note: this is not pulmonary artery mixed venous blood); use this central venous sample to approximately estimate PvO2 35 mmHg. Oxygen consumption VO2 is measured as 220 mL/min.
+  
+  Calculation tasks:
+  ① Use the Fick principle to back-calculate cardiac output CO (L/min) from the known parameters.
+  ② After obtaining CO, calculate CaO2 and CvO2 (mL O2/dL) and DO2 (mL O2/min).
+  Requirements: Perform step-by-step calculations. In the answer, explain the likely direction and limitation of bias introduced by using ScvO2 to substitute for SvO2; also pay attention to unit consistency for CaO2 − CvO2 to avoid a 10-fold error.
+  
+  [Answer Format]
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

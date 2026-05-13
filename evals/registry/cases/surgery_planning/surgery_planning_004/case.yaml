@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_004
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior cardiac surgeon. The case below describes a 78-year-old man with destructive prosthetic aortic valve endocarditis and extensive periannular/aortic root involvement requiring redo sternotomy for definitive source control and reconstruction. Two sequential clinical scenarios are presented; please answer both questions in turn, integrating evidence-based reasoning.
+  
+  - 78-year-old man with prior aortic valve replacement.
+  - 2 weeks of fever, fatigue/malaise, and declining exercise tolerance despite outpatient antibiotics.
+  - Initial presentation: ill-appearing; T 38.6°C; BP 102/58 mmHg; HR 112/min; RR 22/min; SpO2 95% on room air; loud systolic murmur at the right upper sternal border; borderline blood pressure and tachycardia consistent with acute heart failure physiology.
+  - Labs: leukocytosis and elevated inflammatory markers.
+  - Microbiology: multiple blood cultures obtained before broad-spectrum intravenous antimicrobials; no organism identified yet.
+  - Echocardiography: prosthetic valve endocarditis with extensive periannular extension including a large aortic root abscess and a very large paravalvular leak involving approximately 80% of the prosthesis circumference, concerning for prosthetic dehiscence and impending hemodynamic collapse.
+  - Plan: urgent reoperative, definitive surgical source control and reconstruction via redo sternotomy.
+  
+  **Q1 — Intraoperative decision-making** After cardiopulmonary bypass is established and the ascending aorta is opened, the prosthesis is found nearly completely detached with near-circumferential dehiscence, grossly infected friable periannular tissue, and a large abscess cavity; there is essentially no secure annulus for sutures, and further debridement risks catastrophic bleeding and coronary injury. Given these intraoperative findings in a redo operation for destructive prosthetic aortic valve endocarditis, what is your definitive operative plan for source control and reconstruction, including the key technical steps to manage the abscess/root, how you will re-establish coronary perfusion, and the major pitfalls you must avoid?
+  
+  **Q2 — Postoperative complication management** On postoperative day 1 in the cardiac ICU after reoperative surgery for severe prosthetic-valve–associated infective endocarditis with extensive periannular/aortic root destruction and a large paravalvular leak, he develops increasing vasopressor requirements and a rapid drop in hemoglobin (11.2 g/dL to 7.6 g/dL over 6 hours) with rising lactate. Mediastinal chest tube output increases to 250–300 mL/hour of bright red blood despite correction of hypothermia and normalization of INR and platelet count after transfusion; urine output declines. The incision and chest tube sites are clean without external bleeding. Bedside transthoracic echocardiography is limited but suggests a new periaortic echo-lucent space; no clear pericardial tamponade is seen. A coagulopathy panel is unremarkable and thromboelastography shows adequate clot formation; the team is concerned about a catastrophic structural bleeding source related to infected, friable periannular tissue and reconstruction in a previously operated aortic root. What is the most likely postoperative complication causing this presentation, what intraoperative tissue/pathophysiologic factors predispose to it in destructive periannular infection, and what stepwise ICU recognition/workup and management (including criteria for immediate re-exploration) should be performed to reduce mortality?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop source control/reconstruction steps/pitfalls; postop likely complication/predisposing factors/workup/management). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_004/01_case_file.docx

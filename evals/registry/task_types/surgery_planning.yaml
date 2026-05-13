@@ -1,0 +1,27 @@
+# Task type: surgery_planning
+# Surgical clinical reasoning: intraoperative + postoperative plan from a provided case, output as Word document.
+
+task_type: surgery_planning
+description: "Surgical clinical reasoning: intraoperative + postoperative plan from a provided case, output as Word document."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - code
+  - docx
+  - web-search
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "*.docx"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

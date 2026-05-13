@@ -1,0 +1,22 @@
+case_id: dosage_calculation/dosage_calculation_012
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  [Case Description]
+  [Patient information] An adult male patient, weight 120 kg, sustained flame burns. Estimated burn size is 40% TBSA. For initial resuscitation fluids, the starting range per ABA 2024 recommendations is used; for this case, the clinical decision is to use 3.0 mL/kg/%TBSA. From the time of injury to the start of formula-based fluid resuscitation, 4.0 hours have already elapsed. Prehospital, the patient has already received Lactated Ringer’s solution 1000 mL.
+  
+  [Calculation Tasks]
+  Please calculate:
+  1) The total 24-hour resuscitation fluid volume (mL).
+  2) The planned volume to be given in the first 8 hours from the time of injury (mL) and the planned volume for the subsequent 16 hours (mL).
+  3) After accounting for “4 hours have already elapsed and 1000 mL has already been infused prehospital,” determine the additional volume that must be made up during the remaining time in the initial 8-hour window (mL), and the corresponding initial infusion rate (mL/h).
+  4) The average infusion rate during the subsequent 16-hour phase (mL/h).
+  
+  Requirements: Provide a step-by-step calculation process, and specify from which portion of the planned volumes the prehospital fluids should be deducted.
+  
+  Additionally: Please calculate this patient’s Pediatric Combined rate.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

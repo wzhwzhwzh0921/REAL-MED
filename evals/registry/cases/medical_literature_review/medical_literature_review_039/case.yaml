@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_039
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a nephrologist. During outpatient follow-up, you have found that some patients with CKD G3–G5 and a prior history of hyperkalemia are forced to reduce or discontinue RAASi due to recurrent hyperkalemia, while overly strict potassium restriction leads to reduced diet quality and increased nutritional risk. Therefore, you plan to write a scoping review for clinical use entitled “Long-term Management of Hyperkalemia in CKD Patients: Potassium Exchange/Binder Agents and Individualized Dietary Interventions,” intended to inform practical outpatient management and multidisciplinary care pathways.
+  
+  Topic: Long-term Management of Hyperkalemia in CKD Patients: Potassium Exchange/Binder Agents and Individualized Dietary Interventions.
+  
+  The review must systematically compile and analyze the following core content:
+  1. the evidence map of strategies for chronic hyperkalemia control;
+  2. the long-term efficacy, safety, and adherence of potassium-binding/potassium-exchange agents;
+  3. management models and monitoring strategies that support continued RAASi therapy;
+  4. balancing dietary potassium restriction with nutritional risk/diet quality and implementing individualized nutrition interventions.
+  
+  Search and inclusion keywords: CKD G3–G5、chronic hyperkalemia、potassium binders、RAAS inhibitor continuation、dietary potassium/medical nutrition therapy. A standardized reference list is required at the end of the review; additionally, present an outpatient–inpatient–nutrition–pharmacy collaborative pathway as a flowchart, summarize outcomes and adverse reactions of different interventions in a comparative table, and use an evidence map to display study types and population coverage.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

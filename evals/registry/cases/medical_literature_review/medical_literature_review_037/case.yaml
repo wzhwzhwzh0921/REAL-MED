@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_037
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a gastroenterology/geriatrics physician. In outpatient practice you have seen multiple patients aged ≥60 years with functional constipation, and you have found that the effectiveness of routine laxative regimens is inconsistent and quality of life declines markedly. Some patients who self-supplement probiotics/dietary fiber develop bloating or diarrhea. Therefore, you plan to write a systematic review on this topic for clinical and academic use, aimed at informing evidence-based outpatient management and patient counseling in older adults.
+  
+  The review topic is: “Gut microbiota metabolite–targeted nutritional interventions (dietary fiber/oligosaccharides/tryptophan, etc.) for functional constipation in older adults.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Symptom improvement and quality-of-life outcomes;
+  2. Changes in microbial metabolites such as SCFAs/indole derivatives/bile acids;
+  3. Dose–response relationships and minimum effective dose;
+  4. Adverse reactions and geriatric considerations related to comorbidities and concomitant medications.
+  
+  Search and include studies using the following keywords and inclusion concepts: functional constipation, older adults, dietary fiber/prebiotics/probiotics/synbiotics, microbial metabolites, randomized controlled trial/systematic review. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

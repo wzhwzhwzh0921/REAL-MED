@@ -1,0 +1,34 @@
+case_id: soap_documentation/soap_documentation_002
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior attending physician in the Emergency Department. On the morning of February 28, 2025, a 32-year-old woman, Zhou Wanning (pseudonym), a kindergarten teacher, presents accompanied by a coworker. Based on the following clinic conversation summary, chief complaint/history, and physical examination findings, analyze the condition and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  On entering the exam room, the patient appeared pale, holding her abdomen with one hand and a plastic bag with the other. Chief complaint: “I’ve been vomiting nonstop since last night, my stomach is cramping, and I’ve had diarrhea. I feel so weak I can barely stand.”
+  
+  She stated: “Doctor, I suspect I ate something wrong—like food poisoning. Last night a few coworkers and I went out for hot pot; it was pretty late. After I got home, about ten hours later, I started feeling nauseated and had intermittent cramping pain around my belly button. My stomach is usually sensitive, and when I think I’m going to have diarrhea I panic, so I took an anti-diarrheal pill (loperamide) to suppress it. But in the middle of the night it got worse—every 30–40 minutes I vomited. What came up tasted sour; I didn’t see anything green and there was no blood. I had diarrhea four times—watery. My belly kept gurgling. I felt cold, and a bit feverish. My mouth was extremely dry and I kept wanting to drink water.”
+  
+  Her coworker added: “When she stood up in the waiting area, she said her vision got blurry and she felt like she was floating, and her lips felt a little numb. It scared me—I thought it really was poisoning. The last time she vomited, the smell was really strong.”
+  
+  The patient clarified: “I didn’t drink alcohol, and I didn’t eat any wild mushrooms or anything from an unknown source, and there’s no way I came into contact with pesticides or cleaning agents. It was just hot pot—maybe the dipping sauce or seafood? Oh, and just now in our group chat two other people said they also have diarrhea.” She denied chest pain, shortness of breath, seizures, or altered mental status/confusion. She reported no obvious blood or mucus in stool. No recent travel history. No recent antibiotic use.
+  
+  **Past Medical History and Family History:**
+  Past medical history: Hyperthyroidism (Graves disease), on long-term oral methimazole 5 mg qd; thyroid function was rechecked about two months ago and was reported as “normal.” Diarrhea-predominant irritable bowel syndrome. Anxiety disorder; occasionally takes alprazolam. Allergy: penicillin (urticarial-type rash). Denies prior surgeries. Family history: no known special hereditary diseases; both parents alive and well.
+  
+  **Physical Examination Findings:**
+  Vital signs: T 38.0℃, HR 112 beats/min, BP 98/62 mmHg, RR 20 breaths/min, SpO2 99% (room air).
+  General: Alert but anxious; dry lips and oral mucosa; skin slightly cool; capillary refill approximately 3 seconds; reports dizziness when sitting up.
+  Cardiopulmonary: Regular rhythm, no murmurs; lungs clear to auscultation bilaterally.
+  Abdomen: Hyperactive bowel sounds; mild diffuse tenderness predominantly periumbilical; no rebound tenderness or guarding; no hepatosplenomegaly palpated.
+  Neuromuscular: Pupils ~3 mm bilaterally, equal/round/reactive to light; no hypersalivation, tearing, or obvious diaphoresis; extremity strength 5/5; no fasciculations; no ataxia.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_002/01_attachment.pdf

@@ -1,0 +1,26 @@
+case_id: surgery_planning/surgery_planning_012
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior gastric surgeon. The case below describes a young woman with severe, persistent anorexia, nausea, and extreme weight loss 12 months after sleeve gastrectomy, with markedly elevated anorexigenic gut hormones and no structural explanation. Two sequential clinical scenarios are presented; please answer both questions in turn, integrating evidence-based reasoning.
+  - Young woman, 12 months post bariatric surgery (sleeve gastrectomy) performed for severe obesity (preoperative weight 135 kg; BMI 46 kg/m^2).
+  - Ongoing profound, continuous nausea and early satiety with progressive unintentional weight loss despite structured dietetic support and multiple anti-emetics; unable to maintain oral intake and requires nasogastric tube feeding.
+  - Current weight 55.8 kg (BMI 19.5 kg/m^2), representing extreme total body weight loss for the local cohort.
+  - Symptoms: occasional non-bilious vomiting; denies abdominal pain, fevers, flushing, or diarrhoea.
+  - Extensive evaluation unrevealing for obstruction: CT abdomen/pelvis normal; contrast swallow/contrast transit study with follow-through normal; upper endoscopy shows no stenosis/twist/stricture, ulceration, bezoar, or other structural explanation; oesophageal motility and pH studies normal.
+  - Psychological assessment does not support an eating disorder.
+  - Neuroendocrine tumor screening not suggestive (chromogranin A 51 ng/mL/within reference range; 5-HIAA <4 ng/mL/urinary 5-HIAA normal).
+  - Gut hormone testing: markedly elevated plasma peptide YY (PYY) (1200 pg/mL / elevated fasting PYY) with exaggerated further rise after a standardized liquid test meal; sharp early active GLP-1 peak/surge (at 15 minutes); undetectable fasting and fed ghrelin; symptoms correlate to hormone peaks.
+  - Basic labs show evidence of undernutrition (hypoalbuminemia and micronutrient deficiencies) without leukocytosis.
+  
+  **Q1 — Targeted pharmacologic trial** You conclude an exaggerated enteroendocrine response is likely driving anorexia and nausea and decide to trial targeted medical therapy under close monitoring. Which targeted pharmacologic strategy would you initiate to blunt PYY/GLP-1–mediated symptoms (specify agent and dosing approach), what objective monitoring endpoints would you use to judge success or failure, and what adverse effects or clinical pitfalls would prompt you to avoid or discontinue that therapy in favor of supportive/nutritional management alone?
+  
+  **Q2 — Functional complication diagnosis and management** In a patient with severe post-bariatric intolerance, extreme weight loss, negative structural/motility evaluation, and markedly exaggerated anorexigenic gut hormone responses (high PYY/GLP-1 with absent ghrelin), what is the most likely postoperative functional complication and what objective diagnostic criteria and evidence-based management strategy (including a therapeutic trial and endpoints) should be used to confirm and treat it?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Targeted pharmacologic trial**, **Q2 Functional complication diagnosis and management** — each addressing every aspect raised in the corresponding question (targeted agent/dosing, monitoring endpoints, stop/avoid criteria; likely functional complication, objective criteria, evidence-based management/trial endpoints). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_012/01_case_file.docx

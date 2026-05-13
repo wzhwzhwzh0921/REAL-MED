@@ -1,0 +1,40 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_027
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  The hospital has issued an early warning for an upcoming medication-demand peak. Please complete the “priority restocking budget estimation for out-of-stock high-priced items” and provide procurement recommendations. Note: the prompt will not include any drug generic names or brand names; you must first use clues such as dosage form/specification/insurance attribute/indication features to uniquely match each item to a specific product in the attached inventory list, and only then perform calculations. The inventory check found that, in the attached inventory list, there are 3 items with stock below the reorder alert threshold, involving: a non-insurance-covered antipyretic/relieving-exterior preparation for intramuscular injection (**2 mL/ampoule**), with a relatively high unit price and requiring attention to allergy-risk warnings; a non-insurance-covered oral anti-infective tablet (measured as “**ten-thousand units/tablet**”), with an adult daily dose that may reach **10–16 tablets**; and a cough-relieving/expectorant formula granule derived from Chinese herbal decoction pieces (with “**sachet**” as the smallest dispensing unit). To ensure uninterrupted clinical supply, for each subtask below, calculate the replenishment quantity and procurement amount, following the principle of “replenish up to the alert threshold (do not overstock beyond the threshold).”
+  
+  Subtask 1 (injectable medication, ampoules): An intramuscular injectable preparation. Please calculate:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) How many ampoules must be reordered to replenish up to the alert threshold?
+  (3) What is the corresponding procurement amount in CNY (keep 2 decimal places)?
+  
+  Subtask 2 (oral tablets, tablets): An oral anti-infective tablet (measured as “ten-thousand units/tablet”). Please calculate:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) How many tablets must be reordered to replenish up to the alert threshold?
+  (3) What is the corresponding procurement amount in CNY (keep 2 decimal places)?
+  
+  Subtask 3 (formula granules, sachets): A cough-relieving/expectorant formula granule (with “sachet” as the smallest dispensing unit). Please calculate:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) How many sachets must be reordered to replenish up to the alert threshold?
+  (3) What is the corresponding procurement amount in CNY (keep 2 decimal places)?
+  
+  Please provide: 1) for each item, “current inventory, alert threshold, shortage quantity, replenishment quantity, estimated amount”; 2) the total procurement amount for these three items combined; 3) in remarks, label “insufficient stock / high-price priority”, and list the three items sorted from highest to lowest by amount.
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (301 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_027` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_027/01_inventory.xlsx
+mcp_question_id: v5_030

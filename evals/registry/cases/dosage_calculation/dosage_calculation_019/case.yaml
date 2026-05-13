@@ -1,0 +1,14 @@
+case_id: dosage_calculation/dosage_calculation_019
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  1) Patient information: A 58-year-old female, body weight 64.2 kg, ascites: moderate. Two weeks ago, while taking spironolactone 300 mg/day + furosemide 120 mg/day, she developed hyperkalemia and spironolactone was discontinued. Now a plan is made to resume combination therapy. Current actual medications: spironolactone 0 mg/day, furosemide 40 mg/day. It has been 4 days since the last dose adjustment. Recent electrolytes/renal function: serum potassium 4.4 mmol/L (corrected), serum sodium 130 mmol/L, Scr 1.3 mg/dL, eGFR 52 mL/min/1.73 m². 24-hour urine output 1000 mL. Body weight change 0.0 kg/day. Currently no hyperkalemia; not elderly.
+  
+  2) Calculation tasks: According to the AASLD 2021 fixed-ratio combination regimen, calculate the recommended daily dose combination for “restarting combination therapy” (do not directly return to the pre-discontinuation high dose), and provide the next possible time window for dose escalation and the next-step dose tier. Provide a step-by-step calculation process, and explain why the so-called “2024–2026 new errata” must not be used to change the starting ratio / maximum dose.
+  
+  Please calculate this patient’s monitoring_recommendations.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

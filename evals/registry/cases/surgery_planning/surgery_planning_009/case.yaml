@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_009
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior dermatologic surgeon. The case below describes a 57-year-old man with a giant congenital-appearing sebaceous nevus of the left scalp/face with suspected malignant transformation requiring extensive oncologic excision and complex reconstruction; two sequential clinical scenarios are presented for decision-making.
+  
+  - 57-year-old man; works as a truck driver; long-standing congenital-appearing lesion of the left scalp/face that has progressively enlarged.
+  - Recent course: months of persistent bleeding and erosion from a bulky mass; concealed with a hat.
+  - Exam: giant verrucous plaque/tumor involving the left parieto-temporal scalp extending from the temporal hairline onto the lateral face and down toward the neck, measuring approximately 310 × 250 mm; firm, elastotic “chicken-egg–sized” elevated component at the left lateral orbital region with epidermal erosion and active hemorrhage; no palpable cervical lymphadenopathy.
+  - Imaging: CT/MRI show disease confined to skin/soft tissue with no skull invasion and no radiographic nodal enlargement.
+  - Systemic evaluation does not suggest linear nevus sebaceous syndrome.
+  - Plan: definitive oncologic resection with variable planned clinical margins by subsite (approximately 30 mm in the anterior forehead/eyelid region and 10–20 mm in the cheek/neck), anticipating a massive defect and complex reconstruction.
+  
+  **Q1 — Intraoperative decision-making** Intraoperatively, you encounter suspected contiguous spread to the lateral upper eyelid near the canthus with possible full-thickness involvement, and extension into the periauricular region abutting the parotid area; frozen section is not available. How should you proceed intraoperatively to determine the appropriate extent of resection in the lateral upper eyelid and periauricular/parotid-adjacent areas, obtain margin control while minimizing functional loss, and decide between immediate definitive reconstruction versus staged reconstruction—what key technical steps are required and what pitfalls must be avoided?
+  
+  **Q2 — Postoperative complication management** After extensive oncologic excision of the multi-subunit left head-and-neck lesion, the very large defect has been reconstructed with a combination of large skin graft(s) and/or regional flap coverage secured with bolster dressings and closed-suction drains; on postoperative day 1, over several hours he develops increasing deep pressure and pain on the left side of the head and around the eye/ear with new tightness beneath the dressings, rising drain output that becomes bright red and then abruptly decreases, progressive swelling under the graft/flap and bruising tracking toward the eyelids and auricle, mild tachycardia and a modest drop in hemoglobin, and exam shows a tense expanding reconstructed area with focal oozing at suture lines, increased periorbital edema, and slight ear displacement by swelling (worsening headache/pressure but no focal neurologic deficits). In this early postoperative scenario, what is the most concerning complication, what are the most likely causes in a large scalp/periorbital/periauricular reconstruction, which clinical criteria within 24–48 hours should trigger urgent evaluation, and what is the appropriate management plan (bedside interventions vs immediate return to the operating room) including a targeted prevention strategy?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop resection extent/margin control/reconstruction timing; postop complication ID/causes/trigger criteria/management/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_009/01_case_file.docx

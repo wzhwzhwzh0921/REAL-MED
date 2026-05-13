@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_008
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior dermatologic surgeon. The case below describes a 50-year-old woman with a long-standing, intensely pruritic lichenified plaque confined to a prior retroauricular scald reconstruction site, raising questions about intraoperative measures to interrupt the itch–scratch cycle and longer-term management of the underlying post-reconstructive sensory complication.
+  - 50-year-old woman; no significant medical, psychiatric, atopic, or relevant family history.
+  - History: scald injury 17 years ago; right retroauricular wound covered with an autologous skin flap; other scalded areas healed without grafting and are asymptomatic.
+  - Symptoms: 16-year history of localized intense pruritus with burning/paresthesia (“itch with abnormal sensations”) limited to the grafted right retroauricular area, with irresistible scratching and recurrent thickening.
+  - Prior treatments: multiple topical therapies including high-potency topical corticosteroids with intermittent reduction in erythema/scaling but persistent paresthesia and recurrence.
+  - Exam: irregular erythematous, markedly lichenified plaque with minimal scale and superficial fissuring in the right retroauricular region; no palpable lymphadenopathy; no systemic symptoms (no generalized pruritus, weight loss, fever, or new lesions elsewhere).
+  - Workup: routine blood tests and hepatic/renal function normal; chest radiograph and ultrasound/basic screening imaging unremarkable.
+  - Pathology/sampling: biopsy shows chronic scratch-induced excoriation/lichenification changes and excludes infection and malignancy.
+  
+  **Q1 — Intraoperative decision-making** The patient is brought for diagnostic sampling of the retroauricular plaque under local anesthesia to exclude malignancy in scar/graft tissue and other mimickers; after a representative biopsy, frozen section/rapid pathology and gross appearance show only chronic excoriation/lichenification without infection or tumor, hemostasis is secured, but local anesthetic effect is poor and she continues to have pronounced burning pruritus/paresthesia with repeated attempts to scratch; the skin appears thin with multiple fissures, raising concern for immediate re-trauma and recurrence driven by neuropathic itch—In the intraoperative-to-immediate postoperative period, what local and procedural measures should you prioritize to break the itch–scratch cycle (e.g., targeted nerve block, antipruritic/analgesic strategy, and protective dressing/immobilization), what are the key technical steps, and which major pitfalls must be avoided?
+  
+  **Q2 — Postoperative complication management** Given chronic localized pruritus/paresthesia confined to a prior retroauricular flap site after scald reconstruction, with biopsy excluding infection and malignancy and topical corticosteroids providing only intermittent cosmetic improvement without relieving the abnormal sensations, what is the most likely late postoperative complication driving this localized itch–scratch cycle, what is the underlying pathophysiology related to scar/reinnervation or sensory nerve injury, and what stepwise evidence-based management plan would you use to control symptoms and prevent recurrence?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop itch–scratch interruption/nerve block/dressing pitfalls; likely complication/pathophysiology/stepwise management/recurrence prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_008/01_case_file.docx

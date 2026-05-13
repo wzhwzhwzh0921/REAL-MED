@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_015
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a pediatric clinical pharmacist. In outpatient practice, you have managed multiple pediatric patients receiving off-label drug use (OLDU). Through prescription review and adverse drug reaction monitoring, you have found that off-label medication use is relatively common among both outpatient and inpatient children, and that different departments apply inconsistent judgments regarding whether specific off-label uses are “can be used / use with caution / contraindicated.” Therefore, you plan to write a systematic review on “methodological quality and recommendation consistency of pediatric off-label drug use guidelines/consensus statements,” intended to support standardized clinical decision-making and harmonize departmental practices.
+  
+  Topic: Methodological quality (AGREE II) and recommendation consistency across pediatric off-label drug use (OLDU) guidelines/consensus statements, including comparison with the Shandong Provincial Expert Consensus (2022).
+  
+  The review must systematically compile and analyze the following core content:
+  1. The evidence map of pediatric OLDU and high-frequency clinical scenarios;
+  2. Quality appraisal of guidelines/consensus statements (AGREE II);
+  3. Consistency between evidence grading and strength of recommendations;
+  4. Item-by-item comparison with the “Shandong Provincial Expert Consensus on Off-label Drug Use (2022 Edition)” and identification of gaps.
+  
+  Search and inclusion must use the following keywords: pediatric/children、off-label drug use、guideline/consensus、evidence grading、AGREE II. A standardized reference list must be provided at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

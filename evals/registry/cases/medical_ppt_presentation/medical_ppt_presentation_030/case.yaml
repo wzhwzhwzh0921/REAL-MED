@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_030
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a neurologist. Please prepare a lecture PPT on Parkinson’s disease risk assessment, early identification, and follow-up management, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: substantia nigra degeneration and Lewy bodies, key points of toxin/drug-induced parkinsonism, motor and non-motor symptoms, risk communication and exercise interventions.
+  **Visual materials**: early identification–diagnosis–follow-up workflow flowchart; comprehensive treatment and medication step-up pathway diagram; 2050 prevalence trend chart.
+  **Constraints & format**: 12–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 12–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (substantia nigra degeneration and Lewy bodies, key points of toxin/drug-induced parkinsonism, motor and non-motor symptoms, risk communication and exercise interventions).
+  3. Include the visual materials specified (early identification–diagnosis–follow-up workflow flowchart; comprehensive treatment and medication step-up pathway diagram; 2050 prevalence trend chart).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_030/01_template.pptx

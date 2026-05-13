@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_014
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a clinical pharmacist. In outpatient practice, you have observed that in-hospital pediatric adverse drug event reports have been increasing year by year, yet most medicines lack sufficient randomized controlled trial (RCT) evidence in pediatric populations, and different departments disagree on whether real-world evidence can be used for safety decision-making. Therefore, you plan to write a narrative literature review (including a methodological review) on “Methods and Evidence Quality for Pediatric Drug Safety Evaluation Based on Real-World Data,” intended to inform clinical safety decision-making and harmonize internal perspectives on evidence use.
+  
+  Topic: Methods and evidence quality for pediatric medication safety evaluation based on real-world data.
+  
+  The review must systematically compile and analyze the following core content:
+  1. Sources and availability of pediatric drug real-world data (RWD);
+  2. Frameworks for defining and measuring safety outcomes;
+  3. Key methods for controlling bias and confounding;
+  4. Assessment of consistency between real-world safety evidence and RCT safety evidence.
+  
+  Search and include literature using the following keywords: pediatric/children、real-world data/evidence、drug safety/pharmacovigilance、adverse events、bias control/causal inference. A standardized reference list is required at the end of the review; it is recommended to use a flowchart to present the RWD safety evaluation pathway and a comparative table to summarize different study designs and bias-control methods and their applicable scenarios.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

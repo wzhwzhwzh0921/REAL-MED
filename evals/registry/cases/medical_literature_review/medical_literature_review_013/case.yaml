@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_013
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are an intensive care medicine physician. During outpatient follow-up visits, you have seen multiple ICU survivors and their family members and found that some patients continue to experience anxiety, depression, and trauma-related symptoms after discharge. In addition, psychological support practices vary substantially across different wards/units, with inconsistent effectiveness. Therefore, you plan to write a scoping review titled “Evidence synthesis on nurse-led/multicomponent psychological nursing interventions for ICU patients and outcomes of anxiety, depression, PTSD, and quality of life.” The deliverable will be used to summarize the evidence base and implementation considerations for clinical practice and follow-up care planning.
+  
+  This scoping review focuses on evidence synthesis of nurse-led/multicomponent psychological nursing interventions for ICU patients and their effects on anxiety/depression, PTSD, and quality-of-life outcomes.
+  
+  The review must systematically compile and analyze the following core content:
+  1. The landscape/map of intervention types and their core components;
+  2. Evidence on outcomes of anxiety, depression, and PTSD;
+  3. Evidence on improvement in psychological resilience and HRQoL;
+  4. Implementation elements and replicability (including ICU diary).
+  
+  Search and include studies using the following keywords: ICU/critical care、nurse-led、psychological support/multicomponent intervention、ICU diary、follow-up、family. A PRISMA-ScR flow diagram must be used to present the screening process; an evidence matrix table must summarize different component–outcome–timepoint combinations; and a heterogeneity framework figure must synthesize differences in follow-up models. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

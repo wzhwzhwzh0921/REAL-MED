@@ -1,0 +1,20 @@
+case_id: dosage_calculation/dosage_calculation_040
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Mr. Wang, male, 72 years old. He was admitted with the chief complaint of “cough and chest tightness for more than 2 months; re-examination suggests lung cancer and planned chemotherapy.” 
+  
+  History of present illness: Two months ago, he developed a dry cough and exertional dyspnea without an obvious trigger. Over the past 2 weeks, fatigue has worsened, with occasional dull pain in the right chest, and no hemoptysis. Past medical history: chronic renal function impairment.
+  
+  Physical examination on admission: height 170.0 cm, weight 70.0 kg, alert. Breath sounds in both lungs slightly coarse; dullness to percussion in the right lower lung; no obvious dry or wet rales. Cardiac and abdominal exams unremarkable; no edema in the lower extremities.
+  
+  Ancillary tests: serum creatinine 1.8 mg/dL. Chest CT shows a right lung mass with mediastinal lymphadenopathy. Pathology indicates non-small cell lung cancer.
+  
+  A “carboplatin + paclitaxel” regimen is planned. Considering renal impairment, the carboplatin AUC target is adjusted to 4; male patient is assessed according to routine practice.
+  
+  Please calculate this patient’s rounded paclitaxel dose (mg).
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

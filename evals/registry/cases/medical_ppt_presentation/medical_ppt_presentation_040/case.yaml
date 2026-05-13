@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_040
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are an emergency surgery/critical care physician. Please prepare a lecture PPT on the selection and quality control of life support technologies for emergency surgical critically ill patients, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: mechanisms of respiratory/circulatory failure, OHCA/IHCA and trauma stratification, ECPR time window and prognosis, quality control metrics framework.
+  **Visual materials**: POCUS→VV/VA-ECMO/ECPR typing flowchart; ventilator→CRRT→ECMO stepwise pathway diagram; ELSO survival rate and ≤60 min prognosis trend chart.
+  **Constraints & format**: 16–18 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 16–18 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (mechanisms of respiratory/circulatory failure, OHCA/IHCA and trauma stratification, ECPR time window and prognosis, quality control metrics framework).
+  3. Include the visual materials specified (POCUS→VV/VA-ECMO/ECPR typing flowchart; ventilator→CRRT→ECMO stepwise pathway diagram; ELSO survival rate and ≤60 min prognosis trend chart).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_040/01_template.pptx

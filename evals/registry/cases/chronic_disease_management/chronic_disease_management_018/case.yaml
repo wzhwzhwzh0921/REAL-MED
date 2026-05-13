@@ -1,0 +1,35 @@
+case_id: chronic_disease_management/chronic_disease_management_018
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  You are a community general practitioner. In front of you is a patient with a chronic condition; the system has already loaded her complete clinical data.
+  
+  You are connected to the hospital HIS system and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  
+  After completing all clinical decisions, please confirm and submit the medical orders.
+  
+  ---
+  **Case ID:`chronic_disease_management_018`chronic_disease_management_018`
+  
+  You are seeing Ms. Wang, a 49-year-old woman, in the outpatient clinic. She has just received a core needle biopsy report confirming “triple-negative breast cancer” of the right breast, currently at an early stage (cT2N0M0). Faced with the diagnosis, Ms. Wang is extremely anxious, but she is also proactively trying to understand all necessary next steps. After you explain the initial treatment framework (surgery, chemotherapy, etc.), she again asks you to confirm: “Doctor, no one in our family has ever had cancer—does my situation mean I’m simply unlucky? Besides preparing for surgery and chemotherapy, at this stage do I still need any other tests?”
+  
+  **Patient information:**
+  - Name: Ms. Wang, female, 49 years old, accountant
+  - Chief complaint: Right breast mass for more than 1 month.
+  - History of present illness: The patient accidentally palpated a painless, hard mass in the upper outer quadrant of the right breast 1 month ago, approximately 2 cm in size, with indistinct borders. The mass size did not change with the menstrual cycle. No nipple discharge, skin redness/swelling, or peau d’orange changes. During communication with you, she repeatedly emphasized that her mother, sisters, and daughter are all healthy, and within three generations of her family there has been no one with breast cancer, ovarian cancer, prostate cancer, or pancreatic cancer.
+  - Past medical history: Previously healthy; no special history of chronic disease.
+  - Current medications: No long-term medication use.
+  - Lifestyle: Non-smoker; occasional social alcohol use. Slow jogging 2–3 times per week. No special occupational exposure history.
+  - Vital signs: blood_pressure=128/80 mmHg；heart_rate=76 bpm；temperature=36.7°C；respiratory_rate=18 breaths/min
+  - Physical examination: A mass approximately 2.5cm x 2.0cm is palpable in the upper outer quadrant of the right breast; hard in consistency, with indistinct borders, fairly mobile, and non-tender. The right breast skin and nipple appear normal; no dimpling sign. No clearly enlarged lymph nodes palpable in bilateral axillae or supraclavicular areas.
+  - Ancillary tests: Breast ultrasound: A 2.3cm x 1.9cm hypoechoic nodule is seen in the upper outer quadrant of the right breast, irregular in shape, with indistinct borders, BI-RADS category 5.
+  Core needle biopsy pathology: Invasive ductal carcinoma, histologic grade III. Immunohistochemistry: ER(-), PR(-), HER2(IHC 0), Ki-67(80%).
+  Staging workup (chest/abdomen/pelvis CT, bone scan): No clear evidence of distant metastasis. Clinical stage: cT2N0M0.
+  
+  ---
+  **Case ID:`chronic_disease_management_018`chronic_disease_management_018`. The patient’s complete clinical data has been provided above; there is no need to call any case-loading tool again. Please directly use the currently available Chronic-System HIS tools to enter necessary medical orders in sequence, including diagnoses, prescriptions, laboratory tests, imaging, and follow-up plans; after completion, use the available HIS submit tool to confirm and submit the orders. Do not request clarification merely because a tool’s display name differs slightly from its description. When calling the submit tool, you must fill in the `analysis_conclusion` parameter and provide as detailed a final analysis as possible, covering diagnostic rationale, risk stratification or disease severity, rationale for treatment choices, testing and monitoring arrangements, follow-up plan, and necessary up-referral or referral considerations.
+  
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

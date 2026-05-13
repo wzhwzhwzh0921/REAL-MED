@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_022
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a thoracic oncology physician who has seen multiple adult patients with advanced NSCLC in the outpatient clinic who developed acquired resistance after receiving EGFR‑TKI (some with brain metastases or only oligoprogression). There are substantial questions and disagreements regarding subsequent treatment selection. Therefore, you plan to write a scoping review on this topic for clinical decision support and academic synthesis.
+  
+  Review topic: “Subsequent Treatment Strategies for Non–Small Cell Lung Cancer After EGFR‑TKI Resistance (Targeted Therapy/Chemotherapy/Immunotherapy Combinations and Re-biopsy)”.
+  
+  The review must systematically compile and analyze the following core content:
+  1. Comparative mapping of systemic treatment strategies after resistance (targeted therapy, chemotherapy, immunotherapy combinations, and sequencing strategies);
+  2. Evidence for survival benefit and selection of outcome endpoints (PFS/OS, etc.);
+  3. Molecular subtyping and how rebiopsy/ctDNA guide subsequent treatment;
+  4. Key evaluation and management points for the scenarios of brain metastases or oligoprogression (refer to the “Chinese Guidelines for Diagnosis and Treatment of Brain Metastases in Driver Gene–Positive NSCLC 2025”).
+  
+  Search and include literature using the following inclusion keywords: EGFR‑mutant NSCLC、acquired resistance、post‑TKI、rebiopsy/ctDNA、treatment strategy. Deliver the main text plus a standardized reference list at the end; it is recommended to present the “post‑resistance stratified decision pathway” as a flowchart, and to use comparative tables summarizing PFS/OS, major toxicities, and applicable molecular subtypes across different strategies. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

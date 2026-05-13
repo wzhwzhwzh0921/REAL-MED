@@ -1,0 +1,23 @@
+case_id: surgery_planning/surgery_planning_018
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior head and neck surgeon. The case below describes a 72-year-old man with prior laryngeal cancer surgery and incidentally discovered metastatic differentiated thyroid carcinoma, creating high-stakes recurrent laryngeal nerve (RLN) and airway-management decisions across reoperative central neck surgery and the immediate postoperative period.
+  - 72-year-old man; previously underwent open partial horizontal laryngectomy extended to the left arytenoid for laryngeal squamous cell carcinoma, with left selective neck dissection (levels IIa–III–IV) and a temporary tracheostomy; since decannulated.
+  - Functional status: good swallowing/voice function but relies on a single remaining functional crico-arytenoid unit (injury to the remaining functional RLN would be catastrophic).
+  - Prior laryngeal cancer pathology: pT2N0cM0 with no squamous nodal metastases.
+  - Incidental thyroid cancer finding: one level III lymph node with a 1.8-mm papillary thyroid carcinoma metastasis (thyroglobulin+ and TTF1+), classifying him as pN1b differentiated thyroid carcinoma.
+  - Thyroid workup: asymptomatic; contrast-enhanced neck CT shows no focal thyroid lesion and no radiographic adenopathy.
+  - Plan: definitive oncologic thyroid/neck surgery in a previously operated field (reoperative central neck surgery anticipated).
+  
+  **Q1 — Intraoperative RLN identification and protection** During re-entry, the thyroid bed is densely fibrotic with distorted landmarks from prior laryngeal surgery and neck dissection. In the inferior tracheoesophageal groove, you identify a structure consistent with the right RLN, but as it courses cranially toward the laryngeal inlet near the crico-arytenoid region, scarring makes further dissection hazardous. In this setting where injury to the remaining functional RLN would be catastrophic, what intraoperative strategy should you use to confirm the nerve’s identity and protect it while proceeding with the planned oncologic resection, including the critical technical steps (e.g., exposure, dissection plane, neuromonitoring approach) and the key pitfalls to avoid (traction, thermal injury, and misidentification)?
+  
+  **Q2 — Postoperative airway compromise management** A few hours after reoperative surgery in the central neck, the patient develops progressive inspiratory stridor, dyspnea at rest, weak/ineffective cough, and a breathy, barely audible voice; oxygen saturation is 90% on supplemental oxygen, respiratory rate is 28/min, and he is using accessory muscles and cannot tolerate lying flat. Exam shows suprasternal retractions without neck hematoma; the surgical drain has minimal output. Flexible fiberoptic laryngoscopy demonstrates severely reduced mobility of the only functioning vocal fold with the glottic airway narrowed to a slit; there is no obvious supraglottic edema or pooling of secretions. Arterial blood gas shows rising PaCO2 compared with baseline. What is the most likely postoperative complication causing this patient’s acute airway compromise, and what is the most appropriate immediate management?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop nerve confirmation/protection steps/pitfalls; postoperative likely complication/immediate airway management). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_018/01_case_file.docx

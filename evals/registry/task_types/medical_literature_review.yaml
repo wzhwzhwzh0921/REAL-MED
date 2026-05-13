@@ -1,0 +1,29 @@
+# Task type: medical_literature_review
+# Structured medical literature review (Word). Web search + image generation skills are enabled for evidence and figures.
+
+task_type: medical_literature_review
+description: "Structured medical literature review (Word). Web search + image generation skills are enabled for evidence and figures."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - code
+  - docx
+  - web-search
+  - web-search-mm
+  - nano-banana-pro
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "*.docx"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

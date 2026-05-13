@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_038
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are an obstetrician–gynecologist (prenatal diagnosis specialist). Please prepare a lecture PPT on fetal congenital heart disease (CHD) fetal echocardiography screening and diagnosis, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: embryonic 8–12-week developmental abnormalities and key points on postnatal persistence of fetal channels (failure of closure), maternal/fetal risk stratification, referral thresholds and the range of true-positive risk after a positive screen, key imaging planes and interpretation essentials for screening and diagnosis.
+  **Visual materials**: screening–threshold–referral–MDT workflow flowchart; 12–14-week assessment to 18–22-week recheck stepwise ladder diagram; 3VT/3VV normal vs abnormal comparison figure.
+  **Constraints & format**: 14–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (embryonic 8–12-week developmental abnormalities and key points on postnatal persistence of fetal channels (failure of closure), maternal/fetal risk stratification, referral thresholds and the range of true-positive risk after a positive screen, key imaging planes and interpretation essentials for screening and diagnosis).
+  3. Include the visual materials specified (screening–threshold–referral–MDT workflow flowchart; 12–14-week assessment to 18–22-week recheck stepwise ladder diagram; 3VT/3VV normal vs abnormal comparison figure).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_038/01_template.pptx

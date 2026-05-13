@@ -1,0 +1,38 @@
+case_id: soap_documentation/soap_documentation_038
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior dermatologist. On the morning of November 12, 2024, a 28-year-old male programmer, Li Wei (pseudonym), presented alone for evaluation. Based on the following clinic dialogue summary, chief complaint/history, and physical examination findings, analyze the condition and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  The patient was wearing a black hoodie with obvious white flakes scattered over both shoulders. He appeared somewhat anxious; as soon as he sat down, he removed his hat, pointed to the top of his scalp, and said, “Doctor, please help me look at this dandruff—it's impossible to be seen like this. It's been getting worse and worse over the past six months. If I scratch even a little, it’s like snowing, and it itches so much I can’t sleep well at night.”
+  
+  He further stated, “This should be my old problem—‘seborrheic dermatitis’ flaring up again. I do software development. In the past few months, I’ve been under a lot of project pressure and staying up late every day. Before, a little anti-dandruff shampoo would fix it, but this time it doesn’t work. I bought selenium sulfide lotion. After washing, the scalp feels very dry, but those thick white scales keep growing. If I pick off a layer, it’s red underneath, and sometimes little beads of blood come out. It’s especially painful.”
+  
+  When asked about similar symptoms elsewhere, he shook his head and said, “My body doesn’t really itch. It’s just that the elbow area is a bit dry—maybe from resting on the desk while coding and rubbing calluses. Also, doctor, my nails have recently become pitted and uneven on the surface. Is that because I stay up late and I’m calcium-deficient?”
+  **Past Medical History and Family History:**
+  Past medical history: Allergic rhinitis. Denies drug allergy history. Denies hypertension and diabetes.
+  
+  Family history: Father is generally healthy, but the patient mentioned that his father, when younger, always had “stubborn eczema” on his knees that could not be cured for many years. Mother has thyroid nodules.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8℃; heart rate 76/min; blood pressure 124/78 mmHg; respiratory rate 16/min.
+  
+  General: Normal development; moderate nutrition. Alert and oriented; anxious affect. Large amounts of gray-white scale noted on the shoulder areas of black clothing.
+  
+  Dermatologic examination:
+  1) Scalp: Several well-demarcated dark erythematous plaques at the frontal hairline and vertex, with lesions extending slightly beyond the anterior hairline. The plaques are covered with relatively thick, dry, silvery-white scale (not greasy yellow crust). In areas with heavy scale accumulation, hairs are bound together by adherent scale into tufts (tufted hair).
+  2) Trunk and extremities: One erythematous patch on the extensor surface of the left elbow, approximately 2 cm in diameter, dry surface with a small amount of white scale. No other abnormalities noted on the trunk.
+  3) Nails: Scattered pinpoint, thimble-like pitting (nail pitting) on the nail plates of the right index and ring fingers. No obvious nail plate thickening or discoloration.
+  4) Procedural/bedside finding: After gently scraping off the scale on the scalp lesion, a thin, light-red shiny film is observed; with further scraping of the film, fine punctate bleeding is seen.
+  
+  Ancillary test (result available): Fungal microscopy (scalp scale) negative (no hyphae or spores seen).
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_038/01_attachment.pdf

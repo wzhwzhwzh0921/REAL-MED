@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_022
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior hernia surgeon. The case involves a 66-year-old woman with perforated sigmoid diverticulitis complicated by partial herniation of the sigmoid colon into a left inferior lumbar (Petit) hernia, requiring urgent operative source control and subsequent management of a postoperative flank complication.
+  - 66-year-old Caucasian woman; BMI 26.4 kg/m²; comorbidities: hypertension, dyslipidemia, hypothyroidism, osteopenia.
+  - 1 week of worsening left lower-quadrant pain; treated empirically with ciprofloxacin and metronidazole for 5 days with transient improvement then rapid deterioration.
+  - Long-standing left flank bulge since thoracolumbar fusion with left iliac crest bone graft 18 years ago.
+  - Exam: left lower-quadrant tenderness and prominent, painful, nonreducible left lumbar bulge; temperature 37.2°C.
+  - Labs: CRP 41 mg/dL with a normal WBC count.
+  - CT: sigmoid diverticulitis with free perforation and partial herniation of the sigmoid colon into a left inferior lumbar (Petit) hernia, without CT signs of strangulation.
+  - Plan: urgent operative exploration for source control and to address incarcerated hernia content.
+  
+  **Q1 — Intraoperative decision-making** Intraoperatively, after reducing the sigmoid colon from the hernia, you find a small localized pocket of purulent fluid at the cranial edge of the hernia orifice with fibrinous coating of the sigmoid. There is free intraperitoneal air and localized putrid peritonitis, but no visible full-thickness colonic defect, no fecal contamination, and no pus elsewhere—most consistent with a sealed perforation and Hinchey III diverticulitis. How should you proceed intraoperatively to achieve safe source control—laparoscopic lavage/drainage versus immediate sigmoid resection (with or without diversion)—and what specific technical steps and pitfalls (including drain placement near the hernia orifice and whether to repair the lumbar hernia and/or use mesh in this contaminated setting) must be considered?
+  
+  **Q2 — Postoperative complication management** Broad-spectrum antibiotics are continued postoperatively and the initial recovery is uneventful, but on postoperative day 4 she develops new fever (38.5°C), tachycardia, and worsening left-sided flank pain. The left lumbar bulge, previously stable, is now more tender, erythematous, and noticeably enlarged; it is not reducible and palpation elicits significant guarding. She reports decreased appetite and malaise but no overt rectal bleeding. Laboratory tests show rising inflammatory markers (CRP increasing compared with prior days) with a new leukocytosis; urine analysis is unremarkable. Abdominal exam otherwise shows mild diffuse tenderness without frank generalized peritonitis, and the surgical drain (if present) has minimal output and no obvious feculent content. What is the most likely postoperative complication in this scenario, how should it be confirmed, and what stepwise evidence-based management (including indications for reoperation) and prevention strategy would you apply in future similar cases?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop source control strategy/technical steps/drains/hernia repair/mesh pitfalls; likely complication/confirmation workup/stepwise management+reop indications/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_022/01_case_file.docx

@@ -1,0 +1,13 @@
+case_id: dosage_calculation/dosage_calculation_007
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  A 78-year-old female (Ms. Wang), weight 55.0 kg, was admitted to the ICU from the emergency department for “somnolence with thirst and decreased urine output for 3 days.” Family reports markedly reduced food and water intake after becoming bedridden; no fever or cough in the past 48 hours; occasional vomiting once. Physical exam on admission: T 36.8°C, BP 98/56 mmHg, HR 106/min, RR 18/min; dry skin and cracked lips; somnolent but arousable; no rales in both lungs; abdomen soft without tenderness. Arterial blood gas: pH 7.42, PaCO2 42 mmHg, HCO3- 26 mEq/L. Electrolytes/biochemistry: Na 160 mEq/L, Cl 115 mEq/L, BUN 60 mg/dL, glucose 120 mg/dL, albumin 3.2 g/dL. Measured serum osmolality 340 mOsm/kg; ethanol 0 mg/dL. Assessment: chronic hypernatremia (course >48 hours) with altered mental status. Plan to develop a fluid replacement regimen while evaluating acid–base disorders.
+  
+  Please calculate the infusion rate of 5% dextrose solution (D5W) for this patient (mL/h). Round the result to the nearest integer.
+  
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

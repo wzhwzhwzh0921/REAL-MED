@@ -1,0 +1,23 @@
+case_id: surgery_planning/surgery_planning_032
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior plastic surgeon managing emergency partial hand replantation after a severe saw injury, with a focus on intraoperative microsurgical sequencing and postoperative threatened replant viability.
+  - 43-year-old healthy right-hand–dominant carpenter with mitre-saw injury to the left hand with loss of digits.
+  - Amputated composite segment containing digits 1–4 arrives wrapped in saline gauze on ice; estimated cold ischemia time is ~14 hours.
+  - Remaining hand: heavily crushed, avulsed, contaminated wound bed with high infection risk.
+  - Imaging/anatomy: trans-metacarpal amputation of the thumb and index; proximal phalanx-level amputations of the middle and ring fingers; associated metacarpal/proximal phalanx fractures; severely injured small finger.
+  - Operative course to date: aggressive debridement and skeletal alignment performed; bony fixation completed using retrograde 0.045-inch K-wires.
+  - Vascular options identified: suitable radial artery branch near the anatomic snuffbox for arterial inflow; cephalic-system vein available for venous outflow.
+  
+  **Q1 — Intraoperative venous congestion management** In the operating room, after completing the first venous anastomosis to a cephalic-system vein and releasing clamps during attempted salvage of the multi-digit composite segment, the composite rapidly becomes dark, tense, and turgid with brisk capillary refill and continuous bleeding/oozing from distal tissues, raising concern for inadequate venous drainage. Given signs of venous congestion immediately after the first venous anastomosis, how should you prioritize and sequence the remaining vascular anastomoses (artery versus additional veins), which venous systems should be targeted to reliably establish outflow in a multi-digit composite, what key technical maneuvers improve venous patency, and what intraoperative pitfalls most commonly lead to early thrombosis or loss of the replanted segment?
+  
+  **Q2 — Postoperative outflow failure salvage** Several hours after emergency reattachment of multiple amputated digits, the postoperative hand is splinted and kept warm; the patient is normotensive but has escalating pain requiring opioids. On hourly checks, the replanted digits become progressively dusky-purple and tense with brisk capillary refill; pinprick produces rapid refilling with dark, persistent oozing; Doppler shows a strong, continuous arterial signal at the level of the replanted digits but venous signals are weak or absent; swelling increases despite elevation; there is no significant external bleeding and the dressings are not tight; the remainder of the hand proximal to the replanted segment is well perfused; labs show stable hemoglobin and no coagulopathy; the color change has worsened over the last 60–90 minutes and the replanted tissues now appear cool compared with earlier assessments. What is the most likely cause of this postoperative presentation, how should the diagnosis be confirmed, and what immediate stepwise management (bedside and operative) is indicated to salvage the replanted digits, including specific strategies to prevent recurrence in future similar cases?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (vascular anastomosis sequencing, venous targets, patency maneuvers, thrombosis pitfalls; likely cause, confirmatory diagnosis, stepwise salvage, recurrence prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_032/01_case_file.docx

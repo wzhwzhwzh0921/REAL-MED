@@ -1,0 +1,48 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_035
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Annual Pharmacy & Therapeutics (P&T) Formulary Selection — Retention/Restriction/Removal Evaluation for Non–Insurance-Covered Items
+  
+  In this year’s formulary re-review, the attached inventory list contains 4 “non–insurance-covered” products. Please provide recommendations based on “therapeutic interchangeability within the same class, clinical necessity, medication safety, inventory & near-expiry handling, and budget impact”: prioritize each item as **retain / restrict / remove**, and propose a handling pathway (e.g., restrict to specific departments / restrict to specific diagnoses / restrict treatment duration, prioritize inventory drawdown, near-expiry write-off risk alerts, etc.).  
+  Note: The prompt will not include any generic names or brand names. You must uniquely match each product in the attachment based on dosage form/specification/indication clues, and only then answer and calculate. You may refer to them as “Product A/B/C/D” in your answer, but you must clearly state the mapping between each product and its generic name.
+  
+  Sub-question 1 (Clinical & formulary decision; non-calculation): One product is an **oral capsule**, indicated for **joint pain and low back/leg pain caused by wind-cold-dampness impediment (风寒湿痹)**; **contraindicated in children, pregnant women, lactating women, and those with fertility plans**; **long-term use in women may cause menstrual disorders**. Please complete:
+  (1) Identify the **generic name** of this drug, and query its **inventory** and **unit price**  
+  (2) Determine whether this product’s position in the formulary should be **one of: “routine stock / restricted use / remove”**  
+  (3) Provide **3 actionable** restriction conditions or substitution strategies
+  
+  Sub-question 2 (Calculation + inventory threshold): One **topical preparation** is used for **acne / seborrheic dermatitis**. If a department plans a short-term trial of **2 days**, the daily use is calculated as “**primary antibacterial ingredient 34 mg/day**” (calculated per day, regardless of number of applications). Please complete:
+  (1) Identify the **generic name** of this drug, and query its **inventory** and **unit price**  
+  (2) Calculate how many **tubes** of this topical preparation need to be dispensed for the trial period (**round up**)  
+  (3) Determine whether, after the trial ends, the remaining inventory will be **below the reorder alert threshold**  
+  (4) Provide your opinion on **“approve the trial or not”** (considering non–insurance-covered status and interchangeability)
+  
+  Sub-question 3 (Calculation + near-expiry drawdown): One **oral tablet** is used for **duodenal ulcer / chronic gastritis–related qi stagnation stomach pain (气滞胃痛)**; usual dosing is **2 tablets per dose, 3 times daily**. If a “**14-day standard course**” is planned for inventory drawdown, please complete:
+  (1) Identify the **generic name** of this drug, and query its **inventory** and **unit price**  
+  (2) Calculate the number of tablets needed for **one patient** for the full course  
+  (3) Calculate how many **complete courses** the current inventory can support (**round down**)  
+  (4) Based on this, propose outpatient prescribing rules to “**prioritize inventory drawdown**” (at least **2 rules**, must include **course-length restriction** and **population/indication restrictions**)
+  
+  Sub-question 4 (Non-calculation; formulary structure optimization): One **oral granule** product has the functions of **calming the liver and anchoring yang, clearing fire and resolving phlegm**, mainly treating **dizziness due to liver-yang rising with qi and blood deficiency (肝阳上亢、气血两虚型眩晕)**; dosing is **1 sachet per dose, 3 times daily**. Please complete:
+  (1) Identify the **generic name** of this drug, and query its **inventory** and **unit price**  
+  (2) From the four perspectives of **(i) affordability/accessibility for self-pay non-insurance patients, (ii) diagnostic standardization for common causes of dizziness, (iii) interchangeability with other in-hospital dizziness-related drug/non-drug treatment pathways, (iv) feasibility/enforceability of prescription review**, propose whether to retain it and the restriction clauses (**at least 4 clauses**)  
+  (3) Write **2 pre-prescription (front-end) HIS audit rules** you recommend adding
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (291 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_035` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_035/01_inventory.xlsx
+mcp_question_id: v5_038

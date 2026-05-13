@@ -1,0 +1,22 @@
+case_id: medical_literature_review/medical_literature_review_012
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a general practitioner working in an outpatient clinic. After seeing multiple rural patients with chronic diseases, you found that follow-up visit rates are acceptable, but medication adherence and self-management are poor. “Awareness” from health education is difficult to translate into “action,” and primary care teams also wish to introduce digital communication tools but lack evidence-based support. Therefore, you plan to write a systematic review on this topic for evidence-based primary care practice and implementation in rural China.
+  
+  This systematic review focuses on “The impact of health literacy intervention strategies among rural residents in China on chronic disease prevention and medication adherence.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. A typology/spectrum of health literacy interventions in rural populations;
+  2. Evidence on chronic disease knowledge-to-behavior translation outcomes;
+  3. Outcomes measured by medication adherence and self-management scales;
+  4. Adaptation of digital health communication in low-education populations.
+  
+  Search and include studies using the following keywords: China rural、health literacy/health education、digital health/mHealth、medication adherence、self-management/chronic disease. A standardized reference list is required at the end of the review.
+  
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

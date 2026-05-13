@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "pharmacy-operations": {
+      "enabled": true,
+      "type": "stdio",
+      "command": "python3",
+      "args": [
+        "${REPO_ROOT}/mcp_servers/pharmacy-operations/server.py"
+      ],
+      "env": {
+        "OUTPUTS_DIR": "$OUTPUTS_DIR"
+      },
+      "description": "Pharmacy ops MCP: initialize_session(question_id) loads that question's inventory excel; provides search_drug_catalog / get_drug_base_info / get_inventory_record / get_batch_record / get_clinical_rule / get_reimbursement_rule + record + update tools."
+    }
+  },
+  "skills": {
+    "code": {
+      "enabled": true
+    },
+    "docx": {
+      "enabled": true
+    },
+    "xlsx": {
+      "enabled": true
+    },
+    "pdf": {
+      "enabled": true
+    },
+    "web-search": {
+      "enabled": true
+    }
+  }
+}

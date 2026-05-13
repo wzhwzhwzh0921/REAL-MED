@@ -1,0 +1,46 @@
+case_id: soap_documentation/soap_documentation_014
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the evening of February 28, 2026, a 28-year-old male restaurant back-kitchen supervisor, Liang Junhao (pseudonym), presented to the Emergency Department accompanied by a coworker for evaluation of recurrent high fever, rash, and diffuse body aches despite prior outpatient antibiotic therapy.
+  **Chief Complaint and History of Present Illness:**
+  The patient stated he felt “like my whole body is being roasted by fire,” with a chief complaint of “high fever coming and going for two weeks, red rash on my body, whole-body soreness, and antibiotics don’t work.”
+  
+  While wiping sweat, he reported: “Doctor, for the past 15 days it happens on schedule every day—starting around 4–5 PM it shoots up to 39–40°C. I get chills and shiver, then after a while it comes down again. Fever reducers can suppress it for a bit, but it comes back the next day, like clocking in.” He added that starting 10 days ago he began to develop “patches of pinkish rash,” mainly on the chest, back, and groin/upper inner thighs, “only visible when the fever is at its worst; in the morning when I look in the mirror it’s like nothing happened.”
+  
+  A coworker added that because he works in a busy kitchen, they initially thought it was an infection; he visited outpatient clinic twice and first took a cephalosporin, then switched to azithromycin, but continued to have daily fevers. Over the last two days, he began complaining of joint pain, stating it was difficult even to hold a spatula.
+  
+  The patient confirmed migratory joint pain involving the wrists, knees, and ankles, with the worst stiffness in the morning and improvement after about 30 minutes of activity. He recalled one episode where the right wrist became swollen “by a whole circle” and felt warm. He also reported that during a clinic visit last week a physician noted “my eyes were a bit red and there was a lump felt here in my neck,” and said it might resemble “Kawasaki,” recommending high-dose aspirin. The patient stated: “I also looked it up online and saw it could affect the heart, so I got really scared.”
+  
+  On review of symptoms, he reported poor appetite and a sense of fullness/bloating in the right upper abdomen. He denied diarrhea and dysuria. He had mild throat irritation/stinging that was not severe. He denied oral ulcers and stated, “my lips aren’t cracked either, and my tongue isn’t that strawberry-looking one you mentioned.” He reported mild shortness of breath during febrile episodes only, and felt normal when afebrile. He reported no recent travel and no clear exposure history.
+  **Past Medical History and Family History:**
+  Past medical history: Seasonal allergic rhinitis. Physical exam two years ago suggested mild fatty liver. Denies surgical history. No known drug allergies.
+  
+  Family history: Father (age 55) with hypertension. Mother (age 52) healthy. No known family history of rheumatologic or autoimmune disease.
+  **Physical Examination Findings:**
+  Vital signs: T 39.4°C, HR 118 bpm, BP 112/70 mmHg, RR 20/min, SpO2 98% on room air.
+  
+  General: Acutely ill-appearing; marked diaphoresis during febrile period; alert and oriented, answers questions appropriately.
+  
+  Eyes/Mouth: Mild bilateral conjunctival injection without discharge. Oral mucosa moist; no strawberry tongue; no lip cracking/fissures.
+  
+  Skin: Faint pink maculopapular rash on the trunk with ill-defined borders; becomes much lighter after defervescence.
+  
+  Lymph nodes: Left cervical lymph node ~1.5 cm, tender, mobile.
+  
+  Cardiopulmonary: Tachycardic with regular rhythm; no murmurs. Lungs clear to auscultation bilaterally.
+  
+  Abdomen: Soft, no rebound tenderness. Mild right upper quadrant fullness; liver palpable ~2 cm below the costal margin; splenic tip questionably palpable.
+  
+  Musculoskeletal: Right wrist with mild swelling and warmth, limited range of motion and tenderness to palpation. Bilateral knees tender to palpation without obvious effusion. No firm swelling/edema of hands/feet; no periungual desquamation.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_014/01_attachment.pdf

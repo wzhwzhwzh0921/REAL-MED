@@ -1,0 +1,54 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_004
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Ward dispensing task notice (deliverables required: 1 ward dispensing record form `.xlsx` + 1 out-of-stock & near-expiry handling explanation `.docx`).
+  
+  Today you received the ward’s same-day IV infusion and IM injection medication orders. While checking storage locations, the dispenser发现 that some injectable medications are close to their expiration dates, and among them some items already have inventory clearly below the alert threshold. Please complete single-dose dispensing and inventory disposition under the principle of “dispense the earliest-expiring batches first while ensuring uninterrupted supply”: prioritize earlier-expiring batches; after dispensing, recheck whether the remaining quantity triggers replenishment; if there is insufficient stock, provide a dispensing plan that can be executed today and key points for escalation/reporting (do not change prescriptions without authorization, but you may propose communication suggestions with the prescriber/pharmacy).
+  
+  Note: The prompt will not contain any generic name or brand name. You must uniquely match each product in the attachment list based on dosage form/specification/indication clues, then perform calculations.
+  
+  1) Identification (sorting items that should be prioritized for near-expiry consumption):
+  (1) Identify this medication’s generic name, and query its inventory and unit price.
+  (2) In the attached inventory list, which items are injectable drugs that “clinically must be consumed first, otherwise may soon be written off due to expiry”? List the corresponding storage locations for these items in the `.xlsx`.
+  (3) In the `.docx`, explain in one sentence why these drugs must be dispensed first (write from the perspectives of patient safety and medication management; do not use technical acronym abbreviations).
+  
+  2) Calculation A (weight-based dosing conversion + FEFO + inventory verification): An immunocompromised patient has an order: IV infusion of an antiviral injection, once every 12 hours, dosed at **5 mg/kg/dose**, patient weight **62 kg**, for **2 days**. In the warehouse you can only find a “lyophilized powder for injection (must be reconstituted then IV infused)”, and this product is a near-expiry batch.
+  (1) Identify this medication’s generic name, and query its inventory and unit price.
+  (2) Calculate: how many mg are needed per dose?
+  (3) Based on this product’s strength/specification, convert to how many vials should be dispensed per dose (round up).
+  (4) For the full course, over **2 days**, how many vials total should be dispensed?
+  (5) Inventory verification: query the pre-dispensing inventory and the alert threshold; after dispensing, how many units remain? Is it below the alert threshold?
+  (6) Disposition: if it is below the alert threshold, write in the `.docx` the 2 actions that must be completed during this shift (e.g., generate an out-of-stock/replenishment reminder, and communicate with which role/position, etc.).
+  
+  3) Calculation B (specification-based conversion + course quantity + inventory verification): Another patient has an order: an injection solution used to maintain/regulate immune function, **IM qd, 2 ampoules per dose, for 10 consecutive days**. This batch is not far from expiration.
+  (1) Identify this medication’s generic name, and query its inventory and unit price.
+  (2) Calculate: how many ampoules total are required for this course?
+  (3) Inventory verification: query the pre-dispensing inventory and the alert threshold; after dispensing, how many ampoules remain? Does it trigger the replenishment threshold?
+  (4) FEFO: if the same item exists with different expiry-date batches (assume the system can display them), which batch should you prioritize? Write one sentence in the `.docx`.
+  
+  4) Calculation C (out-of-stock dispensing coordination & same-day assurance): A patient needs a vitamin-class injection due to medication-/pregnancy-related vomiting. Order: IV injection **100 mg qd × 5 days**.
+  (1) Identify this medication’s generic name, and query its inventory and unit price.
+  (2) Based on this product’s strength/specification, calculate: how many units are needed per day? Over **5 days**, how many units total are needed?
+  (3) Inventory verification: query the pre-dispensing inventory and the alert threshold; after dispensing, how many units remain? Is there a risk of out-of-stock?
+  (4) Out-of-stock handling: without changing the medical order, describe how you would coordinate for same-day execution (must include at least: the sequence of actions for dispensing-first/borrowing-transferring/substitution communication, and key documentation points).
+  
+  Submission requirements: All calculations must be traceable in the `.xlsx` (clearly show formulas or calculation steps). The `.docx` must include the basis for FEFO batch selection, out-of-stock communication counterpart(s) and time points, and a risk alert regarding continuity of the patient’s medication therapy.
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (295 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_004` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_004/01_inventory.xlsx
+mcp_question_id: v5_004

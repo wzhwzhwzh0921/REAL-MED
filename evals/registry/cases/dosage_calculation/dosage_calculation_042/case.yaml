@@ -1,0 +1,18 @@
+case_id: dosage_calculation/dosage_calculation_042
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient: A 72-year-old male with stable COPD. Arterial blood gas was drawn on room air. The arterial blood gas report is given in kPa: PaO2 8.0 kPa, PaCO2 6.8 kPa. Sea-level Patm 760 mmHg; body temperature 37°C, PH2O 47 mmHg; RQ 0.8; FiO2 0.21.
+  
+  Tasks:
+  1) Convert PaO2 and PaCO2 from kPa to mmHg.
+  2) Calculate PAO2.
+  3) Calculate A–a DO2.
+  
+  Provide a step-by-step calculation process and clearly state the unit conversion steps. Please calculate this patient’s normal_A_a_estimate_mmHg, and round the result to 1 decimal place.
+  
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

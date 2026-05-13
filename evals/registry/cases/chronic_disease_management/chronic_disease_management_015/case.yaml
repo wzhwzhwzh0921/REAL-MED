@@ -1,0 +1,25 @@
+case_id: chronic_disease_management/chronic_disease_management_015
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  At the multidisciplinary weight-management clinic (MDT), you, as a senior chronic-disease management specialist, receive Li Yue, who has just completed an initial assessment. Her chart shows: mild obesity (BMI 31.2 kg/m²), central obesity, prediabetes, mixed hyperlipidemia, and mild abnormal liver function. The endocrinologist has already ruled out common causes of secondary obesity and made a preliminary diagnosis of “primary obesity,” clearly pointing out that her core problem is a typical “emotional hunger”-driven eating behavior.
+  
+  You smile and invite Li Yue to sit down, and gently begin the conversation: “Hello, Li Yue. The doctor has just discussed the test results with you. I’d like to hear how you feel yourself, especially regarding ‘eating’.” Li Yue sighs and admits: “I actually know those things are unhealthy, and I’m not even hungry, but I just can’t control it. The more tired I am from work and the more upset I feel, the more I want to eat something to ‘reward’ myself. After eating, I regret it a lot and feel like I’ve failed.”
+  
+  As you nod in understanding, you tell her: “This actually isn’t a problem of willpower, but a very common behavioral pattern we call ‘emotional hunger.’ The good news is that since we’ve identified the issue, we can address it in a targeted way. We’re not just going to give you a simple diet plan; we’re going to work with you to tailor a ‘self-care manual’ for you, to help you become the master of your emotions and your body. Let’s first outline the framework of this manual, shall we?”
+  
+  **Patient information:**
+  - Name: Li Yue, female, 32 years old, product manager at an internet company
+  - Chief complaint: Continuous weight gain for 6 months, accompanied by fatigue and low mood.
+  - History of present illness: About 6 months ago, due to increased project-related stress, the patient gained approximately 10 kg. She perceives increased appetite, especially when feeling anxious, lonely, or fatigued from work, and experiences difficult-to-suppress urges to eat. She prefers high-sugar, high-fat foods. After eating, she experiences brief satisfaction, which is quickly replaced by strong guilt and self-disgust. She clearly states that most of the time she eats not because of physiological hunger. Therefore, she came to the newly established weight-management clinic seeking professional help.
+  - Past medical history: Mild fatty liver found on physical examination 2 years ago; history of polycystic ovary syndrome (PCOS) for 5 years; irregular menstrual cycles
+  - Current medications: Regular oral drospirenone/ethinyl estradiol tablets, used to regulate menstrual cycles
+  - Lifestyle: High work stress, often works overtime late into the night; accustomed to using high-calorie takeout (fried chicken, milk tea, desserts) to relieve anxiety and fatigue. Almost no regular exercise habits; mostly rests at home on weekends. Has tried dieting to lose weight multiple times, but each time rebounded with binge eating after 1–2 weeks due to emotional fluctuations.
+  - Vital signs: blood_pressure=135/85 mmHg；heart_rate=82 bpm
+  - Physical examination: Height 165 cm, weight 85 kg, calculated BMI 31.2 kg/m². Waist circumference 92 cm. Clear consciousness, in fair spirits. No obvious abnormalities on cardiopulmonary and abdominal examination. No purple striae on the skin; no palpable thyroid enlargement.
+  - Ancillary tests: Fasting plasma glucose 5.8 mmol/L, HbA1c 5.9%. Total cholesterol 5.9 mmol/L, triglycerides 2.5 mmol/L, LDL-C 3.8 mmol/L, HDL-C 0.9 mmol/L. Liver function: ALT 55 U/L. Thyroid function panel normal.
+  
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

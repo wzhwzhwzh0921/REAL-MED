@@ -1,0 +1,25 @@
+case_id: chronic_disease_management/chronic_disease_management_023
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  Ms. Sun, a 65-year-old patient with stage IIIC high-grade serous ovarian cancer and BRCA wild type, completed standard first-line therapy 18 months ago and achieved complete remission. Unfortunately, the disease recurred 1 year ago and was categorized as “platinum-sensitive recurrence.”
+  
+  You formulated a second-line chemotherapy regimen of “carboplatin + gemcitabine.” After 6 cycles, Ms. Sun tolerated treatment well. Follow-up CT showed a marked reduction in tumor lesions, assessed as “partial response (PR).”
+  
+  Today, Ms. Sun returns to the outpatient clinic for follow-up and appears to be in good spirits. She asks with concern: “Doctor, this chemotherapy seems to have worked well, but I’m worried it will relapse again soon. Is there anything we can do to make this effect last longer?” To maximize progression-free survival, you begin considering the next-step maintenance treatment strategy.
+  
+  **Patient information:**
+  - Name: Ms. Sun, female, 65 years old, retired teacher
+  - Chief complaint: Post–second-line chemotherapy follow-up and discussion of subsequent treatment plan.
+  - History of present illness: One year ago (i.e., 18 months after completion of first-line chemotherapy), progressive elevation of CA-125 was found on follow-up; PET-CT suggested retroperitoneal lymphadenopathy, consistent with recurrence. Genetic testing reported: BRCA1/2 germline and somatic both wild type; HRD score negative (homologous recombination proficient, HRP). As this was platinum-sensitive recurrence, she received 6 cycles of second-line chemotherapy with “carboplatin + gemcitabine.” Today is a follow-up visit 4 weeks after the last chemotherapy; the patient’s general condition is good, ECOG score 1.
+  - Past medical history: Diagnosed 2.5 years ago with stage IIIC high-grade serous ovarian cancer; underwent primary debulking surgery (PDS, R0) + 6 cycles of adjuvant chemotherapy with “paclitaxel + carboplatin,” achieving complete remission (CR). Did not receive first-line maintenance therapy. History of hypertension for 10 years, well controlled with oral valsartan.
+  - Current medications: valsartan 80mg qd
+  - Lifestyle: No smoking, no alcohol use; maintains a regular walking habit after retirement.
+  - Vital signs: blood_pressure=132/78 mmHg；heart_rate=76 bpm；temperature=36.6℃；respirations=18 次/分
+  - Physical examination: Vital signs stable; no obvious positive findings on heart/lung/abdominal examination; no palpable superficial lymphadenopathy.
+  - Ancillary tests: Complete blood count: WBC 4.5×10^9/L, Hb 115 g/L, PLT 120×10^9/L. Liver and kidney function normal. Tumor marker: CA-125 45 U/mL (850 U/mL before second-line chemotherapy). Imaging assessment (contrast-enhanced abdominopelvic CT): retroperitoneal enlarged lymph nodes reduced by 60% compared with pre-chemotherapy, meeting criteria for partial response (PR).
+  
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_010
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior endocrine surgeon. The case below describes a 58-year-old man undergoing surgery for a large catecholamine-secreting left adrenal tumor, with postoperative shock and concern for transient adrenal insufficiency; two sequential clinical scenarios are presented, and you should answer both questions in turn.
+  - 58-year-old man with coronary artery disease, 1 year of diabetes requiring ~70 units/day of basal–bolus insulin, and resistant hypertension (200/110 mmHg despite triple therapy).
+  - Biochemistry: markedly elevated 24-hour urine metanephrines and normetanephrines consistent with a catecholamine-secreting tumor.
+  - Imaging: well-circumscribed ~9–10 cm left adrenal mass without invasion or metastasis.
+  - Preoperative endocrine testing: previously normal basal cortisol and a normal 1-mg dexamethasone suppression test.
+  - Preoperative optimization: alpha-blockade with doxazosin, adjunct beta-blockade as needed, and aggressive volume expansion (isotonic saline 3 L/day for 3 days).
+  - Planned operation: resection of the left adrenal catecholamine-secreting mass.
+  - Early postoperative course: persistent hypotension despite aggressive isotonic fluids; symptoms include fatigue/dizziness and nausea; insulin needs drop dramatically with rapid glucose normalization and insulin stopped/withheld.
+  - Early postoperative labs: two early-morning serum cortisol values are low (4.75 and 3.81 µg/dL); basic metabolic panel shows mild hyponatremia and borderline hyperkalemia.
+  
+  **Q1 — Immediate steroid treatment and confirmation** Within hours after tumor removal (postoperative day 0–1), he develops persistent hypotension refractory to continued isotonic fluids, with fatigue and nausea; other causes of postoperative hypotension (bleeding, sepsis, cardiogenic shock, residual vasoplegia after catecholamine withdrawal) must also be considered and excluded. In this setting of refractory hypotension with suspected acute adrenal insufficiency after resection of a large catecholamine-secreting adrenal mass, what immediate steroid treatment should be given, what confirmatory testing/monitoring should be obtained without delaying therapy, and what key pitfalls must be avoided?
+  
+  **Q2 — Postoperative shock: cause and management** Over the first 24–48 hours after surgery, he develops persistent hypotension (e.g., systolic blood pressure 80–90 mmHg) with dizziness, profound fatigue, and nausea; he has no fever, no chest pain, and no overt bleeding (surgical drain output is minimal and hemoglobin is unchanged), yet despite continued aggressive isotonic crystalloid administration his blood pressure remains low and he requires escalating vasopressor support, alongside a dramatic drop in insulin requirements with normal capillary glucose values without hypoglycemia treatment. What is the most likely cause of this postoperative complication, and what immediate diagnostic and management steps should be taken, including whether to administer empiric stress-dose glucocorticoids?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Immediate**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (immediate steroid treatment/testing/pitfalls; postoperative shock cause, immediate diagnostics/management, empiric stress-dose decision). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_010/01_case_file.docx

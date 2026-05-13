@@ -1,0 +1,16 @@
+case_id: dosage_calculation/dosage_calculation_038
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Ms. Wang, female, 45 years old, was admitted for “postoperative ovarian cancer, planned chemotherapy.” Six months ago, she sought care for lower abdominal distension and pain; surgery and pathology confirmed epithelial ovarian cancer. Postoperative recovery has been acceptable. Over the past week, she has had no fever and no vomiting; appetite is fair. She is preparing to receive cycle 1 of the standard TC regimen (carboplatin + paclitaxel). Past history: no chronic kidney disease.
+  
+  Physical examination: height 165 cm, weight 58.0 kg; alert; vital signs stable; no obvious abnormalities on cardiopulmonary or abdominal examination; surgical scar well-healed; no lower-extremity edema.
+  
+  Laboratory tests: serum creatinine 0.7 mg/dL; other CBC and liver function tests are basically normal. Planned dosing: carboplatin at AUC 6; paclitaxel at 175 mg/m2.
+  
+  Please calculate this patient’s rounded paclitaxel dose (mg).
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

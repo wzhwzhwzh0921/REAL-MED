@@ -1,0 +1,40 @@
+case_id: soap_documentation/soap_documentation_021
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the afternoon of February 28, 2026, a 52-year-old man, Zhao Jianguo (pseudonym), a residential community property maintenance worker, presented to the dermatology clinic accompanied by his wife for evaluation of an intensely pruritic rash.
+  **Chief Complaint and History of Present Illness:**
+  The patient entered the room repeatedly scratching his waist and lateral thighs and stated with a frown: “Doctor, in the last two days I’ve developed a patch of red bumps on my body. Some even look like tiny blisters on top. It itches so badly I can’t sleep night after night. It looks like chickenpox. My grandson’s kindergarten recently said there’s chickenpox going around, and I’m scared.”
+  
+  He reported the course of illness as follows: “The night before last it started around the beltline—like I’d been bitten by something, several bumps in clusters and strings, and it gets itchier at night. Yesterday it spread—outer upper arms and outer thighs also broke out. Some have a tiny blister in the middle, like a pinprick. I can’t help scratching; after scratching I get line-like marks and a bit of scabbing, and it feels like ‘the more I scratch, the more it appears.’ But I haven’t had a fever, no sore throat, no fatigue—just itching.”
+  
+  His wife added that he has been very distressed over the past two days, wakes up at night to scratch, and she has seen blood spots on the bedsheets. They were worried about transmitting it to their grandson and have had him wear a mask and sleep separately. She also noted that recently he had been repairing items in an underground parking garage and cleaning old cardboard boxes and clutter, and that there were many mosquitoes/insects there.
+  
+  The patient stated that over the past week he has not started any new medications and has not had seafood or alcohol banquets. He denied oral ulcers and denied eye redness, itching, or pain. He also reported no rash on the scalp.
+  **Past Medical History and Family History:**
+  Past medical history includes type 2 diabetes mellitus (controlled with oral metformin) and hyperlipidemia. He has a history of recurrent “hives” that waxed and waned; he has not used systematic medications in the past two years. No known drug allergy history.
+  
+  Family history: parents are deceased (details of non-hereditary history unclear). Wife and children are generally healthy. No known family history of similar recurrent rashes or immunodeficiency disorders.
+  **Physical Examination Findings:**
+  Vital signs: T 36.8°C, P 84/min, BP 138/86 mmHg, R 16/min, SpO2 98%.
+  
+  General: Alert and oriented; overall in fair condition; visibly irritable due to marked pruritus with repeated scratching; no acute ill appearance.
+  
+  Skin: Scattered to clustered erythematous raised papules/wheal-like lesions over the waist/abdomen, upper margin of the buttocks, and the lateral upper arms/lateral thighs; lesions feel relatively firm on palpation, some fusiform in shape. A few lesions have a central pinhead-sized vesicle or a dark-red punctate “dot.” Multiple excoriations and a small amount of hemorrhagic crusting are present. The eruption is predominantly papules/wheals; vesicles are few and small. No typical herpetiform eruption on the scalp. Oral mucosa and conjunctiva without vesicles or erosions.
+  
+  Superficial lymph nodes: No cervical or axillary lymphadenopathy palpated.
+  
+  Cardiopulmonary: Regular rhythm, no murmurs; lungs clear to auscultation bilaterally.
+  
+  Abdomen: Soft, non-tender, no rebound tenderness; no hepatosplenomegaly palpated.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_021/01_attachment.pdf

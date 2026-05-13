@@ -1,0 +1,45 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_033
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  The Pharmacy Department plans to update the “Kidney-Yang Deficiency Warming-and-Tonifying Prescription Set (non–insurance-covered items)” and simultaneously handle overstocked inventory. The attached list contains 3 non–insurance-covered items: 2 are related to warming/tonifying Kidney-Yang deficiency, and 1 is for other indications but is also non–insurance-covered and has clearly excessive stock. With the goals of “same-indication drug comparison, insurance-priority and cost-effectiveness assessment, and keep/remove recommendations,” complete the following selection calculations and conclusions **without citing any drug generic name or brand name** in your narrative output (provide concise selection recommendations). Note: the stem will not contain any drug generic name or brand name; you must uniquely match each product in the attached list based on dosage form/specification/indication clues before performing calculations.
+  
+  Subquestion 1 (Matching/identification and categorization; no calculation):
+  (1) Identify the generic name of each drug and query its inventory and unit price: within the 3 non–insurance-covered items, complete identification and query one by one (3 times total).
+  (2) For each of the 3 non–insurance-covered items, write a uniquely identifiable description using “dosage form + strength/specification + key indication/syndrome points,” and categorize it into:
+  A. Kidney-Yang deficiency warming-Yang and tonifying-kidney category;
+  B. Non–Kidney-Yang-deficiency category but stocked.
+  Requirement: each product should appear only once; the description must allow a reader to uniquely map it to exactly one item using only the list information.
+  
+  Subquestion 2 (Calculation: 7-day capsule utilization and inventory reorder threshold): For the product described as “capsules, 0.3 g per capsule, for Kidney-Yang deficiency with soreness/weakness of the waist and knees, aversion to cold and cold limbs; oral, 3 capsules per dose, twice daily”:
+  (1) Identify the generic name and query inventory and unit price.
+  (2) Calculate the minimum number of capsules needed for a continuous 7-day course (dispense whole capsules only).
+  (3) Based on current stock and the reorder warning threshold, determine whether replenishment is triggered. Output: units_per_dose_exact, units_per_dose_ceil, total_units, stock_after, below_threshold.
+  
+  Subquestion 3 (Calculation: 14-day granules cost and keep/remove tendency): For the product described as “granules, 3 g per sachet, warming-Yang and tonifying the kidney for the syndrome of decline of Mingmen fire; 1 sachet per dose, three times daily”:
+  (1) Identify the generic name and query inventory and unit price.
+  (2) Calculate the number of sachets required for a 14-day course and the medication cost.
+  (3) Considering its inventory status (whether it is overstocked), provide a single-sentence recommendation of “retain / limit quantity / temporarily suspend purchasing / prioritize consumption” (based only on the list data; do not extend efficacy evidence). Output total_units and total cost.
+  
+  Subquestion 4 (Calculation: oral solution overstock drawdown and remaining inventory): For the product described as “oral solution, 6 mL contains 30 mg; 1 bottle per dose, twice daily, 30 days per course”:
+  (1) Identify the generic name and query inventory and unit price.
+  (2) For 1 patient completing 1 course, calculate the consumed volume (mL) and the course cost.
+  (3) Calculate the remaining stock after treatment and whether it is below the reorder warning threshold. Output: units_per_dose_exact, units_per_dose_ceil, total_units, stock_after, below_threshold, and conclude with a one-sentence recommendation of “prioritize consuming existing stock / maintain status quo / stop replenishment.”
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (301 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_033` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_033/01_inventory.xlsx
+mcp_question_id: v5_036

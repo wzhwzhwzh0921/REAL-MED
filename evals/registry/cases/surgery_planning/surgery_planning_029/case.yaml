@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_029
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior pancreatic surgeon. The case describes a 47-year-old man with severe blunt epigastric trauma causing major pancreaticoduodenal disruption, requiring staged operative decision-making and subsequent management of suspected pancreatic and biliary leaks.
+  - 47-year-old man with severe blunt epigastric trauma while paddle-surfing.
+  - Initial CT: hemopneumoperitoneum; injury centered on pancreatic head/uncinate region; radiologic evidence of duodenal rupture; no clear main pancreatic duct disruption on imaging.
+  - Initial emergent laparotomy at a peripheral trauma center: ~300 mL hemoperitoneum from the duodenum/pancreatic head region; >75% disruption of the second portion of the duodenum; massive pancreatic head disruption; complete transection of the main pancreatic duct at the pancreatic neck; portal vein and SMV intact.
+  - Due to physiologic instability and limited resources: temporizing hemorrhage and contamination control performed; abdomen left open with drains.
+  - Transferred 48 hours later to an HPB referral unit with a laparostomy; after ICU resuscitation he stabilizes.
+  - Ongoing concern for pancreatic duct and biliary leakage based on rising drain output that becomes amylase-rich then bilious.
+  - Re-exploration/definitive abdominal management includes closure with two closed-suction drains left in the right upper quadrant.
+  
+  **Q1 — Intraoperative decision-making** You return to the OR for re-exploration due to concern for ongoing pancreatic duct and biliary leakage. On entering the abdomen, there is diffuse intraperitoneal bile with a heavily inflamed field and markedly edematous bowel. After debridement/exposure, you identify a small extrahepatic bile duct (~4 mm) and a centered, readily identifiable main pancreatic duct (~3 mm) in a normal-consistency pancreas. In this contaminated, inflamed operative field with small-duct anatomy, what is the safest intraoperative strategy to control both biliary and pancreatic effluent—proceed with definitive reconstruction now versus staged/damage-control management—and what key technical steps and pitfalls would determine success or failure?
+  
+  **Q2 — Postoperative complication management** The patient is postoperative day 3 after definitive abdominal management and closure with two closed-suction drains left in the right upper quadrant. Over the next 24–48 hours, drain output rises to 800–1200 mL/day; the fluid is initially clear but becomes progressively amylase-rich, then turns frankly bilious. He develops fever (38.8°C), tachycardia, increasing vasopressor requirements, and declining urine output. Labs show leukocytosis, rising CRP, and mild hyperbilirubinemia; CT abdomen with IV contrast demonstrates moderate intraperitoneal fluid without a discrete abscess and no major vascular thrombosis. Drain fluid analysis shows amylase >3× the serum level and bilirubin concentration higher than serum. What is the most likely postoperative complication pattern (name it precisely) and why is it occurring? Outline: (1) the criteria and workup you would use to confirm and grade the pancreatic component and to identify ongoing biliary leakage, (2) an evidence-based stepwise management plan over the next 24–72 hours including specific source-control and nutritional strategies, and (3) concrete intraoperative and postoperative prevention strategies relevant to small-duct pancreaticobiliary reconstruction in a contaminated, edematous field?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop strategy/technical steps/pitfalls; complication pattern/diagnostic criteria+workup/stepwise management/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_029/01_case_file.docx

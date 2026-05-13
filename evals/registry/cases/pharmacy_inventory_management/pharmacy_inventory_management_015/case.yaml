@@ -1,0 +1,40 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_015
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Outpatient pharmacy prescription-audit scenario (interception of contraindicated drugs in pregnancy). A prescription is received today: female patient, 20 weeks pregnant (mid-pregnancy), chief complaint of palpitations/chest tightness and insomnia with frequent dreaming; no clear history of drug allergy. Two key items appear in the prescription: (1) an oral mixture with the effects of “tonifying qi and nourishing the heart, calming the mind and relieving palpitations” (its contraindications include “contraindicated in pregnant women” and “contraindicated in those allergic to any ingredient”; this batch is near expiry); (2) an antitumor injectable (purpose of prescribing is unclear). As the outpatient pharmacist, you need to complete the interception and intervention documentation. Note: the stem will not provide any generic name or brand name; you must uniquely match the specific product using dosage form/specification/indication clues in the attached list before performing any calculations.
+  
+  Complete the following sub-tasks and write the audit comments in the format “Prescription problem — Evidence/Basis — Handling recommendation — Communication key points” (answer each question independently):
+  
+  1) Special population review:
+  (1) Identify the generic name of this drug and query its current inventory and unit price (referring to the above oral mixture with “tonifying qi and nourishing the heart, calming the mind and relieving palpitations”).
+  (2) For a patient at 20 weeks of pregnancy, state the pregnancy-related risk points and the must-intercept rationale for this oral mixture, and provide the direction for alternative recommendations (no need to list specific product names).
+  (3) If the patient states “I drank it before and nothing happened,” explain how you should respond and document this.
+  
+  2) Dose and course numerical verification:
+  (1) Identify the generic name of this drug and query its current inventory and unit price (still referring to the above oral mixture).
+  (2) Check the package insert / drug information for the commonly used dosing regimen and course-of-treatment information, and based on that verify: if the physician’s order follows the package insert’s common regimen continuously for one course, calculate the total volume required for that course (mL).
+  (3) Determine whether the current inventory can satisfy a one-time dispensing of that course amount; after dispensing the course amount, determine whether the remaining inventory would fall below the reorder alert threshold (show the calculation process and the conclusion).
+  
+  3) Ingredient-conversion numerical problem:
+  (1) Identify the generic name of this drug and query its current inventory and unit price (still referring to the above oral mixture).
+  (2) Query the conversion information of “each 1 mL is equivalent to how much decoction pieces (饮片)” for this oral mixture, and based on that: convert the single-dose volume into the equivalent grams of decoction pieces for a single dose; and calculate the total equivalent amount of decoction pieces for the full course (grams).
+  (3) In the audit record, include a one-sentence reminder: “Dose conversion is only for communication/understanding and does not change the contraindication-based interception conclusion.”
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (271 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_015` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_015/01_inventory.xlsx
+mcp_question_id: v5_015

@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_011
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the prescription-management lead of the Rheumatology and Immunology Department at a tertiary (Grade III-A) hospital. The hospital plans to establish a standardized management clinic for eosinophilic granulomatosis with polyangiitis (EGPA). Most visitors are adult patients, often with severe asthma, nasal polyps, and multi-system involvement. Most are covered by Urban Employee Basic Medical Insurance, and are more sensitive to long-term safety, stable efficacy, and convenience of administration; some patients have limited acceptance of frequent injections and long-term high-dose glucocorticoids.
+  
+  **Formulary construction principles:**
+  - Include drugs based on NMPA-approved indications; when off-label use is involved, annotate in the table the source of evidence and the applicable boundaries.
+  - For the same generic name with multiple brands, retain only 1 representative brand; prioritize items accessible via NRDL or national-negotiation (国谈) inclusion.
+  - For each drug, label the reimbursement category (Class A/B/C) and payment attributes to facilitate pathway-based drug selection.
+  
+  **Tasks:**
+  1. Compile the drug categories for an EGPA prescription formulary, stratified by induction of remission, maintenance therapy, glucocorticoid tapering/asthma-control synergy, complication prevention, and supportive care; specify each drug class’s NMPA approval status and the evidence type for off-label use.
+  2. Provide several single-disease prescription examples, covering typical combination and sequential regimens under different treatment stages, disease burden levels, and medication-administration preferences.
+  3. Provide several prescription examples for EGPA with comorbidities or special situations, demonstrating interaction management, infection-risk control, immunosuppression-intensity stratification, dose adjustments for hepatic/renal dysfunction or hematologic abnormalities, and peri-vaccination/perioperative medication-bridging logic.
+  4. Give strong, prominent alerts on key safety risks of formulary drugs, covering severe allergy/injection reactions, myelosuppression and bleeding/thrombosis, opportunistic infections and reactivation of latent infections, reproductive toxicity/teratogenicity, vaccine-related risks, long-term glucocorticoid complications, and monitoring dimensions.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

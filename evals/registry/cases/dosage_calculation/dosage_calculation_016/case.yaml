@@ -1,0 +1,24 @@
+case_id: dosage_calculation/dosage_calculation_016
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  [Case Description]
+  1) Patient information: An elderly female in the emergency department with chronic kidney disease, presenting with nausea/vomiting and altered mental status. Note: the measured serum osmolality is the immediate result sent at arrival; the other chemistry values were drawn after 1 hour of IV fluids.  
+  - Measured osmolality: 330 mOsm/kg.  
+  - Post-fluid chemistry: Na 132 mmol/L, glucose 360 mg/dL, BUN 68 mg/dL.  
+  - Blood ethanol: not detected / not provided.
+  
+  2) Calculation tasks: Using the provided values, calculate the calculated (estimated) osmolality and the osmolal gap (OG). In your solution, explain the directional error (overestimation or underestimation of OG) that may be caused by “non-synchronized blood draw times,” and perform step-by-step calculations with itemized unit conversions.
+  
+  [Answer Format]
+  (For this question: ethanol osmolality contribution is calculated as Ethanol (mg/dL) ÷ 3.7)
+  (For this question: osmolal gap interpretation thresholds: normal −10 to +10; >15 borderline; >20 suspicious; >30 highly suspicious; >50 strongly suggests toxic alcohols)
+  (For this question: ethanol osmolality contribution = ethanol (mg/dL) / 4.6)
+  (For this question: OG normal −10 to +10; >20 suggests toxic alcohol; >30 highly suspicious)
+  (For this question: ethanol osmolality contribution is calculated as Ethanol (mg/dL) ÷ 4.6)
+  (For this question: OG normal −10 to +10; ≥20 suspicious for toxic alcohol; ≥30 highly suspicious; ≥50 strongly suggestive). Please calculate this patient’s estimated_ethylene_glycol_mg_dL, rounding to the nearest 1 mg/dL.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

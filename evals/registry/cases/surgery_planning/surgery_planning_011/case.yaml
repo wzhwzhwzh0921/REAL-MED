@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_011
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior endocrine surgeon. The case below describes a 38-year-old woman with a functional right adrenal adenoma causing unilateral primary hyperaldosteronism, undergoing elective minimally invasive adrenalectomy with perioperative decision-making challenges.
+  - 38-year-old woman.
+  - Symptoms: episodic headaches and palpitations with severe hypertension (220/130 mm Hg).
+  - Labs: profound hypokalemia (K 2.2 mmol/L) and markedly elevated aldosterone (1174 pg/mL).
+  - Imaging: contrast-enhanced CT shows a solitary, well-circumscribed 2.5-cm right adrenal mass without other abdominal lesions.
+  - Diagnosis: functional adrenal adenoma causing unilateral primary hyperaldosteronism.
+  - Preop optimization: blood-pressure control and potassium repletion.
+  - Planned operation: definitive minimally invasive right adrenal gland resection via a limited-access approach (single-site or multi-instrument shared-platform access).
+  
+  **Q1 — Intraoperative decision-making** During minimally invasive right adrenalectomy via a limited-access approach, exposure is constrained by a narrow working corridor and instrument crowding that limits effective triangulation. Dissection proceeds medially toward the inferior vena cava (IVC), and the right adrenal vein is identified adjacent to the IVC; however, due to inadequate angles and restricted retraction, safe early occlusion of the adrenal vein is difficult, raising concern for avulsion, major venous bleeding, and potential IVC injury if dissection continues without secure vascular control. At this point, how should you modify your exposure strategy, and in what sequence and with what technique would you reliably control the right adrenal vein before continuing gland mobilization, including key steps to avoid IVC injury/bleeding and clear criteria for when to add a port(s) or convert to an open approach?
+  
+  **Q2 — Postoperative complication management** After elective minimally invasive surgery for a hormonally active right adrenal mass causing severe hypertension and hypokalemia, the patient is initially awake in the post-anesthesia care unit but within 2 hours develops sudden lightheadedness and diaphoresis with deterioration in vital signs from BP 130/80 mm Hg to 78/45 mm Hg with HR 122/min; oxygen saturation is 98% on nasal cannula. Urine output falls to <0.3 mL/kg/h; the abdomen is not markedly distended, but there is increasing right flank fullness and tenderness. A closed-suction drain near the operative bed begins filling rapidly with bright red blood (approximately 250 mL over 20 minutes) after having minimal output initially; hemoglobin drops from 12.4 g/dL preoperatively to 9.1 g/dL and lactate is 4.2 mmol/L. Coagulation studies are normal, she is not on anticoagulation, hypotension persists despite a 1-L crystalloid bolus, and she requires escalating vasopressor support; point-of-care ultrasound is limited but shows no pericardial effusion and the IVC appears small and collapsible. What is the most likely cause of this early postoperative deterioration, what objective criteria should prompt immediate operative re-exploration versus continued resuscitation and imaging, and what stepwise management plan should be instituted now?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (exposure modification/vein control technique/conversion criteria; likely cause, re-exploration thresholds/imaging vs resuscitation, stepwise management). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_011/01_case_file.docx

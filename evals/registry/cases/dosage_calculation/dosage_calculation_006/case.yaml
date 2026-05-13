@@ -1,0 +1,13 @@
+case_id: dosage_calculation/dosage_calculation_006
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  A 65-year-old female (Wang Guiying), weight 60 kg, was transferred from the ED to the ICU due to “recurrent vomiting with fatigue and oliguria for 1 day, worsened over the past 3 hours.” Family reports poor oral intake over the past 3 days with frequent projectile vomiting; today she developed dizziness and cold extremities. On admission physical exam: conscious but apathetic, dry skin, delayed capillary refill. Vital signs: BP 86/52 mmHg, HR 118 beats/min, RR 18 breaths/min. Arterial blood gas: pH 7.38, PaCO2 40 mmHg, HCO3- 22 mEq/L. Electrolytes: Na 148 mEq/L, Cl 100 mEq/L. Glucose 140 mg/dL, BUN 35 mg/dL, albumin 3.8 g/dL. Measured plasma osmolality 315 mOsm/kg; ethanol 0 mg/dL. Vomiting with shock is suspected, with triple acid–base disturbances and chronic (>48 h) hypernatremia. The plan is to assess the osmolal gap and develop a fluid replacement plan.
+  
+  Calculation task:
+  Calculate this patient’s 5% dextrose (D5W) infusion rate (mL/h). Round the final result to the nearest integer.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

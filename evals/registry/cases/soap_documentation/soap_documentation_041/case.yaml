@@ -1,0 +1,38 @@
+case_id: soap_documentation/soap_documentation_041
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the evening of November 12, 2024, a 28-year-old male, Zhang Wei (pseudonym), a software engineer with an overweight body habitus, presented to the emergency department accompanied by his girlfriend. He arrived with a stiff gait, refused to sit, and instead braced himself on the edge of the exam table while leaning forward due to severe pain.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient’s chief complaint was: “Pain in the coccyx area for 5 days; now it’s severely swollen, I can’t sit at all, and I have a fever.”
+  
+  He appeared distressed and stated: “Doctor, I’ve really been suffering these past few days. I work in IT and usually sit for more than ten hours at a time. Five days ago, I felt a dull pain around my tailbone. I thought it was from sitting too long or maybe a boil, since I have a lot of hair there and I’ve had pimples before, so I didn’t take it seriously. A couple of days ago, it swelled into a big lump, and I thought it would pass if I just tolerated it.”
+  
+  He paused, wiped sweat from his forehead, and continued: “But starting yesterday something was wrong—the lump kept getting bigger, and the pain felt like there was a heart beating inside it. And I started feeling chills and fever; my temperature was almost 39 degrees. The worst part is I can’t sit now, and even lying flat hurts. And something else is strange: even though the lump is above the tailbone, today when I strained to have a bowel movement, I felt a really strong pressure and fullness inside my butt, it hurt so much I almost fainted, like something inside was blocked too.”
+  
+  His girlfriend added: “He’s usually pretty healthy, just very sedentary. This time his face turned pale from the pain, and that lump looks very red and scary. Please check quickly—does that abscess need to be cut open and drained?”
+  
+  **Past Medical History and Family History:**
+  Previously healthy. Denies history of diabetes mellitus or hypertension. Denies history of Crohn’s disease or ulcerative colitis. Habitual prolonged sitting; occasional back acne. No prior surgeries. No known drug allergies. No family history of similar conditions.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 38.9°C (axillary), heart rate 102 beats/min, blood pressure 135/82 mmHg, respiratory rate 20 breaths/min, SpO₂ 97%.  
+  General: Appears acutely ill and in significant pain; profuse diaphoresis; assumes a position of comfort (standing and leaning forward). Alert and oriented.  
+  Focused local exam (prone jackknife position):  
+  1) Inspection: In the sacrococcygeal region (just superior to the natal cleft, approximately 4–5 cm from the anal verge), there is an approximately 4 × 5 cm erythematous, swollen, raised area with marked skin tension and明显 increased local temperature; central fluctuation is present. Dense surrounding hair. Perianal skin shows no obvious external fistulous opening.  
+  2) Palpation: Severe tenderness over the erythematous swollen area (VAS 8/10).  
+  3) Digital rectal exam (DRE): Finger insertion smooth; anal sphincter tone normal. On the posterior rectal wall (6 o’clock position, above the dentate line), there is a marked sense of fullness with deep tenderness; fluctuation can be appreciated bulging toward the rectal lumen. No blood or pus on glove upon withdrawal.  
+  Urgent labs: CBC WBC 16.8 × 10^9/L, neutrophils 88%. CRP 72 mg/L.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_041/01_attachment.pdf

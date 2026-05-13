@@ -1,0 +1,19 @@
+case_id: medical_literature_review/medical_literature_review_007
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a geriatric medicine physician who has seen multiple community-dwelling older adults in the outpatient clinic and plans to implement early sarcopenia screening in a community clinic within an integrated medical consortium. However, primary care settings have limited equipment and insufficient staff training, and it is urgently necessary to clarify “which tools are most reliable, and under what conditions.” Therefore, you plan to write a meta-analysis on “the diagnostic accuracy and implementability of sarcopenia screening tools (SARC-F, handgrip strength, gait speed, BIA, etc.) in community-dwelling older adults.”
+  
+  This review must systematically compile and analyze the following core content:
+  1. A pooled summary of diagnostic accuracy for screening tools (AUC/sensitivity/specificity);
+  2. Differences across reference standards (AWGS/EWGSOP, etc.);
+  3. Implementation feasibility in resource-limited settings (time/cost/training);
+  4. Sources of heterogeneity and subgroup analyses (age/sex/region).
+  Search and include studies using the following keywords: community-dwelling older adults、sarcopenia screening、SARC-F/SARC-CalF、calf circumference、diagnostic accuracy. A standardized reference list is required at the end of the review; it is recommended to present the study selection process using a PRISMA flow diagram, to summarize accuracy and feasibility indicators for each tool using a comparison table, and to present pooled effects using forest plots/HSROC plots.
+  
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

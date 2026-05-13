@@ -1,0 +1,18 @@
+case_id: dosage_calculation/dosage_calculation_014
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 55-year-old male is returning for follow-up and is planned to receive I-131 using a fixed-activity protocol. The outside-hospital prescription form states “800 μCi”. In our hospital system, the dose must be uniformly converted to MBq for entry and the dose magnitude level must be verified.
+  
+  Calculation tasks:
+  1) Convert 800 μCi to mCi.
+  2) Then convert it to MBq (write out the conversion process and conversion factors).
+  3) State what order-of-magnitude error would occur if the μCi-to-mCi conversion were mistakenly written as ×1000.
+  4) Provide the final fixed activity (MBq) that should be entered into the system.
+  
+  Please calculate this patient’s sanitychecks.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

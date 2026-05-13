@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_021
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a nephrologist. During outpatient follow-up, you have found that a considerable proportion of adult CKD patients also have asymptomatic hyperuricemia, but there is no consensus on whether urate-lowering therapy should be routinely used to slow CKD progression. Therefore, you plan to write a systematic review/meta-analysis on this topic for clinical and academic use.
+  
+  Review topic: Should patients with asymptomatic hyperuricemia receive urate-lowering therapy to delay CKD progression?
+  
+  The review must systematically compile and analyze the following core content:
+  1. Causal evidence linking asymptomatic hyperuricemia with CKD progression;
+  2. Consistency of renal outcomes across urate-lowering RCTs (e.g., eGFR decline, ESKD);
+  3. Differences in renal outcomes among different urate-lowering drug strategies;
+  4. Subgroup effects: CKD stage, proteinuria, and baseline uric acid level.
+  
+  Search and inclusion requirements: Use the following keywords for study identification and inclusion—CKD、asymptomatic hyperuricemia、urate-lowering therapy、randomized controlled trial、ESKD/renal outcomes. At the end of the review, provide a standardized reference list.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

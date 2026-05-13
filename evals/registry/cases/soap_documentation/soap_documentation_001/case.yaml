@@ -1,0 +1,44 @@
+case_id: soap_documentation/soap_documentation_001
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior attending physician in the Emergency Department. On the morning of November 12, 2024, a 28-year-old man, Mr. Zhang (pseudonym), arrived urgently with the assistance of a coworker. Based on the following clinic conversation summary, chief complaint/history, and physical examination findings, analyze the patient’s condition and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  Mr. Zhang is a software engineer. He appears pale and anxious. He is tightly holding a blood-stained plastic bag. Chief complaint: “sudden ‘vomiting blood’ for 3 hours.”
+  
+  In a slightly trembling voice, Mr. Zhang stated: “Doctor, I must have ruined my stomach by drinking. Last night our department had a dinner; I was happy and drank 4 bottles of beer, and I also ate very spicy beef-tallow hotpot. At the time I already felt a burning sensation in my stomach, then I went back and fell asleep.”
+  
+  “This morning after I woke up, I was going to the bathroom, and suddenly my throat felt itchy. Before I even had time to feel nauseated or retch, a mouthful of fresh blood surged straight up. I couldn’t control it and kept vomiting it out. I vomited about half a mineral water bottle’s worth (about 200 mL), all bright red. It looked terrifying, and it seemed to be mixed with a bit of foam. After vomiting, I felt palpitations and dizziness, my mouth was full of a rusty taste, and my chest also felt a bit tight.”
+  
+  His coworker added: “Doctor, it was terrifying—the sink was all red. Mr. Zhang is usually under a lot of work pressure. Even though he’s young, he has a long-standing stomach problem. Did the drinking cause a gastric perforation or gastrointestinal bleeding? Please take a look quickly—does he need an urgent gastroscopy?”
+  **Past Medical History and Family History:**
+  Past medical history: Pulmonary tuberculosis 10 years ago; cured after a standardized anti-tuberculosis treatment course. Gastroscopy at an outside hospital 2 years ago diagnosed “chronic superficial gastritis.”
+  
+  Personal/social history: Smokes approximately 5 cigarettes per day; occasional alcohol use.
+  
+  Allergies: Allergic to penicillin.
+  
+  Family history: Father has a history of hypertension; mother is healthy. No family history of hereditary bleeding disorders.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 37.5°C (axillary), heart rate 102 beats/min, blood pressure 115/75 mmHg, respiratory rate 20 breaths/min, SpO2 96% (on room air, no supplemental oxygen).
+  
+  General: Alert and oriented; tense/anxious. Palpebral conjunctiva and nail beds slightly pale. Skin moist; no jaundice; no spider angiomas; no palmar erythema.
+  
+  Head and neck: Pharynx without hyperemia; tonsils not enlarged. Trachea midline.
+  
+  Cardiopulmonary: Regular rhythm; tachycardic; no pathologic murmurs over valve auscultation areas. Breath sounds clear bilaterally; slightly coarse breath sounds in the right upper lung; a small amount of fine moist rales at the end of deep inspiration; no other dry or wet rales in remaining lung fields.
+  
+  Abdomen: Flat; no visible gastrointestinal contour or peristaltic waves. Abdomen soft; mild deep tenderness in the subxiphoid (upper abdomen/epigastric) region; no rebound tenderness or guarding. Liver and spleen not palpable below costal margins; Murphy sign negative. Bowel sounds hyperactive, approximately 5–6/min.
+  
+  Neurologic: Physiologic reflexes present; no pathologic signs elicited.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_001/01_attachment.pdf

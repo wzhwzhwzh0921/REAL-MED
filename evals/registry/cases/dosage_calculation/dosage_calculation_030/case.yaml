@@ -1,0 +1,12 @@
+case_id: dosage_calculation/dosage_calculation_030
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Ms. Wang, female, 78 years old, height 158 cm, weight 54 kg. Chief complaint: “fatigue, nausea, and decreased urine output for the past 1 week.” Past history: on maintenance peritoneal dialysis; in the past week she reports no obvious change in dialysis execution. History of present illness: fatigue with poor appetite and mild head distension; no fever or cough. 24-hour urine output is approximately 650 mL; as required, a complete 24-hour urine collection (1440 min) was obtained and sent for testing. Physical examination: alert; mildly dehydrated appearance; blood pressure on the high side; no obvious rales on cardiac/pulmonary exam; abdomen soft without tenderness; dialysis catheter exit site clean; no obvious lower-extremity edema. Ancillary tests: blood urea nitrogen elevated; urine urea 950 mg/dL, plasma urea 210 mg/dL. Dialysis adequacy record: weekly peritoneal Kt/V is 1.62; this time the “daily pathway” calculation was not used, and daily peritoneal Kt/V is recorded as 0.0/day.
+  
+  Please calculate this patient’s data_quality_flags.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

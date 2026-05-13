@@ -1,0 +1,12 @@
+case_id: dosage_calculation/dosage_calculation_028
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Ms. Wang, female, 46 years old, was admitted for “peritoneal dialysis follow-up to assess adequacy for 1 week.” Past history: chronic renal failure on continuous ambulatory peritoneal dialysis (CAPD). Over the past 2 months, she reports reduced fatigue; appetite is acceptable; no fever or cough; no obvious edema; urine output remains relatively high. Height 165 cm, weight 63 kg. Physical exam: alert and oriented; blood pressure stable; no significant abnormalities on cardiac/pulmonary auscultation; abdomen soft without tenderness; dialysis catheter exit site clean; no pitting edema in both lower extremities. Ancillary tests: this week’s peritoneal dialysis weekly Kt/V is 1.45 (recorded daily peritoneal dialysis Kt/V is 0.0). A 24-hour urine sample was collected (collection time 1440 min): urine volume 1500 mL; urine urea 600 mg/dL; concurrent blood urea 80 mg/dL.
+  
+  Please calculate this patient’s dataqualityflags.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

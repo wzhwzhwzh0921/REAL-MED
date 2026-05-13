@@ -1,0 +1,19 @@
+case_id: medical_literature_review/medical_literature_review_003
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a nephrologist. Over the past year in outpatient practice, you have managed multiple end-stage kidney disease (ESKD) patients who have newly initiated hemodialysis. Due to limitations in dialysis station availability and transportation costs, some patients wish to start with twice-weekly dialysis and then gradually increase the dialysis dose. You therefore plan to write a meta-analysis on “Outcomes of incremental hemodialysis versus conventional thrice-weekly hemodialysis in incident end-stage kidney disease patients in the context of providing hemodialysis services in county-level settings.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Comparison of mortality outcomes between incremental HD and conventional thrice-weekly HD;
+  2. Hospitalization rate and risk of cardiovascular events;
+  3. Preservation of residual kidney function and rate of decline;
+  4. Changes in quality of life and patient burden.
+  
+  Search and include studies using the following keywords: end-stage kidney disease、incremental hemodialysis、incident hemodialysis、residual kidney function、mortality/hospitalization/quality of life. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

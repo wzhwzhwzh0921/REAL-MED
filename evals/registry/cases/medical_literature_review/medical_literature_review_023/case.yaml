@@ -1,0 +1,22 @@
+case_id: medical_literature_review/medical_literature_review_023
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a hematologist who has seen multiple patients with relapsed/refractory hematologic malignancies in the outpatient setting. Some patients are planned to receive CAR-T therapy, but you have also observed real-world barriers to implementation due to in-hospital payment pathways, patients’ out-of-pocket burden, and payers’ concerns about financial risk to insurance funds. Therefore, you plan to write a narrative literature review on “Health economic evidence and health insurance reimbursement/payment models (outcomes-based payment/risk-sharing) for CAR-T therapy” to support clinical and policy discussions and facilitate practical implementation.
+  
+  This review focuses on: “Health economic evidence and health insurance reimbursement/payment models (outcomes-based payment/risk-sharing) for CAR-T therapy.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. The landscape of cost-effectiveness evidence for CAR-T (payer perspective);
+  2. Budget impact analysis frameworks and key parameters;
+  3. Outcomes-linked / installment payment models and outcome endpoints;
+  4. Differences between Chinese and international payment policies and implementation barriers.
+  
+  Search and include literature using the following keywords (as written): CAR-T、cost-effectiveness、budget impact、outcomes-based payment/MEA、China reimbursement. A standardized reference list is required at the end of the review; it is recommended to summarize CEA/BIA elements across studies in an evidence-matrix table and to present an in-hospital “access—settlement—follow-up—outcome verification” payment closed loop using a flowchart.
+  
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

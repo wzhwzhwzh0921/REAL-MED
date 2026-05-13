@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_036
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a dermatologist at a tertiary (Grade A) hospital. Please prepare a lecture PPT on moderate-to-severe plaque psoriasis (including key management points related to psoriatic arthritis), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: immune-mediated chronic disease and relapsing inflammatory characteristics, comorbidity risks and key points in cardiometabolic management, severity assessment framework and application of the 10-point scale, pre–systemic-therapy screening and follow-up monitoring key points.
+  **Visual materials**: flowchart of assessment → 10-point scale → pre-medication TB/HBV screening; diagram of stepwise biologic selection and treat-to-target (T2T) assessment; chart of psoriasis prevalence in China and current outpatient coverage status.
+  **Constraints & format**: 14–18 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–18 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (immune-mediated chronic disease and relapsing inflammatory characteristics, comorbidity risks and key points in cardiometabolic management, severity assessment framework and application of the 10-point scale, pre–systemic-therapy screening and follow-up monitoring key points).
+  3. Include the visual materials specified (flowchart of assessment → 10-point scale → pre-medication TB/HBV screening; diagram of stepwise biologic selection and treat-to-target (T2T) assessment; chart of psoriasis prevalence in China and current outpatient coverage status).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_036/01_template.pptx

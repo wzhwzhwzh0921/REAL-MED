@@ -1,0 +1,50 @@
+case_id: soap_documentation/soap_documentation_016
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior attending psychiatrist. On the morning of February 28, 2026, a 28-year-old male software programmer, Chen Hao (pseudonym), presents for evaluation accompanied by his girlfriend. Based on the following clinic interview summary, chief complaint/history, and physical examination findings, analyze his condition and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  The patient presents with the chief complaint: “I recently can’t control myself from repeatedly checking the door lock and computer permissions, and I keep feeling like someone is talking in my head.”
+  
+  On entering the room, he held his back very straight, gripped a stack of printed papers, and repeatedly checked whether his phone camera was covered.
+  
+  He first explained that approximately 6 months ago, during an intensive project deadline period, he began repeatedly checking the door lock, the gas, and whether online access permissions had been altered by someone. He stated that although he knew it “might not be necessary,” if he did not check he would feel panicked. He would need to confirm things “a dozen times back and forth,” spending 1–2 hours per day. He reported that after checking he “can breathe easier,” but soon feels something is still wrong, “like I missed something.”
+  
+  Over the past 6 weeks, his speech became more urgent: he reported this is no longer casual checking but “a whole procedure.” Before leaving home, he must touch the doorknob seven times in sequence, then pat his pockets to confirm his work badge; he stated he cannot skip a step, and if interrupted he has to start over. He reported coworkers said he constantly refreshes the permissions page at his desk and talks to himself. He said he is not doing it on purpose; rather, there is a “prompt” in his head, like a system pop-up, urging him to “check again.” He stated that sometimes he cannot tell whether it is his own thought or not, but “it just pops up.”
+  
+  His girlfriend, appearing clearly exhausted, added that recently he talks less with others and does not attend group dinners. She reported that last week it worsened: he slept only 3–4 hours per night, became suddenly irritable, and said the company intranet has a “hidden module” that records what he is thinking. He unplugged the router and wrapped the phone camera with tissue. When they tried to persuade him to stop, he became emotionally cold, “as if we were being childish.”
+  
+  The patient further stated: “This isn’t me overthinking—I can feel someone is watching. It’s not like anxiety; it’s… the fact is just like that. I have to verify all the permissions again; otherwise if something happens it’ll be pinned on me.” When asked whether it could be “just stress,” he paused for a few seconds, looked away, and said, “You doctors may not be able to see that level,” then turned back and repeatedly emphasized that “the procedure can’t be wrong.”
+  
+  He denied alcohol use and any medication/drug/toxin use. He denied suicidal ideation and homicidal ideation.
+  **Past Medical History and Family History:**
+  Past medical history: seasonal allergic rhinitis. Insomnia during college; did not receive systematic evaluation/treatment.
+  
+  Surgical history: none reported.
+  
+  Allergies: no known drug allergies.
+  
+  Family history: per girlfriend, one uncle “previously had some mental problems,” details unclear.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.7℃; Heart rate 96/min; Blood pressure 128/84 mmHg; Respiratory rate 18/min; SpO2 99%.
+  
+  General: medium build; clothing fairly neat but appears fatigued. Cooperative/engageable; gaze shifts; occasional pauses when answering. Mild psychomotor tension observed.
+  
+  Cardiopulmonary: heart sounds strong, regular rhythm; lungs clear to auscultation bilaterally, no rales.
+  
+  Abdomen: soft, non-tender, no rebound; liver and spleen not palpable below costal margins.
+  
+  Neurologic: alert; orientation largely intact; cranial nerves without abnormalities; normal limb strength and tone; no pathologic reflexes elicited.
+  
+  Mental status: speech rate alternates between fast and slow; thinking sometimes circumstantial/looping, with occasional non–goal-directed answers; affect somewhat blunted/flat. When discussing “being monitored/the prompting voice,” shows limited overt tension or worry. Reports the “prompting voice” is more like an experience arising within the mind and is difficult to stop voluntarily.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_016/01_attachment.pdf

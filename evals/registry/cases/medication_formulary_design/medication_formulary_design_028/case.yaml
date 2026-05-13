@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_028
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the lead clinical pharmacist in the Department of Neurology at a Grade III Class A hospital. Your institution is building a multidisciplinary diagnosis-and-treatment (MDT) center for amyotrophic lateral sclerosis (ALS), providing full-disease-course management for adult patients while also addressing precision-medicine needs for specific gene-mutation subpopulations. Most patients are covered by the local rare-disease protection program, but there are differences in out-of-pocket affordability and drug accessibility for high-cost therapies, and patients’ acceptance varies for invasive administration routes or those requiring special conditions.
+  
+  **Formulary construction principles:**
+  - Include drugs within the scope of NMPA-approved indications; if off-label use is involved, annotate the evidence level and the guideline/consensus source, as well as the applicable boundaries and informed-consent key points.
+  - For representative brand selection, prioritize accessibility of NRDL-listed and national-negotiation drugs; in principle, retain only one representative brand per generic name.
+  - Label reimbursement category (Class A/B/C or local formulary) and payment attributes item by item, and in the remarks explain administration requirements and in-hospital feasibility constraints.
+  
+  **Tasks:**
+  1. Compile the drug categories for this disease formulary; stratify by therapeutic positioning, and describe each category’s NMPA approval status and off-label basis.
+  2. Provide several single-disease prescription examples, covering typical combinations across different treatment stages and patient scenarios.
+  3. Provide several prescription examples for cases with comorbidities or special situations, explaining the logic for drug selection and dose-adjustment considerations.
+  4. Give strong warnings about the key safety risks of the formulary drugs, and specify the risk dimensions that must be covered.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

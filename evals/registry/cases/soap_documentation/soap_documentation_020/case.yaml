@@ -1,0 +1,39 @@
+case_id: soap_documentation/soap_documentation_020
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior dermatologist. On the morning of February 28, 2026, a 49-year-old woman, Zhou Yaqin (pseudonym; middle school logistics administrator), presented to the clinic accompanied by a coworker. Based on the following clinic conversation summary, chief complaint/history, and physical examination findings, analyze her condition and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient entered the room consistently guarding her right flank/abdomen with her right hand and walked with some stiffness. Chief complaint: “After applying a pain-relief patch on my right waist/flank, I developed a large area of redness and small blisters. It’s painful and burning. It’s been 3 days.”
+  
+  She stated: “A few days ago I moved a bunch of buckets and cardboard boxes, and my right lower back felt sore. I thought I had strained it. That night, the skin felt a bit like needle-pricks and numbness, and when clothes rubbed against it it felt very uncomfortable, but I didn’t take it seriously. The next day I went to a pharmacy and bought a medicated patch. I applied it over this area from the right waist to the outer side of the abdomen. After about half a day, I took it off and saw a red patch with a pretty sharp border, like it had been burned. It was mainly burning and painful, not very itchy. I thought it must be an allergy to the patch, so I took some anti-allergy medicine and also applied some ointment.”
+  
+  Her coworker added: “Yesterday at work she kept frowning—she couldn’t sit or stand comfortably. She said it was worse at night, like electric shocks, coming in waves, and she said it ‘shoots from the right waist toward the front.’ When clothing touched her she would cry out in pain. We were worried she might have a skin infection.”
+  
+  The patient further said: “Today there are more little blisters, and a few seem connected in a line. I haven’t really had much of a fever—just feel slightly warm. In the past, I also got a small red rash after using a certain type of patch, but that time it was mainly itchy. This time the pain is unbearable and I can’t sleep.”
+  
+  Please complete the SOAP note for this visit based on the above information (S: Subjective, O: Objective, A: Assessment/Differential Diagnosis, P: Plan).
+  
+  **Past Medical History and Family History:**
+  Type 2 diabetes mellitus for 5 years; on oral metformin with fair control. Hashimoto’s thyroiditis; long-term levothyroxine replacement. History of mild allergic rhinitis. Patient reports prior localized erythema/rash after applying a certain topical analgesic patch (suspected related to adhesive); no formal evaluation. No surgical history. Denies any known drug allergies (other than the above patch reaction). Family history: both parents have chronic diseases (hypertension / elevated lipids); no family history of immunodeficiency or hereditary skin disease.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 37.4°C; heart rate 88/min; blood pressure 136/84 mmHg; respiratory rate 18/min; SpO2 99%.
+  General: Alert and oriented; activity limited due to pain; appears distressed.
+  Skin: On the right waist extending to the right lateral abdomen, there is a patchy erythematous area approximately 8 × 14 cm, with multiple clustered 1–3 mm clear vesicles; some arranged in a band-like distribution. Lesions are confined to the right side and do not cross the abdominal midline. Local skin temperature slightly increased; no obvious excoriations.
+  Abdomen: Soft; no tenderness or rebound; normal bowel sounds. Marked tenderness to light touch over the right abdominal wall; no fixed focal tenderness on deep palpation.
+  Lymph nodes: No obvious enlargement of superficial lymph nodes.
+  Neurologic: Light touch over the corresponding right-sided area can provoke pain; clearly less on the contralateral side for comparison. Normal strength and tone in all extremities.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_020/01_attachment.pdf

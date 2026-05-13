@@ -1,0 +1,60 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_039
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Outpatient/Emergency Department Formulary Selection Task Notice (winter peak season for upper respiratory infections): There are currently 7 “non–insurance-covered” items circulating within the hospital. Two of them are near expiry. Under the principles of “symptomatic treatment related to colds/upper respiratory infections, short-course use, and prioritizing insurance-covered options,” you must complete same-scenario medication positioning, cost-effectiveness and inventory-risk assessment, and provide recommendations on whether to include them in the formulary and how to handle them (prioritize substitutability, controllable cost, and near-expiry consumption strategies). Note: The stem will not contain any generic or brand names; you must uniquely match each item to a specific product in the attached list based on dosage form/specification/indication clues, and only then perform calculations.
+  
+  1) A Chinese patent medicine is in “water-honeyed pill (水丸)” form. Its indications emphasize “clearing heat and calming the liver, relieving adverse rising and stopping pain,” used for headache, dizziness/vertigo, irritability, etc., and it is contraindicated in pregnancy/lactation, children, and patients with hepatic/renal insufficiency. Complete:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) From the perspective of “URTI symptomatic medications,” judge whether it is suitable as a routine stocked item in outpatient/emergency settings.
+  (3) Considering its non–insurance-covered status, provide a formulary selection recommendation (include / do not include / restricted use) and key reasons.
+  
+  2) An antibacterial drug is an “enteric-coated capsule.” The outpatient/emergency department plans to use it for patients with acute pharyngitis, with a short-course physician order (dose and frequency). Complete:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) Based on the physician order, calculate how many capsules should be dispensed (round up to a whole capsule).
+  (3) Based on the inventory and the replenishment alert threshold, determine whether the stock will fall below the threshold after this dispensing.
+  (4) Provide near-expiry management recommendations (e.g., prioritize use / substitution strategies).
+  
+  3) A pediatric cough suppressant/expectorant syrup is planned for use in 3 pediatric patients in outpatient/emergency, with a short-course physician order (dose and frequency). Complete:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) Based on the physician order, calculate the total volume to be consumed (mL) and convert it into the number of bottles (round up to a whole bottle).
+  (3) Verify whether the remaining inventory after dispensing is still above the alert threshold.
+  (4) Considering “overstock + non–insurance-covered,” propose formulary handling recommendations (retain but limit / reduce par level / remove, etc.).
+  
+  4) An oral powder, used for “elderly dyspnea/asthma-like symptoms, consumptive fatigue cough, chest fullness and depression,” with dosing: 3 g per dose, twice daily. Outpatient/emergency plans to dispense for 10 days. Complete:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) Calculate the total grams needed for one patient for 10 days and the number of sachets to dispense (round up to a whole sachet).
+  (3) Given its “overstock” inventory status, propose whether it should be positioned as a winter outpatient/emergency URTI symptomatic backup (e.g., restricted to specific populations only).
+  
+  5) An effervescent tablet mainly used for multiple bleeding disorders. Complete:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) Explain the mismatch between its indications/use scenarios and “winter URTI symptomatic medications.”
+  (3) Provide a formulary selection conclusion and an inventory disposition direction (e.g., retain for specialty use / transfer / no further purchasing).
+  
+  6) A granule formulation indicated for stroke-related conditions (including hemorrhagic cerebrovascular disease), and its expiry date is approaching. Complete:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) For “outpatient/emergency URTI formulary selection,” state whether to include it.
+  (3) If not included, propose near-expiry handling (e.g., restrict prescribing departments, prioritize consumption, return/exchange/transfer) and key risk reminders.
+  
+  7) A chewable tablet used for hyperlipidemia and symptoms related to phlegm-dampness and blood stasis; near expiry. Complete:
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) From the perspective of this URTI symptomatic medication selection, provide the basis for not including it.
+  (3) Propose near-expiry consumption and replenishment strategies (whether to pause procurement, whether to set par level to 0, etc.).
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (271 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_039` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_039/01_inventory.xlsx
+mcp_question_id: v5_042

@@ -1,0 +1,16 @@
+case_id: dosage_calculation/dosage_calculation_034
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  A 52-year-old male, Wang Jianguo, weight 118 kg, was brought to the emergency department by family due to “sudden right-sided limb weakness with slurred speech for 1 hour.” The onset occurred while resting at home: sudden facial droop, difficulty lifting the right upper limb, and slurred speech. No seizures and no disturbance of consciousness. No prior history of stroke.
+  
+  Physical examination: alert; speech slurred; right facial paralysis; right upper limb muscle strength grade 3, right lower limb grade 4; left side normal. NIHSS assessment is consistent with acute ischemic stroke features. Emergency head CT shows no hemorrhage. CTA suggests decreased perfusion in branches of the left middle cerebral artery. Blood glucose and electrolytes show no significant abnormalities.
+  
+  Intravenous thrombolysis is planned using alteplase per the stroke protocol, but the total dose must be capped at 90 mg. The pharmacy dispenses a 100 mg/vial formulation. After thrombolysis, the remaining wasted drug volume must be calculated.
+  
+  Please calculate this patient’s waste_amount_mg, rounded to 1 decimal place.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_002
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a thoracic oncology physician. In outpatient practice you have seen multiple previously treated patients with extensive-stage small cell lung cancer (ES-SCLC) and found that available treatment options are limited. Meanwhile, SEZ6-targeting antibody–drug conjugates (ADCs) (e.g., ABBV-706) have shown relatively strong response signals in early studies, but the results vary substantially across different data cutoffs. You therefore plan to write a scoping review for clinical/academic readers to summarize and appraise the early clinical evidence, support treatment decision-making and research planning, and clarify inconsistencies across trials.
+  
+  Review topic: Early clinical evidence for SEZ6-targeting antibody–drug conjugates (ABBV-706, etc.) in extensive-stage small cell lung cancer.
+  
+  The review must systematically compile and analyze the following core content:
+  1. SEZ6-targeting ADC pipeline landscape and R&D evolution;
+  2. Consistency and heterogeneity of efficacy outcomes across early-phase trials (e.g., ORR/PFS, etc.);
+  3. Feasibility of biomarker testing and threshold definitions for SEZ6;
+  4. Safety profile and management of ADC-related adverse events (referencing the “抗体药物偶联物治疗恶性肿瘤临床应用专家共识（2020版）”).
+  
+  Search and include studies using the following keywords: SCLC/小细胞肺癌、SEZ6、antibody-drug conjugate/ADC、phase I/early clinical trial、biomarker. A standardized reference list must be provided at the end of the review; present the study-selection process using a PRISMA-ScR flow diagram; provide an evidence matrix table comparing ORR/PFS and inclusion criteria across studies; and summarize SEZ6 testing methods and specimen pathways using a testing workflow diagram.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

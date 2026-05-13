@@ -1,0 +1,23 @@
+case_id: chronic_disease_management/chronic_disease_management_026
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  Master Sun, age 70, is a COPD patient with a 10-year history who is currently on LAMA/LABA dual bronchodilator maintenance therapy. Although he feels his day-to-day dyspnea is fairly well controlled (mMRC 2, CAT 18), he was hospitalized 6 months ago for a severe acute exacerbation. Today he comes for an outpatient follow-up visit and hopes the doctor can assess whether his treatment plan needs adjustment to prevent another hospitalization.
+  
+  You carefully review his medical records and today’s test results. Spirometry shows severe airflow limitation (GOLD 3), and one value in the complete blood count catches your attention: the peripheral blood eosinophil (EOS) count is 75 cells/μL.
+  
+  **Patient information:**
+  - Name: Master Sun, male, 70 years old, retired carpenter
+  - Chief complaint: Routine follow-up as instructed, to assess the next-step treatment plan
+  - History of present illness: The patient has had COPD for 10 years and has been on long-term, regular LAMA/LABA dual bronchodilator therapy. He feels daily symptoms are reasonably controlled. However, 6 months ago he was hospitalized once for “cough, yellow purulent sputum, and worsening dyspnea,” diagnosed as an “acute exacerbation of COPD,” and after discharge he continued the original regimen. Over the past 6 months, there have been no further acute exacerbations requiring antibiotics or systemic steroids. Current mMRC (modified Medical Research Council Dyspnea Scale) score is 2, and CAT (COPD Assessment Test) score is 18.
+  - Past medical history: Chronic obstructive pulmonary disease (GOLD 3, Group E) for 10 years; hypertension for 5 years; 40-year smoking history, quit 2 years ago
+  - Current medications: Indacaterol/glycopyrronium inhalation powder (LAMA/LABA) once daily; amlodipine besylate tablets 5mg once daily
+  - Lifestyle: Retired at home; can do slow walking daily, but becomes short of breath when going up to the second floor or walking fast. Has chronic cough with small amounts of white sputum.
+  - Vital signs: blood_pressure=132/78 mmHg；heart_rate=76 bpm；respiratory_rate=18 次/分；spo2=94% (at rest, room air)
+  - Physical examination: Alert and oriented; no cyanosis of the lips. Barrel chest. Breath sounds coarse bilaterally, prolonged expiratory phase, scattered dry rales; no wet rales. Regular heart rhythm, no murmurs. No lower-extremity edema.
+  - Ancillary tests: Complete blood count: WBC 6.8×10^9/L, absolute eosinophil count 75 cells/μL (0.075×10^9/L), neutrophils 65%. Pulmonary function test (post-bronchodilator): FEV1 1.25L (45% predicted), FEV1/FVC 55%.
+  
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

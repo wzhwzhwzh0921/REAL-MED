@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_012
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Head of the Medical Affairs Department at a Grade A tertiary hospital in the Guangdong–Hong Kong–Macao Greater Bay Area. Leveraging the “Hong Kong–Macao Drug and Device Access” (港澳药械通) pathway, you are establishing a multidisciplinary diagnosis and treatment center for hypophosphatasia (HPP). The center serves infants, children, and adult patients with clearly heterogeneous ability to pay, relying mainly on coordinated payment between commercial insurance and local supplementary medical insurance. Some patients have limited acceptance of long-term injections and follow-up monitoring.
+  
+  **Formulary construction principles:**
+  - Prioritize inclusion of medications with NMPA-approved indications; for off-label use, the formulary must annotate the evidence source, level of evidence, and applicable boundaries.
+  - For each generic name, select 1 representative brand; prioritize those listed in the NRDL and with higher in-hospital accessibility.
+  - Label the reimbursement category and payment attributes item by item, and map them to key points for the applicable population.
+  
+  **Tasks:**
+  1. Systematically review formulary drug categories for HPP prescriptions, present them in tiers by therapeutic positioning, and state each category’s NMPA approval status and an evidence framework for off-label use.
+  2. Develop several single-disease prescription examples covering different treatment stages and typical combinations under different medication-pathway choices, reflecting adjustment logic and follow-up timepoints.
+  3. Develop several prescription examples for comorbidities or special situations, explaining the rationale for drug selection and for dose/frequency adjustments, as well as monitoring trigger points.
+  4. Highlight key safety risks of formulary medications prominently, covering allergy and administration reactions, drug–drug interactions, electrolyte/acid–base disorders, organ-function impact, long-term monitoring, and risks related to discontinuation or switching.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

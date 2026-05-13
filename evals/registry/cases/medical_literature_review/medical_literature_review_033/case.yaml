@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_033
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are an emergency physician who has seen multiple adult patients presenting with acute chest pain in the outpatient/emergency setting. Over the past six months, after implementing the high-sensitivity cardiac troponin (hs-cTn) 0/1-hour algorithm, discharge throughput has improved; however, a small number of cases of “early discharge followed by readmission/adverse events” have occurred, and there is also controversy regarding the comparability of results across different hospital campuses and different testing platforms. Therefore, you plan to write a systematic review for clinical and academic use, aimed at informing emergency department practice and quality/safety management, on the topic below.
+  
+  Systematic Review Topic: Diagnostic accuracy and safety of the hs-cTn 0/1-hour algorithm for emergency chest pain patients in the context of promoting mutual recognition of laboratory test results.
+  
+  The review must systematically compile and analyze the following core content:
+  1. Pooled summary of the diagnostic accuracy of the 0/1-hour algorithm;
+  2. Mis-triage (misclassification) rate and 30-day adverse outcomes;
+  3. Consistency across different hs-cTn methodologies and mutual recognition/interoperability of results;
+  4. Impact of threshold setting and population heterogeneity.
+  
+  Search and inclusion should use the following keywords: 急诊胸痛、high-sensitivity troponin、0/1-hour algorithm、acute myocardial infarction、diagnostic accuracy. A standardized reference list is required at the end of the review; it is recommended to present the screening process using a PRISMA flow diagram, use summary tables to compare sensitivity/specificity and outcome definitions across studies, and use stratified forest plots to show differences across testing platforms/institutions.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

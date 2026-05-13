@@ -1,0 +1,42 @@
+case_id: soap_documentation/soap_documentation_031
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior pulmonologist. On the afternoon of May 20, 2024, 34-year-old kindergarten teacher Lin Xiaoya (pseudonym) presented to the clinic accompanied by her husband. Based on the following clinic dialogue summary, chief complaint/history, and physical examination findings, analyze the patient’s condition and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  Ms. Lin appeared haggard and somewhat short of breath while speaking. Her chief complaint was: “Recurrent low-grade afternoon fever, abdominal distension with weight loss for 1 month, worsened over the past 10 days.”
+  
+  Ms. Lin anxiously told you: “Doctor, I’m wondering if my old problem has come back. Eight years ago I took medication for 9 months because of latent tuberculosis. Over the past month, I start to run a fever every afternoon around 3–4 pm. The temperature isn’t very high—around 37.8°C—but I feel terrible. At night when I sleep, I get drenching night sweats; when I wake up, my pajamas are soaked and I could wring water out of them.”
+  
+  She pointed to her abdomen and continued: “The strangest thing is I’ve had no appetite at all lately. The scale shows I’ve lost 5 kilograms, but my belly is getting bigger and bigger instead. I can’t even button the waist of skirts that used to fit. Now if I move even a little, like climbing one flight of stairs, I feel like I can’t catch my breath, and my abdomen feels so bloated it’s about to burst.”
+  
+  Her husband added: “Doctor, she usually has great energy when working with kids at the kindergarten. But lately she’s been looking paler and paler, and she’s weak even when talking. Also, two days ago when I was massaging her neck, I felt a few small bumps behind her neck—no pain or itching. I’m not sure if it’s related.”
+  **Past Medical History and Family History:**
+  Past medical history: Diagnosed with “polycystic ovary syndrome (PCOS)” 5 years ago. Eight years ago, due to a strongly positive tuberculin test and a contact history, she was diagnosed with “latent tuberculosis infection” and was treated with isoniazid monotherapy for 9 months. History of iron deficiency anemia.
+  
+  Allergies: Allergic to “sulfonamide drugs.”
+  
+  Family history: Both parents are alive; no family history of hereditary disease.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 37.8°C, heart rate 96 beats/min, blood pressure 110/70 mmHg, respiratory rate 22 breaths/min, pulse oximetry 95% (room air).
+  
+  General: Alert and oriented; chronically ill appearance; pale palpebral conjunctivae. Mild temporal muscle wasting. No skin rash or petechiae noted.
+  
+  Head and neck: Multiple enlarged lymph nodes palpable in the bilateral posterior cervical triangle regions, approximately 1.0–1.5 cm in diameter, rubbery/firm in consistency, non-tender, fairly mobile, not matted.
+  
+  Chest: Dullness to percussion over the right lower lung field; markedly decreased breath sounds in the right lower lung. Left lung breath sounds clear.
+  
+  Abdomen: Marked abdominal distension; no dilated abdominal wall veins. Abdomen soft, without clear tenderness or rebound tenderness. Liver palpable 2 cm below the costal margin. Spleen markedly enlarged, palpable 4 cm below the costal margin, relatively firm. Shifting dullness positive.
+  
+  Extremities: No bilateral lower-extremity edema.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_031/01_attachment.pdf

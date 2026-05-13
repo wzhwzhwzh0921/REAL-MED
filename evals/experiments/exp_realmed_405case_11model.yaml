@@ -1,0 +1,64 @@
+experiment_id: exp_realmed_405case_11model
+description: "11 models × Real-Med full set (405 cases across 10 task types: soap_documentation, complex_case_review, surgery_planning, chronic_disease_management, pharmacy_aware_medication_management, pharmacy_inventory_management, dosage_calculation, medical_ppt_presentation, medical_literature_review, medication_formulary_design)."
+created_at: "2026-05-12"
+
+models:
+  - name: gpt-5.5
+    thinking: "on"
+    reasoning_effort: high
+  - name: claude-opus-4.7
+    thinking: "on"
+    reasoning_effort: high
+  - name: deepseek-v3.2
+    thinking: "on"
+    reasoning_effort: high
+  - name: gemini-3.1
+    thinking: "on"
+    reasoning_effort: high
+  - name: qwen3.6-plus
+    thinking: "on"
+    reasoning_effort: high
+  - name: glm-5.1
+    thinking: "on"
+    reasoning_effort: high
+  - name: kimi-k2.6
+    thinking: "on"
+    reasoning_effort: high
+  - name: minimax-m2.7
+    thinking: "on"
+    reasoning_effort: high
+  - name: grok-4.20
+    thinking: "on"
+    reasoning_effort: high
+  - name: mimo-v2.5-pro
+    thinking: "on"
+    reasoning_effort: high
+  - name: hy3-preview
+    thinking: "on"
+    reasoning_effort: high
+
+case_selectors:
+  - soap_documentation/*
+  - complex_case_review/*
+  - surgery_planning/*
+  - chronic_disease_management/*
+  - pharmacy_aware_medication_management/*
+  - pharmacy_inventory_management/*
+  - dosage_calculation/*
+  - medical_ppt_presentation/*
+  - medical_literature_review/*
+  - medication_formulary_design/*
+
+runtime:
+  recursion_limit: 4000
+  plan_mode: true
+  subagent: true
+
+judge:
+  enabled: true
+  parallel: 4
+  build_excel: true
+
+scheduler:
+  max_parallel_models: 6
+  max_parallel_cases: 5

@@ -1,0 +1,60 @@
+case_id: soap_documentation/soap_documentation_043
+task_type: soap_documentation
+prompt: |
+  <<<TEMPLATE
+  [Task Prompt]
+  On the morning of June 18, 2025, a 49-year-old female, Liu Qianwen (pseudonym), presented to the orthopedic outpatient clinic accompanied by a colleague. Based on the following clinic conversation summary, chief complaint/history, and physical examination findings, analyze her condition and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient is a middle-school physical education teacher. She entered the exam room with an antalgic gait, barely able to fully bear weight on the left foot. Chief complaint: “After landing while playing ball, the back of my left ankle suddenly became painful and swollen; it hurts as soon as I step on it—2 hours.”
+  
+  While rolling up her pant leg, she stated: “Last night I played an indoor basketball friendly game with my students. When I landed, my foot twisted—kind of rolled inward. Right then, there was a sudden sharp pain on the posterolateral side of the ankle; it felt like someone hit me from behind, but I didn’t hear that kind of ‘pop’ tearing sound. I could still limp out of the court, but I didn’t dare run or jump anymore.”
+  
+  She added: “Not long after I got back to the rest area, it started swelling, and the outside started turning blue. Now it hurts even when I’m not moving—about 4/10; as soon as I step down it’s 7/10. It hurts more when I pull the foot upward, or twist it inward again. The Achilles area also feels kind of swollen/tight. I tried a single-leg heel raise and I can almost’t do it—I’m afraid it might be an Achilles rupture. I heard people with diabetes are more likely to rupture.”
+  
+  Her colleague interjected: “All the way here she kept saying ‘it felt like someone kicked me from behind.’ I saw she couldn’t go up on her toes, so I brought her in right away. She used to sprain her left ankle a lot; three years ago she even did physical therapy.”
+  
+  When asked to localize the worst pain, the patient pointed to the area anteroinferior to the lateral malleolus: “Actually, the most stabbing pain is right here—it feels like it gets pulled/tugged the moment I step; the back by the Achilles is more of a swelling/tight feeling.” She denied recent use of steroids or fluoroquinolone antibiotics.
+  
+  **Past Medical History and Family History:**
+  - Type 2 diabetes mellitus for 8 years; controlled with oral metformin; HbA1c over the past 6 months approximately 7.3%.
+  - Obesity (BMI approximately 30).
+  - History of recurrent left ankle injuries/sprains; received physical therapy 3 years ago.
+  - Allergy: penicillin—rash.
+  - Denies surgical history.
+  - Family history: father with hypertension; mother with diabetes mellitus; no known family history of bleeding disorders.
+  
+  **Physical Examination Findings:**
+  - Vital signs: T 36.8℃, HR 88/min, BP 142/86 mmHg, RR 16/min, SpO2 99%.
+  - General: alert and oriented, answers appropriately; antalgic gait due to pain; avoids weight-bearing on the left foot.
+  - Cardiopulmonary: heart sounds strong and regular; lungs clear to auscultation bilaterally.
+  - Abdomen: soft; no tenderness or rebound; normal bowel sounds.
+  - Local exam (left ankle/foot):
+    - Marked perimalleolar swelling; ecchymosis visible anteroinferior to the lateral malleolus and laterally.
+    - Maximal tenderness anteroinferior to the lateral malleolus along the lateral ligament course; adjacent areas also tender.
+    - Mild swelling and tenderness near the Achilles tendon insertion; Achilles continuity palpated without a clear palpable gap.
+    - Ankle dorsiflexion and inversion provoke significant pain; plantarflexion can be performed with difficulty but is painful.
+    - Single-leg heel raise is difficult to perform.
+    - Calf squeeze test shows plantarflexion response.
+    - Matles position: no obvious abnormality.
+    - Anterior drawer test: mildly positive; eversion stress test: negative.
+    - Dorsalis pedis and posterior tibial pulses palpable; toe sensation and strength largely normal.
+    - No tenderness at the fibular head.
+  - Ancillary test summary:
+    - CBC: WBC 8.6×10^9/L, Hb 131 g/L, PLT 268×10^9/L.
+    - CRP 2.4 mg/L.
+    - Electrolytes and creatinine: no significant abnormalities.
+    - Random blood glucose 9.8 mmol/L.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+  TEMPLATE>>>
+attachments:
+  - soap_documentation/soap_documentation_043/01_attachment.pdf

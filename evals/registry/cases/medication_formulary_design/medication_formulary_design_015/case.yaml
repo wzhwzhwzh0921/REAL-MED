@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_015
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the medical director of the Endocrinology Department at a tertiary (Grade A Class III) hospital. Your institution plans to build an acromegaly MDT outpatient formulary for adult patients who still require pharmacologic control after neurosurgery or who are not suitable for surgery/radiotherapy. Patients are predominantly covered by medical insurance, with some relying on outpatient special protection programs; ability to pay varies widely. There are real-world constraints regarding injection frequency, follow-up monitoring, and long-term adherence. This formulary is intended for daily reference and prescription review by physicians and clinical pharmacists.
+  
+  **Formulary construction principles:**
+  - Drug inclusion should be primarily based on NMPA-approved indications; off-label use must be annotated with the level of evidence and applicable boundaries.
+  - For the same generic name, select 1 representative brand, prioritizing higher NRDL/insurance accessibility and stable clinical supply.
+  - For each item, explicitly label the reimbursement category and payment attributes (including national-negotiation drugs and applicability to outpatient special protection, etc.).
+  
+  **Tasks:**
+  1. Compile the drug categories for this disease formulary, stratify them by therapeutic positioning, and describe each category’s NMPA approval status and off-label evidence.
+  2. Provide several single-disease prescription examples, covering typical combinations across different treatment stages and patient scenarios.
+  3. Provide several prescription examples for situations with comorbidities or special circumstances, explaining the rationale for drug selection and dose adjustments.
+  4. Provide strong alerts on the key safety risks of formulary drugs, and specify the risk dimensions that must be covered.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

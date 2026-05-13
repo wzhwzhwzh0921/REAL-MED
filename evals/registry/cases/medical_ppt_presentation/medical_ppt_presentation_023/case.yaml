@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_023
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are an otolaryngology–head and neck surgery (otology/audiology) physician. Please prepare a lecture PPT on Sudden Sensorineural Hearing Loss (SSNHL), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: SSNHL definition and key time-window points, key audiologic diagnostic thresholds, modifying factors and stratified assessment, common accompanying symptoms and key considerations for bilateral onset.
+  **Visual materials**: Initial SSNHL evaluation flowchart; systemic steroid vs intratympanic therapy pathway diagram; chart showing symptom frequencies and proportion of bilateral cases.
+  **Constraints & format**: 12–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 12–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (SSNHL definition and key time-window points, key audiologic diagnostic thresholds, modifying factors and stratified assessment, common accompanying symptoms and key considerations for bilateral onset).
+  3. Include the visual materials specified (Initial SSNHL evaluation flowchart; systemic steroid vs intratympanic therapy pathway diagram; chart showing symptom frequencies and proportion of bilateral cases).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_023/01_template.pptx

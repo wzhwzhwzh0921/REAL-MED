@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_024
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the head of the Hematology Department at a national rare-disease diagnosis and treatment center. You plan to establish a standardized formulary for adult outpatient patients with Paroxysmal Nocturnal Hemoglobinuria (PNH) for rapid reference by physicians and clinical pharmacists. Patients are on long-term treatment primarily relying on NRDL national-negotiation reimbursement, commonly requiring coordination across multiple payment sources, and are sensitive to differences in accessibility and adherence between IV infusions versus oral/subcutaneous regimens.
+  
+  **Formulary construction principles:**
+  - Include only drugs within NMPA-approved indications; if off-label use is involved, annotate within the table the level of evidence, evidence sources, and applicable boundaries.
+  - For the same generic name with multiple brands, select representative brand(s); prioritize products accessible via NRDL/national-negotiation reimbursement, and state the rationale for brand selection.
+  - Item-by-item, label the reimbursement category (Class A/B/C) and specify payment attributes and key restricted-payment notes.
+  
+  **Tasks:**
+  1. Organize formulary drug categories for this disease, stratify by therapeutic positioning, and summarize for each category the NMPA approval status and the evidence boundaries for any off-label use.
+  2. Provide several single-disease prescription examples, covering typical combinations across different treatment stages, route-of-administration choices, and efficacy-optimization strategies.
+  3. Provide several prescription examples for patients with comorbidities or special situations, explaining the considerations for drug selection, dose, treatment course, and monitoring/adjustment dimensions.
+  4. Highlight key safety risks in a prominent manner, covering severe infections and immunization/prevention, hypersensitivity reactions, bleeding risk, hepatic/renal function and hematologic monitoring, drug–drug interactions, and administration-related risks.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

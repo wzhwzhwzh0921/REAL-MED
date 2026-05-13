@@ -1,0 +1,19 @@
+case_id: dosage_calculation/dosage_calculation_013
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  1) Patient information: The patient is transferred from the ICU to the emergency department for evaluation. The patient has been treated for status epilepticus and has received an IV sedative containing a propylene glycol solvent. At the same blood draw time, the following are reported: Na 145 mmol/L, glucose 110 mg/dL, BUN 18 mg/dL; blood ethanol 0 mg/dL; measured plasma osmolality 335 mOsm/kg.
+  
+  2) Calculation tasks: Please calculate the calculated (estimated) osmolality and the osmolar gap (OG), and then, based on the “known treatment history,” discuss other possible sources of an elevated OG (you do NOT need to provide specific toxicant concentrations). You must perform step-by-step calculations and include unit conversions.
+  
+  Additional requirements / constraints:
+  - In this problem, ethanol’s osmolar contribution must be included in the calculated osmolality using: Ethanol (mg/dL) / 4.6.
+  - The ethanol conversion factor must be uniformly 4.6 (do not use 3.7 or 4.35).
+  - OG interpretation thresholds for this problem: OG ≤ 10 = normal; OG > 20 = suspicious; OG ≥ 30 = highly suspicious; OG ≥ 50 = strongly suggestive.
+  - Ethanol osmolar contribution = ethanol (mg/dL) ÷ 4.6, units mOsm/L.
+  - Please calculate this patient’s estimated_ethylene_glycol_mg_dL, rounded to the nearest 1 mg/dL.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

@@ -1,0 +1,44 @@
+case_id: soap_documentation/soap_documentation_046
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of March 2, 2026, a 32-year-old female patient, Liu Siyan (pseudonym), presented to the Gastroenterology Clinic accompanied by her husband. Based on the following clinic dialogue summary, chief complaint/history, and physical examination findings, analyze her condition and write a professional SOAP note for this encounter.
+  **Chief Complaint and History of Present Illness:**
+  Chief complaint: “Swallowing is getting increasingly difficult, and recently I keep having reflux and an uncomfortable pressure in my chest.”
+  
+  The patient wore a loose coat and, after sitting down, drank several sips of warm water she brought with her.
+  
+  She stated: “It started about three years ago. At first it came and went, and it was more obvious when I was busy or nervous in meetings. Strangely, sometimes drinking water gets stuck more than eating—like the water reaches my chest and then ‘blocks.’ It’s worse at night when I lie flat; often it suddenly comes back up—a mouthful of undigested stuff, with some sticky white foam. I have to sleep with my pillow elevated. I also have to chew slowly, then desperately drink water to ‘wash it down.’”
+  
+  She added: “In the past six months it’s been more frequent. After meals, a bunch of mucus-like material comes back up; occasionally I choke on it and cough for a while. In the past three months it suddenly worsened—rice and meat basically get stuck every meal. My chest feels tight and distended, like a ball is pushing there. After two bites I feel like vomiting. I’ve lost six kilograms and feel weak. The community clinic prescribed acid-suppressing and prokinetic medications, but they didn’t help. What I’m most afraid of now is whether something is growing in my esophagus—recently when I searched online, it said dysphagia plus weight loss is very dangerous.”
+  
+  Her husband interjected: “Recently she always needs a big cup of water with meals, otherwise she can’t swallow. At night she sometimes suddenly wakes up coughing, like she aspirated. I also think she looks paler than before and she’s very anxious.”
+  **Past Medical History and Family History:**
+  Past medical history: Hypothyroidism (Hashimoto’s thyroiditis), taking levothyroxine sodium 75 µg once daily regularly. Generalized anxiety disorder; previously took escitalopram 10 mg once daily, stopped on her own 2 months ago. Postpartum iron deficiency anemia was previously noted; she has not taken iron supplementation regularly.
+  
+  Allergies: Penicillin—rash.
+  
+  Denies history of hepatitis or tuberculosis. Denies surgical history.
+  
+  Family history: Both parents alive. No known family history of gastrointestinal malignancy.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8°C; heart rate 92 bpm; blood pressure 118/76 mmHg; respiratory rate 18/min; SpO₂ 99%.
+  
+  General: Alert and oriented; slightly thin; tense/anxious facial expression. Lips slightly pale; no jaundice; no obvious signs of dehydration.
+  
+  Head and neck: Pharynx without obvious hyperemia. No enlarged cervical lymph nodes palpated.
+  
+  Cardiopulmonary: Regular rhythm; no murmurs. Lungs clear to auscultation with occasional scattered dry rales.
+  
+  Abdomen: Soft, non-tender; no rebound tenderness; liver and spleen not palpable; normal bowel sounds.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_046/01_attachment.pdf

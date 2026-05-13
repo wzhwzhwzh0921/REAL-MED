@@ -1,0 +1,36 @@
+case_id: soap_documentation/soap_documentation_048
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior Emergency Department physician. On the evening of March 2, 2026, a 52-year-old male, Zhao Hongwei (pseudonym; long-haul truck driver), presented accompanied by his wife. Please analyze the condition based on the following clinic dialogue summary, chief complaint information, and physical examination findings, and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient limped into the exam room and was reluctant to bear weight on his right foot. Chief complaint: “Over the past two days, the dorsum of my right foot and my ankle suddenly became red, swollen, and hot; it hurts to walk, and I’ve had a fever.”
+  
+  While rolling up his pant leg, he said: “Doctor, I think this is another flare from high uric acid. My checkups used to say my uric acid was high. This time it also came on suddenly with a sore, distending pain, worse at night. I deliberately drank more water and took two painkillers; the pain went down a bit, but the redness and swelling have actually spread more and more. It feels hot to the touch, and last night I had chills—my highest fever was over 38°C.”
+  
+  He added: “These past two days I’ve been on the road driving, eating greasy food and sitting for a long time, so I thought it was the same old problem. Yesterday I went to an outpatient clinic; the doctor also said it might be a uric acid issue and prescribed anti-inflammatory pain medication. But today the whole top of my foot is swollen—I can’t even get my shoe on. If I move my ankle it’s still okay; it’s not that kind of excruciating pain deep in the joint. It mainly hurts when the skin is touched.”
+  
+  His wife interjected: “He looks pretty bad today—sweating and feeling cold. After walking a couple of steps he says the pain is unbearable. Also, he says his right calf feels a bit sore and tight. I’ve noticed the skin between his toes has been itchy lately and he didn’t take it seriously. A few days ago he even used a small knife to trim his toenails and said, ‘Just pick at it and it’ll be fine.’ I’m worried he broke the skin.” The patient then admitted somewhat awkwardly: “The toe web skin is kind of rotten and peeling. I thought it was athlete’s foot, so I didn’t deal with it.”
+  
+  **Past Medical History and Family History:**
+  Type 2 diabetes mellitus for 8 years; over the past 6 months he reports his “blood sugar has been a bit unstable.” Hypertension for 5 years. Hyperlipidemia. Recurrent tinea pedis. He denies a clear prior diagnosis of gout or a history of chronic tophi, stating only that his “uric acid has always been high.” No surgical history. No known drug allergies. Father deceased (hypertension); mother alive. No family history of rheumatologic/autoimmune disease or hereditary coagulation disorders.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 38.4℃; heart rate 104/min; blood pressure 146/92 mmHg; respiratory rate 18/min; SpO2 97%.
+  General: Alert and oriented; mildly fatigued; chills with diaphoresis; limping gait; skin slightly moist.
+  Cardiopulmonary: Mild tachycardia with regular rhythm; lungs clear to auscultation bilaterally; no rales.
+  Abdomen: Soft; no tenderness or rebound; normal bowel sounds.
+  Right lower extremity/skin: Diffuse erythema and marked edema from the dorsum of the right foot to around the ankle, with increased skin temperature and significant tenderness to palpation; poorly demarcated borders of erythema/swelling. On the dorsum of the foot, a faint reddish linear streak extends proximally approximately 8 cm. Passive ankle range of motion essentially normal, with discomfort only at end-range traction; no obvious “deep joint” pain. No tophi palpated. Between the 4th and 5th toes: maceration, erosion, and fissures with white scaling. No obvious pretibial pitting edema.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_048/01_attachment.pdf

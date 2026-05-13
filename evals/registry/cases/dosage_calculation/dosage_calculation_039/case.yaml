@@ -1,0 +1,12 @@
+case_id: dosage_calculation/dosage_calculation_039
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Wang Chen, male, 5 years old. Chief complaint: admitted 3.5 hours after a scald burn caused by hot liquid. History of present illness: at home, was splashed with boiling water, involving the anterior and posterior trunk, both upper limbs, and parts of both lower limbs. Family members first performed cold-water rinsing and applied topical ointment; during transport, the patient was transferred multiple times and did not receive fluid resuscitation. The patient has pain with crying/irritability, marked thirst, and decreased urine output over the past 2 hours. Physical examination: height 105 cm, weight 18 kg; conscious but agitated; dry lips; tachycardia; cool distal extremities. Estimated burn area is approximately 45% of total body surface area (TBSA), mostly mixed-depth second-degree (Ⅱ degree) burns with scattered third-degree (Ⅲ degree) areas; marked exudation. Ancillary tests: blood gas shows mild metabolic acidosis, elevated lactate; CBC shows elevated white blood cell count; electrolytes suggest a trend toward low sodium; serum creatinine is normal. Upon admission, IV access was established, analgesia given, and debridement assessment initiated.
+  
+  Please calculate this patient’s infusion rate for the subsequent 16-hour phase (mL/h). Round the result to one decimal place.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

@@ -1,0 +1,23 @@
+case_id: surgery_planning/surgery_planning_025
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior oral and maxillofacial surgeon. The case describes a pediatric patient with delayed eruption of mandibular incisors due to an anterior mandibular odontome with a suspected associated cystic lesion, requiring operative management with future orthodontic/restorative rehabilitation in mind.
+  - 12-year-old girl with absent eruption of the mandibular left central and lateral incisors (FDI 31 and 32).
+  - No history of extractions, trauma, systemic disease, or syndromic features; no signs of acute infection on initial presentation.
+  - Intraoral exam: absence of 31 and 32; adjacent teeth present.
+  - Imaging: cone-beam CT shows impacted 31 and 32 in the anterior mandible associated with an odontome, with a suspected associated cystic lesion centered in the 31–32 region.
+  - Multidisciplinary recommendation (pediatric dentistry, oral and maxillofacial surgery, orthodontics, prosthodontics): remove odontome/impacted teeth and enucleate cystic component while preserving alveolar bone for future orthodontic and restorative rehabilitation.
+  - Surgical planning: limited buccal cortical access window based on CBCT/3D model measurements.
+  
+  **Q1 — Intraoperative defect management and closure** Intraoperatively, after mucoperiosteal flap elevation, you complete enucleation/curettage of the cystic lesion and remove the odontome and impacted teeth through a small circular buccal bony window. You are left with a contained intraosseous cavity; the lingual cortex appears intact. The defect is larger than expected and lies close to adjacent incisor root apices; the buccal access window is small relative to the cavity. What is your intraoperative strategy to manage the residual anterior mandibular bony defect and obtain reliable soft-tissue closure—will you leave the cavity to heal, place graft material (if so, which type), and/or use a barrier membrane—and what specific technical steps are critical to minimize dehiscence, infection, and injury to adjacent tooth roots and nearby mental/incisive nerve branches?
+  
+  **Q2 — Early postoperative complication management** A 12-year-old girl is seen 5 days after oral surgery for a benign odontogenic lesion in the anterior mandible associated with unerupted lower incisors. She reports new, worsening pain in the lower anterior jaw that is disproportionate to expected postoperative discomfort; over the past 24 hours she has developed swelling of the labial vestibule, foul taste, and difficulty biting with a “click” and instability when eating soft foods. She has no systemic illness but notes low-grade fever at home. Exam shows facial tenderness over the symphysis/parasymphysis, intraoral edema with erythema, partial separation of the mucosal wound with purulent drainage, and marked tenderness with possible mobility/crepitus on gentle bimanual palpation of the mandibular anterior segment; adjacent teeth are tender to percussion and sensation over the lower lip and chin is intact. Panoramic radiograph demonstrates a postoperative radiolucent cavity in the anterior mandible; the inferior border appears thinned, with concern for a linear lucency extending toward the mandibular cortex (limited-field CBCT is available if needed). What early postoperative complication must be prioritized in this scenario, what findings on examination and imaging should trigger urgent concern, and how should management be structured (observation vs antibiotics and local wound care vs immobilization/fixation or surgical re-exploration), including key preventive strategies for future similar cases while preserving anterior mandibular bone for later rehabilitation?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop defect management/closure strategy/technical steps; prioritized complication/red flags/workup/management/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_025/01_case_file.docx

@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_026
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a radiologist. In the outpatient clinic, you have seen multiple patients whose report waiting times have been prolonged due to an increased volume of imaging examinations. You have also found that some patients question “AI-generated imaging conclusions,” worrying about being misled and missed diagnoses. Therefore, you plan to write a scoping review on “Effectiveness and safety of large language model applications in radiologic diagnosis (report rewriting/decision support/retrieval and question answering).” The review is intended to inform clinical adoption and governance of LLMs in radiology practice and to support evidence-based decision-making for clinicians and healthcare administrators.
+  
+  Topic: Effectiveness and safety of large language model applications in radiologic diagnosis (report rewriting/decision support/retrieval and question answering).
+  
+  The review must systematically compile and analyze the following core content:
+  1. Types of radiology tasks and clinical workflow integration points;
+  2. Clinical effectiveness outcomes and comparator benchmarks;
+  3. Reliability and hallucination risks, and prevention/mitigation strategies;
+  4. Methodological quality of evaluations and reporting standards (may be benchmarked against the “Chinese Expert Consensus on Intelligent General Practitioner”).
+  
+  Search and inclusion: include studies retrievable using the following keywords: large language model/LLM、radiology report、clinical workflow、hallucination、evaluation. A standardized reference list is required at the end of the review; it is recommended to use a flowchart to show LLM intervention nodes and an evidence-matrix table to compare effectiveness/risk/interpretability and key methodological points across different task types.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

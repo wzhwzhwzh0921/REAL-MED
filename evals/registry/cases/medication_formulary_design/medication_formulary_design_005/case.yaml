@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_005
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the person in charge of formulary construction in the Neurology Department of a tertiary (Grade A) hospital. The hospital plans to establish a multidisciplinary diagnosis and treatment center for Hereditary Spastic Paraplegia (HSP) and to build a standardized formulary for outpatient clinics and day-treatment services. The service population covers HSP patients from children to older adults. Most patients are covered by urban employee/resident medical insurance, with marked differences in payment ability and acceptance of injection/invasive treatments; the formulary must balance accessibility and adherence.
+  
+  **Formulary construction principles:**
+  - Drug inclusion should be primarily based on NMPA-approved indications; for off-label (beyond-indication) use, clearly annotate the supporting guideline/consensus/research evidence, evidence level, and applicable boundaries.
+  - When multiple brands exist under the same generic name, select a representative brand, prioritizing those with better medical-insurance accessibility.
+  - Item-by-item, label the reimbursement category (Class A/B/C) and payment attributes, and distinguish medications requiring in-hospital procedures/operations from routine outpatient prescription medications.
+  
+  **Tasks:**
+  1. Organize the formulary drug categories for this disease and stratify them by therapeutic positioning; summarize each category’s NMPA approval status and the source of off-label evidence.
+  2. Develop several single-disease prescription examples, covering combination pathways across different treatment stages and typical patient scenarios.
+  3. Develop several prescription examples for cases with comorbidities or special situations; explain the drug selection and dose-adjustment logic across dimensions such as functional status, interactions, risk exposure, and adherence.
+  4. Provide strong warnings for key safety risks of formulary medications, covering risk dimensions including rebound/withdrawal, sedation and respiratory depression, falls and aspiration, toxin diffusion, invasive-procedure infections, and monitoring/follow-up.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

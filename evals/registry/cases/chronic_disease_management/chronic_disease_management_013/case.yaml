@@ -1,0 +1,26 @@
+case_id: chronic_disease_management/chronic_disease_management_013
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  In the consultation room of a community health service center, GP Dr. Li is seeing 48-year-old Mr. Wang Jianguo. Mr. Wang is a project manager at an IT company. Somewhat anxious, he hands over his health check report: “Doctor, is my fatty liver serious? Why are my liver function tests elevated too? I usually just drink some beer to relax—this shouldn’t be alcoholic liver disease, right?”
+  
+  Dr. Li carefully reviews the report and performs a physical examination. He notes that Mr. Wang’s BMI has reached 31.0 kg/m² and his waist circumference is 102 cm, both exceeding the normal range. Considering Mr. Wang’s self-reported drinking history (about 112 g of alcohol from beer per week and about 50–75 g of alcohol from liquor, totaling about 162–187 g/week), Dr. Li begins to differentiate the possible causes in his mind. To preliminarily assess his risk of liver fibrosis, Dr. Li uses the available test results and quickly calculates the FIB-4 index on the computer.
+  
+  **Patient information:**
+  - Name: Wang Jianguo, male, 48 years old, IT company project manager
+  - Chief complaint: Abnormal liver function found on physical examination for 1 week
+  - History of present illness: The patient participated in the company’s annual physical examination 1 week ago. The report indicated “severe fatty liver, abnormal liver function.” He has no symptoms such as fatigue, poor appetite, jaundice, abdominal distension, or other discomfort. He came to the community health service center today for further evaluation and treatment.
+  - Past medical history: Hypertension for 5 years; type 2 diabetes mellitus for 2 years
+  - Current medications: Valsartan 80mg qd; Metformin 0.5g tid
+  - Lifestyle: Busy workload, long-term sedentary lifestyle, almost no regular exercise. To relieve work stress, he habitually drinks one bottle of beer every night (500ml, 4% vol). At weekend gatherings with friends, he additionally drinks 2–3 liang of baijiu (50% alcohol). He reports a weight gain of about 10 kg over the past year.
+  - Vital signs: blood_pressure=138/88 mmHg；heart_rate=76 bpm
+  - Physical examination: Height 175cm, weight 95kg. Conscious, in good general condition. No jaundice of the skin or sclera; no palmar erythema or spider angiomas. No abnormalities on cardiac and pulmonary auscultation. Abdomen distended and soft; liver and spleen not palpable below the costal margin; no tenderness or rebound tenderness; shifting dullness negative.
+  - Ancillary tests: Complete blood count: Platelet count (PLT) 180 × 10^9/L.
+  Liver function: Alanine aminotransferase (ALT) 85 U/L, Aspartate aminotransferase (AST) 50 U/L.
+  Biochemistry: Fasting blood glucose (FBG) 7.5 mmol/L, Triglycerides (TG) 2.5 mmol/L, High-density lipoprotein cholesterol (HDL-C) 0.9 mmol/L.
+  Imaging: Abdominal ultrasound shows: enlarged liver volume with full contour; diffuse increased and coarsened hepatic parenchymal echogenicity with posterior echo attenuation; intrahepatic tubular structures not clearly visualized. Impression: severe fatty liver.
+  
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

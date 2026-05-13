@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_036
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior urology surgeon. The case below describes a 59-year-old man with recurrent complicated urinary tract infections and left hydroureteronephrosis due to a suspected migrated polymer ligating clip obstructing the left ureter; you must make intraoperative and postoperative source-control decisions while preserving ureteral function.
+  - 59-year-old man; history of prior left-sided renal surgery for a benign mass with operative records documenting polymer ligating clips placed near the collecting system/ureter.
+  - Months of recurrent complicated UTIs (dysuria, frequency) despite multiple antibiotic courses, plus intermittent left flank discomfort.
+  - Exam on presentation: afebrile, hemodynamically stable, mild left costovertebral angle tenderness.
+  - Urinalysis: pyuria and bacteriuria; urine culture confirms a uropathogen.
+  - CT urography: mid-to-distal left ureteral intraluminal foreign-body–like density with adjacent ureteral wall thickening and upstream hydroureteronephrosis, concerning for an obstructing nidus contributing to infection.
+  - Preoperative evaluation: acceptable anesthetic risk and no contraindication to endoscopic management.
+  - Planned operation: endoscopic evaluation (ureteroscopy) with attempted source control and relief of obstruction.
+  
+  **Q1 — Intraoperative decision-making** During ureteroscopic inspection, you find a polymer ligating clip embedded within the ureteral lumen with inflamed, friable mucosa and partial encrustation; the ureter is narrowed immediately adjacent, turbid urine is seen proximally, and you cannot reliably pass a guidewire beyond the lesion—repeated gentle probing risks false passage or perforation. What is your immediate intraoperative plan to achieve source control and urinary drainage, how (if at all) would you attempt endoscopic clip removal in this setting, and which key technical steps and pitfalls determine whether you proceed endoscopically versus abort and escalate to alternative drainage or open/robotic exploration?
+  
+  **Q2 — Postoperative complication management** The same patient is now 12 hours postoperatively after the endoscopic urinary tract intervention for recurrent complicated UTIs and left hydroureteronephrosis due to an obstructing ureteral intraluminal foreign body with surrounding inflammatory changes. In recovery, he develops worsening left flank and lower abdominal pain, increasing restlessness, fever to 38.9°C with tachycardia (118/min), blood pressure 98/60 mmHg despite fluid boluses, urine output 0.3 mL/kg/h with cloudy catheter urine, rising leukocytosis, and an increase in serum creatinine; exam shows left CVA tenderness and mild suprapubic tenderness without frank peritonitis, then progressive hypotension/confusion and increasing abdominal distension. What is the most likely postoperative complication in this scenario, what mechanisms typically cause it during endoscopic management of an embedded ureteral foreign body, which postoperative findings should trigger high suspicion, what diagnostic workup should be performed, and what stepwise evidence-based management plan (including drainage and definitive repair options) should be instituted?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop source control/drainage, endoscopic removal decision points; likely complication/mechanisms, red flags, workup, stepwise management). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_036/01_case_file.docx

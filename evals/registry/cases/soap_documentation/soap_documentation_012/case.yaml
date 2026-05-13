@@ -1,0 +1,46 @@
+case_id: soap_documentation/soap_documentation_012
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of February 28, 2026, a 47-year-old woman, Liu Min (pseudonym), presented to the obstetrics and gynecology clinic accompanied by her husband for evaluation of progressively abnormal uterine bleeding with associated pelvic symptoms. She walked in wearing a loose coat, clutching several lab reports, sat down, and took a deep breath before describing her concerns.
+  **Chief Complaint and History of Present Illness:**
+  Chief complaint: “Over the past six months my periods have been getting heavier and heavier, with lower abdominal pain during my period. Lately I always feel bloated, weak, and short of breath.”
+  
+  HPI: The patient reports previously regular menses lasting about 5 days. Approximately 6 months ago, menstrual flow increased abruptly; she states that even overnight pads are insufficient and she must change them every 2–3 hours. She sometimes passes large clots, describing that it can come out “with a gush” as “a lump of blood,” which frightened her. Menstrual cycle length has remained about 28–30 days.
+  
+  She shows a phone record and reports that over the past 3 months dysmenorrhea has become prominent, described as a heavy dragging sensation “like a stone weighing down.” Pain begins subtly the day before menses and is worst during the first two days of bleeding; she relies on ibuprofen for relief. She also notes deep dyspareunia (“discomfort deep inside during intercourse”) and pain with defecation described as a pulling sensation. She reports occasional intermenstrual spotting on two occasions. She adds: “The last outpatient doctor said it seemed like the kind where ‘the lining grows outside,’ and I looked it up myself—it seems pretty similar.”
+  
+  Over the past 2 weeks she has felt markedly anxious because symptoms have worsened: menses now last 7–8 days with heavier flow; at times a regular pad becomes fully soaked within 1 hour. She feels very weak, has palpitations, becomes short of breath after climbing two flights of stairs, and notes a persistent sense of lower abdominal fullness/bloating such that her waistband feels tight. She has increased urinary frequency and nocturia 1–2 times per night. She denies fever and denies foul-smelling vaginal discharge; predominant symptoms are fatigue, abdominal distension, and pain.
+  
+  Her husband adds that she works as an accountant with prolonged sitting; recently she looks very pale, has restless sleep, and says her abdomen feels as if something is pushing/pressing. He notes unusually rapid use of sanitary pads and worries she has delayed care and that this may be serious.
+  **Past Medical History and Family History:**
+  Past medical history: Primary infertility (no pregnancy after 7 years of marriage; no systematic assisted reproductive treatment). Hypothyroidism, on long-term oral levothyroxine 50 µg/day; she feels her control has been stable recently. Migraine headaches, often worse around the time of menstruation.
+  
+  Gynecologic/surgical history: No history of pelvic surgery. No history of intrauterine device use.
+  
+  Allergies: Denies known drug allergies.
+  
+  Family history: Mother is postmenopausal and had a history of “heavy menstrual bleeding.” No clear family history of gynecologic malignancy.
+  **Physical Examination Findings:**
+  Vital signs: T 36.8°C; HR 96 bpm; BP 128/78 mmHg; RR 16/min; SpO2 99%.
+  
+  General: Alert and cooperative; mildly pale; mildly short of breath after walking. No obvious thyroid enlargement.
+  
+  Cardiopulmonary: Regular rhythm; no obvious murmurs. Lungs clear to auscultation bilaterally.
+  
+  Abdomen: Mild lower abdominal distension. A moderately firm mass is palpable above the pubic symphysis with relatively clear borders; no significant tenderness to light palpation; no obvious rebound tenderness.
+  
+  Pelvic exam: Vulva and vagina without abnormal discharge. Cervix smooth. Uterus anteverted, approximately 10–11 weeks’ gestational size, somewhat irregular in contour, firm, with fair mobility. Mild tenderness to palpation in the left adnexal region; no definite palpable tender nodules (patient was tense and cooperation was fair).
+  
+  Ancillary tests brought by the patient: CBC: Hb 86 g/L, Hct 28%, MCV 72 fL; platelets 392×10^9/L. Iron studies: serum iron 5.2 µmol/L, ferritin 8 ng/mL. CA-125 46 U/mL. β-hCG negative.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_012/01_attachment.pdf

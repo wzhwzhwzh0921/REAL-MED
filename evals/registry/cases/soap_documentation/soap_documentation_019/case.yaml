@@ -1,0 +1,41 @@
+case_id: soap_documentation/soap_documentation_019
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the afternoon of November 12, 2024, a 32-year-old male Sichuan-cuisine chef, Li Wei (pseudonym), presented to the respiratory clinic accompanied by his wife. He was dressed casually with a faint odor of kitchen cooking fumes. On entering the room he appeared mildly short of breath, needing to pause for breath while speaking. Please analyze his condition based on the following clinic interview summary, chief complaint/history, and physical examination findings, and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  Chief complaint: “Recurrent cough and sputum for 3 months; worsening shortness of breath for 2 days.”
+  
+  HPI: The patient reports 3 months of ongoing cough productive of white, sticky sputum. He initially did not seek care, believing it to be a “smoker’s cough.” He states: “Doctor, this must be an occupational disease—my ‘chronic bronchitis’ is acting up. I’m a Sichuan-cuisine chef, exposed every day to chili, pepper, and oily cooking fumes, and I smoke heavily too. Since I was 18, I’ve smoked a pack a day for over ten years. I’ve been coughing for these three months, bringing up that kind of white sticky phlegm. I didn’t take it seriously. But these past few days it got colder; the night before last I took out the trash in the back alley, the cold wind hit me, and when I came back it felt like a big stone pressing on my chest, and I just couldn’t catch my breath.”
+  
+  He continues: “These last two days have been really hard—especially in the second half of the night, around after 4 a.m., I often wake up feeling suffocated, like my airway is being pinched. I have to sit up for a long time before I can lie down again. I bought some cough syrup at the pharmacy, and it didn’t help at all.”
+  
+  His wife adds that he frequently coughs intensely at work when exposed to irritating cooking fumes, sometimes to the point that his face turns red. She has also noticed loud/heavy breathing during sleep “like a bellows,” which she finds frightening. She reports a childhood history of allergic rhinitis and says he has not taken it seriously.
+  
+  **Past Medical History and Family History:**
+  Past medical history: Smoking history 14 years, average 20 cigarettes/day (14 pack-years). By history, for the past 3 years he has had a “bronchitis” episode each winter, often improving after taking antibiotics. Denies history of hypertension, diabetes mellitus, or coronary artery disease. Diagnosed with “allergic rhinitis” in childhood; no standardized treatment in adulthood. Allergies: allergic to dust mites; previously developed a rash after eating seafood.
+  
+  Family history: Parents alive. Father has a long smoking history and a history of “chronic cough.”
+  
+  **Physical Examination Findings:**
+  Vital signs: T 36.8°C; HR 88/min; BP 128/78 mmHg; RR 22/min; pulse oximetry 96% on room air.
+  
+  General: Alert and oriented; mildly anxious; sitting upright. Mild tachypnea; use of accessory respiratory muscles (e.g., sternocleidomastoid) noted with speech and breathing.
+  
+  HEENT: Bilateral nasal mucosa pale and edematous; inferior turbinates enlarged; small amount of clear nasal discharge. Pharynx not congested; tonsils not enlarged.
+  
+  Chest/Lungs: Chest contour generally normal; no obvious barrel chest. Percussion: hyperresonant bilaterally. Auscultation: diffusely decreased breath sounds bilaterally; diffuse expiratory wheezes throughout both lungs; markedly prolonged expiratory phase. No crackles and no pleural friction rub.
+  
+  Cardiovascular/Other: Precordium without bulge; regular rhythm; strong heart sounds; no pathologic murmurs. No bilateral lower-extremity edema. No digital clubbing.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_019/01_attachment.pdf

@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_015
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are an infectious disease physician. Please prepare a lecture PPT on microbiological testing strategies and interpretation of results in infectious diseases, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: the laboratory’s key role, medical–laboratory collaboration mechanisms; risk stratification approach; key points for specimen collection and submission; interpretation of culture and rapid test results (negative results, contamination, colonization, etc.).
+  **Visual materials**: test-ordering decision flowchart (suspected pathogen → testing → specimen/transport); de-escalation step-down ladder diagram; transmission-risk trend chart.
+  **Constraints & format**: 12–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 12–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (the laboratory’s key role, medical–laboratory collaboration mechanisms; risk stratification approach; key points for specimen collection and submission; interpretation of culture and rapid test results (negative results, contamination, colonization, etc.)).
+  3. Include the visual materials specified (test-ordering decision flowchart (suspected pathogen → testing → specimen/transport); de-escalation step-down ladder diagram; transmission-risk trend chart).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_015/01_template.pptx

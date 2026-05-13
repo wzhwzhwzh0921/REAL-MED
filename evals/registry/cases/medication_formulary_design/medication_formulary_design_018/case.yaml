@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_018
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Medical Director of a hematology specialty clinic. The clinic plans to establish a standardized outpatient formulary for adult primary immune thrombocytopenia (ITP). The target population is mainly chronic ITP patients with inadequate first-line response, relapse, or need for long-term maintenance therapy. The clinic primarily serves patients covered by Urban Employee/Resident Basic Medical Insurance, with a subset having commercial insurance or self-pay ability. The outpatient service will mainly use oral and subcutaneous regimens; intravenous infusion capacity is limited and can be supplemented via referral collaboration.
+  
+  **Formulary construction principles:**
+  - Prioritize inclusion of drugs used within NMPA-approved indications; when off-label use is involved, annotate within the table the evidence source, evidence level, and applicable boundaries.
+  - When multiple brands exist for the same generic name, select 1 representative brand, prioritizing NRDL/national-negotiation coverage and in-hospital accessibility.
+  - For all drugs, label the reimbursement category and payment attributes, and indicate route of administration and outpatient feasibility/implementability.
+  
+  **Tasks:**
+  1. Organize the drug categories for this disease formulary, stratify them by therapeutic positioning, and describe each category’s NMPA approval status and off-label rationale/evidence.
+  2. Provide several single-disease prescription examples covering typical combinations across different treatment stages and patient scenarios.
+  3. Provide several prescription examples for cases with comorbidities or special situations, explaining the logic for drug selection and dose/regimen adjustments.
+  4. Provide strong warnings on key safety risks of formulary drugs, specifying the risk dimensions that must be covered.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

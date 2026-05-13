@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_015
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior gynecology surgeon. The case below describes a 41-year-old nulliparous woman with years of abnormal uterine bleeding and a very large prolapsing submucosal leiomyoma causing severe cervicovaginal anatomic distortion, creating both intraoperative technical hazards and risk of postoperative urinary tract injury.
+  - 41-year-old nulliparous woman; not sexually active.
+  - 7-year history of symptomatic uterine leiomyomas with persistent abnormal uterine bleeding and pelvic pressure.
+  - Cycles irregular (19–90 days) with prolonged bleeding episodes (14–27 days) and dysmenorrhea.
+  - Pelvic exam: large mass prolapsing through the cervix into the upper vagina; bimanual exam suggests a pelvic-filling uterine mass.
+  - Transvaginal ultrasound: ~8 cm heterogeneous posterior lower uterine segment/submucosal leiomyoma with calcifications plus a 3 cm leiomyoma; endometrium measures 1.5 cm; ovaries normal.
+  - MRI: bilobed, partially mineralized pedunculated submucosal leiomyoma ~9–10 cm prolapsing into the cervical canal and upper vagina.
+  - Office endometrial biopsy and saline sonohysterography not technically feasible due to complete cervical obstruction by the mass (no preoperative endometrial tissue diagnosis).
+  - Planned operation: definitive surgical management of bleeding and removal of the obstructing prolapsed mass/uterine removal.
+  
+  **Q1 — Intraoperative decision-making** Intraoperatively, the cervix is markedly stretched and effaced by the pedunculated tumor; the cervical canal and lower uterine segment anatomy are severely distorted; exposure is limited by the mass occupying the canal and upper vagina; the usual planes for safely approaching the uterine vessels and vaginal cuff are difficult to identify; and the ureters may be medially displaced, increasing urinary tract injury risk. Given this intraoperative anatomy, how should you decide on the operative strategy and anatomic approach to safely complete uterine removal, including whether to debulk/remove the prolapsed mass first, how to open the paracervical/parametrial spaces to obtain continuous visualization of the ureter along its course, and what is the most common technical pitfall that leads to ureteral or bladder injury in this situation?
+  
+  **Q2 — Postoperative complication management** Within 24–72 hours after surgery, she develops new oliguria and left flank/lower back pain with low-grade fever; her abdomen is mildly distended without peritonitis; surgical drain output increases and becomes clear and straw-colored; nursing notes intermittent leakage of clear fluid from the vagina; serum creatinine rises from baseline with leukocytosis; urinalysis shows no significant bacteriuria; and the Foley catheter is patent but urine output remains low despite adequate IV fluids. On exam, the vaginal cuff appears intact, but there is persistent watery discharge, raising concern for iatrogenic urinary tract injury (ureteral obstruction/thermal injury/transection or bladder injury with leak). In this postoperative setting, what is the most likely mechanism and high-risk step leading to urinary tract injury, and what stepwise diagnostic workup and evidence-based management should be performed (including when observation is appropriate, when bladder drainage/ureteral stenting is indicated, and when surgical repair is required), and what practical preventive strategies can reduce risk in similar cases?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (operative strategy/anatomic approach/pitfall; mechanism/high-risk step, diagnostic workup, management, prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_015/01_case_file.docx

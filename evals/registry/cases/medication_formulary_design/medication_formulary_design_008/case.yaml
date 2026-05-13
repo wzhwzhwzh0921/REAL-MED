@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_008
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Chair of the Pharmacy & Therapeutics (P&T) Committee of a tertiary (Grade III) otolaryngology specialty hospital, leading the establishment of a “Precision Treatment Center for Chronic Rhinosinusitis with Nasal Polyps (CRSwNP)”. The target population is mainly refractory patients with inadequate control despite intranasal corticosteroids and post-surgical management; a subset has comorbid type 2 inflammation–related conditions requiring long-term follow-up. Most patients are covered by Urban Employee/Resident Basic Medical Insurance, and they focus on outpatient accessibility and long-term adherence for injectable biologics; they prefer standardized follow-up and maintenance regimens that can be continued at home.
+  
+  **Formulary construction principles:**
+  - Include drugs with NMPA-approved use; for any off-label use, clearly label the level of evidence, applicable boundaries, and key risk points.
+  - For the same generic name, select a single representative brand, prioritizing NRDL-accessible products and specifications that can be procured within the hospital.
+  - For each drug, label the reimbursement category and payment attributes (Class A/B, national-negotiation, partial self-pay/full self-pay, etc.).
+  
+  **Tasks:**
+  1. Organize drug categories and present them in tiers by therapeutic positioning; for each category, describe NMPA approval status and an evidence framework for off-label use.
+  2. Create several single-disease prescription examples covering typical combinations across different treatment stages and patient management pathways, and specify key components of each regimen.
+  3. Create several prescription examples for patients with comorbidities or special situations, explaining considerations for drug selection and dose/course/frequency adjustments, alternative pathways, and interaction management.
+  4. Provide strong, high-visibility alerts for key safety risks, covering immune/allergy, infections and parasites, perioperative period and pregnancy/lactation, steroid-related adverse effects and monitoring, and other relevant risk types.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

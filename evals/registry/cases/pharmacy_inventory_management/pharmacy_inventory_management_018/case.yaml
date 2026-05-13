@@ -1,0 +1,50 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_018
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Pediatric outpatient prescription-audit scenario drill: An outpatient physician plans to prescribe anti-infective / Helicobacter pylori–related therapy for a **3-month-old infant** and a **10-year-old child**. During the pharmacist’s review, it was found that multiple drugs explicitly state in the package insert that “patients with a history of allergic reactions to this product or similar components must not use it,” and some drugs have clear **age-related contraindications / precautions**. You must provide intervention recommendations and complete dose / inventory calculations. Note: The stem will not show any drug generic name or brand name; you must uniquely match the specific product in the attachment list based on dosage form / strength / indication clues before performing calculations. In the `.docx`, write the key audit points (indication, contraindications, special populations, alternative recommendations and communication phrasing). In the `.xlsx`, complete calculations and inventory reconciliation.
+  
+  1) Identification (summary of allergy-contraindication information):
+  (1) Identify the generic names and query inventory and unit price: In the attached inventory list, find **5** products that state “patients with a history of allergy to this product or its components must not use / should avoid use” (only list the **5 product names as shown in the list**).
+  (2) Explain the clinical significance of this type of information for history-taking and prescription interception in pediatric prescription review (no more than 120 Chinese characters’ worth; keep concise in English).
+  
+  2) Calculation (10 years old, weight 30 kg; intramuscular compound antibacterial injection): The physician plans to use an “**IM compound antibacterial injection, 2 mL: contains a sulfonamide 0.4 g + a potentiator 80 mg**” to treat suspected bacterial infection.
+  (1) Identify the generic name and query inventory and unit price.
+  (2) Complete dose calculation per package insert / order requirements: calculate the required per-dose “sulfonamide” amount (mg).
+  (3) Convert to how many mL need to be drawn per dose.
+  (4) Calculate how many ampoules/vials are needed for the full course (round up to whole units).
+  (5) Perform inventory verification: using the list’s on-hand inventory and reorder warning threshold, determine whether an alert is triggered.
+  
+  3) Calculation (10 years old, weight 35 kg; oral tablets for motion sickness prophylaxis/treatment): The physician plans to prescribe an “**oral tablet, 25 mg per tablet, indicated for prevention/treatment of nausea and vomiting due to motion sickness (car/sea)**.”
+  (1) Identify the generic name and query inventory and unit price.
+  (2) Convert per the prescription dosing regimen: how many tablets are needed per dose.
+  (3) Calculate total tablets needed for the full course (**2 consecutive days**).
+  (4) Perform inventory verification based on on-hand inventory and the warning threshold.
+  
+  4) Intervention (3-month-old infant; oral antiviral granules): The physician plans to prescribe an “**oral antiviral granule formulation, 0.2 g per sachet, indicated for varicella / herpesvirus infection**.”
+  (1) Identify the generic name and query inventory and unit price.
+  (2) Determine whether use at this month-age requires precaution / is contraindicated.
+  (3) Write how you would raise the risk points to the physician (must include at least: age-related medication-use evidence basis, allergy-history questioning, and optional plans or switching recommendations).
+  
+  5) Intervention (10-year-old child, Helicobacter pylori–related; oral tablets for refractory infection): The physician plans to prescribe an “**0.1 g oral tablet indicated only for refractory Helicobacter pylori infection**.”
+  (1) Identify the generic name and query inventory and unit price.
+  (2) Determine whether there is a clear contraindication for this age.
+  (3) Provide an actionable direction for prescription adjustment (no need to write a specific drug name; you may write “switch to a regimen supported by pediatric evidence / package-insert data” and explain the principles).
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (307 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_018` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_018/01_inventory.xlsx
+mcp_question_id: v5_018

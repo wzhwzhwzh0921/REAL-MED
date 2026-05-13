@@ -1,0 +1,44 @@
+case_id: soap_documentation/soap_documentation_008
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of February 28, 2026, a 74-year-old man, Zhou Jianguo (pseudonym), presented to the urology clinic accompanied by his daughter for evaluation of gross hematuria and worsening lower urinary tract symptoms. Based on the summarized clinic dialogue, chief complaint/history, and physical examination findings below, analyze his condition and complete a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient walked into the exam room with a slow gait, holding a urinalysis report, and stated: “Doctor, for the past two weeks I’ve been seeing blood in my urine. Sometimes it looks like strong tea, sometimes it’s bright red, and there are small blood clots. Recently it’s been even more annoying—urinary frequency and urgency, I always feel like I need to go, but when I get to the toilet it dribbles for a long time and I can’t get it out. My lower belly here (points to the suprapubic area) feels bloated and uncomfortable.”
+  
+  He added: “At first it didn’t really hurt, and I didn’t have a fever, so I thought it was internal heat or my old prostate problem. Later, if I walk a bit more, the urine gets even redder, like it’s been ‘stirred.’ A few days ago I woke up in the middle of the night from holding it, stood there for a long time and only a little came out—I almost thought I was going to burst.”
+  
+  His daughter, appearing anxious, said: “He used to have a lot of nighttime urination and a thin urine stream. We still had tamsulosin at home, and he restarted it on his own, saying ‘it must be the prostate blocking it.’ But this time it doesn’t seem to work well. He also seems weaker than before, his complexion is pale, and he doesn’t even want breakfast. I’m worried there might be some kind of growth.”
+  
+  The patient shook his head and said: “I don’t have flank pain, and I don’t have back pain or bone pain. My weight hasn’t really dropped. It’s just that the blood in the urine looks scary.” He denied recent trauma and denied urethral pain after strenuous exercise. He denied use of anticoagulants such as aspirin/warfarin. Smoking history: he smoked heavily when he was young and later quit.
+  
+  **Past Medical History and Family History:**
+  Past medical history: Hypertension for 15 years, controlled with oral amlodipine. Type 2 diabetes mellitus for 10 years, on oral metformin; most recent HbA1c 7.4%. “Benign prostatic hyperplasia” for 6 years, intermittently taking tamsulosin. No history of urinary tract tumors. No history of pelvic radiotherapy. No known drug allergies.
+  
+  Family history: Both parents deceased (cause unknown). No clear family history of urinary tract malignancy.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8℃, heart rate 86/min, blood pressure 142/78 mmHg, respiratory rate 18/min, SpO2 97%.
+  
+  General: Alert, oriented, cooperative. Mild conjunctival pallor.
+  
+  Cardiopulmonary: Regular rhythm, no murmurs. Lungs clear to auscultation bilaterally.
+  
+  Abdomen: Soft abdomen. Mild suprapubic fullness; deep tenderness (+) over the suprapubic area; no rebound tenderness or guarding. Bilateral costovertebral angle tenderness (-).
+  
+  Genitourinary: External genitalia without erythema or swelling; no urethral discharge.
+  
+  Digital rectal exam: Prostate approximately 35–40 g, mildly enlarged; right basal area slightly firm to palpation but no typical hard nodule; partial palpability of the median sulcus. No rectal wall mass palpated.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_008/01_attachment.pdf

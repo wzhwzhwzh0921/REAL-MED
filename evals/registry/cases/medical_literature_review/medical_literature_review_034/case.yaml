@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_034
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a rheumatology and immunology physician who has seen multiple adult patients with EGPA (with emphasis on cases presenting with asthma/sinusitis and lung involvement) in the outpatient clinic. Some patients continue to relapse repeatedly after conventional regimens, and glucocorticoids are difficult to taper; therefore, you are particularly interested in recent advances in biologic therapy for EGPA with respiratory system involvement. You plan to write a systematic review (may include a meta-analysis) intended to inform clinical decision-making and optimize treatment strategies for EGPA with respiratory involvement.
+  
+  The review topic is: “Biologic therapy and outcomes in EGPA (eosinophilic granulomatosis with polyangiitis) involving the respiratory system.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Efficacy evidence for therapies targeting eosinophils / the T2 pathway;
+  2. Comparison of induction-of-remission versus maintenance strategies;
+  3. Relapse risk and re-treatment strategies;
+  4. Glucocorticoid tapering speed and organ outcomes (may be benchmarked against the “EGPA Diagnosis and Treatment Multidisciplinary Expert Consensus (2025 edition)”).
+  
+  Search and inclusion requirements: perform a literature search and include studies using the following keywords: EGPA/Churg-Strauss、anti-IL-5/IL-5R、T2 biologics、remission/relapse、glucocorticoid sparing. A standardized reference list must be provided at the end of the review; present the screening process using a PRISMA flow diagram; summarize outcomes and safety of different biologics using an evidence comparison table; and present a stratified framework diagram illustrating the pathway “biomarkers—treatment selection—follow-up indicators.”
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

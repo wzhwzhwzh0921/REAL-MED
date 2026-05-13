@@ -1,0 +1,40 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_008
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  At 23:30 at night, the ward consecutively placed two sets of “stat orders”: one set is an intravenous antihypertensive that is required to take effect within 5 minutes and can be re-dosed; the other set is an intravenous antiemetic for chemotherapy-related nausea and vomiting. As the inpatient pharmacy night-shift pharmacist, you must perform unit-dose dispensing and apply the dispensing principle of “issue the batch closer to expiration first”: while ensuring timely clinical medication use, prioritize issuing inventory that is about to expire to the ward, and at the same time produce a prominent warning for items whose inventory is close to the minimum threshold to avoid stockouts during the next morning peak. Note: The stem will not provide any generic name or brand name; you must uniquely match the specific item in the attached list based on dosage form/specification/indication clues before performing any calculations. Based on the attached inventory list, provide: product description, specification, picking quantity, post-pick inventory, whether a low-inventory alert is triggered, and an explanation of why that batch was selected and whether subsequent replenishment or substitution is needed.
+  
+  Sub-questions
+  1) Identification only:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) From the list, identify (“circle”) the “injectable inventory that will expire soon” and explain its significance for night dispensing (e.g., should be prioritized for use to avoid returns/write-offs, but must also prevent next-day stockouts, etc.). Do not include any drug names.
+  
+  2) Dose conversion + inventory verification: A hematology patient weighs 75 kg and has an urgent order for an “antineoplastic cytotoxic drug” induction-phase dosing: 2 mg/kg, IV, once daily for 2 consecutive days. Calculate under the rule “round each dose up to whole vials”:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) Query this drug’s dosage form and the amount of drug per vial (mg/vial), and based on this calculate how many vials are needed per dose.
+  (3) How many vials are needed in total for two days?
+  (4) After picking from the corresponding inventory location on the list, will the remaining inventory fall below the warning threshold and require an alert?
+  
+  3) Inventory alert + near-expiry-first: The urgent chemotherapy antiemetic is a small-volume injection. Order: IV 6 mg, every 8 hours, for 1 day total; calculate under the rule “at least 1 vial per dose; no splitting/aliquoting and saving for later use”:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) Query this drug’s specification (mL/vial, mg/vial), and calculate how many vials are needed in total for 1 day.
+  (3) After completing picking under the “issue the batch closer to expiration first” principle, will the remaining inventory be below the warning threshold?
+  (4) If triggered, what should be the warning wording written in the xlsx (do not include any drug name)?
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (276 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_008` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_008/01_inventory.xlsx
+mcp_question_id: v5_008

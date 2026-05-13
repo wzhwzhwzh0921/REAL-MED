@@ -1,0 +1,16 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_007
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a hematologist. Please prepare a lecture PPT on Acquired Hemophilia A (AHA), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: anti-FVIII autoantibodies and decreased FVIII:C, high incidence in the peripartum period and in patients aged ≥60 years, approximately 50% have identifiable triggers, delayed diagnosis and warning signs of severe bleeding risk.
+  **Visual materials**: APTT→FVIII:C→inhibitor diagnostic flowchart; hemostatic and immunosuppressive treatment pathway diagram; trend chart of delayed diagnosis and severe bleeding.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (anti-FVIII autoantibodies and decreased FVIII:C, high incidence in the peripartum period and in patients aged ≥60 years, approximately 50% have identifiable triggers, delayed diagnosis and warning signs of severe bleeding risk).
+  3. Include the visual materials specified (APTT→FVIII:C→inhibitor diagnostic flowchart; hemostatic and immunosuppressive treatment pathway diagram; trend chart of delayed diagnosis and severe bleeding).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_007/01_template.pptx

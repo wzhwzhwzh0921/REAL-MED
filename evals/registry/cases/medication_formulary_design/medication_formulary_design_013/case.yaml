@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_013
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the prescription-management lead in the Department of Neurology at a tertiary (Grade A, Class III) hospital. You plan to establish an in-hospital formulary for standardized outpatient management of Idiopathic Intracranial Hypertension (IIH). The clinic population is predominantly obese women of reproductive age. Most patients rely on basic medical insurance, with limited commercial insurance coverage, and they prioritize long-term medication affordability and access, convenience of administration, and impacts on body weight and reproductive planning.
+  
+  **Formulary construction principles:**
+  - Include medications with NMPA-approved use; when off-label (beyond approved indications) is involved, annotate the level of evidence and applicable boundaries.
+  - Prioritize insurance accessibility in brand selection; for the same generic name, select 1 representative brand to facilitate consistent in-hospital implementation.
+  - Label the reimbursement category and payment attributes for each item.
+  
+  **Tasks:**
+  1. Summarize the drug categories in the IIH formulary, stratify them by therapeutic positioning, state each category’s NMPA approval status, and provide a framework for presenting off-label evidence.
+  2. Create several single-disease prescription examples covering typical combination and alternative regimens across different treatment stages and patient scenarios.
+  3. Create several prescription examples for IIH with comorbidities or special situations, explaining the logic for drug selection and dose adjustment in light of interactions, organ function, pregnancy-related needs, and adverse-reaction risks.
+  4. Provide strong alerts on key safety risks of formulary drugs, covering reproductive toxicity, metabolic and electrolyte abnormalities, psychiatric/cognitive effects, nephrolithiasis/renal injury, risks that trigger or worsen intracranial pressure, and required monitoring.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

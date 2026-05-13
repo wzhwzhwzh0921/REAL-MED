@@ -1,0 +1,45 @@
+case_id: soap_documentation/soap_documentation_013
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior physician in a fever clinic. On the afternoon of May 20, 2024, a 24-year-old male kindergarten teacher, Mr. Zhang (pseudonym), presented accompanied by his girlfriend. Please analyze his condition based on the following summarized clinic dialogue, chief complaint/history, and physical examination findings, and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  Mr. Zhang was assisted into the exam room by his girlfriend; he appeared flushed and lethargic. Chief complaint: “persistent high fever for 6 days, with generalized rash, sore throat, and red eyes.”
+  
+  In a hoarse voice, Mr. Zhang stated: “Doctor, I’ve had this fever for almost a week—it’s killing me. It started as a sudden fever with chills and no energy. My temperature shot up to 40°C at its highest. I thought it was a cold, so I took antipyretics and amoxicillin, but it didn’t control it at all. Two days ago, a lot of red rashes started appearing on my body, and my throat hurts like swallowing blades. The worst is my eyes—they’re red like a rabbit’s, and every morning when I wake up, my eyes are stuck shut with discharge; I have to wipe them for a long time before I can open them. My hands are swollen too—red and hard—and it’s difficult to make a fist.”
+  
+  He paused and pointed to his neck: “There’s also a lump here, and it hurts when touched. I’m a kindergarten teacher, and several kids in my class have recently had fevers and took sick leave—did I catch some serious flu? But my influenza antigen test was negative.”
+  
+  His girlfriend added: “Doctor, his lips are badly cracked, and his tongue is frighteningly red with little bumps—like a strawberry. We searched online, and it feels like that ‘Kawasaki disease’—but he’s an adult; can he get that too?”
+  
+  **Past Medical History and Family History:**
+  Previously healthy. Appendectomy in 2015. Allergy: sulfonamide drugs. Denies history of hypertension and diabetes. No smoking or alcohol use. No family history of autoimmune disease.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 39.6°C; heart rate 112/min; blood pressure 118/75 mmHg; respiratory rate 22/min; pulse oximetry 96% on room air.
+  
+  General: Acutely ill-appearing; alert; poor energy. Facial flushing. Left neck: palpable enlarged lymph node approximately 2.5 cm × 2.0 cm with marked tenderness; medium consistency; mobile.
+  
+  HEENT: Bilateral conjunctival injection; small amount of yellow-white mucoid discharge at the medial canthi. Lips cracked and hyperemic. Tongue papillae red, swollen, and prominent, consistent with classic “strawberry tongue.” Pharynx deep red. Bilateral tonsils enlarged to grade II with scattered white patchy exudates on the surface.
+  
+  Skin/Extremities: Diffuse maculopapular rash on trunk and back; blanching with pressure; no vesicles or crusting. Bilateral palms erythematous. Dorsum of hands and fingers with non-pitting firm edema.
+  
+  Cardiopulmonary/Abdominal: Lungs with coarse breath sounds; no wheezes or crackles. Regular heart rhythm; strong heart sounds; no murmurs. Abdomen soft, non-tender; no hepatosplenomegaly palpated.
+  
+  Stat laboratory results:
+  - CBC: WBC 18.2×10^9/L (neutrophils 84%); Hb 135 g/L; PLT 105×10^9/L (low platelet count).
+  - Inflammatory markers: CRP 145 mg/L (markedly elevated); ESR 88 mm/hr; procalcitonin (PCT) 3.8 ng/mL (markedly elevated).
+  - Urinalysis: WBC 10–15/HP; nitrite (−).
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_013/01_attachment.pdf

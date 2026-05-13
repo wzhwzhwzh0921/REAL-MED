@@ -1,0 +1,48 @@
+case_id: soap_documentation/soap_documentation_029
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of February 28, 2026, a 72-year-old male patient, Zhou Jianguo (pseudonym), a retired bus driver, presented to the dermatology clinic accompanied by his wife for evaluation of progressively increasing skin “fleshy bumps” on the trunk and upper extremities.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient lifted his shirt on arrival and said with some embarrassment, “Doctor, I’m getting more and more small fleshy bumps on my body, like skin tags. Can you just remove them the simple way like before? When my collar or belt rubs them it itches, and two or three of them hurt for a moment.”
+  
+  He reported that approximately 10+ years ago he first noticed one or two “rice-grain–sized” lesions on his back that were soft, non-tender, and non-pruritic, so he did not pay attention. Over time, similar lesions appeared on the chest, abdomen, and arms. Over the past 2 years, the number has increased markedly and he “can’t even count them.” Family members have told him that “it’s normal to grow skin tags as you get older.”
+  
+  His wife added that he has been scratching recently, stating that rubbing from pajama collars is uncomfortable. She also noted one bump that is not hanging outward but feels like a small subcutaneous nodule; when pressed it seems to “sink in” slightly and then rebounds. She expressed concern about whether it could be something serious.
+  
+  The patient further stated, “Also, my right forearm sometimes feels kind of numb lately. At night it sometimes hurts like pins and needles for a few minutes; if I turn over it gets better.” He reported chronic use of medications for blood glucose and blood pressure control. He denied recent fever or weight loss. He is mainly bothered by the lesions and is afraid to rub his back while bathing for fear of hitting them.
+  
+  When asked about prior skin history, he stated that when he was younger he had a few light-brown “birthmarks/sun spots” on his back that were never treated. He also noted, “My dad also had some small bumps on his body in his later years; he never had them checked.”
+  
+  **Past Medical History and Family History:**
+  - Hypertension for 10 years; amlodipine 5 mg qd.
+  - Type 2 diabetes mellitus for 8 years; metformin 0.5 g bid; HbA1c in recent years mostly 7%–8%.
+  - Status post bilateral cataract surgery.
+  - Approximately 5 years ago, a right axillary “skin tag” was treated with outpatient cryotherapy.
+  - Drug allergy: penicillin (patient-reported rash after use).
+  - Family history: father had increasing similar “fleshy bumps” in later life; other family history unknown.
+  
+  **Physical Examination Findings:**
+  - Vital signs: T 36.7°C, HR 76/min, BP 138/82 mmHg, RR 16/min, SpO2 97%.
+  - General: alert and oriented, moderately nourished, steady gait, no acute distress.
+  - Skin:
+    - Trunk (back, chest, and abdomen) and upper arms: multiple (approximately 40–60) skin-colored to light-brown papules/nodules, approximately 0.3–1.8 cm in diameter. Some are pedunculated and soft; others are non-pedunculated, located in the dermis/subcutis, and palpably “soft/flaccid.”
+    - On two non-pedunculated nodules, firm digital pressure produced a slight “dimpling/sinking-in” sensation with rebound upon release (required deliberate elicitation).
+    - Back: several scattered, well-demarcated light-brown patches, approximately 2–4 cm.
+    - Bilateral axillae: small amount of freckle-like pigmentation.
+  - Cardiopulmonary: strong heart sounds, regular rhythm; lungs clear to auscultation bilaterally.
+  - Abdomen: soft, non-tender, no rebound; liver and spleen not palpable below costal margins.
+  - Neurologic: gross motor strength 5/5 in all extremities; symmetric tendon reflexes; patient subjectively reports slightly decreased pinprick sensation on the right forearm compared with the left.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_029/01_attachment.pdf

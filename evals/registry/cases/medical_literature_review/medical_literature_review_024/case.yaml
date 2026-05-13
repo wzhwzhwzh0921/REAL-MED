@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_024
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a pediatric gastroenterologist. In outpatient practice, you have managed multiple children with Crohn’s disease/ulcerative colitis who, after receiving biologic agents such as anti-TNF therapies, developed “early loss of response/repeated dose escalation” accompanied by adverse events such as infections. This highlights the need to focus on the evidence for therapeutic drug monitoring (TDM) of biologic therapy in dose optimization and safety. Therefore, you plan to write a systematic review/meta-analysis on this topic for evidence-based clinical decision-making.
+  
+  Topic: Evidence-based data on therapeutic drug monitoring (TDM) of biologic therapy in pediatric inflammatory bowel disease for dose optimization and safety.
+  
+  The review must systematically compile and analyze the following core content:
+  1. Pharmacokinetic differences between children and adults and exposure–response relationships;
+  2. TDM indices and blood sampling timepoints (trough concentration/ADA);
+  3. Effectiveness outcomes of TDM-guided dose adjustment;
+  4. Safety outcomes and risk stratification (infection/immunogenicity).
+  
+  Search and inclusion should use the following keywords: pediatric IBD、biologics/anti-TNF、therapeutic drug monitoring、pharmacokinetics、dose optimization. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

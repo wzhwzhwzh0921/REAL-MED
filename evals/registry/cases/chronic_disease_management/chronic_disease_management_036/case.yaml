@@ -1,0 +1,40 @@
+case_id: chronic_disease_management/chronic_disease_management_036
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  You are a community general practitioner. In front of you is a patient with chronic disease, and the system has already loaded the complete clinical data.
+  
+  You have connected to the hospital HIS system and can complete diagnostic and treatment operations through system tools. Based on the patient’s clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  
+  After completing all clinical decisions, please confirm and submit the medical orders.
+  
+  ---
+  **Case No.:`chronic_disease_management_036`chronic_disease_management_036`
+  
+  Wang, a 70-year-old retired teacher, has had Parkinson’s disease (PD) for 5 years, and his motor symptoms have remained fairly stable under medication control. However, over the past year, his family has brought him back for follow-up visits, expressing concern that “his mind is not as sharp as before.” He has become forgetful and often “gets stuck” when speaking; he can no longer stay engaged with his once-favorite history documentaries. Cognitive scale assessment (MoCA 22 points) confirms that he meets criteria for mild cognitive impairment (MCI). Brain MRI shows only mild cerebral atrophy consistent with his age.
+  
+  To further clarify the etiology of the cognitive decline, you recommend more in-depth testing. However, Wang and his family are very concerned about lumbar puncture and ultimately refuse it. As an alternative, you perform a series of advanced blood biomarker tests. The results show that the plasma Aβ42/40 ratio is only mildly decreased, whereas plasma p-tau217 is very markedly elevated—more than 3 times the upper limit of normal.
+  
+  **Patient information:**
+  - Name: Wang Jianguo, male, 70 years old, retired middle-school physics teacher
+  - Chief complaint: Declining memory and word-finding difficulty for nearly 1 year.
+  - History of present illness: The patient was diagnosed with Parkinson’s disease 5 years ago, mainly presenting with right-sided resting tremor and bradykinesia; symptoms improved after taking “Madopar (levodopa/benserazide).” Over the past year, family members have noticed a marked decline in memory; he often forgets what he just said or where he placed objects. When watching TV, he has difficulty following complex plots, and during conversations he shows obvious word-finding difficulty. His motor symptoms (tremor, rigidity) have not worsened significantly, and there are no psychiatric symptoms such as hallucinations or delusions. Activities of daily living are basically independent.
+  - Past medical history: Parkinson’s disease for 5 years, regularly taking Madopar with acceptable control of motor symptoms; hypertension for 10 years, regularly taking amlodipine with stable blood pressure control
+  - Current medications: Madopar 125mg tid, amlodipine besylate 5mg qd
+  - Lifestyle: Previously meticulous at work before retirement; enjoys reading and calligraphy. Over the past year, family reports decreased initiative and reduced interest in previous hobbies.
+  - Vital signs: blood_pressure=135/80 mmHg；heart_rate=75 bpm；temperature=36.6℃；respiratory_rate=18 次/分
+  - Physical examination: Neurological exam: alert, slightly reduced speech fluency. Mild right-sided resting tremor, cogwheel rigidity in all limbs, festinating gait. Pull test negative. Mini-Mental State Examination (MMSE) 25 points; Montreal Cognitive Assessment (MoCA) 22 points (points mainly lost in delayed recall, language, and executive function). H-Y stage 2.5.
+  - Ancillary tests: Routine blood, urine, and stool tests, liver and kidney function, and thyroid function are all normal.
+  Brain MRI: mild hippocampal and global cerebral atrophy; no definite infarct lesions or space-occupying lesions.
+  Lumbar puncture CSF testing: the patient and family explicitly refuse due to concerns about risks and side effects.
+  Peripheral blood biomarker testing:
+  - Plasma Aβ42/40 ratio: mildly decreased (10% lower than age-matched normal values).
+  - Plasma p-tau217: 7.8 pg/mL (laboratory reference upper limit 2.5 pg/mL), markedly elevated, more than 3 times the upper limit of normal.
+  - Plasma NfL (neurofilament light chain): mildly elevated.
+  
+  ---
+  **Case No.:`chronic_disease_management_036`chronic_disease_management_036`. The patient’s complete clinical data has been provided above; there is no need to call any case-loading tool again. Please directly use the currently available Chronic-System HIS tools to enter necessary orders in sequence, including diagnoses, prescriptions, laboratory tests, imaging, and a follow-up plan; after completion, use the available HIS submit tool to confirm and submit the orders. Do not request clarification merely because a tool’s display name does not exactly match the descriptive text. When calling the submit tool, you must fill in the `analysis_conclusion` parameter and provide as detailed a final analysis as possible, covering diagnostic rationale, risk stratification or disease severity, rationale for treatment choices, testing and monitoring plan, follow-up plan, and necessary up-referral or specialty referral considerations.
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

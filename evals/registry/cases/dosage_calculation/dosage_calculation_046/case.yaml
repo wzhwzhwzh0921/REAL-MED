@@ -1,0 +1,23 @@
+case_id: dosage_calculation/dosage_calculation_046
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 38-year-old female with markedly elevated BMI requires an IV phenytoin sodium loading dose due to recurrent seizures. Actual body weight (ABW) 170 kg; ideal body weight (IBW) 60 kg. The clinical plan is to use a 20 mg/kg loading dose. She is non-elderly and has no high cardiovascular risk. Planned infusion rate: 45 mg/min.
+  
+  Calculation tasks:
+  1) Calculate the adjusted body weight (AdjBW) to be used for phenytoin sodium in this patient (use the correction method required by the prompt).
+  2) Calculate the total loading dose (mg).
+  3) Using the planned infusion rate, calculate the infusion time (min).
+  4) State the target range for total phenytoin serum concentration after dosing, and identify at least one monitoring interpretation caveat that must be interpreted in conjunction with clinical status or changes in protein binding.
+  
+  Additional requirements/constraints (must follow exactly):
+  - (This question stipulates: per ENLS 5.0, phenytoin sodium loading 20 mg/kg, calculated using AdjBW.)
+  - (This question stipulates: in elderly/high cardiovascular risk patients, IV infusion rate ≤25 mg/min, with continuous ECG + blood pressure monitoring.)
+  - (This question stipulates: in elderly/high cardiovascular risk patients, phenytoin sodium IV infusion rate ≤25 mg/min, with continuous ECG and blood pressure monitoring.)
+  Please calculate this patient’s safety_flags.
+  
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

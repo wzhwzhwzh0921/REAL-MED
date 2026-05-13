@@ -1,0 +1,54 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_038
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  The Pharmacy & Therapeutics Committee plans to add 2 non–insurance-covered items under the “cough medicines” category to meet pediatric needs. The attached list contains 6 non–insurance-covered items (only 2 of which are directly related to “cough/antitussive”). Please have the pharmacy department complete the following tasks using this approach: prioritize exclusion of drugs contraindicated in children; within the same indication, assess cost-effectiveness and inventory turnover; and provide formulary selection recommendations. Produce a written opinion within 1 page (including conclusions and rationale; calculation steps may be attached as a table). Note: The stem will not provide any drug generic name or brand name; you must uniquely match each item to a specific product in the attached list based on dosage form/specification/indication clues, and only then perform calculations.
+  
+  Sub-question 1 (Selection logic): Among the 6 non–insurance-covered items in the list, identify the item whose “indications” explicitly state it is used for cough/asthma, whose package insert states “contraindicated in children,” and which is an oral tincture of 0.1% (calculated as a specified ingredient). Complete:
+  (1) Identify the generic name of this drug, and query its inventory level and unit price;
+  (2) Determine whether it can be used as a pediatric newly added antitussive option, and provide risk points (at least 2) and a formulary handling recommendation (e.g., restriction level / do not include, etc.).
+  
+  Sub-question 2 (Utilization & inventory calculation - 1): For the item described as “a compound syrup: per 100 ml contains 0.2 g of a certain antitussive ingredient and 0.125 g of an antihistamine ingredient; the package insert explicitly states contraindicated in persons under 18 years old,” if adult outpatient/emergency intends to prescribe 10 ml per dose, 3 times daily, for 7 consecutive days:
+  (1) Identify the generic name of this drug, and query its inventory level and unit price;
+  (2) Calculate the total volume consumed (ml);
+  (3) Calculate the total medication cost (CNY), calculated as unit price × ml;
+  (4) Determine whether the post-use inventory will fall below the alert threshold.
+  
+  Sub-question 3 (Utilization & inventory calculation - 2): For the tablet item indicated for “dispelling wind and relieving exterior syndrome, resolving phlegm and stopping cough,” prescribe to 1 adult for 14 days at the maximum dose of 6 tablets per dose:
+  (1) Identify the generic name of this drug, and query its inventory level and unit price;
+  (2) After querying the package insert dosing regimen, calculate the total number of tablets at the maximum dose;
+  (3) Calculate the cost;
+  (4) Determine whether the post-use inventory reaches the alert threshold;
+  (5) Briefly describe its cost-effectiveness advantages/disadvantages compared with other cough-related medications (at least 1 point).
+  
+  Sub-question 4 (Exclude non-indication & turnover): For the item described as “0.3 g per capsule (containing 21 mg of a certain ingredient), used for elevated transaminases in chronic hepatitis, etc.”:
+  (1) Identify the generic name of this drug, and query its inventory level and unit price;
+  (2) Explain why it should not be included in the ‘cough medicines’ add-on discussion;
+  (3) Provide 1 actionable in-hospital turnover/control recommendation regarding ‘inventory overstock’.
+  
+  Sub-question 5 (Contraindication identification): For the item described as “200 ml per bottle and with a 10 ml per ampoule (or vial) specification clue, used for symptom relief of chronic pelvic inflammatory disease, explicitly contraindicated in pregnant women”:
+  (1) Identify the generic name of this drug, and query its inventory level and unit price;
+  (2) State its core contraindication;
+  (3) State management risk points (at least 2) that could result from mistakenly categorizing it under the cough medicines directory.
+  
+  Sub-question 6 (Population mismatch reminder): For the tablet item described as “used for elderly-related symptoms such as insomnia, tinnitus, and nocturia frequency; emphasizes regulation of immune function in the elderly”:
+  (1) Identify the generic name of this drug, and query its inventory level and unit price;
+  (2) Provide one paragraph of medication-communication guidance for clinicians, emphasizing that its indication positioning does not match the ‘cough’ need.
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (279 items). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_038` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_038/01_inventory.xlsx
+mcp_question_id: v5_041

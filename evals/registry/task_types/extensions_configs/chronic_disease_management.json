@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "chronic-disease-his": {
+      "enabled": true,
+      "type": "stdio",
+      "command": "python3",
+      "args": [
+        "${REPO_ROOT}/mcp_servers/chronic-disease-his/server.py"
+      ],
+      "env": {
+        "OUTPUTS_DIR": "$OUTPUTS_DIR"
+      },
+      "description": "HIS workflow: update_diagnosis / create_prescription / order_lab_test / order_imaging / create_follow_up_plan / submit_referral / get_pending_orders / submit_orders"
+    }
+  },
+  "skills": {
+    "code": {
+      "enabled": true
+    },
+    "docx": {
+      "enabled": true
+    },
+    "xlsx": {
+      "enabled": true
+    },
+    "pdf": {
+      "enabled": true
+    },
+    "web-search": {
+      "enabled": true
+    }
+  }
+}

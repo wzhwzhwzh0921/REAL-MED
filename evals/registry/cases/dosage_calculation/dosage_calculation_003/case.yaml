@@ -1,0 +1,17 @@
+case_id: dosage_calculation/dosage_calculation_003
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: 78-year-old female, weight 60 kg. Serum creatinine 1.0 mg/dL. Indication: atrial fibrillation (AF). Current ward conditions: continuous ECG monitoring available: Yes; cardiac resuscitation capability available: Yes. Baseline QTc = 440 ms.
+  
+  Calculation tasks:
+  1) Use the Cockcroft–Gault equation to estimate creatinine clearance (CrCl, mL/min).
+  2) Based on CrCl stratification, provide the recommended sotalol dosing interval for the AF indication (e.g., bid or qd, or contraindicated).
+  3) State whether the safety monitoring conditions for initiation/dose adjustment are met, and provide key points for QTc monitoring.
+  
+  (Constraint for this question: renal function must use Cockcroft–Gault CrCl, not eGFR/CKD-EPI). Please calculate this patient’s warnings.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

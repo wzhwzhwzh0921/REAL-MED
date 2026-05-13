@@ -1,0 +1,43 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_019
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Pediatric outpatient prescription and pharmacy review joint assessment task. During medication review this week, pharmacists must pay special attention to the following: some drug labels specify a dosing method of “**convert the daily dose based on the child’s body weight, then divide into doses by frequency**.” If a prescription does not provide the pediatric maximum/range dose or does not provide the child’s weight, you must prompt for completion during review so the dose can be verified. Note: the stem will not show any generic name or brand name; you must first use the dosage form/specification/indication/route clues to uniquely match the specific product in the attached list, and only then perform calculations.
+  
+  Complete the following sub-questions and provide key calculation steps in the xlsx (write formulas or steps), and final conclusions (including whether an inventory warning is triggered).
+  
+  1) [Identification] From the attached inventory list, find the products that “must first be weight-based converted and then administered in divided doses” (total 6 products).
+  (1) Identify the generic name of each drug and query its inventory and unit price (must be done for each product);
+  (2) In the docx, list its specification information;
+  (3) Use 1 sentence to summarize the significance of this dosing method for prescription review (e.g., why weight and dose division must be checked).
+  
+  2) [Dose calculation + tablet conversion] A pediatric outpatient child weighs **18 kg**. The order is: oral administration of an antiviral tablet (indicated for influenza virus and herpes virus infections).
+  (1) Identify the generic name of this drug and query inventory and unit price;
+  (2) Check the package insert: the weight-based **daily mg/kg dose** and the **number of divided doses**, and based on this calculate the child’s **total daily dose (mg/day)**;
+  (3) Calculate the **per-dose amount (mg/dose)**;
+  (4) Based on the labeled tablet strength, convert to the **number of tablets per dose** (0.5 tablet is allowed to represent a half tablet; if rounding to an integer is required, state whether rounding up or standard rounding is used and the basis);
+  (5) If the course is 5 days, calculate the total tablets required, and reconcile against current inventory and the reorder warning threshold: report the post-use inventory and whether it is below the threshold.
+  
+  3) [Missing-dose prompt + inventory reconciliation] The outpatient clinic plans to use an IV infusion antibacterial injection. The adult dose on the label is relatively complete, but the pediatric dose only states “**daily 10–**” and is incomplete.
+  (1) Identify the generic name of this drug and query inventory and unit price;
+  (2) As the reviewing pharmacist, in the docx write the minimum list of information that must be completed/verified with the prescriber (at least 3 items, such as weight, the upper limit or range of daily mg/kg dose, dosing frequency, etc.);
+  (3) If communication confirms dosing is “weight-based mg/kg/day dose, divided-dose frequency” for a **20 kg** child for **3 days**: calculate the **per-dose drug amount (mg)** and the **number of vials per dose** (convert based on “drug amount per vial,” and round vials up to the next whole vial);
+  (4) Complete inventory reconciliation: report the post-use inventory and whether an inventory warning is triggered (**default for this question: 1 box = 1 vial**).
+  
+  Attachment: drug inventory list `01_inventory.xlsx` (260 drug rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_019` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_019/01_inventory.xlsx
+mcp_question_id: v5_019

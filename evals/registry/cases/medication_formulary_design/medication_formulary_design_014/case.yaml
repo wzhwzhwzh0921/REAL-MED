@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_014
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Medical Director of the Gastroenterology Department at a tertiary (Grade III-A) hospital. Your institution plans to establish a subspecialty clinic for “standardized management of Eosinophilic Esophagitis (EoE)”, primarily serving children and young-to-middle-aged adults who require long-term follow-up. The patient population is mainly covered by medical insurance, with some able to access rare-disease protection or special reimbursement pathways; acceptance of complex administration procedures and injection therapies is limited, so the formulary must balance accessibility and adherence.
+  
+  **Formulary construction principles:**
+  - Prioritize inclusion of medications with NMPA-approved indications; if off-label use is involved, annotate the evidence type, recommendation strength, and applicable boundaries.
+  - For the same generic name, select 1 representative brand; prioritize options with good NRDL accessibility, convenient outpatient implementation, and stable supply.
+  - For all items, uniformly label the reimbursement category and payment attributes (Class A/Class B/National-negotiation/Self-pay and restriction conditions).
+  
+  **Tasks:**
+  1. Summarize EoE medication categories and stratify them by therapeutic positioning; for each category, explain NMPA approval status and the framework for off-label evidence.
+  2. Provide several single-disease prescription examples covering different treatment stages and goals, routes of administration and operational complexity, and differing adherence scenarios.
+  3. Provide several prescription examples for comorbid diseases or special situations, explaining the decision logic for interactions, alternative options, dose and course adjustments, and examination/monitoring plans.
+  4. Strongly highlight key safety risks, covering infection and mucosal injury, steroid-related systemic risks, biologic immunologic and allergy risks, and monitoring risks in special populations and with long-term medication use.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

@@ -1,0 +1,48 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_016
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Outpatient prescription-audit targeted drill (contraindication checks for pregnancy/lactation and allergy contraindications). Today’s encounter: a patient at **10 weeks of pregnancy**, diagnosed with allergic rhinitis. The physician plans to prescribe a second-generation anti-allergy **oral syrup**. During review, the pharmacist notes that this patient is a special population and requires focused verification of contraindication clauses such as “contraindicated or use with caution during pregnancy/lactation” and “contraindicated in patients allergic to this product,” and must also assess alternatives and patient medication education. Note: the stem will not include any generic name or brand name; you must uniquely match the specific product from the attachment list using clues such as dosage form/specification/indication/contraindication characteristics before answering.
+  
+  As the prescription-audit pharmacist, based on the **5 products** in the attached inventory list whose “contraindications include allergy contraindication,” complete the following tasks (note: the drug name is not given directly; only specification/dosage form/indication/contraindication clues can uniquely point to a single product):
+  
+  1) Indication and special populations: For the prescription scenario “**10 weeks pregnant** + allergic rhinitis + planned use of an anti-allergy **oral syrup**,” complete:
+  (1) Identify the drug’s **generic name**, and query its **inventory** and **unit price**
+  (2) State the key audit points (indication match, pregnancy risk, lactation risk, allergy-history verification)
+  (3) Provide your conclusion-oriented recommendation on how you would communicate with the physician (including whether you recommend stopping, switching medication, and/or non-pharmacological management)
+  
+  2) Inventory and usage calculation (topical hemostatic agent): A surgical outpatient clinic plans to prescribe a hemostatic drug for “oozing bleeding from an abdominal incision wound,” described as “for **topical use**, must be diluted with **sterile water for injection** before application, common specifications include **500U/1mL** etc.” Complete:
+  (1) Identify the drug’s **generic name**, and query its **inventory** and **unit price**
+  (2) If this use requires **2 vials** (counted as **2 boxes** for clinical consumption), calculate whether the post-dispensing inventory will fall below the **replenishment alert threshold**, and provide the calculation process and conclusion
+  
+  3) Inventory and usage calculation (burn/scald topical ointment contraindicated in pregnancy): The ED plans to prescribe a topical drug for a burn/scald patient, described as “**30 g per tube**, for superficial II / deep II degree burns and scalds, with contraindications clearly stating **contraindicated in pregnant women**.” Complete:
+  (1) Identify the drug’s **generic name**, and query its **inventory** and **unit price**
+  (2) If **2 tubes** are dispensed, calculate the remaining inventory after dispensing and determine whether replenishment is triggered
+  
+  4) Contraindication audit (including contraindicated in lactation): Internal medicine plans to prescribe a compound preparation for a patient with “influenza-like symptoms,” described as “**0.4 g per capsule**, containing acetylsalicylic acid **120 mg** + chlorpheniramine maleate **2 mg** + vitamin C **50 mg**, contraindications include **contraindicated in pregnant and lactating women**, and contraindicated in patients allergic to antipyretic analgesics.” Complete:
+  (1) Identify the drug’s **generic name**, and query its **inventory** and **unit price**
+  (2) Write the two core types of risk alerts that should be triggered in the prescription-audit system
+  (3) Provide directions for alternative symptomatic-treatment recommendations (no need for specific drug names)
+  
+  5) Adverse reactions and high-risk population reminders: Respiratory medicine plans to select a drug for a patient with “chronic bronchitis with sticky sputum difficult to expectorate and difficulty taking oral medications,” described as an “injection **4 mg/ampoule**, can be IM injection or IV drip, contraindication is contraindicated in patients allergic to it, and may cause shock/anaphylactoid reactions, etc.” Complete:
+  (1) Identify the drug’s **generic name**, and query its **inventory** and **unit price**
+  (2) In the dispensing counseling, list the monitoring points and management reminders you would emphasize (at least 3 items)
+  (3) Explain how medication use should be controlled in elderly/children
+  
+  Attachment: drug inventory list `01_inventory.xlsx` (290 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_016` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_016/01_inventory.xlsx
+mcp_question_id: v5_016

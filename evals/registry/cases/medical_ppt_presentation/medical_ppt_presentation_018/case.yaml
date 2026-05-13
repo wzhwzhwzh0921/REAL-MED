@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_018
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are an oncologist. Please prepare a lecture PPT on interpretation of pathological biomarkers for breast cancer subtyping and corresponding treatment pathways, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: TDLU origin and subtype differences, clinical significance of ER/PR/HER2/Ki-67 biomarkers, key points on HER2 heterogeneity and testing discordance, subtyping and pathway linkage for an initial presentation breast mass.
+  **Visual materials**: Flowchart for HER2 testing and retesting; treatment stepwise ladder diagram by subtype; trend chart of HER2 status changes or a schematic illustrating IHC/ISH discordance.
+  **Constraints & format**: 14–20 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–20 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (TDLU origin and subtype differences, clinical significance of ER/PR/HER2/Ki-67 biomarkers, key points on HER2 heterogeneity and testing discordance, subtyping and pathway linkage for an initial presentation breast mass).
+  3. Include the visual materials specified (Flowchart for HER2 testing and retesting; treatment stepwise ladder diagram by subtype; trend chart of HER2 status changes or a schematic illustrating IHC/ISH discordance).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_018/01_template.pptx

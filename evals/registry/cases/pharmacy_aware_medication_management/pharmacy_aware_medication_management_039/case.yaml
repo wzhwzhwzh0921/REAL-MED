@@ -1,0 +1,14 @@
+case_id: pharmacy_aware_medication_management/pharmacy_aware_medication_management_039
+task_type: pharmacy_aware_medication_management
+prompt: |
+  [Task Prompt]
+  You are a clinical pharmacist. Please complete this nephrology medication dose adjustment in ckd case.
+  - Patient information and the full hospital medication inventory are in the attached `.xlsx` file.
+  - Task instructions, questions (Task 1: Q1–Q3 + Task 2 document), and answer areas are in the attached `.docx` template.
+  Read both attachments, then fill in your complete answers in the corresponding answer areas of the `.docx` template.
+  [Answer Format]
+  Fill in the `.docx` answer template completely and submit the completed .docx file through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**
+attachments:
+  - pharmacy_aware_medication_management/pharmacy_aware_medication_management_039/01_inventory.xlsx
+  - pharmacy_aware_medication_management/pharmacy_aware_medication_management_039/02_question_paper.docx

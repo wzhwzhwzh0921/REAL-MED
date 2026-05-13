@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_019
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior hepatobiliary surgeon. The case below describes a 66-year-old man with chronic hepatitis B and compensated cirrhosis undergoing curative-intent management of multifocal right-lobe liver tumors, with sequential intraoperative and postoperative decision points.
+  
+  - 66-year-old man with chronic hepatitis B (HBsAg+, HBeAb+, HBcAb+) and MRI features suggestive of cirrhosis; HCV negative.
+  - Asymptomatic at presentation (no abdominal pain, fever, jaundice, or weight loss).
+  - Tumor markers normal (AFP, CA19-9, CEA).
+  - Preserved liver reserve: AST 21 U/L, total bilirubin 18.0 μmol/L, albumin 45.4 g/L, PT 11.7 s; no ascites/encephalopathy; Child–Pugh A.
+  - Imaging: contrast MRI shows three right-lobe lesions in segments V and VII (largest 3.3 × 4.2 cm) interpreted as likely malignant; PET-CT shows increased FDG uptake in two lesions but decreased uptake in the third (mixed pathology vs benign mimic considered).
+  - Preoperative endoscopy: erosive gastritis without varices.
+  - Planned curative-intent oncologic liver procedure for multifocal right-sided tumors (major hepatic resection discussed in the course).
+  
+  **Q1 — Intraoperative nodal staging decision-making** During dissection in the porta hepatis to prepare for the planned oncologic liver procedure, you identify several enlarged hepatoduodenal ligament lymph nodes measuring approximately 0.9 cm, and frozen section pathology is available in the operating suite. What is your immediate intraoperative strategy for nodal staging in the hepatoduodenal ligament (selective lymph node sampling versus formal lymphadenectomy, with or without frozen section), and how would each possible frozen-section result change your decision to proceed with hepatic resection and/or ablation during this operation? Describe the key technical steps to obtain an oncologically adequate and safe node specimen at the porta hepatis and the main pitfalls that can cause bile duct or vascular injury or lead to mis-staging.
+  
+  **Q2 — Postoperative bile leak management** After major hepatic resection for multifocal right-sided liver tumors, on postoperative day 3 he develops increasing right upper quadrant discomfort and low-grade fever (38.2°C) with reduced oral intake and mild tachycardia but remains hemodynamically stable. A surgically placed intra-abdominal drain is producing 250–400 mL/day of golden-green fluid; the drain bilirubin concentration is markedly higher than the simultaneous serum bilirubin. Labs show WBC 13.5 × 10^9/L, total bilirubin 32 μmol/L (up from 18 μmol/L preoperatively), alkaline phosphatase mildly elevated, and stable hemoglobin; exam shows mild tenderness without peritonitis. Ultrasound demonstrates a small perihepatic fluid collection without significant intrahepatic biliary dilatation. In this postoperative scenario, what are the most likely mechanisms of bile leak, how would you confirm and grade the leak (including key diagnostic criteria and workup), and what evidence-based stepwise management plan would you follow (including indications to escalate to ERCP, percutaneous drainage, or reoperation), as well as practical intraoperative and perioperative strategies to prevent bile leak?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop nodal staging strategy/frozen-section decision impacts/technical pitfalls; bile leak mechanisms/confirmation+grading/workup/stepwise management+escalation/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_019/01_case_file.docx

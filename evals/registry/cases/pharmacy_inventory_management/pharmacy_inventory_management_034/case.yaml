@@ -1,0 +1,45 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_034
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Outpatient Formulary Selection & Inventory Cleanup — Joint Review Notice (Adjunct medications for coronary heart disease; prioritize reimbursable drugs)
+  
+  Pharmacists: The attached inventory list shows that, among Class B (Category B) reimbursable products that may be used within the same clinical pathway for “adjunct treatment of ischemic symptoms in coronary heart disease/chest impediment (xiongbi), management of concomitant pain or fever, and perioperative analgesic support,” there is 1 item with obvious overstock, 1 item nearing expiry, and 1 item with normal stock but a relatively high unit price. To implement the requirements of “reimbursement priority, price–effectiveness assessment, overstock cleanup, and utilization control,” please complete the following subtasks to produce (i) formulary inclusion prioritization recommendations and (ii) a monthly quantity-limit plan. Output requirement: for each subtask, provide 1 paragraph for the calculation process, 1 paragraph for the conclusion, and 1 paragraph for the management recommendation, compiled into a 1-page review memo.
+  
+  Note: The stem will not provide any generic name or brand name. You must uniquely match each product in the attached list using clues such as dosage form/specification/indication/route, and only then perform calculations.
+  
+  Subtask 1 (Overstock item — prioritized cleanup calculation): An oral dosage form is a capsule. The package insert states the usual dose as “2–3 capsules per dose, 3 times daily, after meals.” Using “3 capsules per dose, 3 doses per day, continuous use for 14 days per patient,” calculate: how many patients’ full one-course therapy can be fully covered by current inventory; if the plan is to prioritize consuming 60% of inventory next month, the minimum number of patient courses that must be covered; and, based on the reorder alert threshold, determine whether purchasing should be suspended or new prescribing should be restricted.
+  (1) Identify the drug’s generic name, and query its inventory and unit price.
+  (2) Using “3 capsules per dose, 3 doses per day, continuous use for 14 days per patient,” calculate how many patients’ full one-course therapy can be fully covered by current inventory.
+  (3) If the plan is to prioritize consuming 60% of inventory next month, calculate the minimum number of patient courses that must be covered.
+  (4) In conjunction with the reorder alert threshold, determine whether purchasing should be suspended or new prescribing should be restricted.
+  
+  Subtask 2 (Normal inventory but high-price injectable — utilization control): An injectable is indicated for “acute moderate to severe postoperative pain in adults who are not suitable for oral administration, as an adjunct to opioid analgesics.” If establishing a perioperative adjunct analgesia quantity-limit plan of “per patient: 1 administration/day, 50 mg each time, for 3 consecutive days,” calculate the number of ampoules/vials needed per patient; under the premise that inventory will not drop below the reorder alert threshold, determine the maximum number of patients whose full regimen can be guaranteed; and compute the corresponding drug cost amount (CNY).
+  (1) Identify the drug’s generic name, and query its inventory and unit price.
+  (2) Using “per patient: 1 administration/day, 50 mg each time, for 3 consecutive days,” calculate the number of ampoules/vials needed per patient.
+  (3) Under the premise of not falling below the reorder alert threshold, calculate the maximum number of patients whose full regimen can be guaranteed.
+  (4) Calculate the drug cost amount (CNY) corresponding to that maximum.
+  
+  Subtask 3 (Oral liquid syrup nearing expiry — prescription substitution & wastage-loss warning): An oral syrup has an expiry date of 2026-02. Under the maximum-dose scenario of “age ≥12 years: 10 mL per dose, at intervals of 4–6 hours, maximum 4 doses in 24 hours,” calculate: how many “single-person single-day maximum dose” days can be supported by current inventory; if only 70% of inventory can be consumed before expiry, the volume (mL) and amount (CNY) that may require write-off; and propose formulary-level substitution / prescribing-limit recommendations (e.g., restrict indications, prioritize smaller pack sizes, or reduce stocking batch frequency).
+  (1) Identify the drug’s generic name, and query its inventory and unit price.
+  (2) Under the maximum-dose scenario of “age ≥12 years: 10 mL per dose, at intervals of 4–6 hours, maximum 4 doses in 24 hours,” calculate how many “single-person single-day maximum dose” days can be supported by current inventory.
+  (3) If only 70% of inventory can be consumed before expiry, calculate the volume (mL) and amount (CNY) that may require write-off.
+  (4) Propose formulary-level substitution / prescribing-limit recommendations (e.g., restrict indications, prioritize smaller pack sizes, or reduce stocking batch frequency).
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (293 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_034` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_034/01_inventory.xlsx
+mcp_question_id: v5_037

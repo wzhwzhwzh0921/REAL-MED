@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_010
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Director of the Pharmacy Department of a Rare Disease Center at a large Grade A tertiary hospital. You need to establish a standardized outpatient formulary for Fabry disease, to be uniformly used by physicians for prescribing and by clinical pharmacists for review. The clinic population ranges from pediatrics to adults. Payment sources include basic medical insurance, local special funds, commercial insurance, and self-pay; patients differ in tolerance to infusion-related discomfort, acceptance of IV infusion frequency, and long-term adherence preferences.
+  
+  **Formulary construction principles:**
+  - Drug inclusion should primarily be based on NMPA-approved indications; when off-label use is involved, the level of evidence and applicable boundaries must be labeled, and the purpose of medication use must be stated.
+  - When multiple brands exist for the same generic name, select representative brand(s), prioritizing those with better medical-insurance accessibility.
+  - For each entry, simultaneously label the reimbursement category and payment attributes.
+  
+  **Tasks:**
+  1. Organize the drug categories in the Fabry disease formulary and classify them hierarchically by therapeutic positioning; for each category, explain the NMPA approval status and the source of evidence for off-label use.
+  2. Provide several single-disease prescription examples covering different treatment stages and typical patient scenarios with combination regimens, reflecting the logic of initiation, maintenance, and follow-up adjustments.
+  3. Provide several prescription examples for patients with comorbidities or special situations, explaining the medication logic regarding drug–drug interactions, organ-function stratification, dose adjustment, monitoring, and peri-treatment management.
+  4. Strongly highlight key safety risks of formulary drugs, covering hypersensitivity/infusion reactions, organ toxicity and worsening of complications, interactions, use in special populations, and key monitoring indicators.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

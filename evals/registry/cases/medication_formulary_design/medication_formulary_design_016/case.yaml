@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_016
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Medical Director of the Department of Nephrology at a tertiary (Grade III-A) hospital, and you plan to establish a standardized formulary for an adult IgA nephropathy (IgAN) specialty disease-management clinic, for rapid reference by outpatient physicians and clinical pharmacists when prescribing and verifying prescriptions. The service population is mainly patients at higher risk of progression and often with chronic underlying diseases; most are covered by urban employee/resident basic medical insurance, and they prefer oral regimens that are convenient and support long-term adherence (preference for oral over IV when clinically appropriate).
+  
+  **Formulary construction principles:**
+  - Included drugs must comply with NMPA-approved indications; if off-label use is involved, clearly label within the table the level of evidence, applicable boundaries, and prerequisite conditions before use.
+  - When multiple brands exist under the same generic name, select representative brands, prioritizing those with better medical-insurance accessibility.
+  - For all entries, uniformly label the reimbursement category and payment attributes (Class A/B, national-negotiation, hospital self-procured, self-pay, etc.).
+  
+  **Tasks:**
+  1. Compile the IgAN formulary drug categories, stratified by therapeutic positioning; for each category, explain the NMPA approval status and the evidence framework for off-label use.
+  2. Provide several single-disease prescription examples covering typical combinations across different treatment stages and patient scenarios, reflecting treatment goals and route-of-administration choices.
+  3. Provide several prescription examples for IgAN with comorbidities or special situations, explaining the reasoning for drug selection and for dose/course adjustments from the perspectives of renal function, drug interactions, and risk control.
+  4. Provide strong warnings on key safety risks of formulary drugs, covering domains including screening and immunization/immune preparedness, pregnancy and reproduction, infection and malignancy, renal-function thresholds, important adverse reactions, and monitoring indicators.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

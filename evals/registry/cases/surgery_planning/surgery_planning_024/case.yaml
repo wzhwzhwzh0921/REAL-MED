@@ -1,0 +1,26 @@
+case_id: surgery_planning/surgery_planning_024
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior neurosurgery surgeon. The case below describes a 57-year-old man undergoing elective skull-base tumor resection complicated by suspected remote cerebellar hemorrhage (RCH) associated with postoperative CSF overdrainage; two sequential clinical scenarios are presented—please answer both questions.
+  
+  - 57-year-old man with several weeks of headache, dizziness, and gait instability; no focal neurologic deficit preoperatively.
+  - Diagnosis: symptomatic left skull-base extra-axial tumor on MRI; enhancing mass along the medial sphenoid wing/parasellar region closely abutting the left carotid artery bifurcation.
+  - No history of anticoagulant or antiplatelet use.
+  - Preoperative coagulation profile (PT/PTT/INR) within normal limits; repeat coagulation studies remain normal postoperatively (PT/INR, aPTT, platelet count, bedside bleeding/clotting times).
+  - Operation: elective intracranial tumor resection under general anesthesia with dural opening and cisternal dissection anticipated, creating potential for significant CSF egress.
+  - Drain: subdural/operative-site closed wound drain placed at the end of the cranial procedure for postoperative wound management.
+  - Postoperative day 3: neurologically intact, awake/conversant, hemodynamically stable (mean arterial pressure 90–110 mmHg), no new headache, vomiting, or decline in level of consciousness; drain output abruptly increases to ~300 mL of bright/bloody fluid over several hours.
+  - Urgent non-contrast head CT: linear streak-like hemorrhage along cerebellar sulci consistent with the “zebra sign,” plus a small cerebellar intraparenchymal hematoma ~35 × 8 mm; no hydrocephalus, no compression of the fourth ventricle, no posterior fossa mass effect, and no new supratentorial hemorrhage.
+  
+  **Q1 — Immediate postoperative management and escalation thresholds** On postoperative day 3, the drain output suddenly increases to ~300 mL of bright, blood-tinged/bloody fluid, and urgent CT shows a cerebellar “zebra sign” with an approximately 35 × 8 mm intraparenchymal cerebellar hematoma, without fourth-ventricle compression or significant hydrocephalus; repeat coagulation studies remain normal and the patient is clinically stable. As the operating neurosurgeon, what immediate management steps should you take for suspected remote cerebellar hemorrhage related to CSF overdrainage, and how do you decide between ICU observation versus escalation to invasive interventions (e.g., stopping/adjusting drainage, CSF diversion, posterior fossa decompression/hematoma evacuation)? What key technical steps and pitfalls must be addressed?
+  
+  **Q2 — Mechanism, risk-stratified plan, and prevention** In this same postoperative setting (POD3, abrupt ~300 mL bloody drain output, normal coagulation tests, CT showing cerebellar sulcal “zebra sign” plus ~35 × 8 mm cerebellar hematoma, no hydrocephalus/fourth-ventricle compression/posterior fossa mass effect, and the patient awake and neurologically intact), what is the most likely mechanism and precipitating factor for remote cerebellar hemorrhage, and what evidence-based, risk-stratified management plan should be used to decide between ICU observation with serial imaging versus escalation to CSF diversion and/or posterior fossa surgical intervention, including key preventive strategies for future skull-base operations?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Immediate postoperative**, **Q2 Mechanism** — each addressing every aspect raised in the corresponding question (immediate management steps/escalation thresholds/technical pitfalls; mechanism/precipitating factor/risk-stratified plan/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_024/01_case_file.docx

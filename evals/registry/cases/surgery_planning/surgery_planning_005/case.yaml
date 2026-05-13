@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_005
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior colorectal surgeon. The case involves a 9-year-old girl with severe traumatic genital–perineal injury consistent with a contaminated fourth-degree perineal disruption with suspected rectovaginal communication and anal sphincter complex injury, requiring operative reconstruction and management of delayed breakdown.
+  - 9-year-old previously healthy girl.
+  - Initial presentation after being found unconscious with blood around the genital and perianal area; hemodynamically stable but distressed.
+  - External inspection: blood at the introitus and anus; deep genital/perineal trauma suspected.
+  - Multidisciplinary involvement: pediatric surgery, gynecology, anesthesia, and child protection/forensic teams; managed with examination under anesthesia.
+  - Intraoperative injuries documented: torn hymen, full-thickness vaginal laceration, disruption of the anal sphincter complex consistent with a fourth-degree perineal injury; suspected rectovaginal communication; initial wound contamination.
+  - Initial medical management included broad-spectrum antibiotics and appropriate sexual-assault prophylaxis.
+  - Ongoing anatomic problem across the course: loss of a normal perineal body with rectum and vagina sharing a thin/contiguous tissue plane and anterior sphincter discontinuity/poorly identifiable sphincter ring.
+  
+  **Q1 — Intraoperative decision-making (definitive reconstruction)** Five days after the initial EUA and treatment, she returns to the operating room for definitive operative management; the perineum shows no gross necrosis and no obvious infection, but tissue planes remain distorted, and on EUA there is complete loss of the perineal body with rectum and vagina contiguous on a shared tissue plane and the anterior sphincter complex appearing absent/discontinuous with high risk of fecal contamination and breakdown. In this operative setting, what is your immediate intraoperative strategy to safely re-establish a rectovaginal plane and reconstruct continence—describe the critical technical steps, how you identify/confirm viable sphincter muscle (including use of stimulation), and the key pitfalls that predispose to recurrent rectovaginal contamination or repair failure; and under what intraoperative findings or patient factors would you add fecal diversion or stage the repair?
+  
+  **Q2 — Postoperative complication management (delayed breakdown)** Three months after hospitalization for the severe traumatic genital–perineal injury, caregivers report progressive fecal soiling of underwear, perineal irritation, and foul-smelling vaginal discharge with intermittent perineal pain but no fever; she is hemodynamically stable, the perineum appears scarred with loss of normal perineal body contour, stool-stained fluid is seen at the vaginal introitus, DRE is limited by distress but suggests weak resting tone, and under EUA there is marked distortion of anorectal and vaginal anatomy with a very thin shared tissue plane between posterior vagina and anterior rectum consistent with a functional rectovaginal communication, with the anterior portion of the anal sphincter complex not clearly identifiable as a continuous ring and the perineal body not definable, but tissue viable without obvious necrosis or abscess. What are the most likely reasons for this delayed postoperative failure, what key criteria and investigations should be used now to confirm ongoing rectovaginal contamination/fistula and anal sphincter discontinuity, and what is the evidence-based management plan (including indications for fecal diversion and methods to protect reconstruction), as well as prevention strategies that should have been implemented during initial management to reduce the risk of breakdown?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop rectovaginal plane/sphincter reconstruction, diversion/staging triggers; delayed failure reasons, confirm fistula/sphincter defect, evidence-based management/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_005/01_case_file.docx

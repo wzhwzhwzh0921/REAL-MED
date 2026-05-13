@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_017
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a geriatric medicine physician. In outpatient practice, you have seen multiple older patients who were readmitted within 30 days after a recent hospitalization and experienced functional decline; during inpatient ward work, you have also observed an increasing proportion of hospitalized older adults who are frail or at high risk of frailty. This indicates the need to systematically synthesize the evidence for an “inpatient frailty screening—risk stratification management—nursing and rehabilitation intervention” approach. Therefore, you plan to write a scoping review to support clinical pathway design and quality improvement for hospitalized older adults.
+  
+  Review topic: Effects of frailty screening and stratified management (including nursing–rehabilitation interventions) in frail hospitalized older adults.
+  
+  The review must systematically compile and analyze the following core content:
+  1. Inpatient frailty screening tools and threshold values;
+  2. Risk stratification management pathways and the component package of integrated nursing–rehabilitation multicomponent interventions;
+  3. Quantifiable outcome indicators, including functional outcomes, readmission, and quality of life;
+  4. Crosswalk/comparison with the workflow in the Chinese Expert Consensus on a Multidisciplinary Decision-Making Model for Declining Motor Capacity in Older Adults (2024 edition).
+  
+  Search and inclusion keywords: frailty screening、inpatient older adults、multicomponent intervention、rehabilitation/nursing、readmission/quality of life. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

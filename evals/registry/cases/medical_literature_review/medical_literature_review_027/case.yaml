@@ -1,0 +1,22 @@
+case_id: medical_literature_review/medical_literature_review_027
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a neurologist working in an MS clinic and have observed that some patients who are planning pregnancy, are pregnant, or are breastfeeding have substantial concerns about discontinuing disease-modifying therapy (DMT). Some patients experience peripartum relapses after stopping treatment, indicating the need to systematically synthesize the evidence for medication use during pregnancy and lactation. Therefore, you plan to write a systematic review (optionally expandable to a meta-analysis) on the topic below for an academic clinical audience to support peripartum treatment decision-making in multiple sclerosis.
+  
+  Systematic review topic: “Efficacy and safety of glatiramer acetate for multiple sclerosis during pregnancy and lactation.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Peripartum disease activity and relapse control;
+  2. Maternal safety and adverse event profile;
+  3. Pregnancy outcomes and peripartum complications;
+  4. Medication use during lactation, assessment of infant exposure, and evidence on infant development/long-term follow-up (population definition may reference the “2017 revised McDonald criteria”).
+  
+  Search and inclusion requirements: Include studies identified using the following keywords: multiple sclerosis、glatiramer acetate、pregnancy、lactation/breastfeeding、postpartum. A standardized reference list is required at the end of the review; it is recommended to present the screening process using a PRISMA flow diagram, summarize maternal/pregnancy/infant outcomes across different study designs in an evidence comparison table, and use a forest plot to present any combinable relapse rates or risks of adverse outcomes.
+  
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

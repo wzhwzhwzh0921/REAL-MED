@@ -1,0 +1,14 @@
+case_id: dosage_calculation/dosage_calculation_002
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 66-year-old female presents with exertional chest tightness and is undergoing cardiac catheterization to evaluate aortic valve stenosis. Measurements obtained: CO = 5.0 L/min; HR = 78 beats/min; SEP = 0.29 s/beat. Pressure recording notes: transvalvular peak pressure gradient (peak) approximately 55 mmHg, while the mean transaortic pressure gradient (mean ΔP) is 32 mmHg. BSA = 1.68 m². Sinus rhythm.
+  
+  Calculation task: Please calculate AVA (cm²) based on the “mean transaortic pressure gradient (mean ΔP)” and provide a step-by-step calculation process; do not substitute the peak pressure gradient into the calculation.
+  
+  Please calculate this patient’s warnings.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

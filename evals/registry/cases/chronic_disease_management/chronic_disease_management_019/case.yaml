@@ -1,0 +1,23 @@
+case_id: chronic_disease_management/chronic_disease_management_019
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  Ms. Wang, a 43-year-old woman, is sitting in your clinic. She looks somewhat tired but her eyes are full of hope. She has just completed neoadjuvant chemotherapy and breast-conserving surgery and is waiting for you to formulate the subsequent treatment plan. “Doctor, the surgery is done—what should I do next? Is my situation serious? It seems the chemotherapy wasn’t particularly effective; the tumor didn’t completely disappear.” She hands you her postoperative pathology report, where the terms “ypT2N1a” and “BRCA1 mutation” stand out prominently.
+  
+  You carefully review her history: a young patient with triple-negative breast cancer who still has significant residual tumor and lymph node metastasis after neoadjuvant chemotherapy. This situation clearly indicates a high risk of recurrence. You know that for such patients who do not achieve a pathological complete response (pCR) after chemotherapy, subsequent adjuvant treatment is crucial.
+  
+  **Patient information:**
+  - Name: Ms. Wang, female, 43 years old, accountant
+  - Chief complaint: 1 month after left breast cancer surgery, here to discuss subsequent treatment plan.
+  - History of present illness: The patient presented 6 months ago for “a left breast mass.” Core needle biopsy pathology suggested invasive ductal carcinoma, histologic grade III; immunohistochemistry: ER(-), PR(-), HER2(0), Ki-67 80%. Clinical stage cT2N1M0. Genetic testing confirmed a germline pathogenic BRCA1 mutation. She then received neoadjuvant chemotherapy with 4 cycles of AC (doxorubicin + cyclophosphamide) followed by 4 cycles of paclitaxel. One month ago, she underwent “left breast-conserving surgery + axillary lymph node dissection.” Postoperative recovery has been good, and the incision has healed well.
+  - Past medical history: Previously healthy; regular menses; G1P1, one full-term vaginal delivery at age 30; no family history of breast or ovarian cancer
+  - Current medications: Occasionally takes ibuprofen for postoperative pain
+  - Lifestyle: Office work with prolonged sitting; exercises twice per week. Non-smoker; occasional social alcohol use.
+  - Vital signs: blood_pressure=122/78 mmHg；heart_rate=76 bpm；temperature=36.8°C；respiratory_rate=18 breaths/min
+  - Physical examination: A curved surgical scar is visible in the upper outer quadrant of the left breast, healing well, without redness, swelling, or exudate. A surgical scar is visible in the left axilla, healing well. No edema of the left upper limb. Breath sounds clear bilaterally; heart rate regular, rhythm regular, no murmurs.
+  - Ancillary tests: Postoperative pathology report: (left breast) invasive carcinoma, Miller-Payne grade 3 (poor response to chemotherapy), maximum residual tumor diameter 2.5 cm (ypT2); (left axilla) lymph node metastasis present (1/15) (ypN1a). Postoperative repeat CBC and liver/kidney function were within normal ranges.
+  
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

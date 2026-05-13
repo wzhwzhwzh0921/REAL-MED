@@ -1,0 +1,12 @@
+case_id: dosage_calculation/dosage_calculation_001
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Wang (male), 3 years old. Chief complaint: scald burn from hot water for 0.5 hours. Present illness: At home, a kettle of hot water was knocked over, resulting in a large area of redness, swelling, blisters, and exudation on the right upper extremity and the anterior chest and abdomen. The child was markedly crying and agitated. Family members immediately rinsed with cold water and brought him to the emergency department. Past history: previously healthy; no history of drug allergy. On admission: conscious and alert, lips slightly dry, reports pain. Physical examination: temperature 36.8°C, heart rate 128 beats/min, respiratory rate 26 breaths/min, blood pressure 92/56 mmHg; height 95 cm, weight 15 kg. Skin: predominantly second-degree burns involving approximately 25% of total body surface area (TBSA); some blisters ruptured; wound surface warm with marked tenderness; peripheral circulation is acceptable. Ancillary tests: WBC 12.5×10^9/L on CBC; electrolytes essentially normal; blood gas suggests a mild tendency toward metabolic acidosis.
+  
+  Please calculate this patient’s IV fluid infusion rate (mL/h) for the subsequent 16-hour phase, with the result rounded to one decimal place.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

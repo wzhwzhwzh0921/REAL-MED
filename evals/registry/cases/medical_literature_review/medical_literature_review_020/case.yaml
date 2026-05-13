@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_020
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a medical oncologist who has seen multiple patients with MSI-H/dMMR metastatic colorectal cancer (mCRC) in the outpatient clinic, including some adolescent patients aged ≥12 years. You have also recently noted the newly approved indication of nivolumab combined with ipilimumab in this population and the need to manage immune-related adverse events (irAEs). Therefore, you plan to write a systematic review for a clinical/academic readership on this topic to support evidence-based treatment selection and irAE management in practice.
+  
+  Systematic review topic: “Efficacy and immune-related adverse events of the new indication for nivolumab plus ipilimumab in MSI-H/dMMR metastatic colorectal cancer.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Strength of evidence and grading for the newly added indication;
+  2. Comparative efficacy endpoints in the first-line versus later-line settings;
+  3. irAE spectrum and management strategies across different lines of therapy;
+  4. Evidence extrapolation to adolescents (≥12 years) and key prescribing/medication-use considerations.
+  
+  Search and include studies using the following keywords: MSI-H/dMMR、colorectal cancer、nivolumab、ipilimumab、first-line/previously treated、immune-related adverse events. A standardized reference list must be provided at the end of the review; it is recommended to present the study selection process using a PRISMA flow diagram, summarize efficacy and safety across treatment lines in comparative tables, and depict an irAE grade-based management pathway using a flowchart.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

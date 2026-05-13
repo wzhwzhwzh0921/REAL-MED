@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_029
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Medical Director of the Hepatology Center at a tertiary Grade A hospital, and you plan to establish a formulary for the primary biliary cholangitis (PBC) specialty clinic to enable physicians and clinical pharmacists to rapidly retrieve information and standardize prescribing. The clinic population is mainly women aged 40–60 years. Most patients are covered by Urban Employee/Resident Basic Medical Insurance, have limited out-of-pocket affordability, and prefer long-term oral regimens with good adherence and sustainable access both inside and outside the hospital.
+  
+  **Formulary construction principles:**
+  - Prioritize inclusion of drugs with NMPA-approved indications; when off-label (outside approved indications) use is involved, you must label the supporting basis from guidelines/consensus/clinical studies and the level of evidence, and clearly define applicable boundaries.
+  - When multiple brands exist for the same generic name, select 1 representative brand, prioritizing products listed in the NRDL or accessible through volume-based procurement (VBP).
+  - All entries must label reimbursement category and payment attributes, and specify acquisition channels and accessibility remarks.
+  
+  **Tasks:**
+  1. Systematically整理 the drug categories in the PBC formulary; stratify them by therapeutic positioning, and for each category explain the NMPA approval status and the evidence framework for off-label use.
+  2. Provide several single-disease prescription examples, covering typical combination and sequential regimens across different treatment stages and patient scenarios.
+  3. Provide several prescription examples for patients with comorbidities or special situations, explaining the rationale for drug selection, dose/course adjustments, drug–drug interaction management, and intensified monitoring considerations.
+  4. Highlight key safety risks of formulary drugs in a prominent way, covering risks related to hepatic function stratification, organ toxicities, metabolic and myotoxic risks, special populations, and necessary monitoring dimensions.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

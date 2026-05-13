@@ -1,0 +1,45 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_017
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Outpatient prescription-audit task (contraindicated drugs in pregnancy/lactation). Today you received a pregnant patient whose chief complaint is dry cough and sore/swollen throat after an upper respiratory infection. The physician prescribed “1 antitussive capsule + 1 heat-clearing/detoxifying / swelling-reducing / pain-relieving capsule.” As the outpatient pharmacist, you must complete an audit of indications, contraindications, and special populations, and provide actionable intervention recommendations (including communication key points and alternative options). You must also complete inventory- and cost-related calculations and provide a traceable audit conclusion. Note: the stem will not contain any generic name or brand name of any drug; you must uniquely match the specific product in the attached list based on dosage form/specification/indication clues before performing calculations.
+  
+  Sub-question 1 (Prescription audit—contraindications/special populations): There is an “antitussive capsule used for dry cough/persistent cough caused by acute upper respiratory infection or acute bronchitis.” Its package insert clearly states “contraindicated in pregnant women and lactating women,” and it is also contraindicated in “patients with excessive sputum or decreased mucociliary clearance function.” Please complete:
+  (1) Identify the generic name of this drug, and query its inventory and unit price;
+  (2) Point out the core medication problem of this prescription in this patient (pregnant woman);
+  (3) Provide the action you should take (reject prescription / switch / delay medication, etc.);
+  (4) Provide key points for communicating with the physician (must include at least 2 risk points).
+  
+  Sub-question 2 (Numerical calculation—quantity and inventory alert, based on the antitussive capsule described in Sub-question 1): If the physician mistakenly prescribed the adult dose: 1 capsule each time, 3 times daily, for 5 consecutive days. Please complete:
+  (1) Identify the generic name of this drug, and query its inventory and unit price;
+  (2) Calculate the number of capsules to dispense per fill (exact value and rounded-up value), and the total number of capsules to dispense;
+  (3) Based on this, calculate the remaining inventory after deduction, and determine whether it is below the replenishment warning threshold (output the conclusion according to the data and calculation rules given in the attachment).
+  
+  Sub-question 3 (Prescription audit—contraindications/indication): There is another capsule described as “clearing heat and detoxifying, reducing swelling and relieving pain, used for sore/swollen throat due to exuberant internal heat-toxin.” Its package insert notes “contraindicated in pregnant women and lactating women.” Please complete:
+  (1) Identify the generic name of this drug, and query its inventory and unit price;
+  (2) Determine whether use for this patient’s sore/swollen throat has indication matching and whether there is a special-population contraindication conflict;
+  (3) Provide your recommended handling approach (must include at least: whether it can be continued, how to adjust, and one key sentence for patient medication counseling).
+  
+  Sub-question 4 (Numerical calculation—cost and near-expiry risk, based on the heat-clearing/detoxifying capsule described in Sub-question 3): If the prescription directions are: 2 capsules each time, 3 times daily, prescribed for 3 days. Please complete:
+  (1) Identify the generic name of this drug, and query its inventory and unit price;
+  (2) Calculate the total number of capsules to dispense this time, and estimate the drug cost based on the unit price (rounded to cents);
+  (3) Calculate the remaining inventory after deduction and whether it is below the replenishment warning threshold;
+  (4) Also, in combination with the “near-expiry” label, write 1 risk warning that you should add in the prescription-audit record (do not include any drug name).
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (298 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_017` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_017/01_inventory.xlsx
+mcp_question_id: v5_017

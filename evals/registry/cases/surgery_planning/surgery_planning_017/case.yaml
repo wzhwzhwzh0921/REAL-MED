@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_017
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior head and neck surgeon. The case below describes a 34-year-old woman undergoing minimally invasive scar-avoiding endoscopic thyroid surgery for a suspicious right thyroid nodule, with intraoperative and postoperative decision-making challenges.
+  - 34-year-old woman; no significant comorbidities.
+  - Indication: oncologic thyroid resection for a 1.9 cm right-lobe thyroid nodule with ultrasound features suspicious for malignancy and Bethesda V cytology.
+  - Preoperative flexible laryngoscopy: normal, symmetric vocal fold motion.
+  - Contrast-enhanced CT neck: intrathyroidal right-lobe lesion without extrathyroidal extension; no substernal component; no radiographic central or lateral lymphadenopathy (cN0).
+  - Thyroid within institutional criteria for scar-avoiding endoscopic approach (thyroid diameter 8.5 cm; estimated volume 35 mL).
+  - Oral exam: normal without infection.
+  - Operative setup: general anesthesia with RLN neuromonitoring; minimally invasive scar-avoiding endoscopic route initiated.
+  
+  **Q1 — Intraoperative decision-making** Early in dissection you find the gland is unexpectedly fibrotic and the superior pole is positioned very high, limiting working space. A small venous branch is injured and brisk bleeding rapidly obscures the endoscopic view (estimated blood loss ~150 mL within minutes). Simultaneously, the RLN neuromonitoring signal intermittently dampens during traction while trying to expose the upper pole and posterior capsule. What immediate intraoperative actions should you take to rapidly regain endoscopic visualization and achieve hemostasis while minimizing RLN injury, what specific endoscopic technical steps are critical in this setting, and which findings or pitfalls should prompt you to alter the operative plan or convert to an open transcervical approach?
+  
+  **Q2 — Postoperative complication management** A 34-year-old woman is in the post-anesthesia care unit 45 minutes after an elective minimally invasive head-and-neck endocrine operation performed under general anesthesia for a suspicious right thyroid nodule. She was extubated in the operating room and initially spoke normally. She now reports rapidly worsening throat pressure and difficulty swallowing; nursing staff note progressive neck and submental fullness over the last 15 minutes and increasing anxiety. Vital signs: T 36.7°C, HR 124/min, BP 148/92 mmHg, RR 26/min, SpO2 92% on room air. She has muffled voice, inspiratory stridor, and is using accessory muscles; exam shows tense anterior neck swelling with ecchymosis and firmness, and the surgical dressing is taut and expanding; she cannot tolerate lying flat. Lung exam is otherwise clear. The most recent hemoglobin is unchanged from baseline; coagulation studies are normal. Analgesia has been given, but symptoms continue to worsen; the operating surgeon is not immediately at bedside; the patient is becoming increasingly hypoxic despite supplemental oxygen; no drain output is available to assess; the team suspects an acute postoperative neck complication causing dynamic upper-airway compromise. What is the most likely diagnosis, and what is the single most appropriate immediate management step to prevent impending airway loss?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop hemostasis/visualization, rln protection, convert-to-open triggers; likely diagnosis, single immediate airway-saving step). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_017/01_case_file.docx

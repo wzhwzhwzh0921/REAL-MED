@@ -1,0 +1,38 @@
+case_id: soap_documentation/soap_documentation_032
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  At approximately early morning on March 2, 2026, Mr. Zhao Jianguo (pseudonym), a 72-year-old male (retired bus driver), presented to the Emergency Department accompanied by his wife for evaluation of severe anorectal pain with suspected recurrent anal fissure and possible perianal infection.
+  **Chief Complaint and History of Present Illness:**
+  Chief complaint: “My anus has been hurting badly for the past two days. When I have a bowel movement it feels like being cut by a knife, and I can’t even sit.”
+  
+  HPI: The patient entered the exam room standing sideways while supporting himself against the wall, nearly unable to sit due to pain. He stated: “Three days ago I was severely constipated. I passed a really hard stool once—right when it came out it felt like a knife cut, burning hot, and it kept burning for more than an hour. There was a little bright red blood on the toilet paper. I figured maybe that old fissure came back. But these past two days it doesn’t just hurt when I go to the bathroom— it keeps hurting all the time. It also feels like there’s a force pushing down inside, and it sometimes throbs and jumps. Last night was even worse—walking felt awkward, and sitting felt like sitting on needles.”
+  
+  He added quietly: “I felt something like a hard lump on the left-back side of my anus. Pressing it is unbearable, but I thought it was just the fissure swelling… I didn’t dare eat and didn’t dare have a bowel movement because I’m afraid it will tear more if I push.”
+  
+  His wife reported the patient was seen in an outpatient clinic yesterday, was told it was an anal fissure, and was given topical medication and a laxative; however, symptoms did not improve. She also noted that overnight he felt “chilly” with shaking chills, and his forehead felt hot to her touch, though he insisted he did not have a fever. This morning, due to escalating pain with profuse sweating and inability to sit, they came to the ED.
+  **Past Medical History and Family History:**
+  Past medical history: Type 2 diabetes mellitus for 12 years (HbA1c approximately 8.2% three months ago); hypertension for 15 years. Long-standing constipation with frequent dry, hard stools. History of “anal fissure” treated conservatively with improvement 5 years ago. Denies history of inflammatory bowel disease. Denies use of anticoagulant medications. No known drug allergies.
+  
+  Family history: Parents deceased. No clear family history of colorectal cancer or bleeding disorders.
+  **Physical Examination Findings:**
+  Vital signs: T 37.8℃, HR 96 bpm, BP 146/84 mmHg, RR 18/min, SpO2 97% on room air.
+  
+  General: Awake and alert; oriented; appears markedly uncomfortable with obvious diaphoresis; difficulty maintaining a seated position.
+  
+  Cardiopulmonary: Regular rate and rhythm; no murmurs appreciated. Lungs clear to auscultation bilaterally.
+  
+  Abdomen: Soft, non-distended; mild sense of fullness in the left lower quadrant; no rebound tenderness or guarding; bowel sounds present.
+  
+  Perianal/rectal exam: Posterior midline superficial fissure-like lesion with a small skin tag and a small amount of fresh blood; mild perianal erythema. Approximately 2 cm from the anal verge at the 7 o’clock position, a deeper induration/nodule about 2.5 cm is palpated with mild local warmth and marked tenderness; no definite fluctuance appreciated at this early stage. Digital rectal exam limited due to pain and poor tolerance; sphincter hypertonicity noted; left posterior wall tenderness more prominent; no intraluminal mass palpated; glove with a small amount of mucus.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_032/01_attachment.pdf

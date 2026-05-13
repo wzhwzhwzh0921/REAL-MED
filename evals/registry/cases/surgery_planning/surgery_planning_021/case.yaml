@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_021
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior hernia surgeon. The case below describes a 65-year-old man with a rare late complication of laparoscopic inguinal hernia meshplasty, presenting with a fixed intravesical calculus due to mesh erosion into the bladder and requiring operative decision-making across intraoperative and postoperative scenarios.
+  - 65-year-old man with long-standing lower urinary tract symptoms consistent with bladder outlet obstruction; markedly enlarged prostate.
+  - No fever, dysuria, or hematuria preoperatively.
+  - Remote surgical history: laparoscopic inguinal hernia repair with synthetic mesh 16 years ago.
+  - Preoperative cystoscopy and imaging: “hanging” calculus adherent to the anterior bladder wall, suspicious for a stone formed on a fixed nidus rather than a free-floating bladder stone.
+  - Intraoperative cystoscopy: large stone firmly attached to the anterior bladder wall; lithotripsy performed to fragment the calculus.
+  - After de-encrustation: segment of synthetic mesh protruding into the bladder lumen with surrounding inflamed/erythematous mucosa that bleeds easily with manipulation.
+  - Mesh characteristics: multiple sharp mesh fibers visible and appear tethered within the bladder wall rather than freely mobile, raising concern for deep incorporation.
+  - Operative visibility requires continuous irrigation, with concern for bleeding and fluid absorption if operative time is prolonged.
+  
+  **Q1 — Intraoperative decision-making** Intraoperatively, after lithotripsy fragments the calculus, a segment of synthetic mesh is exposed protruding into the bladder lumen; after clearing encrustation, multiple sharp mesh fibers remain visible and appear tethered within the bladder wall, and gentle traction transmits movement to the bladder wall, raising concern for deeper incorporation and risk of perforation or a persistent erosion/fistula if forcibly removed; the surrounding mucosa is inflamed and bleeds easily, and the prostate is markedly enlarged with continuous irrigation required for visibility and concern for bleeding and fluid absorption if operative time is prolonged. Based on the intraoperative finding of bladder stone encrustation on mesh with sharp fibers suggesting deep bladder-wall incorporation, how should the surgeon decide between purely endoscopic intravesical trimming/extraction, conversion to a formal surgical bladder repair/partial cystectomy (with or without a combined approach), or staging the operation given the concomitant obstructing prostate, and what key technical steps are required to manage the erosion site while minimizing perforation, bleeding, and irrigation-related complications?
+  
+  **Q2 — Postoperative complication management** Several hours after transurethral endoscopic treatment for a bladder stone fixed to the anterior bladder wall (stone fragmented; mesh protruding through the anterior wall with surrounding erythema), the patient develops increasing suprapubic pain and an urgent sensation to void despite continuous bladder drainage; urine output through the catheter drops and becomes increasingly blood-tinged; he becomes tachycardic and mildly hypotensive; the lower abdomen is distended and tender without peritonitis; labs show a rising creatinine compared with baseline and a mild leukocytosis; bedside bladder ultrasound shows poor decompression despite catheter patency, with adjacent fluid tracking in the prevesical (extraperitoneal) space, raising concern for a bladder wall defect related to manipulation of embedded foreign material. In this postoperative scenario, what is the most likely mechanism of injury and key postoperative complication(s), what early clinical and imaging criteria should prompt diagnosis, and what stepwise evidence-based management should be initiated (including thresholds to escalate to operative repair) to reduce morbidity and prevent recurrence?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop approach selection/technical steps/risk minimization; injury mechanism/diagnostic triggers/stepwise management-escalation). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_021/01_case_file.docx

@@ -1,0 +1,38 @@
+case_id: soap_documentation/soap_documentation_037
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior general surgeon. On the morning of November 12, 2024, a 32-year-old male, Zhang Wei (pseudonym), presented to clinic accompanied by his wife. Please analyze the condition based on the following clinic conversation summary, chief complaint/history, and physical examination/ancillary findings, and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  Chief complaint: “Gallbladder polyp enlargement found on physical examination for 1 week, with occasional upper abdominal bloating.”
+  
+  HPI: The patient is a software engineer, wearing a plaid shirt, holding a stack of health check-up reports, and appears relaxed. After sitting down, he said: “Doctor, I actually don’t think it’s a big deal—I mainly came to reassure my wife. Last week during my company physical exam, the ultrasound doctor said there was a polyp in my gallbladder, measured at 1.2 cm, and recommended I see surgery. Actually, I already had this issue 3 years ago on a check-up; back then they said it was ‘multiple cholesterol polyps,’ and the largest was only 0.4 cm. The doctor said it didn’t need any treatment. These past two years I’ve been too busy with work and didn’t manage to get follow-up imaging. This time it’s grown a bit, but usually I don’t feel particularly uncomfortable—just sometimes when I work overtime and eat barbecue or greasy takeout, I feel a bit bloated in the upper stomach area; a few burps and it gets better. I’ve never had pain. Can you prescribe me something like ‘Xiaoyan Lidan Pian’ or some medicine that can dissolve the polyp? My project is about to go live and I really don’t have time to be hospitalized for surgery, and I’m only in my early 30s—removing the gallbladder would be such a pity.”
+  
+  His wife appeared anxious and interjected: “Doctor, please don’t let him downplay it. The ultrasound doctor at the exam center specifically asked me to come in, pointed at the screen and said this polyp is not quite the same as his previous ones—something about a ‘broad base,’ and it doesn’t float like typical polyps; it’s kind of ‘lying’ against the wall. I also looked at the blood test report: the tumor marker CA19-9 is 41.2. Even though it’s only slightly above normal, I searched online and it seemed scary. He insists it’s just the old problem coming back. Please take a careful look for us.”
+  
+  Outside health check-up report brought by the patient:
+  1) Abdominal ultrasound: Gallbladder size and morphology normal; wall not thickened. A moderately echogenic nodule is seen in the body of the gallbladder, approximately 1.2 cm × 1.0 cm, with a relatively broad base; it does not move with changes in body position; no acoustic shadow. CDFI (color Doppler) shows punctate blood flow signals within the nodule.
+  2) Laboratory tests: CBC and liver/kidney function essentially normal. Tumor markers: CEA normal; AFP normal; CA19-9 41.2 U/mL (reference range 0–37 U/mL).
+  **Past Medical History and Family History:**
+  Past medical history: Previously healthy overall. History of “chronic superficial gastritis” for 3 years; intermittently takes omeprazole. Three years ago, screening ultrasound showed “multiple strong echogenic foci in the gallbladder, maximum 0.4 cm, no posterior acoustic shadow.” No history of hepatitis or tuberculosis. No history of surgery or trauma. Penicillin allergy.
+  
+  Social history/lifestyle: Sedentary; irregular diet; prefers greasy foods. Occasional social alcohol use. Does not smoke.
+  
+  Family history: Both parents alive and well; father has hypertension. No family history of gastrointestinal malignancy.
+  **Physical Examination Findings:**
+  Vital signs: T 36.8°C; HR 76/min; BP 124/78 mmHg; RR 16/min. BMI 26.5.
+  
+  General: Normal development; moderate nutrition. Alert and oriented; comfortable and in a self-selected position. No jaundice of skin or sclera. No palmar erythema or spider angiomas. No palpable supraclavicular lymphadenopathy.
+  
+  Abdominal exam: Abdomen flat; no abdominal wall varices. Abdominal muscles soft. No tenderness or rebound tenderness throughout. Murphy sign negative. Liver and spleen not palpable below costal margins; no liver percussion tenderness. No palpable abdominal mass. Normal bowel sounds, 4/min.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_037/01_attachment.pdf

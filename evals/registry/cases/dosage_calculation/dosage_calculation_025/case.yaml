@@ -1,0 +1,20 @@
+case_id: dosage_calculation/dosage_calculation_025
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 52-year-old female, height 1.65 m, weight 60 kg, hematocrit (Hct) = 0.38. According to the institutional/disease-specific protocol, a high-volume TPE (TPE-HV) procedure is being considered, with a planned exchange of 2.0 times the plasma volume.
+  
+  Calculation tasks:
+  1) Estimate total blood volume (TBV) in liters (L).
+  2) Calculate plasma volume (PV) in liters (L).
+  3) Calculate the total replacement fluid volume in liters (L).
+  4) Based on the definition “high-volume TPE is defined as exchange volume > 2×PV,” determine whether this session qualifies as TPE-HV, and write your justification (including the multiplier comparison).
+  
+  Please provide a step-by-step calculation process (with units).
+  
+  (For this question, the definition of HVPE/TPE-HV is: single-session exchange volume = 3×PV or 8–12 L or = IBW×15%.) Please calculate this patient’s tpe_hv_threshold_L_per_session.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

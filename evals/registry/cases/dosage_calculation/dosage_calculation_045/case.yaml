@@ -1,0 +1,14 @@
+case_id: dosage_calculation/dosage_calculation_045
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Mr. Wang, male, was admitted for “fever and cough with dyspnea for 3 days, worsened for 12 hours.” Three days ago after exposure to cold, he developed high fever, cough with yellow sputum, and chest tightness; oral medications were ineffective. Over the past 12 hours, tachypnea became明显, he could not lie flat; in the emergency department, SpO2 remained persistently low, and breathing was still labored despite oxygen therapy, so he was admitted to the ICU. Past history: previously healthy.
+  
+  Physical exam: conscious and alert, in respiratory distress, cyanotic lips, diffuse moist rales in both lungs. Height 190 cm, weight 86.0 kg. Emergent arterial blood gas suggests severe hypoxemia; chest CT shows diffuse bilateral ground-glass opacities and consolidation, consistent with severe pneumonia with ARDS. After ICU admission, he was endotracheally intubated and placed on mechanical ventilation. Plan to set tidal volume according to the ARDSNet lung-protective strategy, and adjust parameters based on predicted body weight.
+  
+  Please calculate this patient’s vt_lower_limit_4ml_kg.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

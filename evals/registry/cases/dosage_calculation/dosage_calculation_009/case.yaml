@@ -1,0 +1,18 @@
+case_id: dosage_calculation/dosage_calculation_009
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Mr. Wang (name anonymized), male, 45 years old, was admitted to the ICU for “severe pancreatitis with septic shock, with intolerance to enteral nutrition for 3 days.” One week prior to admission, he developed sudden upper abdominal pain with vomiting; an outside-hospital CT suggested pancreatic necrosis. After transfer, he required endotracheal intubation, sedation/analgesia, and vasopressors. His weight is 110 kg, height 168 cm, BMI approximately 39. He has marked abdominal distension, high gastric residual volumes, recurrent aspiration risk, and is temporarily unable to receive enteral feeding. Initiation of parenteral nutrition is planned.
+  
+  Physical exam/vitals: T 38.6°C, HR 118 beats/min, BP 92/55 mmHg (maintained on norepinephrine), abdomen distended with tenderness.
+  
+  Laboratory tests: WBC 18×10^9/L, CRP 220 mg/L, lactate 3.2 mmol/L, albumin 28 g/L, liver and kidney function acceptable.
+  
+  Nutrition assessment: stress factor 1.5; protein target 2.0 g/kg; glucose accounts for 50% of non-protein calories; non-early phase.
+  
+  Please calculate this patient’s requires_central_line.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

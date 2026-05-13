@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_037
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior vascular surgeon. The case below describes a 66-year-old man with symptomatic left common carotid artery occlusion and limited intracranial collateral flow undergoing urgent open cervical carotid revascularization; two sequential clinical scenarios test intraoperative strategy and early postoperative neurologic deterioration management.
+  - 66-year-old man; chronic C4 spinal cord injury; wheelchair-dependent; baseline modified Rankin Scale 4.
+  - Recurrent posture-induced aphasia and worsening right hemiparesis despite dual antiplatelet therapy and intravenous anticoagulation.
+  - Brain MRI: scattered acute infarcts in the left hemisphere with a new watershed infarct on repeat imaging.
+  - MR/DS angiography: complete occlusion of the left common carotid artery (CCA) beginning a few centimeters distal to its origin; occluded stump anatomically below the clavicle.
+  - Distal anatomy/collaterals: carotid bifurcation and distal vessels reconstituted likely via external carotid artery (ECA) collaterals; internal carotid artery (ICA) fills only faintly; collateral flow through the anterior communicating artery is minimal; no meaningful posterior circulation collateralization.
+  - Carotid ultrasonography: hypoechoic secondary thrombus throughout the CCA up to the bifurcation; plaque imaging suggests unstable plaque near the bifurcation.
+  - Plan/setting: urgent open cervical carotid revascularization for ongoing embolic/low-flow symptoms and impaired rehabilitation; postoperative ICU care anticipated with antithrombotic therapy and close neurologic monitoring.
+  
+  **Q1 — Intraoperative decision-making** During cervical exposure and proximal control of the left CCA, near-infrared spectroscopy (NIRS) and somatosensory evoked potentials (SSEP) monitoring are established. After a longitudinal arteriotomy on the left CCA, you encounter complete occlusion by dark red, organized thrombus. Suction catheter aspiration from the proximal CCA does not restore inflow, and the thrombus appears to extend proximally toward the subclavicular segment where exposure is limited. With NIRS and SSEP monitoring in place, what intraoperative strategy should you use to achieve safe proximal CCA recanalization while maintaining cerebral perfusion and minimizing embolic risk, and what critical technical steps and pitfalls must be addressed before proceeding with definitive reconstruction?
+  
+  **Q2 — Postoperative complication management** He is managed postoperatively in an ICU on antithrombotic therapy and close neurologic monitoring. Six hours after surgery he develops a new focal deficit: dense right arm weakness (0–1/5) and expressive aphasia, worse than his preoperative baseline. Vital signs show BP 165/85 mmHg, HR 78, SpO2 98% on room air. He is awake and follows simple commands with the left hand. The neck incision is clean with mild swelling but no airway compromise. Pupils are equal and reactive. There is no generalized seizure activity. Bedside glucose is normal and hemoglobin is stable. The clinical team is concerned about an acute perioperative cerebrovascular event related to the treated carotid territory. In this patient who develops a new focal neurologic deficit within 6 hours after open cervical carotid revascularization for symptomatic carotid occlusion with poor collateralization, what is the most likely perioperative complication and its mechanism, and what immediate diagnostic workup and management should be initiated?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop recanalization strategy/brain perfusion/embolic risk, key steps/pitfalls; likely complication/mechanism, immediate workup/management). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_037/01_case_file.docx

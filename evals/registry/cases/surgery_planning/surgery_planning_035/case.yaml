@@ -1,0 +1,23 @@
+case_id: surgery_planning/surgery_planning_035
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior thoracic surgeon. The case below describes a 41-year-old patient with ectopic ACTH-dependent hypercortisolism (Cushing syndrome) attributed to a bronchopulmonary neuroendocrine tumor undergoing curative-intent lung resection; two sequential perioperative scenarios are presented for decision-making.
+  
+  - 41-year-old patient with several months of progressive Cushingoid features (proximal muscle weakness, central weight gain, easy bruising) and worsening/difficult-to-control hypertension.
+  - Diagnosis: ACTH-dependent hypercortisolism; multidisciplinary review supports ectopic ACTH secretion from a solitary pulmonary lesion on chest imaging, most consistent with a bronchopulmonary neuroendocrine tumor.
+  - No obstructive airway symptoms.
+  - Preoperative bronchoscopy performed to assess for endobronchial involvement.
+  - Planned operation: curative-intent minimally invasive anatomic lung resection with planned—but initially limited—lymph node sampling.
+  
+  **Q1 — Intraoperative lymph node strategy and safe dissection** Intraoperatively, after division of the pulmonary vein and while developing the fissure and hilar planes, you encounter multiple firm, enlarged ipsilateral hilar and mediastinal lymph nodes with anthracotic pigmentation and irregular architecture; one nodal packet is densely adherent to the pulmonary artery adventitia, raising concern for nodal metastasis versus inflammatory change and increasing the risk of vascular injury during dissection, and frozen section is available but will prolong operative time. What is your immediate intraoperative strategy for lymph node evaluation and extent of resection to ensure accurate staging and local control, including the critical technical steps to safely perform systematic nodal dissection around the pulmonary artery, and what pitfalls would increase the risk of vascular injury or incomplete staging?
+  
+  **Q2 — Persistent Cushing syndrome after surgery** The same 41-year-old patient is on postoperative day 10 after curative-intent surgery for a localized bronchopulmonary neuroendocrine tumor associated with confirmed ACTH-dependent hypercortisolism (Cushing syndrome): early recovery was uncomplicated, but over the past week blood pressure has remained persistently elevated despite escalating antihypertensive therapy, new hyperglycemia has required insulin, and the patient reports ongoing severe fatigue and weakness; on exam, central adiposity and facial rounding remain evident, basic labs show leukocytosis without a clear source and potassium is low-normal, a morning cortisol level is inappropriately high for the postoperative state and plasma ACTH remains elevated, and cross-sectional chest imaging shows expected postoperative changes without a new lung mass but demonstrates an enlarged ipsilateral hilar/mediastinal lymph node conglomerate compared with preoperative imaging; surgical pathology documents a typical carcinoid tumor, but nodal status is indeterminate due to inadequate lymph node evaluation and no definitive mediastinal nodal staging is available, and endocrinology is concerned about persistent ectopic ACTH secretion and ongoing thromboembolic and infectious risk from hypercortisolism. What is the most likely explanation for this patient’s persistent Cushing syndrome after lung tumor surgery, and what postoperative strategy should be prioritized to both complete oncologic staging/treatment and achieve biochemical control of hypercortisolism?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop nodal evaluation/extent, safe PA dissection/pitfalls; persistent hypercortisolism cause, staging/treatment/biochemical control strategy). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_035/01_case_file.docx

@@ -1,0 +1,16 @@
+case_id: dosage_calculation/dosage_calculation_021
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  A 48-year-old woman (Ms. Wang) was admitted due to “fatigue with recurrent skin pruritus for 2 years, with abnormal repeat laboratory tests in the past week.” She has a prior diagnosis of primary biliary cholangitis (PBC) in a stable phase and has been taking ursodeoxycholic acid regularly. She denies hematemesis or melena, altered mental status, and any marked worsening of abdominal distension.
+  
+  Physical examination on admission: alert and oriented; no scleral icterus; abdomen soft without tenderness; liver and spleen not palpable below the costal margin; no shifting dullness; no edema in both lower extremities.
+  
+  Ancillary tests: serum total bilirubin 0.4 mg/dL; coagulation INR 0.9; creatinine 0.7 mg/dL; serum sodium 130 mmol/L. Renal ultrasound shows no obstruction, and she has not received dialysis recently.
+  
+  Please calculate this patient’s final_meld_na_score, rounding the result to the nearest integer.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

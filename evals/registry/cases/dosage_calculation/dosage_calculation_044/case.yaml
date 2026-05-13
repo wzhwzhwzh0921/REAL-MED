@@ -1,0 +1,24 @@
+case_id: dosage_calculation/dosage_calculation_044
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  [Task Description]
+  Patient information: Male, height 178 cm, actual body weight 125 kg, BMI 39.4 kg/m². An intravenous aminophylline loading dose is planned; the prescription is aminophylline 600 mg.
+  
+  Calculation tasks:
+  1) Calculate this patient’s ideal body weight (IBW).
+  2) Determine whether the loading-dose calculation should use actual body weight or ideal body weight as the weight basis.
+  3) Convert this aminophylline dose to the “theophylline equivalent dose” (mg).
+  4) Calculate the loading dose expressed per the selected weight basis (mg/kg, calculated using the theophylline equivalent).
+  
+  [Answer Format]
+  Requirements: Provide a step-by-step calculation process and state the units for each step.
+  (For this question: the IBW calculated value must be rounded to 2 decimal places in kg for dosing calculations.)
+  (For this question: the aminophylline → theophylline conversion factor is 0.8, i.e., theophylline equivalent = aminophylline dose × 0.8.)
+  (For this question: obesity is defined as BMI ≥ 30 kg/m²; use IBW to calculate the aminophylline dose.)
+  (For this question: the IBW calculation result must be uniformly rounded to 1 decimal place, i.e., 0.1 kg.) Please calculate this patient’s theophylline_equivalent_dose_mg.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

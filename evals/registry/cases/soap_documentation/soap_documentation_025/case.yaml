@@ -1,0 +1,40 @@
+case_id: soap_documentation/soap_documentation_025
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of March 6, 2025, a 33-year-old woman, Lin Ruoqing (pseudonym), presented to the endocrinology clinic accompanied by her mother. Please analyze her condition based on the following summarized clinic dialogue, chief complaint/history, and physical examination findings, and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  The patient entered the exam room wearing a turtleneck sweater; after sitting down, she quickly pulled down the collar to show her neck and spoke rapidly. Chief complaint: “I suddenly felt a very hard lump on the right side of my neck; swallowing feels a bit stuck; it’s been about a week.”
+  
+  She stated: “When I was showering, I touched it—this right side feels hard like a stone. Even swallowing saliva feels like something is pressing against it. I looked it up online and they all talk about nodules and cancer. I haven’t been able to sleep these past two days, and I keep feeling like my heart is beating really fast.” She added: “It’s not really painful all the time, but when I turn my head or press on it, it feels sore and distended. Sometimes it feels like it’s pulling along that tendon behind the ear—like a dull, tugging sensation.”
+  
+  When asked about the onset and course, she recalled: “About ten days ago, I first had a sore throat, runny nose, and coughed a couple of times. I didn’t have a high fever. I took some acetaminophen and it got better. I thought it was just a common cold, but a couple days later the right front of my neck felt tight, like it was being strangled. Over the past week I’ve been sweating a lot, and at night I’ve had a bit of fever. I feel really tired overall, and I’ve lost a little bit of weight. But I’ve been rushing to meet project deadlines, so I thought it was anxiety.” She denied obvious hoarseness or dyspnea, and also denied any recent dental infection or trauma.
+  
+  Her mother added: “She hasn’t looked very well these past few days, her appetite is smaller, and at night she keeps saying she feels palpitations. Her palms are all sweaty. No one in our family has had thyroid cancer, but she keeps thinking the worst, so she insisted I come with her.”
+  **Past Medical History and Family History:**
+  Past medical history: Thyroid exam 3 years ago showed Hashimoto-related antibody positivity; no regular follow-up afterward. Mild intermittent asthma, uses inhaled salbutamol as needed. Anxiety disorder, occasionally takes lorazepam. Allergy: penicillin class (rash). Denies history of neck radiation exposure.
+  
+  Family history: Father, 60, hypertension. Mother, 58, thyroid “has nodules but was told it’s nothing serious.” No known family history of thyroid malignancy.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 37.7℃, heart rate 106 beats/min, blood pressure 118/76 mmHg, respiratory rate 18 breaths/min, SpO2 99%.
+  
+  General: Alert and oriented; mildly anxious; mild diaphoresis; speech somewhat rapid; no obvious respiratory distress.
+  
+  Head and neck: Palpable nodule-like mass in the right thyroid lobe, approximately 2.2×1.8 cm, hard in consistency, poorly defined borders, moves up and down with swallowing; palpation elicits mild-to-moderate tenderness; local skin temperature slightly increased. No clearly abnormal cervical lymph nodes palpated. No exophthalmos. Mild pharyngeal congestion.
+  
+  Cardiopulmonary: Tachycardic with regular rhythm; no murmurs auscultated. Lungs clear to auscultation bilaterally.
+  
+  Abdomen: Soft, non-tender; no hepatosplenomegaly; normal bowel sounds.
+  
+  Neuromuscular: No obvious tremor; Chvostek sign negative.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_025/01_attachment.pdf

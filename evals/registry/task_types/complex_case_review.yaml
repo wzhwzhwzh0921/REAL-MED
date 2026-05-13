@@ -1,0 +1,28 @@
+# Task type: complex_case_review
+# Complex inpatient case review: primary diagnosis + management orders, delivered as a single PDF.
+
+task_type: complex_case_review
+description: "Complex inpatient case review: primary diagnosis + management orders, delivered as a single PDF."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - code
+  - pdf
+  - docx
+  - web-search
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "*.pdf"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_016
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a clinical pharmacist. In outpatient practice, you have observed that your institution still follows the entrenched practice of “routine skin testing for all patients before cephalosporin administration,” resulting in delayed drug administration and increased nursing workload. At the same time, there is concern that discontinuing routine testing might increase allergy-related risks. Therefore, you plan to write a systematic review on the topic of “Real-world safety and resource-utilization impact of discontinuing routine cephalosporin skin testing,” intended to inform clinical practice optimization and institutional policy decisions.
+  
+  Review topic: Real-world safety and resource-utilization impact of discontinuing routine cephalosporin skin testing.
+  
+  The review must systematically compile and analyze the following core content:
+  1. Allergic outcomes after discontinuing routine skin testing (incidence of allergic reactions/anaphylactic shock, etc.);
+  2. Identification and management chain for serious adverse events (emergency response workflow, outcomes/prognosis);
+  3. Evidence and recommendation comparison with the “β内酰胺类皮试指导原则(2021)”;
+  4. Health economics and resource utilization: costs, nursing labor hours, and drug-administration delays, etc.
+  Search and inclusion must use the following keywords: cephalosporin、skin test、routine testing、anaphylaxis、cost/economic evaluation. At the end of the review, provide a standardized reference list.
+  
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

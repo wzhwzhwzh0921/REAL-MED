@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_008
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a hospital infection prevention and control (IPC) physician. In outpatient practice you have seen multiple functionally dependent and cognitively impaired older adults referred from long-term care facilities (LTCFs), including nursing homes and integrated medical–nursing care institutions. You observed frequent repeat referrals and frequent antimicrobial use, but different institutions use inconsistent statistical definitions/denominators for infection incidence and antimicrobial-resistance surveillance, and adverse outcome reporting is insufficient. Therefore, you plan to write a scoping review on this topic to support practice and policy under the background of “demonstration creation” for integrated medical–nursing care. The deliverable will be used to inform standardized surveillance and targeted interventions in LTCFs/medical–nursing integrated institutions.
+  
+  Scope review topic: “Effectiveness of infection prevention and control and antimicrobial management interventions in nursing homes/integrated medical–nursing care institutions under the background of integrated medical–nursing care demonstration creation.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Incidence and type spectrum of healthcare-associated infections (HAIs) in long-term care facilities (nursing homes/integrated medical–nursing care institutions);
+  2. Epidemiologic characteristics and risk factors of antimicrobial-resistant organisms;
+  3. Patterns of antimicrobial use, inappropriate antimicrobial use, and the effectiveness of antimicrobial stewardship (AMS) interventions;
+  4. Antimicrobial-related safety outcomes (e.g., C. difficile, kidney injury) and the current status of adverse outcome reporting.
+  
+  Search and inclusion should use the following keywords: long-term care/nursing home、healthcare-associated infection、antimicrobial stewardship、antimicrobial resistance、older adults/dementia. The review must deliver an executable evidence map and a reference list; use a PRISMA-ScR flow diagram to present the screening process; use tables to summarize infection rates / resistant organisms / antimicrobial-use metrics and safety outcomes across studies; and use an evidence-gap plot to mark weak areas. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

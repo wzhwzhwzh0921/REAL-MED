@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_006
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a neurologist who has seen multiple adult patients with AQP4-IgG–positive NMOSD in the outpatient clinic and are planning to initiate maintenance therapy such as Eculizumab/Satralizumab/Inebilizumab. However, you still have questions regarding the trade-off between relapse-prevention benefits and the risk of severe infections (including herpes zoster and meningitis). Therefore, you plan to write a meta-analysis on the topic of “Comparative safety of complement inhibition and B-cell–targeting biologics in neuromyelitis optica spectrum disorder (NMOSD)” for clinical decision-making and academic dissemination.
+  
+  This review/meta-analysis focuses on: “Comparative safety of complement inhibition and B-cell–targeting biologics in NMOSD.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Relapse-prevention efficacy and outcomes such as ARR/HR;
+  2. Risk of severe infections and opportunistic infections;
+  3. Specific adverse events such as herpes zoster/meningitis;
+  4. Indirect comparisons among different biologics.
+  
+  Search and include studies using the following keywords: AQP4-IgG阳性、NMOSD、Eculizumab/Satralizumab/Inebilizumab、复发、严重感染. A standardized reference list must be provided at the end of the review; present the screening process using a PRISMA flow diagram, summarize relapse and infection effect sizes using forest plots, and use comparative tables to synthesize each drug’s infection spectrum and key prevention/mitigation measures.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

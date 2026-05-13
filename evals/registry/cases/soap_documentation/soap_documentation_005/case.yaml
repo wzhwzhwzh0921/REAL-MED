@@ -1,0 +1,41 @@
+case_id: soap_documentation/soap_documentation_005
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior physician in Respiratory and Critical Care Medicine. On the morning of February 28, 2026, a 49-year-old woman, Liu Min (pseudonym), presented for evaluation accompanied by her husband. Please analyze her condition based on the following clinic dialogue summary, chief complaint/history, and physical examination findings, and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient is overweight. After entering the room, she first sat down steadily in a chair and, while speaking, unconsciously took deep breaths. Her chief complaint is: “My left chest has felt tight this week, with shortness of breath. After eating I also feel like something is pushing up, and over the last 3 days it’s been more obvious.”
+  
+  She stated: “Doctor, I can’t really call it pain—it's like something is pressing on my chest, especially the lower left side. When I take a deep breath it feels like I can’t get a full breath in. It’s more obvious when I’m full, like my ‘stomach is pushing upward.’ It’s most uncomfortable when I lie flat; I need to prop up two pillows to feel better. A while ago I caught a cold with runny nose and sore throat, then I started coughing with a bit of white phlegm. These past few days, I get short of breath after climbing two flights of stairs, and I get a bit of palpitations, but I don’t have that sudden knife-like pain.”
+  
+  She showed prior test results on her phone: “Over the past three years I’ve had recurrent ‘left lower lobe pneumonia/bronchitis,’ two or three times a year, and I get better after injections and medications. Two days before coming to the clinic, I had a chest X-ray. The doctor said the left diaphragm is elevated, and it looked like a gastric bubble went into the chest on the film, and told me to come in for hospitalization to get it checked. That scared me—I’m afraid my ‘stomach has moved into my chest.’”
+  
+  She added: “I was generally healthy as a child and never heard of any congenital problems; I was not hospitalized as a newborn. Recently I have not had any falls or collisions, and I have not had any thoracic or abdominal surgery.” She also reports postprandial belching and acid reflux, occasional nausea without vomiting; no melena, no hematochezia, and no cessation of passing flatus or stools.
+  
+  Her husband interjected: “At night when she lies flat she says she feels suffocated, and after sleeping a while she sits up. I also noticed her left chest sounds like there’s less wheezing/rumbling, but I haven’t seen her with a high fever. Her diabetes blood sugar has also been unstable lately.”
+  
+  **Past Medical History and Family History:**
+  Past medical history: Type 2 diabetes mellitus for 6 years; takes oral metformin with fair glycemic control. Gastroesophageal reflux disease; intermittently uses a PPI. Recurrent “left lower lobe pneumonia/bronchitis” over the past 3 years.  
+  Past surgical history: Cesarean section x2.  
+  Medication allergy: Penicillin causes rash.  
+  Family history: Both parents have hypertension. Denies a family history of congenital malformations.
+  
+  **Physical Examination Findings:**
+  Vital signs: T 37.3°C, HR 92/min, BP 128/78 mmHg, RR 20/min, SpO2 96% (room air), BMI ≈ 29.  
+  General: Alert and oriented, answers questions completely; mild dyspnea.  
+  Cardiopulmonary: Trachea midline. Breath sounds decreased at the left lower lung; percussion relatively hyperresonant; no obvious crackles. Occasional faint bowel sounds can be heard over the left lower chest (intermittent, not continuous). Heart sounds strong, regular rhythm; apical impulse slightly shifted to the right compared with usual but not obvious.  
+  Abdomen: Soft; mild pressure over the upper abdomen without obvious tenderness; bowel sounds normal; no rebound tenderness; no hepatosplenomegaly appreciated.  
+  Extremities/Neurologic: No cyanosis; no bilateral lower-extremity edema; neurologic exam without obvious abnormalities.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_005/01_attachment.pdf

@@ -1,0 +1,46 @@
+case_id: soap_documentation/soap_documentation_034
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of March 2, 2026, a 72-year-old male patient, Zhao Guoqiang (pseudonym), presented to clinic accompanied by his daughter for evaluation in the Department of Pulmonary and Critical Care Medicine.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient sat down holding his right lower chest with mildly rapid breathing, reporting: “Right-sided chest pain and cough with sputum for more than one month, and recently fever again.”
+  
+  While coughing, he stated: “At first it was just a dry cough, like there was dust in my throat, but I couldn’t cough anything up. This area along the right ribs felt like a dull ache; when I take a deep breath or cough hard, it stabs. Then I had no energy, my appetite wasn’t good, and my waistband got looser—maybe I lost three or four jin. I thought it was my old chronic bronchitis acting up.”
+  
+  His daughter added: “He hasn’t been sleeping well at night, and he sweats so much that his clothes get damp. Two weeks ago, the fever got bad—chills and shivering—almost up to 39°C at the highest. The sputum also increased, yellow-green and very sticky, sometimes with a strange smell; he feels embarrassed and doesn’t like to talk about it.”
+  
+  The patient added: “At home I took a few days of anti-inflammatory antibiotics (can’t name the brand, just said ‘the amoxicillin kind’). When the fever went down a bit, I stopped; after two days it came back. The last three days have been worse—sputum is about a small cup per day, chest pain is more obvious, and I get short of breath after just a few steps.”
+  
+  When asked about triggers, he thought and said: “Nothing much… just sometimes I choke a bit when eating or drinking, then cough for a while and it passes. Ever since my stroke, I’ve been like this. I also haven’t quit smoking—just smoking less.” His daughter said quietly: “He likes talking while eating; when he chokes he coughs. Two days ago, he choked on porridge and his face turned red.”
+  
+  The patient produced an outpatient imaging report: “They did a CT outside; it said there’s a cavitary thing in the right lower lung. The doctor said ‘it’s not very good’ and told me to come in quickly for hospitalization and further evaluation. I’m really worried—could it be that… cancer?”
+  
+  **Past Medical History and Family History:**
+  - Chronic obstructive pulmonary disease for 10 years; uses inhaled tiotropium routinely.
+  - Type 2 diabetes mellitus for 8 years; on oral metformin; glycemic control has been suboptimal over the past 6 months.
+  - Ischemic stroke 3 years ago with residual mild dysphagia and choking cough; occasional aspiration.
+  - Smoking history: approximately 45 pack-years; has not quit.
+  - Denies history of tuberculosis.
+  - No known drug allergies.
+  - Family history: parents deceased (cause of death unknown); no clear family clustering of malignancy.
+  
+  **Physical Examination Findings:**
+  - Vital signs: Temperature 38.3°C; heart rate 104 beats/min; blood pressure 136/78 mmHg; respiratory rate 22 breaths/min; SpO2 93% on room air.
+  - General: thin and fatigued; mild tachypnea; mild cyanosis of the lips; no obvious cervical or supraclavicular lymphadenopathy.
+  - Cardiovascular/Pulmonary: tachycardic but regular rhythm; no murmurs. Chest symmetric. Right lower lung: dullness to percussion, decreased breath sounds, focal moist rales with a small amount of wheezing. Left lung: breath sounds slightly coarse.
+  - Abdomen: soft; no tenderness or rebound; liver and spleen not palpably enlarged.
+  - Extremities/Neurologic: no clubbing; no bilateral lower-extremity edema; alert with clear speech; occasional mild cough noted during swallowing.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_034/01_attachment.pdf

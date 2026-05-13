@@ -1,0 +1,21 @@
+case_id: dosage_calculation/dosage_calculation_017
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 68-year-old female with Graves’ hyperthyroidism and mild-to-moderate renal function impairment (eGFR approximately 45 mL/min/1.73m²) is planned for I-131 therapy. Ultrasound estimates thyroid weight at 30 g. 24 h RAIU = 45% (reported as a percentage). Kinetic follow-up suggests an effective half-life of 120 hours. An individualized dosimetry prescription is planned with a target absorbed dose of 220 Gy.
+  
+  Calculation tasks:
+  1) Convert RAIU from a percentage to a 0–1 decimal.
+  2) Convert the effective half-life from hours to days and verify the plausible range.
+  3) Calculate the required administered activity (MBq).
+  4) Provide a step-by-step calculation process and explicitly state the unit conversion at each step.
+  
+  [Answer Format]
+  (For this question: use the Marinelli form A = D×m /(RAIU×T_eff), without the 1.44/25 constants.)
+  (For this question: per the EANM 2023 Marinelli formula, energy constant Ē = 2.808, A = D×m /(2.808×RAIU×1.44×T_eff).)
+  (For this question: use the EANM Marinelli form A = 25·m·D/(IU24h·Teff), not listing 1.44 separately). Please calculate this patient’s sanity checks.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_038
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a cardiologist. During outpatient follow-up, you have observed that some adult patients with HCM/DCM, despite having preserved/acceptable LVEF, still experience sudden cardiac death (SCD) or recurrent hospitalizations for heart failure. Therefore, you plan to write a systematic review on this topic to integrate the evidence and support clinical risk stratification and management.
+  
+  Review topic: Evidence synthesis of cardiomyopathy CMR late gadolinium enhancement (LGE) and T1/T2 mapping for predicting risks of sudden cardiac death and heart failure.
+  
+  The review must systematically compile and analyze the following core content:
+  1. The spectrum and definitions of CMR biomarkers;
+  2. The prognostic value of LGE burden/pattern (refer to the “Chinese Comprehensive Management Guideline for Cardiomyopathy 2025”);
+  3. Associations between mapping biomarkers (T1/ECV, T2/T2*, etc.) and clinical outcomes;
+  4. Incremental predictive value and integration into risk models.
+  
+  For literature search and inclusion, use the following keywords: cardiomyopathy、CMR、LGE、T1 mapping/ECV、prognosis（SCD/heart failure/transplant）. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

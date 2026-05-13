@@ -1,0 +1,43 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_001
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Inpatient pharmacy ward-dispensing staff notice: Today we received a mixed task from the wards combining “urgent requisition + routine replenishment”. In the current attached inventory, there are 4 short-dated injectable drugs with a contradiction of “excess short-dated stock / some items approaching the reorder alert line”. Please strictly follow **FEFO (First-Expire-First-Out)** to prioritize dispensing the short-dated batches, and complete an inventory safety check before dispensing to avoid ward stockouts. Note: The stem will not provide any drug generic name or brand name; you must uniquely match the specific item in the attached list based on dosage form/specification/indication clues before performing calculations. Process the following subtasks one by one and add a note on the dispensing sheet: “Expiry date and inventory alert verified”.
+  
+  1) Rapid picking: A short-dated injection, with clues: “**clears heat and detoxifies; used for acute tonsillitis/pharyngitis/conjunctivitis/upper respiratory tract infection; 2 ml/ampoule; IM injection 2 ml per dose, twice daily**”.
+  (1) Identify the drug’s **generic name**, and query its inventory and unit price.
+  (2) Under the FEFO premise, prioritize dispensing the batch with the nearest expiry date; and in the dispensing-sheet remarks remind the ward: this item’s expiry is very close—please requisition according to the treatment course to avoid returns.
+  
+  2) Calculate dispensing quantity and alert line: Ward A urgent use — a lyophilized powder for injection, with clues: “**a lyophilized powder for injection used as adjuvant therapy for neurogenic headache/neuralgia/arthralgia, etc.; specification 40 mg/vial; order: 40 mg each time, twice daily, for 2 days**”.
+  (1) Identify the drug’s **generic name**, and query its inventory and unit price.
+  (2) Calculate how many **vials** need to be dispensed (**round up to whole units per single dose**).
+  (3) Verify whether the remaining inventory after dispensing will fall below the replenishment alert threshold; if it may trigger an alert, immediately call the inventory manager to prepare a replenishment request.
+  
+  3) Calculate dispensing quantity and alert line: Ward B order — an IM formulation, with clues: “**an IM formulation for advanced breast cancer in women after natural or artificial menopause; each unit contains 250 mg; once every 2 weeks; administer 1 dose this time**”.
+  (1) Identify the drug’s **generic name**, and query its inventory and unit price.
+  (2) Calculate the number of units to dispense, and calculate the remaining balance after dispensing.
+  (3) Determine whether it drops below the alert threshold; if close to the alert threshold, write in the remarks column: “remaining quantity / expiry month”.
+  
+  4) FEFO priority and cost calculation: Ward C emergency replenishment — a rapid-acting insulin cartridge for subcutaneous injection, with clues: “**a rapid-acting insulin cartridge for immediate pre-meal subcutaneous injection; 3.0 ml: 300 units per cartridge**”. Dispense **10 cartridges** this time (based on order-cycle turnover).
+  (1) Identify the drug’s **generic name**, and query its inventory and unit price.
+  (2) Under the FEFO premise, pick the batch with the nearest expiry date.
+  (3) Calculate the total dispensing cost for this issue (CNY, keep 2 decimal places).
+  (4) Assess whether this item’s inventory is still significantly above the alert threshold, so that short-dated batches can continue to be prioritized for consumption later.
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (300 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_001` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_001/01_inventory.xlsx
+mcp_question_id: v5_001

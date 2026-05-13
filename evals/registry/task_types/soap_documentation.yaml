@@ -1,0 +1,28 @@
+# Task type: soap_documentation
+# Emergency department SOAP note: write a clinical record from a provided case + SOAP template attachment. Output PDF.
+
+task_type: soap_documentation
+description: "Emergency department SOAP note: write a clinical record from a provided case + SOAP template attachment. Output PDF."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - code
+  - pdf
+  - docx
+  - web-search
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "*.pdf"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

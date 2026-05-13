@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_021
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Medical Director of the Endocrinology Department at a tertiary Grade A hospital, and you plan to establish a formulary for a standardized-management outpatient clinic for Adult Growth Hormone Deficiency (AGHD), for rapid reference by outpatient physicians and clinical pharmacists. The clinic population is mostly long-term follow-up patients with complex chronic comorbidities and medication histories. Some patients have limited tolerance for injection frequency and limited adherence. Overall, patients rely more on medical insurance coverage and program support, so the formulary must balance accessibility with continuity of long-term management.
+  
+  **Formulary construction principles:**
+  - Drug inclusion should primarily follow NMPA-approved indications; when off-label use is involved, the source of evidence, level of evidence, and applicable boundaries must be annotated.
+  - When multiple brands exist under the same generic name, select representative brands, prioritizing those with better NRDL/insurance accessibility.
+  - For all drugs, clearly label the reimbursement category and payment attributes (national-negotiation (国谈) / in-insurance (医保内) / out-of-insurance (医保外) / self-pay (自费), etc.).
+  
+  **Tasks:**
+  1. Organize AGHD formulary drug categories, stratify by therapeutic positioning, and specify each category’s NMPA approval status and key points of off-label evidence.
+  2. Create several single-disease prescription examples, covering combination logic and usage frameworks across different treatment stages and typical patient scenarios.
+  3. Create several prescription examples for patients with comorbidities or special situations, reflecting the decision logic for drug selection and dose adjustment across organ function, concomitant medications, peri-special periods, and other dimensions.
+  4. Provide strong alerts on key safety risks of formulary drugs, covering tumor risk, metabolism and fluid retention, changes in other endocrine axes, important interactions, and risks related to discontinuation and switching.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_020
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a cardiologist. Please prepare a lecture PPT on heart failure phenotypes, diagnostic updates, and the new quadruple therapy strategy for HFrEF, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: definition of heart failure and the three main symptoms, LVEF-based classification into HFrEF/HFmrEF/HFpEF, criteria for HFimpEF and risk of relapse (subsequent deterioration), key points of the new quadruple therapy strategy for HFrEF.
+  **Visual materials**: diagnostic flowchart for chronic heart failure; initiation and up-titration pathway diagram for the new quadruple therapy; heart failure phenotype composition or prevalence trend chart.
+  **Constraints & format**: 14–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (definition of heart failure and the three main symptoms, LVEF-based classification into HFrEF/HFmrEF/HFpEF, criteria for HFimpEF and risk of relapse (subsequent deterioration), key points of the new quadruple therapy strategy for HFrEF).
+  3. Include the visual materials specified (diagnostic flowchart for chronic heart failure; initiation and up-titration pathway diagram for the new quadruple therapy; heart failure phenotype composition or prevalence trend chart).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_020/01_template.pptx

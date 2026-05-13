@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_028
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior pancreatic surgeon. The case below describes a 66-year-old man with prior pancreaticoduodenectomy who now has recurrent pancreatitis symptoms and a new cystic lesion in the pancreatic remnant requiring complex operative and postoperative decision-making.
+  
+  - 66-year-old man; prior pancreaticoduodenectomy 5 years ago for an uncinate intraductal papillary mucinous neoplasm.
+  - History notable for prior major postoperative complications including pulmonary embolism requiring IVC filter placement.
+  - Recent months: recurrent epigastric pain with multiple episodes consistent with acute pancreatitis, malaise, and unintentional weight loss; symptoms persist intermittently after recovery.
+  - CT during an acute episode: pancreatitis of the pancreatic remnant with a 15-mm acute fluid collection.
+  - MRCP 2 months later: resolution of the acute collection but a new cystic lesion in the pancreatic tail with a main pancreatic duct stenosis and distal ductal dilatation.
+  - EUS: 22 × 24 mm tail cyst.
+  - Planned operation: operative (oncologic) management of the pancreatic remnant lesion given symptoms, new cyst in a patient with prior IPMN, and ductal obstruction.
+  
+  **Q1 — Intraoperative decision-making** Upon entering the lesser sac, there is extensive fibrosis and dense adhesions to the posterior stomach and splenic flexure. Within the pancreatic remnant are multiple thick yellow purulent-appearing pockets tracking toward the splenic hilum with a marked inflammatory/desmoplastic reaction. What is your immediate intraoperative management strategy—what specimens do you obtain, how do you determine whether to proceed with pancreatic resection (and whether splenectomy is necessary), which technical steps are critical to control contamination and safely complete the operation if you proceed, and what findings or pitfalls would prompt you to abort, convert, or escalate the operation?
+  
+  **Q2 — Postoperative complication management** The patient is recovering after major surgery on the pancreatic remnant for a symptomatic cystic lesion, with an intra-abdominal drain left adjacent to the pancreatic cut surface. On postoperative day (POD) 4, he is hemodynamically stable but reports increasing fatigue and mild epigastric discomfort; temperature is 38.0°C, heart rate 96/min, blood pressure 128/74 mmHg; labs show leukocytosis and a rising C-reactive protein compared with POD2. Drain output is 250–350 mL/day of cloudy fluid, and drain fluid amylase is markedly elevated and exceeds the simultaneous serum amylase by more than threefold. The incision is clean without erythema, there is no peritonitis on exam, he is tolerating only small sips by mouth, and no cross-sectional imaging has yet been obtained; the team is concerned about an anastomotic/cut-surface leak related to pancreatic secretion with evolving inflammatory changes and possible undrained collection. What is the most likely postoperative complication (name it explicitly) and its pathophysiology, what diagnostic criteria and workup are used to confirm and grade it, and what is an evidence-based stepwise management plan (including thresholds to escalate to percutaneous/endoscopic drainage or reoperation), as well as key operative and postoperative prevention strategies for future similar cases with inflamed/fibrotic pancreas?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop management strategy/specimens; proceed vs resect/splenectomy decision; contamination control/safe technical steps; abort/convert/escalate triggers; postop complication name/pathophysiology; diagnostic criteria/workup/grading; stepwise evidence-based management/escalation thresholds; prevention strategies). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_028/01_case_file.docx

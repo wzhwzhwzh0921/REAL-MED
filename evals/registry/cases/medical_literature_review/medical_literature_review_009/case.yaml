@@ -1,0 +1,22 @@
+case_id: medical_literature_review/medical_literature_review_009
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a neurologist. In outpatient practice, you have seen multiple women of childbearing age and/or planning pregnancy with migraine whose previous preventive therapies have failed. You are considering switching to Atogepant, but you lack certainty regarding the appropriate discontinuation (washout) window and the potential risks of pregnancy exposure. Therefore, you plan to write a scoping review on this topic to inform clinical decision-making and counseling for this patient population.
+  
+  This scoping review focuses on “Efficacy of Atogepant and discontinuation/washout-period–related medication strategies for migraine prevention in women planning pregnancy.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. The evidence landscape for Atogepant efficacy in migraine prevention;
+  2. Medication strategies and outcomes in populations with prior preventive-treatment failure;
+  3. Pharmacokinetics and the discontinuation/washout window (with comparison to the Chinese Migraine Diagnosis and Treatment Guidelines (2022 edition));
+  4. Evidence gaps for medication use during pregnancy/lactation and the current status of real-world/registry studies.
+  
+  Search and include studies using the following keywords: migraine prevention、atogepant/Qulipta、CGRP receptor antagonist、pregnancy/planned pregnancy、washout/pharmacokinetics. A standardized reference list must be provided at the end of the review; use a PRISMA-ScR flow diagram to present the screening process, use an evidence-matrix table to summarize different populations and outcomes, and use a timeline figure to present the discontinuation/washout window and potential exposure timepoints.
+  
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

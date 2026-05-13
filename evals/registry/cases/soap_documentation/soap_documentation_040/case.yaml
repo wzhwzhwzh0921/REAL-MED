@@ -1,0 +1,34 @@
+case_id: soap_documentation/soap_documentation_040
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior pediatric physician. On the morning of November 15, 2024, an 8-month-old male infant, Junjun (pseudonym), was seen in clinic while being held by his mother. Based on the following summarized clinic dialogue, chief complaint/history, and physical examination results, analyze the condition and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  The mother appeared very anxious. While soothing the incessantly crying child in her arms, she urgently said: “Doctor, please take a quick look—does my baby’s head seem to be growing too fast? Over the past two months, relatives and friends who visit keep saying he has a ‘big head and is smart,’ but I’ve noticed that his old hats won’t fit at all anymore.”
+  
+  The mother continued: “Also, he’s been especially hard to take care of lately—very irritable. He screams and cries sharply with even a slight touch. At night he doesn’t sleep well either, and he sweats all over his head; the pillow can get completely soaked. I heard from other moms in our neighborhood that this is a typical sign of ‘calcium deficiency.’ I’m exclusively breastfeeding, and I sometimes forget to give the vitamin D drops when I get busy—could that have delayed him? Also, in the last two days, he vomited a few times after feeding, and it projected pretty far. But he used to have gastroesophageal reflux, so I didn’t take it too seriously and thought it was just indigestion.”
+  **Past Medical History and Family History:**
+  G1P1. Cesarean delivery at 35 weeks’ gestation (preterm). Birth weight 2.4 kg. History of mild gastroesophageal reflux. No history of head trauma. No history of meningitis. Family history: one cousin was once diagnosed with “rickets.” No known drug allergies.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8°C, heart rate 132/min, respiratory rate 32/min, blood pressure 90/55 mmHg. Head circumference 48.5 cm (>99th percentile).
+  
+  General: Alert; easily irritable; high-pitched cry. Slightly pale. Moderate nutritional and developmental status. Head appears disproportionately large relative to the body.
+  
+  Head/neck: Anterior fontanelle markedly enlarged, approximately 4.0 cm × 4.0 cm; on palpation the anterior fontanelle is full with increased tension, without a palpable pulsation. Prominent forehead (box-shaped skull–like change). Marked scalp vein distention when crying. Occipital alopecia present.
+  
+  Eyes: Pupils equal, round, and reactive to light. During rapid position changes or when the infant is picked up, occasional downward deviation of both eyes is observed with mild exposure of the upper sclera.
+  
+  Chest/skeletal: Harrison groove visible on the thorax. Blunt, rounded prominences palpable at the costochondral junctions (rachitic rosary). Slightly increased limb muscle tone; bilateral patellar tendon reflexes (+++).
+  
+  Ancillary studies (results from an outside facility): Serum calcium 2.18 mmol/L (low); serum phosphorus 1.4 mmol/L (low-normal); alkaline phosphatase (ALP) 480 U/L (markedly elevated); 25-hydroxyvitamin D 16 ng/mL (deficient).
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_040/01_attachment.pdf

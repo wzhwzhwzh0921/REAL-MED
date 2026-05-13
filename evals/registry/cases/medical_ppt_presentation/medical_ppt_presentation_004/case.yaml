@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_004
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a urologist. Please prepare a lecture PPT on treatment options and follow-up communication for BCG-unresponsive NMIBC, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: NMIBC risk stratification (Ta/Tis/T1), definitions of BCG failure/BCG-unresponsive disease, impact of toxicity on adherence and decision-making, timing and indications for bladder-sparing therapy versus radical cystectomy, key points for follow-up and clinician–patient communication.
+  **Visual materials**: NMIBC bladder wall layer anatomy diagram; VI-RADS risk stratification-to-management flowchart; BCG-unresponsive bladder-sparing vs cystectomy decision pathway diagram.
+  **Constraints & format**: 14–20 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–20 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (NMIBC risk stratification (Ta/Tis/T1), definitions of BCG failure/BCG-unresponsive disease, impact of toxicity on adherence and decision-making, timing and indications for bladder-sparing therapy versus radical cystectomy, key points for follow-up and clinician–patient communication).
+  3. Include the visual materials specified (NMIBC bladder wall layer anatomy diagram; VI-RADS risk stratification-to-management flowchart; BCG-unresponsive bladder-sparing vs cystectomy decision pathway diagram).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_004/01_template.pptx

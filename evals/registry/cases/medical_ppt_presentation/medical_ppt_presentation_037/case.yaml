@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_037
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a neonatologist. Please prepare a lecture PPT on early recognition and management of pertussis in newborns, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: droplet transmission, clinical course staging, atypical presentations in infants, household exposure risk.
+  **Visual materials**: diagnostic–reporting–isolation workflow flowchart; referral pathway diagram triggered by WBC thresholds + severe manifestations; incubation period and infectious period timeline.
+  **Constraints & format**: 14–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (droplet transmission, clinical course staging, atypical presentations in infants, household exposure risk).
+  3. Include the visual materials specified (diagnostic–reporting–isolation workflow flowchart; referral pathway diagram triggered by WBC thresholds + severe manifestations; incubation period and infectious period timeline).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_037/01_template.pptx

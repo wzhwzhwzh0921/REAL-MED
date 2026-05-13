@@ -1,0 +1,19 @@
+case_id: dosage_calculation/dosage_calculation_029
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  A 55-year-old male, Wang Jianguo, weighs 75 kg. He was admitted for “fever with productive purulent sputum and shortness of breath for 3 days.” Previously healthy. Over the past 3 days he has had persistent high fever, chest tightness, and coughing up yellow-green purulent sputum, worse at night.
+  
+  Physical examination: T 39.0°C, respiratory rate 28 breaths/min, scattered moist rales in both lungs, more prominent in the right lower lung.
+  
+  Laboratory tests: WBC 17×10^9/L, PCT elevated; serum creatinine 1.0 mg/dL. Chest CT shows right lower lobe consolidation with an air bronchogram sign. Sputum culture grew Pseudomonas aeruginosa; susceptibility testing indicates piperacillin/tazobactam MIC = 32 mg/L.
+  
+  Severe hospital-acquired pneumonia is suspected. Planned regimen: piperacillin/tazobactam 4.5 g q6h, each dose administered as an extended infusion over 4 hours. Use volume of distribution Vd = 0.3 L/kg for estimation; drug half-life is approximately 1.1 hours.
+  
+  Please calculate this patient’s pctTgtMIC, rounding to an integer.
+  
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

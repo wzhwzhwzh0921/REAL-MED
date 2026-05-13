@@ -1,0 +1,48 @@
+case_id: soap_documentation/soap_documentation_018
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior otolaryngologist. On the morning of February 28, 2026, a 28-year-old male patient, Liang Chen (pseudonym; e-commerce operations), presents for evaluation. Based on the following clinic dialogue summary, chief complaint/history, and physical examination findings, analyze the condition and write a professional SOAP note for this visit (including differential diagnosis, further workup/management plan, and patient education).
+  **Chief Complaint and History of Present Illness:**
+  After sitting down, Liang Chen repeatedly clears his throat. Chief complaint: “It always feels like there’s a grain of rice stuck on the right side of my throat, and there are white spots on my tonsil—almost two months.”
+  
+  He reports: “It started about seven to eight weeks ago. When I swallow saliva, the right side feels a bit scratchy and painful—like 2 or 3 out of 10. No fever and it’s not really pain, just very uncomfortable. Later I looked in the mirror and saw two or three small white spots on the right tonsil, and I thought it might be pus. Gargling with salt water didn’t help.” He adds that the symptoms are “more obvious when I talk on the phone for a long time, or the more I stare at it,” but he can still eat normally.
+  
+  Liang Chen appears somewhat irritable: “I took antibiotics twice. The first clinic said chronic tonsillitis and gave me amoxicillin–clavulanate for 7 days; no change. The second place gave me azithromycin for 3 days; the white spots were still the same, in about the same location. That made me more scared—I’m worried there’s an infection that won’t go away.” He hesitates: “I also tried to wipe them off with a cotton swab, but it felt hard, like small grains of sand stuck in the tissue. No matter how I wiped, it wouldn’t come off. Then there was a tiny bit of bleeding, which scared me so I didn’t do it again.”
+  
+  His girlfriend, who accompanies him, adds: “Recently he keeps saying there’s something in his throat, and he’s been anxious. But he doesn’t really have bad breath—I can’t smell anything even when I’m very close. He’s been working overtime at night and eating late-night snacks, and before bed he likes to lie down and scroll on his phone.”
+  
+  He denies fever, significant odynophagia, hoarseness, or dyspnea; he also denies a recent history of recurrent acute tonsillitis episodes. He occasionally has acid regurgitation and belching after late-night snacks, and has taken OTC stomach medicine. He has seasonal nasal itch and sneezing, and intermittently uses intranasal corticosteroid spray.
+  
+  **Past Medical History and Family History:**
+  Past medical history: Allergic rhinitis; occasional reflux-like discomfort.  
+  Surgical history: None.  
+  Social history: Denies smoking.  
+  Allergies: No known drug allergies.  
+  Family history: Parents are healthy; no family history of head and neck tumors or immunodeficiency-related conditions.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.7℃; heart rate 78/min; blood pressure 118/76 mmHg; respiratory rate 16/min; SpO2 99%.  
+  General: Alert, mildly anxious, answers questions fully; oropharyngeal mucosa not dry.  
+  ENT:
+  - Nose: Mild mucosal edema, suggestive of allergic changes.
+  - Oropharynx: Bilateral palatine tonsils grade I–II; no obvious erythema or swelling; no patchy exudate. On the surface of the right tonsil and at the crypt openings, multiple tiny yellow-white punctate protrusions are seen, described as “sand-grain/needle-tip-like”; firm to touch; not easily removed with gentle wiping. Mild scraping produces needle-tip-like bleeding points. No obvious halitosis.
+  Neck: No palpable tender or enlarged lymph nodes.  
+  Heart/lungs/abdomen: Cardiac and pulmonary auscultation normal; abdomen soft, non-tender.  
+  Ancillary tests (brought from outpatient visit):
+  - CBC: WBC 6.2×10^9/L (N 55%, L 35%), Hb 149 g/L, Plt 238×10^9/L
+  - CRP 1.2 mg/L
+  - Rapid streptococcal antigen: (-)
+  - Flexible nasoendoscopy/laryngoscopy: Scattered similar tiny yellow-white punctate protrusions on the posterior pharyngeal wall and tongue base; laryngeal structures with normal mobility.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_018/01_attachment.pdf

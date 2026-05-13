@@ -1,0 +1,25 @@
+case_id: dosage_calculation/dosage_calculation_035
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 52-year-old male requires an IV phenytoin sodium loading dose for an acute seizure. Actual body weight (ABW) 120 kg; ideal body weight (IBW) 70 kg. Planned loading dose: 15 mg/kg. No indicators of elderly status or high cardiovascular risk. Planned infusion rate: 50 mg/min.
+  
+  Calculation tasks:
+  1) Calculate adjusted body weight (AdjBW).
+  2) Calculate the total loading dose (mg).
+  3) Calculate the infusion completion time (min) at the planned rate.
+  4) Assess whether this infusion rate reaches or exceeds the maximum allowable adult IV infusion rate, and if it exceeds the limit, state how to adjust it (only write the adjustment principle and the adjusted rate that does not exceed the limit).
+  
+  Requirements / constraints (must follow exactly as written in the case):
+  - Requirement: Calculate step-by-step and provide the final answers (with units).
+  - (This question stipulates: phenytoin sodium IV loading dose is 15–20 mg/kg, calculated using AdjBW.)
+  - (This question stipulates: phenytoin sodium IV loading 15–20 mg/kg; in obesity use AdjBW = IBW + 0.4 × (TBW − IBW).)
+  - (This question stipulates: phenytoin sodium loading 20 mg/kg, calculated using AdjBW = IBW + 1.33 × (ABW − IBW).)
+  - (This question stipulates: for obese patients, the loading dose must always use AdjBW = IBW + 1.33 × (ABW − IBW), not ABW.)
+  - (This question stipulates: for elderly/high cardiovascular-risk patients, phenytoin sodium infusion rate is fixed at 25 mg/min with ECG monitoring). Please calculate this patient’s safety_flags.
+  
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

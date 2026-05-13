@@ -1,0 +1,33 @@
+case_id: soap_documentation/soap_documentation_049
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior dermatologist. On the morning of November 15, 2024, a 28-year-old man, Mr. Xiao Zhang (pseudonym), presents for evaluation. Please analyze his condition based on the following clinic dialogue summary, chief complaint/history, and physical examination findings, and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  The patient is a software engineer and an amateur badminton enthusiast. On entering the exam room, his gait is mildly abnormal; he is reluctant to fully bear weight on the right foot. Chief complaint: “A ‘corn’ on the sole of my right foot—pain for 2 months; after using medicated patches it hurts even more.”
+  
+  While removing his shoes and socks, he states, “Doctor, I play badminton a lot and do quite a bit of running. Two months ago I noticed a hard bump on the ball of my right foot—walking feels like stepping on a pebble. I figured it had to be a friction corn, so I bought salicylic acid corn plasters from the pharmacy. I used them for almost a month; the skin got chemically irritated and turned whitish, but the hard bump didn’t come off—instead it became more and more painful. Especially over the last week, I noticed another small hard spot popping up next to this ‘corn.’ Can corns be contagious?”
+  
+  He pauses and adds while pointing to the lesion, “And the pain is strange. I’ve sprained my foot before and that was a dull ache—this is different. It hurts when I wear shoes and step down, but if I squeeze the bump from the side with my hand, the stabbing pain is unbearable. Doctor, please take a look—do you need to cut this flesh out?”
+  **Past Medical History and Family History:**
+  Previously healthy; mild myopia in both eyes. Right ankle sprain while playing sports 2 years ago, fully resolved. Allergy: sulfonamide medications. No history of diabetes mellitus. No history of immune system disease. No known family history of specific hereditary disorders.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8°C; heart rate 72/min; blood pressure 124/78 mmHg; respiratory rate 16/min. General condition good.
+  
+  Dermatologic examination (right foot):
+  1) Inspection: On the plantar surface over the 3rd metatarsal head (weight-bearing area), there is an approximately 0.8 cm × 0.8 cm round hyperkeratotic plaque. Due to prolonged use of corn plaster, the lesion surface and surrounding skin show marked macerated whitening, with partial scaling. Approximately 5 mm distal to the primary lesion is another similar small papule (“satellite lesion”) about 2 mm in diameter.
+  2) Dermoscopy and paring/scraping test: Careful inspection shows interruption and loss of normal skin lines (fingerprint-like dermatoglyphics) over the lesion. After gently paring off the softened white macerated keratin with a scalpel blade, no translucent central keratin plug/core is seen; instead, a yellow-white structure is exposed with multiple scattered pinpoint black dots. Further paring reveals punctate bleeding.
+  3) Palpation: Pain with vertical pressure is VAS 4/10; pain markedly worsens with lateral compression (squeezing from both sides toward the center using thumb and index finger), VAS 7/10.
+  4) Other: No palpable bilateral inguinal lymphadenopathy. Dorsalis pedis pulses are good.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_049/01_attachment.pdf

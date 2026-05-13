@@ -1,0 +1,27 @@
+# Task type: chronic_disease_management
+# Community GP chronic disease workflow: diagnose, prescribe, order tests, follow-up plan, referrals — performed via the chronic-disease-his MCP server tools.
+
+task_type: chronic_disease_management
+description: "Community GP chronic disease workflow: diagnose, prescribe, order tests, follow-up plan, referrals — performed via the chronic-disease-his MCP server tools."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - docx
+
+extensions_config: task_types/extensions_configs/chronic_disease_management.json
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "his_result.jsonl"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

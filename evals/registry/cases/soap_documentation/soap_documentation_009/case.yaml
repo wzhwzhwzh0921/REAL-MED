@@ -1,0 +1,37 @@
+case_id: soap_documentation/soap_documentation_009
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior obstetric emergency physician. At 3:00 AM on November 15, 2024, a 32-year-old pregnant woman, Li Wei (pseudonym), presented emergently to the clinic supported by her husband. Based on the following summarized encounter dialogue, chief complaint/history, and physical examination findings, analyze her condition and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  32-year-old G2P1 at 34 weeks’ gestation, pale and anxious, presenting with “sudden vaginal bleeding during sleep for 2 hours, without abdominal pain.”
+  
+  Patient states: “Doctor, I’m really terrified. I was sleeping fine in the middle of the night, and suddenly felt a hot gush down there. I woke up and turned on the light and saw that everything under me was blood—bright red, very bright red—and there were no clots. But my belly really doesn’t hurt at all; I don’t have that wave-like contraction feeling like before giving birth. I remember at the 20-week ultrasound the doctor mentioned that my placenta was a bit low—could the bleeding be because of that?”
+  
+  When asked about other symptoms, she added: “Other than the bleeding, my lower back has been especially sore these past two days, like it’s breaking—this heavy, dragging pain that doesn’t improve even when lying down. I thought it was because I sat too long doing financial reports at the office a few days ago, or just normal late-pregnancy back pain, so I didn’t take it seriously.”
+  
+  Her husband added anxiously: “Doctor, she’s bleeding a lot—the bedsheet was soaked over a big area; it looked like two to three hundred milliliters. She’s usually hypertensive, and these past few days she’s been under a lot of pressure rushing a project. She only takes her blood pressure medicine (labetalol) when she remembers—could this be related? On the way here she kept saying she felt dizzy.”
+  
+  **Past Medical History and Family History:**
+  Chronic hypertension for 3 years; usually takes labetalol, with poor recent adherence. Gestational diabetes mellitus (GDM), diet control acceptable. G2P1; 3 years ago had a vaginal delivery of one daughter. Penicillin allergy. No history of trauma. No family history of coagulation disorders.
+  
+  **Physical Examination Findings:**
+  Vital signs: T 36.8℃, HR 104/min, BP 158/96 mmHg, RR 20/min, SpO₂ 99%.
+  General: Alert and oriented, tense/anxious. Palpebral conjunctival pallor. Extremities mildly cool distally.
+  Obstetric exam:
+  - Inspection: Gravid abdomen; fundal height 33 cm; abdominal circumference 102 cm; cephalic presentation.
+  - Palpation: Anterior abdominal wall relatively soft; no typical “board-like abdomen”; no obvious anterior wall tenderness. However, with continuous manual assessment at the uterine fundus, uterine wall tone felt persistently elevated without a clear relaxation interval (hypertonic state). Although she denied severe abdominal pain, she reported worsening lumbosacral soreness/distension with fundal pressure.
+  - Auscultation: Fetal heart rate baseline elevated, 160–165/min, with slightly reduced variability.
+  Gynecologic exam (speculum): Approximately 50 ml pooled bright red blood in the vagina; active bleeding visible at the cervical os; no obvious clots seen.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_009/01_attachment.pdf

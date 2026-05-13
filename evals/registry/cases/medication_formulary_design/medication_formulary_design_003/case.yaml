@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_003
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the medical director of the Rheumatology and Immunology Department at a tertiary Grade A hospital. Your institution plans to build a standardized outpatient formulary for hereditary angioedema (HAE) management, so that physicians and clinical pharmacists can quickly reference it during prescribing and prescription review. The service population includes diagnosed pediatric, adolescent, and adult patients; most are covered by national medical insurance. Access to rare-disease medicines and continuity between in-hospital and out-of-hospital care, as well as differences in patients’ ability to self-administer at home, have substantial impact.
+  
+  **Formulary construction principles:**
+  - Include only medications with NMPA-approved indications; if off-label use is involved, annotate within the table the evidence basis, evidence level, and applicable boundaries.
+  - When multiple brands exist for the same generic name, select a representative brand; prioritize options with better NRDL/medical-insurance accessibility, and retain notes on substitutable brands.
+  - All drugs must be labeled with reimbursement category and payment attributes (national-negotiation / inside vs outside the reimbursement directory, Class A/B, etc.).
+  
+  **Tasks:**
+  1. Organize the drug categories in the formulary for this disease; stratify by therapeutic positioning; explain each category’s NMPA approval status and off-label evidence.
+  2. Provide several single-disease prescription examples, covering typical combinations across different treatment stages and patient scenarios.
+  3. Provide several prescription examples for patients with comorbidities or special situations, explaining the rationale for drug selection and dose-adjustment considerations.
+  4. Provide prominent, strong warnings on the key safety risks of the formulary drugs, clearly specifying the risk dimensions that must be covered.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

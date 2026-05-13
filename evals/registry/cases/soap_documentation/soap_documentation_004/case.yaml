@@ -1,0 +1,45 @@
+case_id: soap_documentation/soap_documentation_004
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior gynecologist. On the morning of November 10, 2024, a 34-year-old high school teacher, Zhang Wei (pseudonym), presents accompanied by her husband. Based on the following clinic dialogue summary, chief complaint/history, and physical examination and urgent outpatient test results, analyze her condition and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  The patient appears somewhat anxious and is tightly holding an early pregnancy test. Chief complaint: “Amenorrhea for 45 days, slight vaginal spotting for 4 days, and dull lower abdominal pain for 1 day.”
+  
+  The patient states: “Doctor, my periods are usually not very regular—sometimes they’re delayed by ten days to half a month. This time it was delayed by half a month, and I thought it was just because I was tired. But four days ago, I noticed a little staining on my underwear. It wasn’t the bright red blood like my usual period; it was dark brown, like coffee grounds, and the amount was very small—just a little on a pantyliner. I thought my period was just starting but not flowing well, so I didn’t pay attention.”
+  
+  She pauses and points to the right lower abdomen: “Starting yesterday, I felt a heaviness and a dull, pulling pain in the lower abdomen. It’s not very severe, but it feels like something is tugging, and it’s been continuously uncomfortable—especially on the right side. This morning I was worried, so I used a test strip and it showed two lines. Doctor, is this a threatened miscarriage? Can this pregnancy still be saved?”
+  
+  Her husband adds: “She’s under a lot of pressure at school recently for a professional title evaluation—could she be overworked? Also, her health hasn’t been great; three years ago she had pelvic inflammatory disease and it took a long time to get better. Now that she’s finally pregnant, do you think she needs progesterone to support the pregnancy?”
+  **Past Medical History and Family History:**
+  Previously healthy. Appendectomy at age 20. Diagnosed with “chronic pelvic inflammatory disease” 3 years ago; improved after standardized antibiotic therapy. Baseline menstrual cycles irregular (30–45 days). Denies history of hypertension or diabetes. Allergy: penicillin. Family history: not provided.
+  **Physical Examination Findings:**
+  Vital signs: T 37.0°C, HR 84/min, BP 118/76 mmHg, RR 18/min.
+  
+  General: Alert and oriented; appears slightly fatigued; no pallor.
+  
+  Abdominal exam: Abdomen soft and flat; no visible peristalsis. Deep tenderness in the right lower quadrant (near McBurney’s point) and suprapubic area, more prominent in the right lower quadrant; no obvious rebound tenderness or guarding. Liver and spleen not palpable below the costal margin.
+  
+  Gynecologic exam:
+  - Vulva: married, nulliparous pattern.
+  - Vagina: patent; small amount of dark-brown old blood in the posterior fornix; no active bleeding.
+  - Cervix: smooth; os closed; cervical motion tenderness questionably positive (+/-).
+  - Uterus: anteverted; slightly enlarged (approximately consistent with 40+ days of gestation); soft; mobility fair.
+  - Adnexa: right adnexal region mildly thickened/full with tenderness (+); due to abdominal wall guarding, no clearly delineated mass palpated. Left adnexal region without abnormal findings on palpation.
+  
+  Urgent outpatient ancillary tests:
+  - Serum β-hCG: 1,250 mIU/mL
+  - Serum progesterone: 10.2 ng/mL
+  - Transvaginal ultrasound: endometrium thickened (14 mm). A 4 mm × 3 mm anechoic fluid-like area is seen in the midline of the uterine cavity; no clear double decidual sac sign or yolk sac identified. Bilateral ovaries appear normal. Echogenicity in the right adnexal region is slightly disordered; no obvious blood flow signal. No free fluid in the cul-de-sac.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_004/01_attachment.pdf

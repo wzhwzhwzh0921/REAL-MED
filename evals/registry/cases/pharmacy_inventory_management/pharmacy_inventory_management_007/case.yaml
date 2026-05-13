@@ -1,0 +1,41 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_007
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  A surge of emergency night-shift orders has occurred: multiple new patients in the ward simultaneously require intravenous medications for “rapid blood pressure lowering/raising, anti-infection therapy, and qi/tonic supportive therapy.” As the night-shift dispensing pharmacist, you must dispense under the condition that **the same product has multiple inventory batches**. You should prioritize issuing the batch that is “closer to expiration but still within the valid period” to reduce waste while ensuring uninterrupted supply for emergency rescue use. Note: the stem will not show any drug generic name or brand name; you must uniquely match each drug to a specific product in the attached list using dosage form/specification/indication/route clues, and only then perform calculations. The dispensing log must include: patient/bed number, order directions, calculation process, number of vials/ampoules to dispense (round up), selected batch number and expiry, storage location, post-dispense remaining stock, and whether the warning threshold is triggered.
+  
+  1) Identification task (no calculations):
+  (1) Identify the generic names and check inventory and unit price: In the attached inventory list, find injectable drugs that may “expire in sequence” from this month through the next 3 months and therefore require priority turnover, total 4 products. Only write their generic names as shown in the list;
+  (2) Explain why, during dispensing, you should prioritize the earlier-expiry batch for these products (express this in terms of clinical risk and management risk).
+  
+  2) Calculation + inventory reconciliation (emergency antihypertensive rescue medication, IV push): A patient has a hypertensive crisis. The order is: “150 mg each time, slow intravenous push, once daily, for 2 consecutive days.”
+  (1) Identify the generic name of this drug and query inventory and unit price;
+  (2) Confirm from the package insert/list the drug content per vial/ampoule, then calculate the number of vials/ampoules to dispense per dose (round up) and the total number to dispense for 2 days;
+  (3) Deduct from the inventory provided in the list and determine whether the post-dispense stock is below the warning threshold;
+  (4) When dispensing across multiple batches, you should choose the earlier-expiry batch first (only write the expiry year-month you selected; do not write the drug name).
+  
+  3) Calculation + dose conversion + inventory reconciliation (vasopressor rescue medication, weight-based): A patient is in shock with hypotension. The order is: “IV injection 0.1 mg/kg, once every 6 hours, total 24 hours.” The patient weighs 62 kg.
+  (1) Identify the generic name of this drug and query inventory and unit price;
+  (2) Confirm the specification from the package insert/list, then calculate the single-dose amount (mg), the number of vials/ampoules to dispense per dose (round up), and the total number to dispense for 24 hours;
+  (3) Deduct from the list inventory and determine whether it is below the warning threshold;
+  (4) If the same product has different expiry batches, explain how you would select according to “first-expire, first-out” when dispensing.
+  
+  (Tip: The number of vials/ampoules dispensed is rounded up based on “single-dose dispensing”; no drug generic name/brand name may appear in the question stem or your answers, **except** that Question 1 requires you to write the generic names exactly as listed.)
+  
+  Note: `Attachment: drug inventory list `01_inventory.xlsx` (290 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_007` — do not read the file directly.`
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_007/01_inventory.xlsx
+mcp_question_id: v5_007

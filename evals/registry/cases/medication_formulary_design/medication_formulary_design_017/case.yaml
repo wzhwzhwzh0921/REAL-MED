@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_017
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Medical Director of a national-level Rare Eye Disease Center. You plan to establish an outpatient formulary for inherited retinal dystrophy (IRD) and retinitis pigmentosa (RP) for physicians and clinical pharmacists to search, prescribe, and perform prescription review. Patients range from children to adults, and most have progressive visual function impairment. Payment is mainly covered by basic medical insurance, while some patients are interested in cutting-edge therapies but are constrained by accessibility and follow-up conditions.
+  
+  **Formulary construction principles:**
+  - Include drugs with NMPA-approved use, and for each off-label (beyond indication) use, annotate the level of evidence, applicable boundaries, and source of rationale.
+  - For the same generic name, select a representative brand with priority given to medical-insurance accessibility, supplemented by stable supply and mature clinical use.
+  - For all entries, clearly label the reimbursement category and payment attributes (medical insurance / commercial insurance / clinical trial / self-pay, etc.).
+  
+  **Tasks:**
+  1. Summarize the drug categories in this disease-specific formulary, stratify them by therapeutic positioning, and for each category explain the NMPA approval status, domestic and international regulatory status, and the evidence framework for off-label use.
+  2. Provide several single-disease prescription examples, covering typical combination regimens across different treatment stages and patient scenarios, reflecting the combinational logic of route of administration, dosing strategy, and course planning.
+  3. Provide several prescription examples for cases with comorbidities or special situations, explaining the logic for drug selection and dose adjustment under drug–drug interactions, organ function impairment, perioperative management, reproduction-related considerations, and age-related factors.
+  4. Present key safety risks with strong alerts, covering serious adverse reactions, interactions, monitoring indicators, required pre-testing/phenotyping, adherence, and misuse risks.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_041
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a thyroid surgery / general surgery physician. Please prepare a lecture PPT on robot-assisted thyroid and parathyroid surgery (BABA approach), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: advantages of robotic systems (magnification, tremor filtration, EndoWrist multi-degree-of-freedom), refined anatomy and key safety points, indications and contraindications, key parameters and compliance requirements for the BABA approach.
+  **Visual materials**: diagnostic-and-treatment workflow flowchart (indications → examinations → approach); stepwise complication-management ladder diagram; system capability key-points diagram or insufflation parameter table.
+  **Constraints & format**: 12–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 12–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (advantages of robotic systems (magnification, tremor filtration, EndoWrist multi-degree-of-freedom), refined anatomy and key safety points, indications and contraindications, key parameters and compliance requirements for the BABA approach).
+  3. Include the visual materials specified (diagnostic-and-treatment workflow flowchart (indications → examinations → approach); stepwise complication-management ladder diagram; system capability key-points diagram or insufflation parameter table).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_041/01_template.pptx

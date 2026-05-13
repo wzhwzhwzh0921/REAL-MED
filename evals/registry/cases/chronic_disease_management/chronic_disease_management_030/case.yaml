@@ -1,0 +1,25 @@
+case_id: chronic_disease_management/chronic_disease_management_030
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  Master Wang is a 58-year-old long-haul truck driver who comes to your community health service center for his annual physical examination. He has a 5-year history of hypertension and is currently taking oral valsartan, but his in-office blood pressure today is still 145/92 mmHg. Physical examination shows obesity (BMI 31.1 kg/m²) and an increased neck circumference (44 cm).
+  
+  When you ask about his overall condition, Master Wang reports that his “energy is not as good as before”; he gets tired easily after driving for a long time, but he firmly denies typical daytime sleepiness, with an Epworth Sleepiness Scale (ESS) score of only 7. His wife also reports that she has not really heard him snore at night or have episodes of choking/apnea. The patient lives 3 hours away by car from the nearest specialist hospital capable of performing polysomnography (PSG). He says he is busy with work and that taking time off to stay overnight at a big hospital for testing would be “too much trouble.”
+  
+  Overall, Master Wang is at high risk for OSA, but his clinical symptoms are very atypical, and there are objective barriers to accessing care.
+  
+  **Patient information:**
+  - Name: Master Wang, male, 58 years old, long-haul truck driver
+  - Chief complaint: Annual physical examination; self-reported decreased energy over the past six months
+  - History of present illness: The patient presents for a routine annual physical examination. He reports that over the past six months he feels fatigued and has reduced energy when he drives for a slightly longer time, but denies irresistible sleepiness or falling asleep while waiting at a red light. His spouse reports his sleep at night is “rather quiet” and has not noticed obvious snoring or apnea. The patient’s self-assessed Epworth Sleepiness Scale (ESS) score is 7.
+  - Past medical history: Hypertension for 5 years; regularly takes valsartan; denies diabetes mellitus and coronary heart disease
+  - Current medications: Valsartan 80mg qd
+  - Lifestyle: Smokes for more than 20 years, about 1 pack per day, not quit. Occasional alcohol use. Sedentary due to occupation; lacks regular exercise.
+  - Vital signs: blood_pressure=145/92 mmHg (office measurement, after taking antihypertensive medication); heart_rate=82 bpm; respiratory_rate=18 breaths/min; body_temperature=36.7℃
+  - Physical examination: Height 172cm, weight 92kg (BMI 31.1 kg/m²), neck circumference 44cm. Oropharyngeal exam shows a lax soft palate, thick and elongated uvula, no obvious bilateral tonsillar enlargement, enlarged tongue, Mallampati class III.
+  - Ancillary tests: Fasting blood glucose 5.8 mmol/L, total cholesterol 5.5 mmol/L, triglycerides 2.1 mmol/L.
+  
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

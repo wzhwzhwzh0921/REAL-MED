@@ -1,0 +1,28 @@
+# Task type: medication_formulary_design
+# Design a department-level medication formulary, delivered as a structured Excel sheet (single xlsx).
+
+task_type: medication_formulary_design
+description: "Design a department-level medication formulary, delivered as a structured Excel sheet (single xlsx)."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - code
+  - xlsx
+  - docx
+  - web-search
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "*.xlsx"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

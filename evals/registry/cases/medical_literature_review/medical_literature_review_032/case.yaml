@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_032
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a medical oncologist who has seen multiple cancer patients in both the active-treatment phase and survivorship phase in the outpatient clinic. You have observed an increasing positive rate on depression screening, and prominent psychosocial problems such as smoking and insufficient social support, which negatively affect treatment adherence and follow-up attendance. You therefore plan to write a narrative literature review for clinical and academic use.
+  
+  This review focuses on: “Psychosocial Risk Factors and Evidence for Integrated Interventions for Depression in Cancer Patients (with an emphasis on recent evidence).”
+  
+  The review must systematically compile and analyze the following core content:
+  1. The spectrum of depression risk factors in cancer patients (psychosocial factors/smoking, etc.);
+  2. Differences and trajectories/outcomes between patients in the active-treatment phase versus the survivorship phase;
+  3. Comparison of screening and diagnostic tools and workflows;
+  4. Evidence for the effectiveness of integrated treatment (pharmacotherapy + psychotherapy + exercise, etc.) and key points for alignment with medication recommendations in the “Chinese Guidelines for the Prevention and Treatment of Depressive Disorders (2025 Edition)”.
+  
+  Search and include literature using the following keywords: cancer/oncology、depression、risk factors、smoking/psychosocial、integrated treatment/MDT. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

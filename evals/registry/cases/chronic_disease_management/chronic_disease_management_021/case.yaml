@@ -1,0 +1,23 @@
+case_id: chronic_disease_management/chronic_disease_management_021
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  Ms. Zhao, a 40-year-old woman, comes to your clinic for her annual follow-up. Eight years ago, she underwent total thyroidectomy for a 7 mm papillary thyroid microcarcinoma (pT1aN0M0). Postoperative risk stratification was low risk, and the response-to-therapy assessment has consistently been “excellent response.” She has been taking levothyroxine regularly. This follow-up shows TSH 1.5 mU/L, with no abnormalities in thyroglobulin (Tg) or neck ultrasound.
+  
+  Ms. Zhao shows you a recent health check report and anxiously points to the conclusion of “osteopenia,” saying: “Doctor, I’m only 40 and my bone mass has already decreased. I heard that taking this medication long-term can make bones more brittle and can also cause heart problems. I’ve been fine these 8 years—can the dose of this medication be adjusted? I’m really a bit worried.” She currently has infrequent palpitations, but combined with the bone mineral density result, she feels uneasy about future health risks.
+  
+  **Patient information:**
+  - Name: Ms. Zhao, female, 40 years old, accountant
+  - Chief complaint: 8 years post thyroid cancer surgery; routine follow-up and consultation about medication adjustment.
+  - History of present illness: The patient was diagnosed 8 years ago with papillary thyroid microcarcinoma and underwent total thyroidectomy; she was assessed as low risk postoperatively. She has taken levothyroxine long-term as prescribed and attends regular follow-ups. All prior follow-ups have shown “excellent response,” with persistently negative thyroglobulin (Tg) and anti-thyroglobulin antibody (TgAb), and neck ultrasound showing no evidence of recurrence or metastasis. Over the past year, she has occasionally experienced palpitations and is concerned that long-term medication use may lead to osteoporosis. After seeing a recent bone mineral density report, she hopes the doctor can assess whether her current treatment plan needs adjustment.
+  - Past medical history: Eight years ago, underwent total thyroidectomy for “papillary thyroid microcarcinoma (pT1aN0M0)”; postoperative pathological stage I; initial recurrence risk stratification low risk. No postoperative radioactive iodine therapy. Recent health check included bone mineral density testing suggesting “osteopenia” (lumbar spine T-score -1.5 SD).
+  - Current medications: Levothyroxine sodium tablets 100μg once daily
+  - Lifestyle: Office job; sedentary; coffee-drinking habit; no history of smoking or alcohol use.
+  - Vital signs: blood_pressure=115/75 mmHg；heart_rate=82 bpm；respirations=16次/分；temperature=36.6℃
+  - Physical examination: Alert. No abnormal findings in heart, lungs, or abdomen. Neck is soft/flat; no enlarged lymph nodes. Surgical scar well healed; no palpable nodules or masses in the thyroid bed.
+  - Ancillary tests: TSH: 1.5 mU/L (reference range: 0.5-4.5 mU/L), FT4: 19.8 pmol/L (reference range: 12-22 pmol/L), thyroglobulin (Tg): <0.1 ng/mL, anti-Tg antibody (TgAb): negative. Neck ultrasound: postoperative thyroidectomy changes; no definite evidence of recurrence or metastasis.
+  
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

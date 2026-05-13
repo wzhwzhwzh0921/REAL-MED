@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_001
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a radiologist who has encountered multiple outpatients with prior chest CT examinations (including lung cancer screening CT and CT performed for non-cardiovascular indications). You have noticed that descriptions of “incidental detection” of ascending aortic aneurysm and abnormal main pulmonary artery dilatation are inconsistent across different reports, and that subsequent follow-up and referral pathways are unclear. This indicates a need to emphasize opportunistic screening using chest CT combined with AI-based automated measurements. Therefore, you plan to write a narrative literature review for clinical and academic use, to inform imaging reporting practice and downstream referral/follow-up management.
+  
+  The review topic is: “Clinical value of AI-based opportunistic screening on chest CT for early diagnosis of thoracic aortic aneurysm and abnormal main pulmonary artery dilatation.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. The evidence landscape for opportunistic screening using chest CT;
+  2. Diagnostic accuracy of AI/automated measurement and comparison with manual measurement (e.g., sensitivity, specificity, AUC, agreement/consistency, etc.);
+  3. Early detection rate and population stratification/threshold strategies (including differences among threshold definitions);
+  4. Reporting standardization and a point-by-point comparison with the key recommendations of the “Chinese Expert Consensus (2021)”.
+  
+  Search and inclusion keywords: thoracic aortic aneurysm、pulmonary artery dilatation、chest CT、opportunistic screening、AI/automated measurement. A standardized reference list must be provided at the end of the review; additionally, include a flowchart illustrating the “CT–measurement–reporting–referral–follow-up” pathway, and a comparative table summarizing threshold definitions, accuracy metrics, and follow-up outcomes across different studies. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

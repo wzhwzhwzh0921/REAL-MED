@@ -1,0 +1,44 @@
+case_id: dosage_calculation/dosage_calculation_022
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  1) Patient information:
+  - 52-year-old male
+  - Body weight: 108.0 kg
+  - Ascites: moderate
+  - Current oral diuretics: spironolactone 100 mg/day + furosemide 40 mg/day
+  - Time since last dose adjustment: 2 days
+  - Recent electrolytes/renal function:
+    - Serum K+ 4.3 mmol/L
+    - Serum Na+ 132 mmol/L
+    - SCr 1.1 mg/dL
+    - eGFR 78 mL/min/1.73 m²
+  - 24-hour urine output: 1200 mL
+  - Weight change: -0.1 kg/day
+  - No hyperkalemia
+  - Not elderly
+  
+  2) Calculation tasks (must follow the guideline constraints below):
+  According to the AASLD 2021 first-line oral combination diuretic strategy for ascites:
+  (1) Determine whether the dose should be adjusted today.
+  (2) If an adjustment is indicated, calculate the next-step target total daily dose (spironolactone and furosemide), and verify both the fixed ratio requirement (if applicable) and the maximum dose limits.
+  (3) If an adjustment is NOT indicated, calculate the minimum number of days that should elapse before reassessment.
+  
+  Required: Provide a step-by-step calculation process, and explicitly state your reasoning for avoiding “premature dose escalation / incorrect stepwise sequence.”
+  
+  Guideline/formula constraints for this case (must be applied exactly as written):
+  - Dose-escalation reassessment interval per AASLD 2021: ≥72 hours (do not escalate if <72 hours).
+  - Dose escalation per AASLD 2021: “stepwise increase” up to 400/160 mg/day; a strict 100:40 ratio is NOT mandatory.
+  - Hyperkalemia rule per AASLD 2021: if K+ > 5.5 mmol/L, stop spironolactone and switch to amiloride.
+  - Per AASLD 2009: assess and escalate diuretics every 3–5 days; do not escalate if <72 hours.
+  - Per EASL 2010: for initial grade 2 ascites, start with spironolactone 100 mg/day first; add furosemide only if ineffective.
+  - Per EASL 2018: stepwise escalation every 3–7 days; do not escalate if <72 hours.
+  - Per AASLD 2012: maintain spironolactone:furosemide at 100 mg:40 mg with synchronous escalation.
+  - Renal function must be assessed using serum creatinine; diuretic-related renal impairment = creatinine increase >100% AND >2.0 mg/dL.
+  
+  Finally: Please calculate this patient’s monitoring_recommendations.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

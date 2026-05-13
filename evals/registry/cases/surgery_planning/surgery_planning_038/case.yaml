@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_038
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior vascular surgeon. The case below describes an 85-year-old man with recent minor left MCA stroke and symptomatic left carotid stenosis undergoing carotid endarterectomy, with perioperative neurologic deterioration requiring rapid intraoperative and postoperative decision-making.
+  - 85-year-old right-handed man.
+  - Comorbidities: prior myocardial infarction; peripheral vascular disease/peripheral arterial disease.
+  - Recent event: minor ischemic stroke in the left MCA territory 13 days (~2 weeks) ago with near-complete neurologic recovery and only subtle residual deficit preoperatively.
+  - Vascular workup: symptomatic 60–70% stenosis of the left internal carotid artery (NASCET) on contrast-enhanced CT angiography, confirmed by duplex ultrasound.
+  - No adherent thrombus or unstable plaque features on duplex.
+  - Right carotid system: no hemodynamically significant stenosis.
+  - Planned operation: surgical revascularization of the symptomatic left carotid bifurcation (carotid endarterectomy), performed under general anesthesia with multimodality cerebral monitoring (TCD of the left MCA, bilateral NIRS, continuous visual/quantitative EEG).
+  
+  **Q1 — Intraoperative decision-making** During neck exposure and carotid dissection—before any arterial clamping—TCD suddenly shows a drop in left MCA mean flow velocity from 70 cm/s to 13 cm/s (>80% decrease). NIRS shows only a mild 7% ipsilateral decrease with a stable contralateral signal, EEG remains unchanged, and systemic blood pressure and end-tidal CO2 are stable. What is your immediate intraoperative management plan, including the key technical steps at the operative field to prevent stroke, how you would interpret and act on the discordant TCD/NIRS/EEG findings, and which pitfalls (e.g., iatrogenic embolization, intimal injury, or propagation of dissection) you must specifically avoid?
+  
+  **Q2 — Early postoperative neurologic deficit management** In the post-anesthesia care unit, he is initially awake and following commands. Within 30 minutes he develops new right arm weakness and expressive aphasia. Vital signs show blood pressure 105/60 mmHg (lower than his preoperative baseline), heart rate 68/min, oxygen saturation 98% on supplemental oxygen, and he is afebrile. Neurologic exam confirms a new focal deficit consistent with left hemispheric ischemia. The neck incision dressing has mild oozing but no expanding hematoma, stridor, or respiratory distress. Point-of-care glucose is normal. ECG shows no new ischemic changes. Bedside carotid duplex demonstrates reduced flow in the operated carotid system with dampened distal waveforms compared with preoperative studies, and he cannot cooperate reliably for a full neurologic assessment due to aphasia. What is the most likely early postoperative complication causing this new focal neurologic deficit, and what are the immediate diagnostic and management steps that should be performed to maximize neurologic salvage?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop management/monitor discordance/pitfalls; likely postop complication/urgent diagnostics/management for salvage). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_038/01_case_file.docx

@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_007
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior colorectal/anorectal surgeon. The case below describes a 27-year-old woman with recurrent, nonhealing natal cleft disease complicated by a suspected communication to a posterior midline fistula-in-ano; two sequential clinical scenarios are presented for operative and postoperative decision-making.
+  - 27-year-old woman with a chronic nonhealing wound in the natal cleft with persistent purulent drainage.
+  - History of two prior operations for pilonidal disease: wide excision 1 year ago and an off-midline flap procedure 3 months ago, without meaningful healing.
+  - Pelvic MRI (preoperative) demonstrated a tract in the natal cleft consistent with recurrent pilonidal sinus that appears to communicate with a posterior midline fistula-in-ano.
+  - No abscess seen clinically or on imaging.
+  - Anal sphincter tone is normal; no incontinence is reported.
+  - No evidence of acute sepsis on assessment (no fluctuance or surrounding cellulitis noted when examined).
+  - Planned operation: definitive surgical management of chronic natal cleft disease with suspected anorectal communication.
+  
+  **Q1 — Intraoperative decision-making** She is positioned prone under regional anesthesia for exam under anesthesia and definitive management. Intraoperatively, there is an open natal cleft wound with a secondary pit ~3 cm away and prior surgical scarring; there is no fluctuance or surrounding cellulitis. A gentle probing and dye test is performed: dye injected from the natal cleft opening exits the secondary pit and is also seen emerging from an internal opening at the 6 o’clock position at the dentate line. A probe can be passed from the natal cleft tract into the anal canal through this internal opening, confirming a direct communication between the pilonidal sinus and a fistula-in-ano; anal sphincter tone is normal and there is no evidence of acute sepsis. At this intraoperative moment, what operative strategy would you choose to interrupt the communication between the 6 o’clock internal opening and the natal cleft sinus while controlling infection and maximally preserving sphincter function, including (1) whether you would perform a single-stage or staged approach, (2) the key technical steps on the anal side and the natal cleft side (management of the internal opening, primary tract/branches, and secondary pit), and (3) the most common technical pitfalls and how you would avoid them?
+  
+  **Q2 — Postoperative complication management** She is seen 10 weeks after surgery for chronic disease in the natal cleft. Since the operation, she has had persistent purulent drainage, intermittent low-grade fever, and failure of the midline wound to granulate despite local wound care and multiple courses of oral antibiotics, with temporary improvement followed by recurrent soiling and discomfort. Examination shows an open, macerated wound in the natal cleft with granulation tissue and ongoing pus; there is a small secondary pit approximately 3 cm lateral to the main wound; there is no obvious fluctuance or marked cellulitis. On perianal examination, there is mild induration posteriorly, and digital rectal examination suggests a small internal defect at the posterior midline near the dentate line with a firm cord-like tract toward the natal cleft; anal sphincter tone is normal and she has no incontinence. Basic labs show mild anemia but no marked leukocytosis; because of ongoing nonhealing and recurrent sepsis after otherwise adequate natal cleft surgery, an occult anorectal source or communicating fistula is suspected and further evaluation is planned. What is the most likely cause of this patient’s persistent postoperative nonhealing and recurrent sepsis, what clinical and imaging findings should raise concern for an occult anorectal communication after natal cleft surgery, and what evidence-based management plan (including timing and sphincter-sparing options) should be used to achieve healing and prevent recurrence?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop single-vs-staged strategy/steps/pitfalls; likely cause, red-flag findings/imaging, evidence-based sphincter-sparing plan). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_007/01_case_file.docx

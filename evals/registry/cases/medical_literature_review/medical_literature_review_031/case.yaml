@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_031
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a head and neck oncology physician. In outpatient practice you have managed multiple cases of resectable locally advanced head and neck squamous cell carcinoma (HNSCC) and observed increasing use of perioperative (neoadjuvant + adjuvant) immune checkpoint inhibitors (ICIs). However, your team has differing concerns regarding (1) whether pathological response translates into event-free survival benefit, and (2) the risks of surgery-related complications and surgical delay. Therefore, you plan to write a meta-analysis to evaluate the benefits and risks of perioperative (neoadjuvant + adjuvant) ICIs in resectable locally advanced HNSCC for clinical decision-making and academic dissemination.
+  
+  The meta-analysis topic is: “Benefits and risks of perioperative (neoadjuvant + adjuvant) immune checkpoint inhibitors in locally advanced head and neck squamous cell carcinoma.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. comparison of perioperative ICI regimens and treatment sequencing/timing;
+  2. pooled effect sizes for pathological response endpoints (pCR/MPR);
+  3. pooled effect sizes for event-free survival/recurrence outcomes;
+  4. pooled summaries of surgery-related complications and the risk of surgical delay.
+  
+  Search and include studies using the following keywords: resectable、locally advanced、HNSCC、perioperative/neoadjuvant/adjuvant、immune checkpoint inhibitor. A PRISMA flow diagram must be used to present the screening/selection process; forest plots must be used to summarize pCR/MPR and EFS effect sizes; and a comparative table must be used to synthesize complication types, grading, and surgical timing windows. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

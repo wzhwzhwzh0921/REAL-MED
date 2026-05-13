@@ -1,0 +1,26 @@
+case_id: surgery_planning/surgery_planning_033
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior plastic surgeon managing salvage of a near-total traumatic hair-bearing scalp and forehead avulsion after prolonged warm ischemia, where objective perfusion assessment may conflict with reassuring bedside signs. Two sequential clinical scenarios are presented; please answer both questions in turn using evidence-based operative reasoning.
+  
+  - 42-year-old woman with rotating-machine injury causing near-total avulsion of the hair-bearing scalp and forehead; only a small nuchal/occipital bridge remains.
+  - Initial management at an outside hospital: avulsed scalp sutured back in place within 3 hours, but no vascular reconnection performed.
+  - Transferred for salvage after 16 hours with no improvement in perfusion; awake and hemodynamically stable; pupils reactive and extraocular movements intact.
+  - Labs: WBC 15.6 × 10^9/L, absolute neutrophil count 11.7 × 10^9/L, hemoglobin 90 g/L.
+  - Operative plan/attempt: shave/irrigate scalp and perform microvascular revascularization using available recipient targets (right temporal vessels, a left supratrochlear vein, and a left supraorbital artery) with forearm vein grafts as needed.
+  - Total anastomosis time 7 hours, bringing overall warm ischemia to ~35 hours.
+  - Immediate post-revascularization clinical appearance initially viable (red flush, brisk capillary refill, positive pinprick bleeding).
+  - Indocyanine green angiography shows multifocal areas with <25% relative perfusion compared with a best-perfused temporal reference.
+  
+  **Q1 — Intraoperative decision-making** Six hours after replantation, the scalp becomes markedly swollen with copious subcutaneous drainage; Doppler signals over arterial and venous anastomoses remain present and pinprick bleeding persists, despite prior ICGA evidence of large regions of <25% perfusion. Given rapid swelling and high-output drainage after scalp revascularization with preserved Doppler and pinprick bleeding, should you urgently return to the operating room for repeat objective perfusion assessment and decompression/exploration or observe, and what specific technical steps are most critical to evaluate and treat occult hematoma/venous congestion/compartment effect while minimizing iatrogenic loss of marginally perfused scalp?
+  
+  **Q2 — Postoperative complication management** In the first postoperative day after attempted salvage of this near-total scalp avulsion with prolonged warm ischemia, she remains awake and hemodynamically stable, but over the past 6–12 hours the replanted scalp has become progressively tense and markedly edematous with increasing serosanguinous drainage from subgaleal drains and along incision lines; scalp color is diffusely erythematous to violaceous in dependent areas, pinprick testing shows brisk bleeding, handheld Doppler detects consistent arterial signals at multiple points along the scalp margin and over previously marked vascular territories, and capillary refill is present but difficult to interpret due to swelling (hemoglobin stable; temperature 37.8°C; WBC mildly elevated). What is the most likely postoperative complication in this scenario, how can it be recognized despite apparently patent Doppler signals and pinprick bleeding, and what is an evidence-based management plan (including triggers for urgent operative re-exploration) and prevention strategy for future prolonged-ischemia scalp salvage cases?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (return-to-or/decompression/exploration steps; likely complication recognition/management/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_033/01_case_file.docx

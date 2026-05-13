@@ -1,0 +1,52 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_037
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Outpatient Pharmacist Review Task Notice (Pediatric Common Cold Symptomatic Medication Formulary Selection)
+  
+  Department feedback: there is both impending-expiry stock and inventory overhang, and pediatric patients’ parents pay out-of-pocket. Please complete the following formulary selection evaluation and medication-safety review among candidate drugs that are “all non–insurance-covered, used for symptomatic relief of pediatric cold/influenza or for handling common accompanying symptoms in outpatient settings.” Note: the stem will not provide any drug generic names or brand names. You must uniquely match each drug to a specific product in the attached list using the cues of dosage form/specification/indication/route, then perform calculations/judgments, and provide “whether to include in the formulary + reason (no more than 80 Chinese characters per item).”
+  
+  Subtask 1 (Uniquely match one drug): A “granule formulation, 300 mg per sachet, indicated for common cold with fever, nasal congestion and rhinorrhea, cough and sore throat, etc.” Please complete:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) From the perspectives of cost-effectiveness and near-expiry risk, judge whether it should be prioritized for inclusion in the formulary, and give the reason (≤80 Chinese characters).
+  (3) Write 2 key points for caregiver medication counseling.
+  
+  Subtask 2 (Calculation; uniquely match one drug): An “enteric-coated tablet, 5 mg per tablet, for acute/chronic/habitual constipation; suitable for children aged 6 years and above.” The outpatient clinic plans to treat an 8-year-old child according to the package insert for 2 consecutive days. Please complete:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) Calculate per the package insert: number of tablets needed per dose (provide the exact value and the value rounded up).
+  (3) Calculate the total number of tablets consumed over 2 days.
+  (4) After dispensing, will the remaining inventory fall below the warning threshold? Based on this, state whether a replenishment trigger / quantity-limit recommendation is needed.
+  
+  Subtask 3 (Calculation; uniquely match one drug): A “pediatric compound oral solution; each 100 mL contains an antipyretic-analgesic component 1.6 g, a decongestant component 0.15 g, and an antitussive component 0.05 g; suitable for ages 11–14.” If used for a 12-year-old child, 3 times daily for 3 consecutive days, please complete:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) Calculate the total volume required (mL) per the package insert.
+  (3) Calculate the total cost (CNY, keep 2 decimal places).
+  (4) Provide key safety review points (at least 2, e.g., contraindications / duplicate-therapy risk).
+  
+  Subtask 4 (Calculation; uniquely match one drug): A “tablet; tablet core weight 0.3 g; indicated for gastric/duodenal ulcer and chronic gastritis.” If planned to be used per the package insert for 7 consecutive days, please complete:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) Calculate the total number of tablets per the package insert.
+  (3) Calculate the total cost (CNY, keep 2 decimal places).
+  (4) Explain whether this drug matches the formulary goal of ‘pediatric cold symptomatic treatment,’ and whether it should be included (from the perspectives of indication relevance and resource utilization; reason ≤80 Chinese characters).
+  
+  Subtask 5 (Uniquely match one drug): A “10 mg tablet, used as adjunctive therapy in comprehensive treatment for cardiovascular disease/hepatitis/tumors; there is a lack of reliable references for pediatric use.” Please complete:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) From the perspectives of pediatric-use evidence, near-expiry stock consumption, and formulary positioning, state whether to include it and propose substitution/restriction strategies (e.g., restrict to certain departments, restrict indications, or do not include; reason ≤80 Chinese characters).
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (278 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_037` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_037/01_inventory.xlsx
+mcp_question_id: v5_040

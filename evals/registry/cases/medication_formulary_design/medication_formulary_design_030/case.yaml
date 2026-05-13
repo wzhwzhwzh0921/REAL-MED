@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_030
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the lead clinical pharmacist of the Cardiovascular Center in a large Grade III Class A hospital. You plan to establish a standardized formulary for the pulmonary arterial hypertension (PAH, WHO Group 1) MDT outpatient clinic, mainly serving adult patients with WHO Functional Class II–IV. The patient population is primarily covered by basic medical insurance and NRDL/national-negotiation payment, with some relying on rare-disease protection programs; for long-term therapy, there are differences in medication adherence, accessibility of administration routes, and in-hospital vs out-of-hospital medication supply channels.
+  
+  **Formulary construction principles:**
+  - Preferentially include medications within the scope of NMPA-approved indications; when off-label use is involved, annotate the evidence basis and level of evidence, and clearly define applicable boundaries.
+  - When selecting a representative brand among multiple brands under the same generic name, prioritize medical-insurance/NRDL national-negotiation accessibility, and explain differences in supply models such as in-hospital dispensing and out-of-hospital DTP channels.
+  - All drugs must be labeled with reimbursement category and payment attributes.
+  
+  **Tasks:**
+  1. Organize the drug categories in the PAH formulary, stratify them by therapeutic positioning, and summarize each category’s NMPA approval status and the source of evidence for off-label use.
+  2. Create several single-disease prescription examples covering typical combination and step-up/upgrade regimens across different treatment stages and patient scenarios.
+  3. Create several prescription examples for patients with comorbidities or special situations, explaining the logic for drug selection, dose adjustment, and monitoring arrangements.
+  4. Provide strong alerts on key safety risks of formulary drugs, explicitly covering drug interactions, reproductive risk, hemodynamic risk, organ toxicity, withdrawal/rebound reactions, and monitoring dimensions.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

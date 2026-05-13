@@ -1,0 +1,35 @@
+case_id: soap_documentation/soap_documentation_044
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 12, 2024, a 74-year-old retired history teacher, Li Guowei (pseudonym), presented to the geriatric clinic accompanied by his daughter for evaluation of chronic appetite/taste changes and progressive fatigue.
+  **Chief Complaint and History of Present Illness:**
+  **Chief complaint:** “Food has no taste and poor appetite for 4 months; especially tired for more than 1 month.”
+  
+  The patient walked into the exam room with a slightly slow gait and appeared somewhat haggard. He removed his glasses and stated helplessly: “Doctor, these past few months my mouth always tastes bitter, or like I’m holding rust/iron in my mouth. Everything tastes like chewing wax—I can’t taste any savory flavor at all. Even braised pork, which I used to love, now I don’t feel like eating when I see it. I’ve lost about 7–8 jin these past few months. In the last few weeks I’ve felt even weaker—before I went to the park for a walk every day, but now even climbing to the second floor I have to stop and rest twice, with palpitations and shortness of breath.”
+  
+  When asked about diet habits and special cravings, his daughter added: “Doctor, my dad doesn’t eat properly now, but he’s developed a strange habit. Recently he especially likes chewing ice cubes. When he watches TV he insists on holding a cup of ice and chews it loudly. He says only when he chews ice does his mouth feel a bit more comfortable; we can’t stop him.”
+  
+  The patient waved his hand embarrassedly and said: “It’s just that my mouth feels dry and my tongue burns. Holding a piece of ice cools it down a bit. Also, doctor, these past few days my stool has been a bit dark—blackish—but I figured it might be because I ate some duck blood the day before yesterday, or used too much soy sauce. I don’t have any abdominal pain, so I didn’t take it seriously.”
+  **Past Medical History and Family History:**
+  - **Past medical history:** Hypertension for 10 years; well controlled on amlodipine. Diagnosed 5 years ago with “chronic superficial gastritis,” without regular follow-up. Denies history of diabetes mellitus or coronary heart disease. No psychiatric disease history reported.
+  - **Allergies:** Allergic to “sulfonamide medications.”
+  - **Family history:** Parents are deceased. No documented hereditary diseases in the family.
+  **Physical Examination Findings:**
+  - **Vital signs:** T 36.5°C; HR 92/min (regular); BP 128/76 mmHg; RR 20/min; SpO2 96% on room air.
+  - **General:** Alert and oriented; slightly poor overall affect/energy. Thin body habitus. Marked pallor of palpebral conjunctiva and lips. Dry skin with scaly changes on the dorsum of the hands and extensor surfaces of the forearms.
+  - **Oral cavity:** Mild angular fissures at the mouth corners. Tongue dark red; atrophy and loss of lingual papillae; smooth, “mirror-like” surface (“beefy tongue”); tenderness (+).
+  - **Cardiopulmonary:** Lungs clear to auscultation bilaterally. Mild tachycardia; 2/6 systolic murmur audible at the cardiac apex.
+  - **Abdomen:** Flat and soft; no abdominal tenderness or rebound. Liver and spleen not palpable below the costal margins. Bowel sounds active, 5–6/min.
+  - **Extremities:** No bilateral lower-extremity edema. Fingernails thin and brittle; mild central concavity with upturned edges of the thumbnails and index fingernails (koilonychia).
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_044/01_attachment.pdf

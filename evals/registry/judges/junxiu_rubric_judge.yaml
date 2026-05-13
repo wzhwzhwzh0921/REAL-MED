@@ -1,0 +1,45 @@
+# Judge profile: junxiu_rubric_judge
+# 按 rubrics/<category>.jsonl 里的评分点列表逐点打分。
+# 每个评分点独立 1 分，踩到即得分，不踩到 0 分。
+# 参考实现：scripts/run_judge_eval.py:build_judge_prompt
+
+judge_profile: junxiu_rubric_judge
+judge_model: "gpt-5.2-azure"
+thinking: "off"
+reasoning_effort: "low"
+
+output_schema:
+  type: object
+  required: [item_scores, total_score, max_score, rationale]
+  properties:
+    item_scores:
+      type: array
+      description: "每个评分点的得分明细，顺序与「评分点列表」保持一致"
+      items:
+        type: object
+        required: [rubric, score, reason]
+        properties:
+          rubric:
+            type: string
+            description: "评分点原文"
+          score:
+            type: integer
+            enum: [0, 1]
+            description: "0 = 未踩到该点，1 = 踩到"
+          reason:
+            type: string
+            description: "得分/扣分理由，引用模型输出中的具体内容"
+    total_score:
+      type: integer
+      description: "所有评分点 score 之和"
+    max_score:
+      type: integer
+      description: "总满分（= 评分点数量）"
+    rationale:
+      type: string
+      description: "整体评价，100字以内"
+    issues:
+      type: array
+      items:
+        type: string
+      description: "未踩到的评分点列表"

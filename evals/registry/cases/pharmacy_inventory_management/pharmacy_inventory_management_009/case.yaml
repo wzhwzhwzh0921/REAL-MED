@@ -1,0 +1,50 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_009
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  The ward pharmacy must complete today’s ward dispensing and unit-dose compounding by 16:30, with priority on consuming a batch of injectable medications that have “entered the near-expiry window; continued overstocking will increase the risk of write-off losses.” When the storeroom has multiple batches of the same item, follow the FEFO principle (First-Expire, First-Out) and prioritize dispensing the batch with the earlier expiry date. Record on the dispensing sheet the batch number(s) and expiry date(s) used. Please compile the results into (1) one Excel file: “Ward Daily FEFO Dispensing Record” (.xlsx) and (2) one Word file: “Unit-Dose Compounding & Inventory Reconciliation Notes” (.docx), including calculation steps and reconciliation conclusions. Note: the prompt will not provide any drug generic names or brand names; you must uniquely match each item to a specific product in the attached inventory list using the dosage form/specification/indication clues, and only then perform calculations.
+  
+  1) Identification question (no calculations): From the following 5 descriptions, identify the injectable drug that “meets the near-expiry condition and has relatively high inventory, and therefore should be prioritized for consumption,” and describe how you will implement FEFO in unit-dose compounding (e.g., picking order when multiple batches exist for the same spec, label/batch-number verification checkpoints, and handover precautions with the ward).
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  A. 5 mL/ampoule: each ampoule contains local anesthetic 40 mg + excipient component 6.5 mg; used for local infiltration anesthesia of surgical incisions and postoperative analgesia.
+  B. Antitumor monoclonal antibody–drug conjugate, 160 mg/vial; used for adjuvant/advanced treatment of HER2-positive breast cancer.
+  C. 5 mL/ampoule: each ampoule contains 0.25 g antibacterial drug; used for intravenous treatment of infections caused by susceptible bacteria.
+  D. 1 mL/ampoule: 2 mg sedative anticonvulsant per ampoule; used for preoperative tension/anxiety or anticonvulsant therapy.
+  E. 2 mL/ampoule: a qi-tonifying and body-strengthening Chinese medicine injection equivalent to 4 g of original crude drug material; can be given by IM injection or IV drip.
+  
+  2) Calculation (unit-dose compounding + FEFO priority dispensing + inventory reconciliation): For the Proctology Surgery ward, two patients have the following same-day orders: for local infiltration anesthesia of an incision, use “5 mL/ampoule: local anesthetic 40 mg + excipient component 6.5 mg.” Dosing is “local anesthetic 375 mg per dose, Qd,” for 2 consecutive days. Complete the tasks below:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) Convert how many ampoules are needed per dose (dispense whole ampoules only).
+  (3) Calculate the total number of ampoules to dispense for 2 days.
+  (4) Combine the current storeroom inventory and the reorder alert threshold for this item to determine whether the post-dispensing inventory will fall below the threshold (and state whether replenishment/requisition should be triggered).
+  
+  3) Calculation (mg/kg conversion + inventory reconciliation): For an Infectious Diseases patient with body weight 62 kg, the order is: IV drip “5 mL/ampoule: antibacterial drug 0.25 g,” at 7.5 mg/kg per dose, BID, for 3 days. Complete the tasks below:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) Calculate the dose per administration (mg).
+  (3) Calculate the number of ampoules to dispense per administration (dispense whole ampoules only).
+  (4) Calculate the total number of ampoules for 3 days.
+  (5) Reconcile whether the post-dispensing inventory will be below the alert threshold.
+  
+  4) Calculation (dose conversion + inventory reconciliation): Anesthesia preoperative medication: for one patient, 1 hour before surgery give IM injection of “1 mL/ampoule: 2 mg,” ordered dose 4 mg, single dose. Complete the tasks below:
+  (1) Identify the generic name of this drug, and query its inventory and unit price.
+  (2) Calculate the number of ampoules to dispense (dispense whole ampoules only).
+  (3) Reconcile whether the post-dispensing inventory will be below the alert threshold.
+  (4) In the .docx, list 3 key points that must be double-checked by two persons during compounding and handover (list key points only).
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (307 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_009` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_009/01_inventory.xlsx
+mcp_question_id: v5_009

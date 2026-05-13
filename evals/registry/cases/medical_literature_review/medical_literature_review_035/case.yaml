@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_035
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a physician in the Department of Respiratory and Critical Care Medicine. In outpatient practice, you have seen multiple adult patients with severe asthma complicated by CRSwNP, and you have found that although patients are on guideline-concordant inhaled therapy, asthma control and nasal symptoms are often not synchronized, and there is substantial variability in biologic selection, treatment duration, and decisions to switch therapies. Therefore, you plan to write a scoping review (focused on real-world studies) on the topic “Real-world effectiveness of biologics and head-to-head evidence gaps in adult severe asthma with comorbid CRSwNP,” to inform clinical decision-making for this patient population.
+  
+  Review topic: Real-world effectiveness of biologics and head-to-head evidence gaps in adult severe asthma with comorbid CRSwNP (scoping review focused on real-world evidence).
+  
+  The review must systematically compile and analyze the following core content:
+  1. Coordinated improvement in asthma control and nasal outcomes;
+  2. Evidence for onset of action at 4–6 months and durability/sustained effectiveness;
+  3. Real-world comparative evidence across different biologics;
+  4. Switching/sequencing strategies and definitions of treatment failure.
+  
+  Search and include studies using the following keywords and related eligibility criteria: severe asthma、CRSwNP/nasal polyps、real-world/registry、biologics（omalizumab/dupilumab/mepolizumab/benralizumab）、switching. A standardized reference list is required at the end of the review; it is recommended to use a PRISMA-ScR flow diagram to present the screening process and to use comparative tables to summarize each study’s asthma and nasal outcomes, time to onset, treatment duration, and adverse events.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

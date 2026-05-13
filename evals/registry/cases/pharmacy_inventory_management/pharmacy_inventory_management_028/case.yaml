@@ -1,0 +1,35 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_028
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Revision note: The ICU nursing record shows that intravenous medication consumption has increased over the past 48 hours. You are the pharmacy procurement officer. Based on the attached inventory list, perform an urgent replenishment calculation for two items whose “stock is already below the reorder alert threshold,” and produce procurement quantities that can be ordered directly. Note: In the body of this task sheet, it is forbidden to write any drug generic name or brand name; use only “specification / route of administration / use characteristics” to differentiate.
+  
+  There are 2 low-stock injection products flagged this time, both located on the emergency medication shelf. Calculate separately according to the sub-questions below (each sub-question corresponds to only 1 drug, and the two sub-questions must not point to the same product):
+  
+  1) Sub-question A (anti-infective injectable powder): A “0.5 g/vial antibacterial powder for injection, commonly used for respiratory, urinary tract, and intestinal infections caused by susceptible bacteria; can be administered via IM injection / IV injection / IV infusion.” Please identify and calculate:
+  - Identify this medication, and query its inventory and unit price
+  - To restore stock to “just reaching the alert threshold (100 vials),” what is the minimum number of vials to replenish? What is the corresponding procurement amount (CNY)? (Keep amount to 2 decimal places)
+  
+  2) Sub-question B (parenteral nutrition fat emulsion): A “100 ml:20 g fat emulsion injection, used for intravenous nutrition to provide energy and essential fatty acids.” Current inventory is 75 vials, reorder alert threshold is 100 vials, unit price is 133.22 CNY/vial. Please calculate:
+  - To restore stock to “just reaching the alert threshold (100 vials),” what is the minimum number of vials to replenish?
+  - What is the corresponding procurement amount (CNY)? (Keep amount to 2 decimal places)
+  
+  3) Order summary: Add the replenishment quantities from Sub-question A and Sub-question B, and provide the “total emergency procurement amount for these two items (CNY).” In the remarks, specify: if the supplier’s minimum delivery is full cases (assume 10 vials per case), how you would round up when placing the order (state, for each of the two items, the case-rounded ordered vial quantity and the adjusted amount; do not consider additional shipping fees).
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (308 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_028` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_028/01_inventory.xlsx
+mcp_question_id: v5_031

@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_002
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the lead clinical pharmacist at the Oncology Center of a tertiary Grade A hospital. You are preparing a formulary that can be directly used for outpatient prescribing and pharmacist verification for a “RET-alteration precision therapy MDT clinic.” The target population is patients with gene-testing-confirmed RET fusions or RET mutations, including NSCLC and thyroid-origin solid tumors. The payer mix is mainly urban employee/resident basic medical insurance, with partial supplementation by commercial insurance and special coverage programs; patients prefer long-term oral therapy and place emphasis on medication accessibility and a closed-loop safety monitoring process.
+  
+  **Formulary construction principles:**
+  - Each drug must have its NMPA-approved indication(s) clearly labeled; if used off-label (beyond the approved indication), specify the evidence source and evidence level, and define the applicable boundaries.
+  - For each generic name, select a single representative brand; prioritize options with better medical-insurance accessibility.
+  - Label the medical-insurance reimbursement category and payment attributes for each item, one by one.
+  
+  **Tasks:**
+  1. Summarize the drug categories included in this disease-specific formulary and stratify them by therapeutic positioning; explain the NMPA approval status for each category and the supporting basis for any off-label use.
+  2. Create several single-disease prescription examples that cover representative prescriptions across different treatment stages, different treatment goals, and different administration-regimen combinations.
+  3. Create several prescription examples for cases with comorbidities or special situations; explain the drug selection and dose-adjustment logic focusing on organ function, drug–drug interactions, peri-treatment management, and adherence.
+  4. Provide strong warnings for key safety risks of the formulary drugs, covering cardiovascular, hepatic/renal, bleeding and wound healing, QT-related, pregnancy/reproductive, infection, and laboratory-abnormality risk domains, along with monitoring essentials.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

@@ -1,0 +1,24 @@
+case_id: surgery_planning/surgery_planning_014
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior gynecology surgeon. The case below describes a 46-year-old Chinese woman with a new right lower-quadrant/abdominal wall mass after prior hysterectomy for fibroids, requiring operative diagnosis and management and subsequent postoperative wound-complication decision-making.
+  - 46-year-old Chinese woman; G1P1.
+  - Surgical history: transabdominal hysterectomy with bilateral salpingectomy 1 year ago for multiple uterine leiomyomas via a transverse lower abdominal incision.
+  - Presenting issue: firm, mobile right lower-quadrant mass noticed 20 days ago; no weight loss, fever, or bowel/urinary symptoms at presentation.
+  - Pelvic ultrasound: 4.3 × 3.8 × 3.5 cm well-circumscribed solid mass in the right iliac fossa with heterogeneous medium-to-low echogenicity and internal vascular flow on Doppler.
+  - CT: oval, well-defined soft-tissue density lesion in the right iliac fossa measuring ~4.6 × 3.1 cm with attenuation ~53 HU.
+  - Labs: CA-125 normal.
+  - Preoperative assessment: lesion origin uncertain (adnexa/broad ligament vs abdominal wall vs other); plan for minimally invasive exploration with intent to diagnose and treat.
+  
+  **Q1 — Intraoperative decision-making** During minimally invasive exploration, both ovaries appear normal and no adnexal or broad-ligament mass is found. Instead, a solitary 4.5 × 4.0 cm, smooth, pink-white, well-circumscribed tumor is seen arising from the right anterior abdominal wall/peritoneum, ~3 cm lateral to the right edge of the prior transverse scar, covered by peritoneum, without obvious invasion of bowel. Given intraoperative diagnostic uncertainty (parasitic leiomyoma vs desmoid-type fibromatosis vs malignant soft-tissue tumor), what should you do next: perform limited biopsy versus attempt en bloc complete excision, should you request frozen section, and what specific operative steps will you use to minimize tumor seeding/implantation and prevent abdominal wall/incisional complications? Which technical pitfalls should be avoided, and what findings or circumstances should prompt conversion to open surgery and/or intraoperative specialty consultation?
+  
+  **Q2 — Postoperative complication management** On postoperative day 3 after surgical excision of a solitary, well-circumscribed ~4–5 cm solid mass from the right anterior abdominal wall near a prior transverse lower-abdominal scar, the patient develops increasing pain at the incision with progressive redness, warmth, and swelling around the wound, a new sense of “fluid shifting” beneath the skin, and low-grade fever (38.0°C). The incision is intact without obvious dehiscence, but there is tender erythema extending several centimeters from the wound edges and a palpable fluctuant area; she is hemodynamically stable, denies nausea/vomiting/diffuse abdominal pain, and has mild leukocytosis. Bedside ultrasound shows a hypoechoic fluid collection superficial to the fascia (prefascial/subcutaneous plane) without clear intraperitoneal fluid. In this patient, what are the likely causes and pathophysiology of a prefascial postoperative fluid collection with erythema and fever, how should the diagnosis be rapidly confirmed and risk-stratified (seroma vs abscess vs deep fascial infection), and what is the evidence-based management plan (antibiotics, aspiration/drainage vs operative exploration, and timing/indications), including key preventive measures for future similar cases?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop biopsy vs en bloc/frozen/anti-seeding/conversion triggers; postop causes/pathophysiology, rapid confirmation/risk-stratification, evidence-based management/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_014/01_case_file.docx

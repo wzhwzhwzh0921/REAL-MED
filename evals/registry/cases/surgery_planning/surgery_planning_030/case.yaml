@@ -1,0 +1,26 @@
+case_id: surgery_planning/surgery_planning_030
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior pediatric surgeon. The case below describes a late-preterm male neonate with a distal small-bowel obstructive presentation at birth and subsequent concern for total colonic aganglionosis complicating operative management; answer both sequential clinical scenarios.
+  
+  - 36-week male neonate; birth weight 2500 g.
+  - Presents within the first 48 hours of life with bilious emesis, progressive abdominal distension, and failure to pass meconium.
+  - Hemodynamically stable; normal electrolytes and blood gas on initial evaluation.
+  - Exam: distended abdomen with decreased bowel sounds; digital rectal exam reveals an empty rectum.
+  - Abdominal radiographs: multiple markedly dilated small-bowel loops with complete absence of rectal gas.
+  - Contrast small-bowel study: dilated proximal segment ending blindly, consistent with a distal small-bowel obstruction.
+  - Undergoes urgent operative management for suspected mechanical obstruction.
+  - Subsequent histopathology during the admission: absent ganglion cells in cecum/appendix and rectum, with ganglion cells present in ileum → concern for total colonic aganglionosis with a proximal transition zone.
+  
+  **Q1 — Intraoperative decision-making** In the early postoperative period, the neonate has persistent severe distension and no stool output; contrast enema demonstrates a uniformly narrow “unused colon,” and contrast holds up at the ileal anastomotic region with a functional-appearing obstruction but no leak. You are considering urgent re-exploration due to ongoing obstruction and risk of enterocolitis. At urgent re-exploration, how will you rapidly confirm the extent of aganglionosis intraoperatively (biopsy levels and frozen-section strategy), what will you do with the existing ileal anastomosis and reconstruction (diversion versus immediate definitive pull-through), and which key technical details and pitfalls must be avoided to prevent misinterpretation and postoperative life-threatening enterocolitis?
+  
+  **Q2 — Postoperative complication management** On postoperative day 4, the neonate has persistent abdominal distension, minimal gastric output with intermittent bilious aspirates, and no passage of stool or flatus; he is afebrile with stable vital signs but appears uncomfortable, with a markedly distended abdomen, decreased bowel sounds, and mild diffuse tenderness. Laboratory tests show mild metabolic acidosis and rising inflammatory markers; abdominal radiographs show diffusely dilated small-bowel loops with scant distal colonic gas; water-soluble contrast enema shows a uniformly narrow, unused-appearing colon (microcolon) and an apparent functional hold-up near the distal ileum/ileocecal region, with no free intraperitoneal air and no radiographic evidence of contrast extravasation. What is the most likely mechanism of this postoperative obstruction, what diagnostic workup should be performed to confirm the level of aganglionosis and to exclude Hirschsprung-associated enterocolitis or an anastomotic complication, and what urgent management plan (including indications for re-exploration and an appropriate diversion strategy) should be implemented?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop biopsy/frozen strategy, reconstruction/diversion decisions, technical pitfalls/enterocolitis prevention; obstruction mechanism, diagnostic workup to confirm aganglionosis/exclude HAEC or anastomotic complication, urgent management/re-exploration/diversion). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_030/01_case_file.docx

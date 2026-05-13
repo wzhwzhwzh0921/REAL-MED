@@ -1,0 +1,44 @@
+case_id: soap_documentation/soap_documentation_010
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 12, 2024, a 68-year-old retired choir conductor, Liu Jianguo (pseudonym), presented to the ENT clinic accompanied by his spouse for evaluation of progressive hoarseness and a persistent throat foreign-body sensation. The patient appeared anxious and spoke with a markedly hoarse, breathy voice.
+  **Chief Complaint and History of Present Illness:**
+  Chief complaint: “Worsening hoarseness for 4 months; feels like something is always stuck in the throat.”
+  
+  HPI: The patient presented with明显嘶哑 and a prominent breathy (“air-leak”) quality to his voice. He pointed to his throat with a furrowed brow and reported progressive hoarseness over 4 months with a persistent sensation of obstruction in the throat.
+  
+  The patient stated anxiously: “Doctor, listen to my voice. I used to be a tenor, and now I sound like a broken gong. It started 4 months ago—there was a reunion for old comrades, and I was the choir conductor. I got too into rehearsals and shouted for three days in a row. My throat felt a bit tight then, but I didn’t pay attention and thought rest would fix it. But it’s been months—not only has it not improved, it’s getting hoarser. Now I can’t even sing; even talking a few more sentences makes me tired. I can’t reach high notes at all. It feels like there’s a lump of phlegm stuck in my throat—I can’t cough it out or swallow it down. It’s really uncomfortable.”
+  
+  His spouse added: “He’s stubborn. He used to smoke heavily when he was young. Even though he quit 10 years ago, I’m still worried. Recently I keep seeing him clearing his throat, coughing ‘ahem ahem’ nonstop. Doctor, we had a scope done at a community hospital, and that doctor said there was a red ‘fleshy bump’ on the vocal cord, kind of like a cauliflower. Could it be a bad kind of tumor? After he heard that, his blood pressure went up from fear.”
+  
+  **Past Medical History and Family History:**
+  Past medical history: Hypertension for 10 years, controlled on amlodipine besylate (苯磺酸氨氯地平); blood pressure stable. Chronic pharyngitis for many years.
+  
+  Medications: Amlodipine besylate for hypertension.
+  
+  Allergies: Penicillin allergy.
+  
+  Social history: Smoking history 20 years (average 1 pack/day); quit smoking 10 years ago.
+  
+  Family history: No family history of laryngeal cancer or other malignant tumors.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8℃; heart rate 76 beats/min; blood pressure 138/82 mmHg; respiratory rate 16 breaths/min; oxygen saturation 97%.
+  
+  General: Normal development; moderate nutrition. Alert and oriented; anxious facial expression. Speech hoarse, rough, low-pitched, with audible breathiness.
+  
+  Neck: Neck symmetric; no palpable enlarged lymph nodes. Thyroid not enlarged; trachea midline. External laryngeal contour normal; laryngeal crepitus present.
+  
+  Specialty exam (electronic laryngoscopy): Epiglottis normal in shape without congestion or swelling. No hyperplasia of bilateral ventricular (false vocal) folds. Key findings: At the junction of the anterior and middle one-third of the left true vocal fold margin, a roughly round neoplasm measuring approximately 4 mm × 5 mm was observed. The lesion had a relatively broad base, was dark red in color, and the surface appeared slightly uneven due to hyperemia, with a granular appearance. During phonation, the lesion caused incomplete glottic closure. At the corresponding site on the right true vocal fold, mild mucosal thickening was noted (contact reaction). Bilateral vocal fold motion was symmetric with good abduction and adduction; no vocal fold fixation was seen.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_010/01_attachment.pdf

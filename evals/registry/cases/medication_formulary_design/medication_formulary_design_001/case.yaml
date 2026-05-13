@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_001
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the prescription-management lead of the Department of Neurology at a provincial tertiary Grade A hospital. You are establishing an outpatient formulary for standardized management of neuromyelitis optica spectrum disorder (NMOSD) for AQP4-antibody–positive adult and adolescent patients. Patients have heterogeneous insurance coverage and out-of-pocket affordability, and vary in their acceptance of long-term injections/infusions and follow-up monitoring; therefore, the formulary must balance evidence base, accessibility, and adherence.
+  
+  **Formulary construction principles:**
+  - Include drugs according to their NMPA-approved indications; when off-label (outside indication) use is involved, annotate the evidence source, evidence level, and applicable boundaries.
+  - When a generic name has multiple brands, select a representative brand; prioritize products accessible via NRDL or national negotiation (国谈).
+  - For each product, explicitly label the reimbursement category and payment attributes (e.g., within insurance / national negotiation / partial-indication restriction / self-pay, etc.).
+  
+  **Tasks:**
+  1. Compile NMOSD formulary drug categories, stratified by therapeutic positioning, and for each category explain the NMPA approval status and the off-label rationale/evidence and applicable positioning.
+  2. Provide several single-disease prescription examples covering typical combinations across different treatment stages and patient scenarios, and explain the configuration logic and substitution pathways for each regimen.
+  3. Provide several prescription examples for cases with comorbidities or special situations, and clarify the selection and dose-adjustment logic across dimensions including drug–drug interactions, organ function, infection and immune status, peri-treatment preparation, etc.
+  4. Provide strong warnings on key safety risks of formulary medications, covering risk dimensions including serious infections and vaccine management, pregnancy and reproductive risks, infusion reactions/allergy and immunogenicity, monitoring needs and laboratory abnormalities, inadequate efficacy or paradoxical worsening, discontinuation rebound, and long-term toxicity.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

@@ -1,0 +1,37 @@
+case_id: soap_documentation/soap_documentation_015
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 15, 2024, Mr. Zhang Wei (pseudonym), a 29-year-old male, presented to the psychiatry/psychology clinic accompanied by his girlfriend for evaluation of persistent anxiety and repetitive checking behaviors causing significant distress and functional impairment.
+  
+  **Chief Complaint and History of Present Illness:**
+  Mr. Zhang is a backend software engineer at an internet company. On entering the consultation room, he appeared somewhat constrained, sat on the edge of the chair, and repeatedly fidgeted with his phone case. His chief complaint is: “I suspect I have severe obsessive-compulsive disorder. I can’t control my repeated checking, I’m exhausted every day, and it has lasted for 8 months.”
+  
+  He spoke at a slightly rapid rate and stated: “Doctor, please save me. This OCD is torturing me. Ever since I was promoted to technical supervisor more than half a year ago, I started to feel off. Now leaving for work every day is a disaster—after locking the door and walking a few steps, I panic and feel like it wasn’t locked properly, and I have to go back and pull the handle a few times. Sometimes I’m already in the elevator and still have to run back out to confirm again. If I don’t go through it five or six times, I can’t leave.”
+  
+  He continued: “It’s the same at work. Before submitting code, I have to check it over a dozen times, afraid there’s a bug that will crash the system and I’ll get laid off. I know it’s probably fine, but I can’t stop myself from checking. Besides that, my brain feels like a motor that won’t stop—whenever I have idle time, I start overthinking: worrying about the mortgage payments failing, worrying my parents will get sick, worrying the stock market will crash. I feel extremely tired every day; my neck and shoulders ache like I’m carrying a huge stone. At night I toss and turn and can’t fall asleep, and the slightest noise makes me jump.”
+  
+  His girlfriend added: “Doctor, he’s just too tense. He used to be quite cheerful, but now he looks worried all the time. Even when watching TV he can’t sit still—his palms are sweaty. His temper has gotten shorter too; a little setback makes him irritable. He says it’s OCD, but I feel like he’s more like someone who’s been frightened—on edge all day, constantly anxious.”
+  
+  **Past Medical History and Family History:**
+  Past medical history includes “tension-type headache” for 3 years, with intermittent use of analgesics. History of mild gastritis. He denies a history of hypertension or diabetes mellitus. Allergy: sulfonamide drugs.
+  Both parents are alive and generally in good health. No family history of schizophrenia or bipolar disorder.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8℃; heart rate 92 beats/min (regular rhythm); blood pressure 138/88 mmHg; respiratory rate 20 breaths/min; oxygen saturation 99%.
+  General: Alert and oriented; engages proactively; appears anxious and restless. Palms are cool and clammy to palpation bilaterally (diaphoresis).
+  Head/Neck: Neck muscle stiffness; marked tenderness and increased muscle tone in bilateral trapezius and paraspinal muscles. Thyroid not palpably enlarged.
+  Neurologic: Fine tremor noted with arms outstretched. Limb strength and tone normal (except for neck/shoulder tension). Physiologic reflexes present; no pathologic signs elicited.
+  Ancillary tests (results available): Thyroid function (TSH, FT3, FT4) all within normal range. ECG shows sinus tachycardia with no ST-T changes.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_015/01_attachment.pdf

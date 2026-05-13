@@ -1,0 +1,14 @@
+case_id: dosage_calculation/dosage_calculation_015
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  A 32-year-old male (Mr. Wang) with obesity weighs 128.0 kg. He was admitted to the emergency department for “polydipsia with nausea/vomiting and fatigue for 2 days.” He has a history of diabetes with irregular management; after catching a cold one week ago, he stopped insulin on his own. On admission, he had deep and rapid breathing, mildly dry lips, was alert but fatigued, heart rate 112 beats/min, blood pressure 138/86 mmHg, and a soft abdomen without tenderness. Laboratory tests showed markedly elevated blood glucose, positive ketones, and metabolic acidosis. He was diagnosed with DKA and treated with fluid resuscitation and an IV insulin infusion pump.
+  
+  After repeat evaluation, the acidosis has resolved and the anion gap has closed. He is now able to eat solid food normally. The IV insulin infusion is being maintained at a stable rate of 4.2 U/h. The team plans to transition to a subcutaneous insulin regimen and has decided to apply a safety reduction factor of 0.8 to reduce hypoglycemia risk.
+  
+  Please calculate this patient’s overlap_hours_required.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_008
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a gastroenterologist. Please prepare a lecture PPT on the diagnosis and early management of Acute Pancreatitis (AP), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: etiologic composition and heterogeneity, SIRS identification, modified Marshall dynamic stratification, key points of necrotic complications.
+  **Visual materials**: AP “2/3 + SIRS/Marshall” flowchart; post-stratification early management and necrosis assessment pathway diagram; schematic diagram of contrast-enhanced CT strategy before vs after 72 hours.
+  **Constraints & format**: 14–20 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–20 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (etiologic composition and heterogeneity, SIRS identification, modified Marshall dynamic stratification, key points of necrotic complications).
+  3. Include the visual materials specified (AP “2/3 + SIRS/Marshall” flowchart; post-stratification early management and necrosis assessment pathway diagram; schematic diagram of contrast-enhanced CT strategy before vs after 72 hours).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_008/01_template.pptx

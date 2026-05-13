@@ -1,0 +1,14 @@
+case_id: dosage_calculation/dosage_calculation_033
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 66-year-old male with chronic kidney disease (CKD) stage 3b has persistent metabolic acidosis and requires assessment of urinary ammonium (NH4+) excretion capacity. Random urine test results: measured urine osmolality 420 mOsm/kg; urine Na 110 mmol/L; urine K 70 mmol/L; urine BUN 140 mg/dL; urine glucose negative (treat as 0 mg/dL).
+  
+  Calculation tasks: Please calculate the urine osmolal gap (UOG) and, based on the threshold, determine whether urinary ammonium excretion is appropriate. Provide a step-by-step calculation process and the final conclusion.
+  
+  (For this question: calculated urine osmolality = 2×(Na+K) + urine glucose/18 + urea/2.8; urine glucose in mg/dL.) Please calculate this patient’s uog_interpretation_bucket.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

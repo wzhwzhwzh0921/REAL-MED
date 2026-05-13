@@ -1,0 +1,37 @@
+case_id: soap_documentation/soap_documentation_024
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior attending psychiatrist in the emergency department. In the early morning of November 12, 2024, a 29-year-old female patient, Chen Wei (pseudonym), was brought to the clinic under her parents’ coercion. Based on the following summarized clinic conversation, chief complaint/history information, and physical examination results, analyze her condition and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient was assisted into the exam room by her parents. She appeared tense, with a distracted, scanning gaze, and intermittently turned her head as if listening to the wall. Her chief complaint was: “The wires in the wall are secretly recording my thoughts and sending them to the police.”
+  
+  The patient spoke at a very rapid rate and argued: “Doctor, I’m not sick! They (pointing to her parents) just don’t understand. Three days ago I used a little ‘liubing’ (methamphetamine), but that was to stay awake! I’m not sleeping because I’m trying to catch the people monitoring me. This clinic isn’t safe either—I hear two voices, one male and one female, constantly commenting on me. The woman says, ‘Look, she’s sitting down now,’ and the man says, ‘She’s useless, the police will come arrest her soon.’ These two voices are like having a meeting inside my brain—so noisy my head is about to explode!”
+  
+  Her mother, tearful and visibly anxious, added: “Doctor, don’t listen to her nonsense—no one at home is monitoring her. She used to do graphic design and was very sharp. But over the past half year (starting 8 months ago) she completely changed. At that time she wasn’t using any of those substances—she suddenly quit her job, stayed locked in her room every day, wouldn’t shower, wouldn’t contact friends, became extremely lazy, talked less and less, like her soul was gone. We thought she was just in a bad mood or had relapsed again, but we checked several times and it was negative. Then over these past three days, she suddenly became very irritable and tore off the wallpaper at home looking for listening devices—only then did we realize she really did use that stuff again.”
+  
+  **Past Medical History and Family History:**
+  - Past substance use: 3-year history of intermittent methamphetamine (“ice”) use.
+  - Past medical history: Treated for hepatitis C 2 years ago; current viral load is undetectable.
+  - Allergies: Penicillin allergy.
+  - Denies history of hypertension and diabetes.
+  - Family history: No clear family history of diagnosed psychiatric illness.
+  
+  **Physical Examination Findings:**
+  - Vital signs: Temperature 37.1℃; heart rate 94/min; blood pressure 138/88 mmHg; respiratory rate 20/min; oxygen saturation 99%.
+  - General: Normal development; moderate nutrition. Disheveled clothing; greasy, unkempt hair; strong sweaty body odor (very poor personal hygiene). Alert/clear consciousness, but passive engagement and avoids eye contact.
+  - Mental status exam: Consciousness clear; orientation intact. Prominent persecutory delusions and running/commentary auditory hallucinations. During intervals without overt agitation, facial expression appeared fixed/blunted, with a flat affect that was incongruent with the tense content of the conversation.
+  - Skin/other: Pupils equal, round, ~4 mm bilaterally; brisk light reflexes. Fine tremor in both hands. Old needle puncture scars in the left antecubital fossa; multiple fresh excoriations/scratch marks on both forearms.
+  - Ancillary tests (already resulted in ED): Urine toxicology screen positive (+) for amphetamines/methamphetamine; opioids, cannabis, and cocaine all negative. CBC and electrolytes without significant abnormalities.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_024/01_attachment.pdf

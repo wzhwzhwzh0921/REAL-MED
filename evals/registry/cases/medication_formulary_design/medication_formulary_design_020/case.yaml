@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_020
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the director of the Standardized Management Center of the Dermatology Department in a top-tier tertiary hospital (Class III Grade A). You plan to establish a formulary for refractory Chronic Spontaneous Urticaria (CSU), primarily for adults and adolescents aged ≥12 years whose disease remains inadequately controlled after adequate-dose, adequate-duration second-generation H1 antihistamines. Most patients have health insurance coverage, but there is substantial heterogeneity in affordability and administration preferences for biologics and novel oral targeted agents; therefore, the formulary must balance accessibility and adherence.
+  
+  **Formulary construction principles:**
+  - Prioritize NMPA-approved indications; for any off-label (beyond-indication) use, clearly annotate the evidence level, applicable boundaries, and key informed-consent points.
+  - When multiple brands exist under the same generic name, select representative brand(s), prioritizing NRDL-accessible options and considering stability of clinical supply.
+  - Label the reimbursement category (Class A/B/C) and payment attributes for each item.
+  
+  **Tasks:**
+  1. Compile the drug categories for the CSU formulary, stratify them by therapeutic positioning, and summarize each category’s NMPA approval status and off-label evidence.
+  2. Provide several single-disease prescription examples, covering different treatment stages and typical combination-pathway regimens.
+  3. Provide several prescription examples for comorbidities or special situations, explaining the rationale for drug selection, dose adjustments, drug–drug interaction assessment, and monitoring/follow-up considerations.
+  4. Provide strong, high-visibility alerts on key safety risks of formulary medications, explicitly covering serious adverse reactions, pre-treatment screening, follow-up monitoring, special-population restrictions, and core dimensions for medication-risk communication.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

@@ -1,0 +1,41 @@
+case_id: soap_documentation/soap_documentation_026
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of March 6, 2025, a 47-year-old woman, Liu Min (pseudonym), presented alone to the outpatient colorectal surgery clinic for evaluation of anal pain and minor rectal bleeding. She works as an accountant and sits for long periods.
+  **Chief Complaint and History of Present Illness:**
+  The patient reports: “During bowel movements, my anus hurts like it’s being cut by a knife, and there’s a little bit of bright red blood, for about two weeks.”
+  
+  She stated: “Two weeks ago I had really severe constipation. I passed a very hard piece, and at that moment I suddenly hurt so much I was sweating—like it was torn open. After that, every time I go to the bathroom it hurts. The worst part isn’t just the moment of passing stool; after I’m done it actually burns more and feels like a pulling pain, and it takes half an hour to more than an hour to ease up. Now I’m scared whenever I think about going to the bathroom—I hold it in if I can, and then it gets drier and even harder to pass.”
+  
+  She added: “There will be a little red staining on the toilet paper, or a little blood streak on the surface of the stool. It’s not a lot—not the kind that drips down or sprays. When I touch the anal opening, it feels like there’s a small bump. I thought it was hemorrhoids, so I bought hemorrhoid suppositories and something to stop bleeding. The bleeding seems a bit less, but the pain hasn’t improved at all. Sitting in warm water makes it feel better.”
+  
+  She denies fever, diarrhea, melena, or significant weight loss. Over the past two weeks, due to fear of pain she has reduced oral intake, has had longer intervals between bowel movements, and has intermittently used glycerin suppositories/enemas. Pain occasionally radiates/pulls toward the perineal area. She reports no clear sensation of “something coming out that needs to be pushed back in.”
+  
+  **Past Medical History and Family History:**
+  Past medical history: Chronic constipation (more prominent after childbirth); hypothyroidism, taking levothyroxine regularly.  
+  Obstetric/gynecologic history: Two vaginal deliveries (last delivery 12 years ago).  
+  Past surgical history: No history of perianal surgery.  
+  Medications: Levothyroxine (regular use); self-purchased hemorrhoid suppositories and a hemostatic agent; intermittent use of glycerin suppositories/enemas over the past two weeks.  
+  Allergies: No known drug allergies.  
+  Family history: No definite family history of colorectal cancer or inflammatory bowel disease.  
+  Social/functional history: Accountant; prolonged sitting.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8℃; heart rate 86/min; blood pressure 128/78 mmHg; respiratory rate 16/min; SpO2 99%.  
+  General: Alert and oriented; anxious expression; reports, “I’m afraid the exam will hurt.” No obvious pallor or dehydration.  
+  Cardiopulmonary: Heart sounds strong, regular rhythm; lungs clear with normal breath sounds bilaterally.  
+  Abdomen: Soft, non-tender, no rebound tenderness; normal bowel sounds; mild fecal mass/fullness palpable in the left lower quadrant.  
+  Perianal/rectal exam: Inspection shows mild erythema and swelling at the anal margin; a mild skin-tag–like prominence at the 6 o’clock position. Digital rectal exam: patient strongly resists; increased anal sphincter tone; severe pain elicited with light fingertip touch; no definite prolapsing mass palpated. After adequate lubrication and topical anesthesia, anoscopy shows a linear ulcerative/tear-like lesion at the distal anal canal at the 6 o’clock position with a small amount of oozing blood; surrounding mucosa is hyperemic; no obvious clustered congestion or prolapse-like changes.  
+  Ancillary tests: CBC—WBC 6.2×10^9/L, Hb 123 g/L, PLT 268×10^9/L; CRP 1.8 mg/L; fecal occult blood test weakly positive.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_026/01_attachment.pdf

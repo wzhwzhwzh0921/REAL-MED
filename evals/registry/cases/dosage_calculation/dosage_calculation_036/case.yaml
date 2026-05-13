@@ -1,0 +1,16 @@
+case_id: dosage_calculation/dosage_calculation_036
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  An 89-year-old male (Mr. Wang), weight 109 kg, with a past history of chronic kidney disease, was brought to the emergency department by family for “sudden right-sided limb weakness and slurred speech for more than 1 hour.” The onset occurred at home after eating: sudden facial droop, difficulty lifting the right upper limb, and unsteady gait. No seizures and no trauma. On arrival, he was conscious and alert. Vital signs: blood pressure 168/92 mmHg, heart rate 84 beats/min. Physical examination: dysarthria, right facial palsy, right upper limb muscle strength 3/5, right lower limb 4/5, pathologic signs questionable. Point-of-care glucose was normal. CBC and coagulation tests showed no obvious contraindications; creatinine was elevated consistent with his baseline kidney disease. Head CT showed no hemorrhage or mass. Acute ischemic stroke is suspected and intravenous thrombolysis with alteplase is planned.
+  
+  Because the patient’s weight is large, alteplase dosing must use a maximum cap of 90 mg, and it must be emphasized that the IV bolus dose and the continuous infusion dose must not be mistakenly double-counted/overlapped. The pharmacy supplies a 100 mg/vial formulation.
+  
+  Calculation task:
+  Please calculate this patient’s waste_amount_mg, with the result rounded to 1 decimal place.
+  
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

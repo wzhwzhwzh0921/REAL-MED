@@ -1,0 +1,19 @@
+case_id: dosage_calculation/dosage_calculation_024
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  [Case Description]
+  [Patient Information]
+  A 76-year-old female is receiving treatment for PV. Baseline Hct is 52.0%. Current Hct is 49.0%. The planned target Hct is 44.0% (the guideline target is to maintain Hct <45%). The outpatient plan is a single phlebotomy of 500 mL, intended to be performed once every 3 days (the interval is not specified as “weekly/biweekly”). There is no hemodynamic instability. There are no concerns about extreme body habitus or blood volume.
+  
+  [Calculation / Execution Tasks]
+  1) Determine whether the current Hct meets the “<45%” target threshold.
+  2) Verify whether the planned single phlebotomy volume and phlebotomy frequency fall within the guideline’s empirically executable range (300–450 mL; weekly or every two weeks).
+  3) Provide a corrected, executable plan that conforms to the guideline’s written rules (no need to calculate an individualized volume), and explain why “500 mL, once every 3 days” cannot be claimed as guideline-specified.
+  
+  Requirements: Provide step-by-step reasoning and final conclusions. Please calculate this patient’s guidelinelimitationsandneedforindividualization.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

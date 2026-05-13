@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_023
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior neurosurgery surgeon. The case below describes a 34-year-old right-handed professional guitarist/singer with a left temporo-insular infiltrative glioma undergoing awake craniotomy to maximize oncologic resection while preserving language and high-level musical performance. Two sequential clinical scenarios are presented; please answer both questions in turn, integrating practical intraoperative and postoperative decision-making.
+  
+  - 34-year-old right-handed man; professional guitarist/singer; history of depression.
+  - Presentation: generalized seizure; 1 year of progressive word-finding difficulty and subtle cognitive changes.
+  - Neurologic baseline: awake/interactive; no motor deficits; mildly anomic language without frank aphasia.
+  - MRI: non-enhancing intra-axial lesion centered in the left temporal lobe with extension into the insula, consistent with an infiltrative glioma in/near eloquent cortex.
+  - Preoperative functional MRI: left-hemisphere language activation adjacent to the lesion in the posterior superior temporal gyrus; motor-related activation in the inferior precentral gyrus.
+  - Diffusion tensor imaging obtained to guide white-matter pathway avoidance.
+  - Planned operation: oncologic left temporo-insular resection with awake functional testing to maximize extent of resection while preserving language and high-level musical ability.
+  
+  **Q1 — Intraoperative decision-making** After dural opening and placement of a cortical electrode grid to localize the central sulcus, phase-reversal mapping is negative, suggesting the motor cortex may lie posterior to the intended corridor. Bipolar direct cortical stimulation at the initially tested sites does not elicit speech arrest or naming errors, yet the operative field is immediately adjacent to the fMRI-suspected posterior superior temporal gyrus language area and inferior precentral regions. In this situation where intraoperative stimulation is negative but preoperative functional anatomy is highly suspicious for eloquent cortex, how should you immediately verify and augment functional localization (including stimulation parameters and task design), define safe functional boundaries, and decide whether to continue resection, narrow the planned resection, convert to subtotal resection, or stop—what key pitfalls must be avoided?
+  
+  **Q2 — Postoperative complication management** On postoperative day 1, he is awake and follows commands but is anxious and intermittently tearful; nursing reports he can answer yes/no questions inconsistently and becomes frustrated when asked to name objects. Exam shows fluent but circumlocutory speech with frequent pauses, impaired repetition of complex phrases, and difficulty with confrontation naming; comprehension for simple commands is largely intact. Motor strength is full in all extremities, pupils are equal and reactive, he has had one episode of emesis, and vital signs/oxygenation are stable. A noncontrast head CT shows expected postoperative changes without a large hematoma or significant midline shift, and serum sodium is 132 mmol/L; family is concerned he will permanently lose his ability to perform music and speak on stage. What is the most likely postoperative complication causing this patient’s new language deficit, and what is the most appropriate immediate management to prevent irreversible neurologic injury?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (functional localization verification/augmentation, safe boundaries, go/no-go and pitfalls; likely complication/diagnosis, immediate management to prevent injury). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_023/01_case_file.docx

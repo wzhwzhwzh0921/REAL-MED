@@ -1,0 +1,19 @@
+case_id: dosage_calculation/dosage_calculation_031
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 38-year-old obese male (BMI 36) with type 2 diabetes mellitus was admitted for infection-triggered metabolic acidosis; DKA versus RTA is being considered. Random urine test results: measured urine osmolality 980 mOsm/kg; urine Na 60 mmol/L; urine K 40 mmol/L; urine BUN 210 mg/dL; urine glucose 1800 mg/dL.
+  
+  Calculation tasks: Please calculate the urine osmolal gap (UOG), and based on threshold criteria determine whether urine ammonium excretion is appropriate. You must write the step-by-step calculation process and the final conclusion.
+  
+  Required calculation rules/formula constraints:
+  (1) For estimating the BUN contribution in urine osmolality, use BUN (mg/dL) ÷ 2.8 to count into mOsm/L.
+  (2) Urine ammonium concentration uses the common approximation: NH4+ (mmol/L) = UOG (mOsm/kg) ÷ 2.
+  (3) BUN unit conversion: mmol/L = mg/dL ÷ 2.8 ( = mg/dL × 0.357).
+  (4) Glucose unit conversion: mmol/L = mg/dL ÷ 18.
+  Please calculate this patient’s uoginterpretationbucket.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

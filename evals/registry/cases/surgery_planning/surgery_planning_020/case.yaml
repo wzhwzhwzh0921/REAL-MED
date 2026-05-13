@@ -1,0 +1,23 @@
+case_id: surgery_planning/surgery_planning_020
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior hepatobiliary surgeon. The case below describes a 75-year-old man with suspected perihilar biliary malignancy and a separate cystic periductal lesion requiring complex bile duct extent assessment, followed by a postoperative septic deterioration after biliary-enteric reconstruction.
+  - 75-year-old man; no fever, cholangitis, or peritonitis at presentation.
+  - Contrast-enhanced CT: 2.2-cm low-density solid lesion at the right hepatic hilum, suspicious for a perihilar biliary malignancy.
+  - Imaging also shows a separate multilocular cystic lesion closely surrounding/encasing the common hepatic duct.
+  - Concern is raised for either contiguous longitudinal spread from a single perihilar tumor or a discontinuous second periductal process (e.g., intraductal papillary or peribiliary gland–derived neoplasm) with different patterns of mucosal extension.
+  - Planned management: open exploration with curative intent; no metastatic disease on initial intraoperative survey.
+  - After major hepatobiliary oncologic surgery for suspected hilar bile duct malignancy, biliary-enteric reconstruction is performed and intra-abdominal drains are left in situ.
+  
+  **Q1 — Intraoperative decision-making** On hilar dissection, you confirm a firm right-sided perihilar mass and, separately, a multilocular cystic structure densely adherent to and partially circumferential around the common hepatic duct, making visual assessment of mucosal involvement unreliable. Portal structures are in close proximity, and excessive dissection risks devascularizing the bile duct or injuring the hepatic artery/portal vein. You must determine the true proximal and distal extent of ductal involvement before committing to the final extent of extrahepatic bile duct excision and reconstruction. What is your immediate intraoperative strategy to map ductal involvement and choose proximal and distal bile duct transection sites (including how you will obtain and interpret margin information), and which key technical steps and pitfalls must be addressed to maximize the likelihood of an R0 resection while avoiding unnecessary bile duct or vascular sacrifice?
+  
+  **Q2 — Postoperative complication management** On postoperative day 6, over the past 24 hours the patient develops fever (38.8°C), tachycardia (112/min), increasing right upper quadrant pain with mild confusion, and blood pressure 96/58 mmHg despite fluid resuscitation. Labs show WBC 18,500/µL, total bilirubin 4.6 mg/dL (previously 2.1), AST/ALT mildly elevated, INR 1.6, and lactate 3.2 mmol/L; urine output is decreasing. Drain output increases to 450 mL/day of thin green fluid, and drain-fluid bilirubin is markedly higher than serum bilirubin. Exam shows mild distension and diffuse tenderness without frank peritonitis. Bedside ultrasound shows a new perihepatic fluid collection, and Doppler windows are suboptimal; he has a central line and has received perioperative antibiotics only. What is the most likely postoperative complication, and what is the most appropriate next diagnostic and therapeutic step to control the source?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop mapping/margins, transection sites, technical pitfalls; likely complication, next diagnostic/therapeutic source control). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_020/01_case_file.docx

@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_026
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the director of the Pharmacy Department of the Hematology Division in a Grade A tertiary hospital. You plan to establish a standardized outpatient formulary for chronic myeloid leukemia (CML) to support physicians’ prescribing decisions and clinical pharmacists’ review and reference. The target population is mainly complex patients with multi-line TKI treatment failure, resistance mutations (including T315I), or intolerance; most are covered by Urban Employee Basic Medical Insurance, so the formulary must balance long-term adherence with medical-insurance payment accessibility.
+  
+  **Formulary construction principles:**
+  - Include drugs with NMPA-approved use; any off-label use must be annotated in-table with evidence level, evidence source, and applicable boundaries.
+  - For the same generic name with multiple brands, select only one representative brand; prioritize items within the NRDL or national-negotiation drugs and consider in-hospital accessibility.
+  - All entries must uniformly label reimbursement category and payment attributes (e.g., Class A/B, national negotiation, self-pay) and key reimbursement-related restriction notes.
+  
+  **Tasks:**
+  1. Organize drug categories and stratify them by therapeutic positioning; summarize the NMPA approval status for each drug class and provide a framework for off-label evidence.
+  2. Develop several single-disease prescription examples covering typical combinations across different treatment phases, response-assessment milestones, switching pathways, and administration-route preferences.
+  3. Develop several prescription examples for comorbidities or special situations, explaining the logic for drug selection and dose adjustments based on interactions, hepatic/renal function, prior adverse events, concomitant medications, and monitoring frequency.
+  4. Summarize key safety risks with strong alerts, covering cardiovascular/thrombotic risk, pulmonary toxicity and effusions, metabolic abnormalities, pancreatic and hepatic toxicity, QT prolongation, CYP-related interactions, and medication risks in special populations.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

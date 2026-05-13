@@ -1,0 +1,20 @@
+case_id: dosage_calculation/dosage_calculation_010
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  [Case Description]
+  Patient information: An adult female, 68 years old, weight 52 kg, sustained a hot-liquid scald burn. Estimated burn size is 25% TBSA. The physician chooses to estimate initial burn resuscitation fluid needs using the ABA 2024 recommended initial range; in this case, use 2.0 mL/kg/%TBSA as the starting value. It has been 1.0 hour from the time of injury to the start of formula-based fluid resuscitation. No IV fluids were given pre-hospital.
+  
+  [Calculation Tasks]
+  Please calculate:
+  1) Total resuscitation fluid volume for the first 24 hours (mL).
+  2) Planned volume for the first 8 hours and the subsequent 16 hours when counted from the time of injury (mL for each period).
+  3) The average initial infusion rate (mL/h) from now until the end of the 8th hour after injury.
+  4) The average infusion rate (mL/h) during the subsequent 16-hour phase.
+  
+  Requirement: Provide a step-by-step calculation process, and at the end use one sentence to state the primary urine output target range (mL/kg/h) used to adjust adult burn resuscitation.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

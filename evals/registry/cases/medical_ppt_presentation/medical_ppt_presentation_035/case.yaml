@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_035
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a rheumatology and immunology physician. Please prepare a lecture PPT on evidence-based use of new drugs and Treat-to-Target (T2T) strategies in non-renal systemic lupus erythematosus (SLE), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: T2T main framework, remission/LLDAS targets, relapse and damage risk assessment, positioning and prescribing strategies for sequential/combination therapy.
+  **Visual materials**: ANA → scoring → treat-to-target follow-up flowchart; conventional therapy → not at target → biologic sequential treatment pathway diagram; trend chart of changes in LLDAS and damage risk.
+  **Constraints & format**: 12–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 12–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (T2T main framework, remission/LLDAS targets, relapse and damage risk assessment, positioning and prescribing strategies for sequential/combination therapy).
+  3. Include the visual materials specified (ANA → scoring → treat-to-target follow-up flowchart; conventional therapy → not at target → biologic sequential treatment pathway diagram; trend chart of changes in LLDAS and damage risk).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_035/01_template.pptx

@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_023
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the person in charge of formulary construction in the Hepatology Center of a tertiary grade A hospital. You plan to build a standardized formulary for a dedicated specialty clinic for Primary Sclerosing Cholangitis (PSC), for quick reference by in-hospital physicians and clinical pharmacists in both outpatient and inpatient settings. The visiting population is mainly young and middle-aged adults, commonly requiring long-term follow-up and presenting with chronic inflammation–related comorbid issues. Payment is mainly through urban employee/resident medical insurance, balancing drug accessibility with long-term adherence.
+  
+  **Formulary construction principles:**
+  - Include medications with NMPA-approved use; when off-label use is involved, clearly specify the evidence sources, applicable patient-boundary conditions, and key points for informed communication.
+  - Brand selection prioritizes insurance accessibility; for the same generic name, retain 1 representative brand and specify substitution rules.
+  - Label every entry with NRDL reimbursement category and payment attributes to facilitate prescription review and medication-use management.
+  
+  **Tasks:**
+  1. Compile the drug categories for the PSC formulary, tiered by therapeutic positioning; for each category, summarize the NMPA approval status and an evidence-framework for off-label use.
+  2. Provide several single-disease prescription examples, covering different treatment stages and typical combination-therapy structures, and annotate key monitoring and follow-up points.
+  3. Provide several prescription examples for cases with comorbidities or special situations, explaining the logic for parallel treatment, drug–drug interaction assessment, dose/dosing-interval adjustments under hepatic/renal function changes, and sequencing of administration.
+  4. Issue strong alerts for key safety risks of formulary drugs, covering hepatobiliary adverse events, infection and bone-metabolism risks, interactions and absorption impacts, and risks/monitoring dimensions in populations such as pregnancy/lactation and hepatic/renal impairment.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

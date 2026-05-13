@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_004
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Director of Clinical Pharmacy at a tertiary Grade A hospital. Commissioned by the hospital’s joint Oncology–Dermatology team that is establishing a CTCL multidisciplinary diagnosis and treatment center, you will build a standardized formulary for adult patients with relapsed/refractory cutaneous T-cell lymphoma (CTCL). The patient population is mainly covered by urban employee/resident basic medical insurance, with substantial variability in ability to pay; some patients prefer oral regimens and follow-up adherence varies. The formulary must balance accessibility with standardized medication-use management.
+  
+  **Formulary construction principles:**
+  - Include medications primarily based on NMPA-approved indications; off-label use must be separately labeled and must specify the level of evidence and applicable boundaries.
+  - When multiple brands exist under the same generic name, select 1 representative brand, prioritizing NRDL/insurance accessibility and stable in-hospital supply.
+  - For all drugs, label the reimbursement category and payment attributes, and highlight key linkage points for rare-disease protection/coverage.
+  
+  **Tasks:**
+  1. Summarize CTCL-related drug categories and stratify/classify them by therapeutic positioning; outline each category’s NMPA approval status and an evidence framework for off-label use.
+  2. Create several single-disease prescription examples, covering different treatment stages, route-of-administration preferences, and typical combinations under efficacy–toxicity trade-offs.
+  3. Create several prescription examples for comorbidities or special situations, clarifying the rationale for drug selection, dose adjustments, interaction management, and monitoring-intensity adjustments.
+  4. Provide prominent alerts for key safety risks of formulary drugs, covering reproductive-related risks, ECG/cardiovascular risks, infection and myelosuppression, hepatic/renal dysfunction, skin toxicity, and severe allergic reactions.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

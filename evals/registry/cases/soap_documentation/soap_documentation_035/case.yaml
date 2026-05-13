@@ -1,0 +1,39 @@
+case_id: soap_documentation/soap_documentation_035
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior physician in Pulmonary and Critical Care Medicine. On the morning of March 2, 2026, a 29-year-old male food-delivery rider, Chen Hao (pseudonym), presented to clinic accompanied by a coworker. Please analyze the condition based on the following summarized clinic dialogue, chief complaint/history, and physical examination results, and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient entered wearing a mask, sat down, and began intermittent coughing. Chief complaint: “Fever and cough for two weeks; it’s gotten worse over the past three days; there are streaks of blood in the sputum, and the right side of my chest hurts.”
+  
+  He frowned and said: “At first it was just a low-grade fever after getting chilled—37-point-something to 38°C. I felt weak all over and kept sweating; at night I’d sleep a little and the pillow would be damp. I thought it was just a cold dragging on. Later the cough changed from dry to productive, with yellow-green sputum, and it kept increasing. Every bump while riding makes me want to cough. I have no appetite when eating, and I feel like I’ve lost a bit of weight over these two weeks.”
+  
+  A coworker added: “Lately at night he keeps saying he feels hot; his clothes are soaked. We even joked—could it be ‘that kind of tuberculosis’.”
+  
+  The patient continued: “Over the last three days it suddenly got worse. The fever can get to around 39°C, and I get chills. When I cough, the right side of my chest feels like being stabbed with a needle. There’s a lot of sputum—sometimes I spit mouthful after mouthful—and there are streaks of blood in it. I also feel the sputum smells strange, kind of sour and a bit foul, but I can’t really describe it.”
+  
+  On further questioning, he said somewhat awkwardly: “My teeth have always been bad—several cavities—and my gums often swell. I’ve been busy lately and haven’t gone for care, and my mouth often has a bad taste/odor. Also, at night I sometimes get acid reflux; when I lie down it comes up, and sometimes I choke and then cough for a long time. I work late doing deliveries, and when I lie down I just fall asleep, so I probably don’t pay attention to it.” He denied any prior history of tuberculosis and denied known close contact with tuberculosis. He denied long-term steroid use.
+  
+  **Past Medical History and Family History:**
+  Past medical history: dental caries and recurrent gingivitis (no regular dental/oral treatment for the past 6 months); mild gastroesophageal reflux (occasional nocturnal acid reflux). No surgical history. No known drug allergies. Family history: parents are alive and well; no definite family history of tuberculosis or immunodeficiency disorders.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 38.6°C, heart rate 106 beats/min, blood pressure 118/72 mmHg, respiratory rate 22 breaths/min, SpO2 95% (room air).
+  General: Moderately ill-appearing, skin moist/diaphoretic, mildly tachypneic; able to speak in full sentences but with intermittent coughing.
+  Oral cavity: Obvious dental caries; gums erythematous and swollen; marked halitosis.
+  Cardiopulmonary: Regular rhythm, no murmurs. Right upper lung field with slight dullness to percussion; right upper lung with crackles and bronchial breath sounds; focal increased tactile fremitus. Breath sounds otherwise acceptable in the remaining lung fields.
+  Abdomen: Soft, non-tender; no hepatosplenomegaly palpated.
+  Extremities/skin: No clubbing; no lower-extremity edema. No obvious superficial lymphadenopathy palpated.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_035/01_attachment.pdf

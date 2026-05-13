@@ -1,0 +1,32 @@
+# Task type: pharmacy_inventory_management
+# Inpatient pharmacy ward dispensing / prescription audit / procurement etc. Backed by the pharmacy-operations MCP (per-question inventory excels).
+
+task_type: pharmacy_inventory_management
+description: "Inpatient pharmacy ward dispensing / prescription audit / procurement etc. Backed by the pharmacy-operations MCP (per-question inventory excels)."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - code
+  - docx
+  - xlsx
+  - web-search
+
+extensions_config: task_types/extensions_configs/pharmacy_inventory_management.json
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "*.docx"
+    required: true
+  - pattern: "*.xlsx"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

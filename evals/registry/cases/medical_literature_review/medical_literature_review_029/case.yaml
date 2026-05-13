@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_029
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a respiratory and critical care physician. In the outpatient clinic, you have seen multiple adult COPD patients with elevated blood eosinophils who continue to experience frequent acute exacerbations despite guideline-recommended inhaled therapy. Therefore, you are particularly interested in therapeutic advances for adult COPD with a type 2 inflammation phenotype, especially the efficacy and safety of dupilumab. You plan to write a systematic review (with meta-analysis if necessary) on this topic for clinical and academic use.
+  
+  Review topic: “Efficacy and Safety of Dupilumab in Adult COPD with a Type 2 Inflammation Phenotype”.
+  
+  The review must systematically compile and analyze the following core content:
+  1. Acute exacerbation rate and hospitalization-related outcomes;
+  2. Magnitude of lung function improvement (FEV1);
+  3. Patient-reported outcomes and quality of life;
+  4. Safety profile, serious adverse events, and reasons for treatment discontinuation.
+  
+  Search and inclusion: use the following keywords for literature retrieval and include eligible studies based on these terms: COPD、dupilumab、eosinophil*、FeNO、exacerbation. A standardized reference list is required at the end of the review; additionally, use a PRISMA flow diagram to present the screening process, use stratified forest plots to present subgroup effects by EOS/FeNO, and summarize key outcomes and adverse events in a comparative table.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

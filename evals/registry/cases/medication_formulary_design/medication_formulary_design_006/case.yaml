@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_006
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Medical Director of a Rare Disease Center at a Grade III Class A hospital. You plan to establish a supportive-therapy outpatient prescription formulary for patients with mitochondrial disease who have been definitively diagnosed by completed genetic testing, covering long-term follow-up needs across children to adults and multiple subtypes. The payer mix is primarily a combination of self-pay and medical insurance; overall ability to pay is limited. Patients prefer oral regimens that are easy to adhere to long-term and are accessible within the hospital.
+  
+  **Formulary construction principles:**
+  - Included drugs must have clearly stated NMPA-approved indications; when off-label (outside approved indications) use is involved, annotate the source of evidence and the applicable boundaries.
+  - When a generic name has multiple brands, select a representative brand; prioritize NRDL/insurance-accessible options with stable quality and continuous supply.
+  - All entries must uniformly label the reimbursement category (Class A/B/C or local formulary) and payment attributes (insured/self-pay/in-hospital accessible).
+  
+  **Tasks:**
+  1. Compile the drug categories for this disease formulary, stratified by therapeutic positioning, and explain each category’s NMPA approval status and the evidence basis for off-label use.
+  2. Provide several single-disease prescription examples, covering typical combinations across different treatment stages and patient scenarios.
+  3. Provide several prescription examples for cases with comorbidities or special situations, explaining the rationale for drug selection and dose adjustments.
+  4. Provide strong warnings on the key safety risks of formulary drugs, specifying the risk dimensions that must be covered.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

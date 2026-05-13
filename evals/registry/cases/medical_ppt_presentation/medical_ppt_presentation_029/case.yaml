@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_029
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a rheumatologist. Please prepare a lecture PPT on preclinical rheumatoid arthritis (RA) (high-risk arthralgia/subclinical synovitis), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: Impact of early diagnosis on prognosis, integrated clinical–laboratory–imaging assessment, risk stratification for structural damage, treat-to-target and intervention thresholds.
+  **Visual materials**: Evaluation workflow flowchart for preclinical RA; treat-to-target strategy and adjustment pathway diagram; comparison image of negative physical examination vs ultrasound-detected synovitis.
+  **Constraints & format**: 12–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 12–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (Impact of early diagnosis on prognosis, integrated clinical–laboratory–imaging assessment, risk stratification for structural damage, treat-to-target and intervention thresholds).
+  3. Include the visual materials specified (Evaluation workflow flowchart for preclinical RA; treat-to-target strategy and adjustment pathway diagram; comparison image of negative physical examination vs ultrasound-detected synovitis).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_029/01_template.pptx

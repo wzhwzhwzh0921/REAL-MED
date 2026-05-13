@@ -1,0 +1,27 @@
+case_id: complex_case_review/complex_case_review_039
+task_type: complex_case_review
+prompt: |
+  [Task Prompt]
+  You are the admitting attending physician responsible for inpatient diagnostic evaluation, acute coronary syndrome management, and safe discharge planning for a 63-year-old man admitted urgently transferred from another hospital.
+  The complete structured patient case (demographics, vital signs, current medications, laboratory results, and known comorbidities / secondary diagnoses) is provided in the attached `01_case_file.docx`. Use the attachment as the authoritative data source — do not invent values that are not in it.
+  [Answer Format]
+  Deliver the Clinical Management Order Sheet as a **single PDF file** and submit it through the `present_files` tool. Plain text, Markdown, or Word files are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` must contain **exactly 2 sections**:
+  **Section 1 — Primary Diagnosis & Supporting Evidence**
+  State the single most likely primary diagnosis and your confidence level (High / Moderate / Low). Then complete this table using ONLY data from the attached case file — do not invent values:
+  | Dimension | Key Finding | Clinical Significance |
+  |-----------|-------------|----------------------|
+  | Demographics | ... | ... |
+  | Vital Signs | ... | ... |
+  | Laboratory Results | ... | ... |
+  | Medications | ... | ... |
+  | Clinical Presentation | ... | ... |
+  At least 3 dimensions must be populated with specific values from the attachment.
+  **Section 2 — Management Orders**
+  Provide a structured orders table covering all clinically necessary interventions tied to the primary diagnosis identified in Section 1. Use only data from the attached case file; do not invent values.
+  | Action | Intervention | Detail | Rationale |
+  |--------|-------------|--------|-----------|
+  | New / Continue / Modify / Stop | ... | ... | ... | ... |
+attachments:
+  - complex_case_review/complex_case_review_039/01_case_file.docx

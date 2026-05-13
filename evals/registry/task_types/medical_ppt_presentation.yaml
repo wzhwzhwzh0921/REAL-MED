@@ -1,0 +1,31 @@
+# Task type: medical_ppt_presentation
+# Build a medical lecture PPT (12–16 slides with speaker notes) following an attached `.pptx` template's master/layout/colour system.
+
+task_type: medical_ppt_presentation
+description: "Build a medical lecture PPT (12–16 slides with speaker notes) following an attached `.pptx` template's master/layout/colour system."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - code
+  - pptx
+  - pptx-design
+  - docx
+  - web-search
+  - web-search-mm
+  - nano-banana-pro
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "*.pptx"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

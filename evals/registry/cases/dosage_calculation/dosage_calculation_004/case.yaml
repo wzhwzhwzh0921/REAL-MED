@@ -1,0 +1,12 @@
+case_id: dosage_calculation/dosage_calculation_004
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Wang Xiulan, female, 78 years old, was admitted for “recurrent palpitations with fatigue for 2 weeks, worsened for 1 day.” Past history: hypertension. Recently, paroxysmal atrial fibrillation episodes have been frequent. She denies syncope. Admission physical examination: alert, blood pressure stable, irregular heart rate, no pathological murmurs heard; no lower-extremity edema. Laboratory tests: serum creatinine 1.0 mg/dL. Body weight 62.0 kg. ECG shows sinus rhythm during the interictal period of atrial fibrillation; QRS shows no intraventricular conduction block. Baseline QT 410.0 ms, RR interval 0.8 s. Plan: initiate inpatient dofetilide cardioversion with close monitoring. Repeat ECG 2.5 hours after the first dose: QT 450.0 ms, RR interval 0.75 s. The patient has no chest pain or amaurosis.
+  
+  Please calculate this patient’s dose_reduction_triggered.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

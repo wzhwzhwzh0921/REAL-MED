@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_019
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the medical director of the Department of Medical Oncology in a large tertiary Grade A hospital. You plan to establish an outpatient formulary for advanced/metastatic MSS or pMMR colorectal cancer (third-line and beyond) for unified reference and prescribing by physicians and clinical pharmacists. Most patients have failed standard second-line regimens, have ECOG PS 0–1, are mainly covered by Urban Employee/Resident Basic Medical Insurance, have limited ability to self-pay, prefer oral therapies, and outpatient infusion resources must be coordinated and rationed.
+  
+  **Formulary construction principles:**
+  - Include drugs with NMPA-approved use; if an off-label (beyond-indication) regimen is used, the evidence source and evidence level must be annotated and the applicable boundaries must be clearly defined.
+  - Brand selection prioritizes reimbursement accessibility; for the same generic name, retain 1 representative brand only.
+  - All drugs must be labeled with reimbursement category and payment attributes, and the route of administration and the extent of outpatient infusion-resource utilization must be recorded.
+  
+  **Tasks:**
+  1. Sort and summarize the drug categories used in third-line and later therapy and stratify them by therapeutic positioning; explain each category’s NMPA approval status and the evidence framework for off-label use.
+  2. Provide several single-disease prescription examples, covering typical combinations across different treatment stages and typical patient scenarios.
+  3. Provide several prescription examples for comorbidities or special situations, clarifying the decision logic for drug selection and dose adjustment considering drug–drug interactions, bleeding/thrombosis risk, hepatic/renal function, perioperative management, and fertility-related management.
+  4. Strongly highlight key safety risks, covering immune-related toxicities, anti-angiogenic–related risks, hepatotoxicity, dermatologic toxicity/hand–foot syndrome, myelosuppression and infection, and the key monitoring points.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

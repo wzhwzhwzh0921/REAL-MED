@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_031
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are an emergency physician. Please prepare a lecture PPT on infectious protection in the emergency department and management of occupational exposure, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: exposure mechanisms (aerosols/droplets, body fluids/needlestick injury), risk factors, key points of pre-triage and isolation, PPE selection and donning/doffing, protection for high-risk procedures, post-exposure management, reporting, and follow-up management.
+  **Visual materials**: flowchart from pre-triage to isolation and ventilation; stepped diagram of post-exposure management; data trend chart indicating infection proportion among healthcare workers.
+  **Constraints & format**: 12–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 12–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (exposure mechanisms (aerosols/droplets, body fluids/needlestick injury), risk factors, key points of pre-triage and isolation, PPE selection and donning/doffing, protection for high-risk procedures, post-exposure management, reporting, and follow-up management).
+  3. Include the visual materials specified (flowchart from pre-triage to isolation and ventilation; stepped diagram of post-exposure management; data trend chart indicating infection proportion among healthcare workers).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_031/01_template.pptx

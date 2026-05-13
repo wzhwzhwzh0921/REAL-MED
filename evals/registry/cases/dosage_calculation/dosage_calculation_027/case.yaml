@@ -1,0 +1,12 @@
+case_id: dosage_calculation/dosage_calculation_027
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Wang Li, a 45-year-old female, was admitted for “right lower leg redness, swelling, and pain with fever for 3 days.” Three days ago, without an obvious trigger, she developed redness and burning pain of the skin on the right lower leg; the affected area gradually expanded, and walking worsened the pain. The maximum temperature was 38.6°C, without chills. She denies altered consciousness and hypotension. Past history: obesity for many years. Height 165 cm, weight 110 kg. Physical examination: T 38.2°C; a large erythematous area with tenderness on the anteromedial right lower leg, increased local temperature, and no fluctuance. Laboratory results: Scr 1.2 mg/dL; WBC 12.8×10^9/L; neutrophil fraction 0.84; PCT mildly elevated. Hemodynamics are stable; non-sepsis is considered. Empiric MRSA coverage is planned with vancomycin q8h. Steady-state monitoring shows: peak concentration 32.0 mg/L and trough concentration 10.0 mg/L.
+  
+  Please calculate this patient’s estimated 24-hour AUC.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

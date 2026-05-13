@@ -1,0 +1,47 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_006
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  The ward has issued a batch of “urgent replenishment” requests today, all involving injectable medications, and several items are from batches that will expire soon. To reduce write-offs and ensure continuity of medication supply for the ward, please complete stock-out processing and unit-dose dispensing under the principle of “dispense the earlier-expiring batch first (FEFO).” On the dispensing sheet, mark the batch number / expiry date and the quantity dispensed. Fill the results into: (1) **Ward Replenishment & FEFO Dispensing Record Form.xlsx** and (2) **Unit-Dose Dispensing Handover Form.docx** (both files must be traceable back to the storage location/bin).
+  
+  Note: The prompt will not provide any drug generic names or brand names. You must uniquely match the specific product in the attached list based on clues such as dosage form / strength / indication, and only then perform calculations and stock-out operations.
+  
+  It is known that in the warehouse, for the same product there is only one near-expiry batch available (if splitting packs occurs or stock is insufficient, you must note it and alert purchasing / inter-warehouse transfer). Complete the following subtasks:
+  
+  1) Identification task (near-expiry priority product list):
+  (1) Identify the generic name of each drug and query its inventory and unit price (a total of **5** injectable drug products must be identified; commonality: these are injections that are often prioritized for near-term use clinically to avoid expiry write-offs).
+  (2) In **Ward Replenishment & FEFO Dispensing Record Form.xlsx**, separately record for each product: storage location/bin, batch number, expiry date, and current inventory.
+  
+  2) Calculation & unit-dose dispensing (postoperative oozing/bleeding, IV drip compounded bag product): A patient has postoperative oozing/bleeding. The order is “intravenous infusion; the dose per administration, daily frequency, and treatment course are per the order.” This product is a bagged IV infusion preparation (a compounded product in the same bag with sodium chloride) and must be dispensed as unit doses.
+  (1) Identify the generic name of this drug and query its inventory and unit price.
+  (2) Based on the order and the product specification, calculate how many bags must be dispensed this time.
+  (3) Verify whether the post-dispensing inventory falls below the reorder/alert threshold, and state the “post-dispensing inventory.”
+  (4) Following the FEFO principle, enter the batch number / expiry date and dispensed quantity into **Unit-Dose Dispensing Handover Form.docx**, ensuring traceability to the storage location/bin.
+  
+  3) Calculation & unit-dose dispensing (weight-based conversion, subcutaneous prefilled auto-injector pen): A patient has moderate-to-severe plaque psoriasis, body weight **72 kg**. The physician plans “subcutaneous administration by **mg/kg**, once every 4 weeks; for this request, only dispense **one** dose.” This drug is a prefilled auto-injector pen (dispense as whole pens only, round up to the next whole pen).
+  (1) Identify the generic name of this drug and query its inventory and unit price.
+  (2) Based on the package insert / order **mg/kg** regimen and the product specification, calculate the number of pens to dispense this time (whole-pen dispensing, round up).
+  (3) Check the relationship between the post-dispensing inventory and the alert threshold, and following FEFO, fill the batch number / expiry date and quantity dispensed into **Unit-Dose Dispensing Handover Form.docx**.
+  
+  4) Calculation & unit-dose dispensing (intrahepatic cholestasis, IV injection powder-for-injection course): A patient with intrahepatic cholestasis requires initial treatment: “intravenous injection; total daily dose and treatment course are per the order.” This drug is a powder-for-injection product.
+  (1) Identify the generic name of this drug and query its inventory and unit price.
+  (2) Based on the order and the product specification, calculate the total number of vials to dispense.
+  (3) Check whether the post-dispensing inventory is still above the alert threshold (even if still above, add a note on the handover form: “near-expiry priority has been executed”), and following FEFO, fill the batch number / expiry date and quantity dispensed into **Unit-Dose Dispensing Handover Form.docx**.
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (261 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_006` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_006/01_inventory.xlsx
+mcp_question_id: v5_006

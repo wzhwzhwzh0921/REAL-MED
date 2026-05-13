@@ -1,0 +1,22 @@
+case_id: medical_literature_review/medical_literature_review_004
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a cardiologist. In outpatient practice you have evaluated multiple adult patients with suspected/confirmed cardiomyopathy and observed clear inconsistencies in the ordering of genetic testing and the interpretation of results, along with marked differences in family (cascade) screening and follow-up strategies. Therefore, you plan to write a systematic review for clinical and academic purposes on the clinical utility and cost-effectiveness of genetic testing in patients with suspected cardiomyopathy, aimed at informing evidence-based testing, interpretation, and management decisions.
+  
+  This systematic review focuses on: “Clinical Utility and Cost-Effectiveness of Genetic Testing in Patients with Suspected Cardiomyopathy.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. The incremental diagnostic yield of genetic testing for etiologic diagnosis in suspected cardiomyopathy;
+  2. Evidence linking genotype to prognosis and sudden cardiac death risk stratification;
+  3. The impact of genotype results on treatment, follow-up, and clinical decision-making;
+  4. Evidence on family cascade screening and reproductive management, as well as cost-effectiveness.
+  
+  Search and include studies using the following keywords: cardiomyopathy、genetic testing/NGS、variant interpretation、cascade screening、cost-effectiveness. A standardized reference list is required at the end of the review.
+  
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

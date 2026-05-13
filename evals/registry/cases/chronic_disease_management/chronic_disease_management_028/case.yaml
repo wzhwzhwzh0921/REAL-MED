@@ -1,0 +1,23 @@
+case_id: chronic_disease_management/chronic_disease_management_028
+task_type: chronic_disease_management
+prompt: |
+  [Task Prompt]
+  At the chronic disease management clinic of a community health service center, you see Mr. Wang, who has come for follow-up. As soon as he sits down, he says, “Doctor, my ‘old chronic bronchitis’ is acting up again. I’ve been coughing for almost three months. I’m not wheezing, but it always feels like something is stuck in my throat. The sputum I cough up is white and sticky. It just sticks in my throat and won’t come out, which is really uncomfortable. My physical exam report is all normal. I just want to ask if there’s any medicine I can take long-term to make it easier to cough up this phlegm, so it doesn’t keep blocking and making me uncomfortable.”
+  
+  You carefully ask about his history and perform a physical examination. You find that his vital signs are stable, and on auscultation there are only coarse breath sounds in both lungs, without the wheezing commonly heard in asthma. You review his annual health checkup report completed last week: pulmonary function testing shows no airflow limitation, and the eosinophil count on the complete blood count is not elevated. Mr. Wang’s presentation is typical of stable-phase simple chronic bronchitis. Now, you need to formulate a long-term pharmacologic management plan to improve his quality of life.
+  
+  **Patient information:**
+  - Name: Mr. Wang, male, 62 years old, retired cement factory worker
+  - Chief complaint: Recurrent cough and sputum production for 3 months.
+  - History of present illness: Over the past 3 months, the patient has mainly had cough in the morning upon waking and at night, with a small amount of white mucoid sputum that is thick and subjectively difficult to expectorate; he often feels that sputum is sticking in the throat. No obvious wheezing, chest tightness, or dyspnea. No fever, night sweats, or hemoptysis. Daytime activity tolerance is acceptable; he can lie flat and sleep at night. He states the symptoms are similar to prior annual episodes.
+  - Past medical history: History of “chronic bronchitis” diagnosed 5 years ago; exacerbations occur every autumn and winter, lasting about 3-4 months each time. No history of hypertension, diabetes, or heart disease. No personal or family history of allergy or asthma.
+  - Current medications: Not on regular medications; self-takes “licorice tablets” when cough is severe.
+  - Lifestyle: 40-year smoking history, about 20 cigarettes/day; successfully quit smoking in the past 2 years. Prior to retirement, long-term work in a dusty environment.
+  - Vital signs: blood_pressure=132/78 mmHg；heart_rate=76 bpm；respiratory_rate=18 次/分；temperature=36.6℃；spo2=97% (室内空气)
+  - Physical examination: Alert and oriented; no cyanosis of the lips. No jugular venous distention. Chest symmetric; slightly coarse breath sounds bilaterally; no dry or wet rales and no wheezing. Heart rate 76 beats/min, regular rhythm; no pathological murmurs in any valvular auscultation area. No edema in both lower extremities.
+  - Ancillary tests: Complete blood count: white blood cell count 6.5×10^9/L, neutrophils 60%, eosinophils 2%. Pulmonary function test: FEV1/FVC 75%, FEV1 85% of predicted.
+  
+  [Answer Format]
+  You are connected to the hospital Chronic System and can complete diagnosis and treatment operations via system tools. Based on the patient's clinical condition, independently determine which actions need to be performed—enter diagnoses, prescribe medications, arrange tests, formulate a follow-up plan, etc.—and enter them one by one through the system tools.
+  The patient's complete clinical data has been provided above; do not call any patient-loading tool again. Use the available Chronic-System HIS tools directly to enter the diagnoses, prescriptions, laboratory tests, imaging, and follow-up plan in sequence, then call the available submit tool to confirm and submit the orders. Do not request clarification merely because a tool's display name differs slightly from its description.
+  When calling the submit tool, the `analysis_conclusion` parameter is **required** and must contain a thorough final analysis covering: (1) diagnostic reasoning, (2) risk stratification or disease-severity assessment, (3) rationale for the chosen treatment, (4) workup and monitoring plan, (5) follow-up plan, and (6) any necessary up-referral / specialty-referral considerations.

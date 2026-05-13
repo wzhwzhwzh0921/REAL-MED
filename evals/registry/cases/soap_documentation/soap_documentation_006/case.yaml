@@ -1,0 +1,38 @@
+case_id: soap_documentation/soap_documentation_006
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 15, 2024, Mr. Li, a 52-year-old architect, presented to the urology clinic accompanied by his wife. Based on the following clinic dialogue summary, chief complaint, and physical examination and test results, analyze his condition and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  Chief complaint: “Urinary frequency and hesitancy for 6 months, worsened with increased nocturia for 1 month.”
+  
+  HPI: The patient was wearing a neat shirt but appeared slightly fatigued. He stated somewhat helplessly: “Doctor, this past half year has really been miserable. I do architectural design, and I sit for most of the day drawing. At first I thought it was an occupational issue—prostatitis or benign enlargement. In the beginning I only had to get up once at night; I thought it was because I drank too much tea at dinner. But in the past month it has gotten more and more off—at night I have to get up three or four times, and I can’t sleep well. The most annoying part is standing in the bathroom for a long time and not being able to urinate; I have to wait 30–40 seconds before it starts, and the stream is thin. Yesterday morning I held my breath and strained hard to urinate, and then I noticed the urine looked a bit red, like lightly blood-tinged ‘meat-washing water,’ and that scared me so I came right away.”
+  
+  His wife added: “He usually feels he’s healthy—if there’s a minor problem he says it’s ‘internal heat’ or ‘from being tired.’ This time I saw blood in the urine and he panicked too. Doctor, he’s only in his early 50s—could it be that… a very serious disease?”
+  **Past Medical History and Family History:**
+  Past medical history: Hypertension for 5 years; takes amlodipine regularly; blood pressure control is acceptable. Lumbar intervertebral disc herniation (occupationally related). Allergy: “sulfonamide” drugs. No history of diabetes.
+  
+  Family history: Father died in his 30s due to a motor vehicle accident; mother is alive. No clearly documented family history of malignancy.
+  **Physical Examination Findings:**
+  Vital signs: T 36.8°C, HR 76/min, BP 138/88 mmHg, RR 16/min. BMI 24.5.
+  
+  General: Normal development, fair nutrition. Alert and oriented; cooperative with examination. No palpable superficial lymphadenopathy.
+  
+  Abdomen: Soft and flat; no tenderness or rebound tenderness. No costovertebral angle (CVA) tenderness bilaterally. Suprapubic bladder area not palpably distended (patient had voided prior to the visit).
+  
+  Digital rectal examination (DRE): Prostate approximately grade II enlarged; median sulcus shallow. Most of the gland had a firm/rubbery consistency (similar to the firmness of the nasal tip), but on palpation of the left peripheral zone, the texture felt slightly harder and denser than the right, with a less smooth surface and mild asymmetry. No blood on the glove after withdrawal.
+  
+  Outpatient preliminary lab results (brought by patient):
+  1) Urinalysis: RBC 15–20/HP (microscopic hematuria), WBC 0–2/HP, protein (-), nitrite (-).
+  2) Serum PSA: total PSA (t-PSA) 8.40 ng/mL, free PSA (f-PSA) 0.92 ng/mL.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_006/01_attachment.pdf

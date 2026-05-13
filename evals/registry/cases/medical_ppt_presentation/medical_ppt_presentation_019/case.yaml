@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_019
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are an oncologist. Please prepare a lecture PPT on unresectable or metastatic melanoma, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: differences in primary site composition in China, disease progression and proportion of treatment resistance, risk stratification by subtype, key points of AJCC 8th edition T1 staging.
+  **Visual materials**: diagnostic and staging workflow flowchart; unresectable/metastatic treatment pathway and adverse event monitoring diagram; comparison chart/diagram of differences in primary sites between China and other countries.
+  **Constraints & format**: 14–20 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–20 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (differences in primary site composition in China, disease progression and proportion of treatment resistance, risk stratification by subtype, key points of AJCC 8th edition T1 staging).
+  3. Include the visual materials specified (diagnostic and staging workflow flowchart; unresectable/metastatic treatment pathway and adverse event monitoring diagram; comparison chart/diagram of differences in primary sites between China and other countries).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_019/01_template.pptx

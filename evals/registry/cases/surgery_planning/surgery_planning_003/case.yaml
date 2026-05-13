@@ -1,0 +1,23 @@
+case_id: surgery_planning/surgery_planning_003
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior cardiac surgeon. The case below describes a 77-year-old man with severe symptomatic mitral regurgitation and advanced ischemic cardiomyopathy undergoing complex redo cardiac surgery, with one scenario focused on intraoperative strategy when the ascending aorta cannot be safely controlled and a second scenario focused on acute postoperative neurologic deterioration.
+  - 77-year-old man with severe symptomatic mitral regurgitation (mixed ischemic–degenerative disease with anterior leaflet prolapse) and advanced LV dysfunction (LVEF <35%, LVESD 58 mm; LVESDi 33 mm/m²), NYHA IV despite high-dose diuretics.
+  - Major comorbidities: severe COPD; chronic atrial fibrillation previously on a NOAC; ICD in situ; chronic kidney disease (creatinine clearance ~20 mL/min).
+  - Cardiac surgical history: two prior CABG operations (1992 and 2005).
+  - Preoperative coronary angiography/CT: all arterial grafts occluded; only one patent saphenous vein graft to the PDA.
+  - Anatomy relevant to redo exposure: the SVG-PDA proximal anastomosis is very distal on the ascending aorta and the graft courses close to the anticipated midline re-entry plane.
+  - Planned operation: complex redo mitral valve surgery with cardiopulmonary bypass.
+  
+  **Q1 — Intraoperative myocardial protection without aortic control** After peripheral cannulation and initiation of cardiopulmonary bypass, dense right pleural adhesions limit exposure and would require extensive dissection; a patent SVG-PDA is encountered near the operative field. The ascending aorta cannot be safely mobilized or clamped due to adhesions and graft proximity; any aortic puncture or instrumentation (root cardioplegia needle, aortic vent, or cross-clamp) is judged high risk for catastrophic graft or aortic injury. The heart is still beating; the team is using rapid ventricular pacing at 150/min to improve exposure, CO₂ insufflation at 5 L/min, and left atrial drainage via the right superior pulmonary vein. In this setting where the ascending aorta cannot be safely controlled but mitral valve surgery must proceed, what myocardial protection and operative-field strategy should you choose (beating-heart, ventricular fibrillation, or hypothermic circulatory arrest/alternative route), what are the key technical steps to execute it safely, and which high-risk pitfalls should be explicitly avoided?
+  
+  **Q2 — Postoperative neurologic deficit and suspected air embolism/stroke** Several hours postoperatively in the cardiothoracic ICU after complex redo surgery (preoperative LVEF <35%), the bedside nurse notes an abrupt change in neurologic status: he fails to follow commands, has a new gaze preference, and develops left-sided weakness. Vital signs show mild hypotension and tachycardia; oxygenation is unchanged on mechanical ventilation. Pupils are equal and reactive. There is no major chest tube output and no evidence of active surgical bleeding. Arterial blood gas shows no severe hypercapnia or hypoxemia. Because he recently underwent left-sided intracardiac surgery with cardiopulmonary bypass, the team is concerned about an embolic neurologic event, including systemic air embolism with potential cerebral involvement. In this postoperative scenario, explain the mechanism of systemic air embolism/stroke after left-sided intracardiac surgery, and outline the early recognition criteria, recommended diagnostic workflow, evidence-based acute management (including key time windows and interventions), and prevention strategies for similar future cases?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (myocardial protection/field strategy, key steps, pitfalls; mechanism, recognition, diagnostics, acute management, prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_003/01_case_file.docx

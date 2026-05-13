@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_027
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Director of the Department of Pharmacy in the Hematologic Oncology Center of a large tertiary Grade A hospital. You plan to establish a unified outpatient and day-ward formulary for adult patients with relapsed or refractory multiple myeloma (RRMM), enabling physicians and clinical pharmacists to quickly retrieve information and conduct standardized management. The patient population is mainly covered by urban employee/resident medical insurance; some patients have limited acceptance of frequent infusions, repeated hospitalizations, and complex monitoring. The formulary must balance accessibility, adherence, and the operational feasibility of monitoring.
+  
+  **Formulary construction principles:**
+  - Include drugs within the scope of NMPA-approved indications, and for off-label uses with sufficient evidence, annotate the evidence level and applicable boundaries.
+  - When multiple brands exist under the same generic name, select a representative brand, prioritizing products listed in the NRDL or national-negotiation drugs.
+  - For each drug, label the reimbursement category and payment attributes (Class A/B, national negotiation, in-hospital restrictions, etc.).
+  
+  **Tasks:**
+  1. Organize the RRMM formulary drug categories, stratified by therapeutic positioning, and state the NMPA approval status of each category and the evidence basis for acceptable off-label uses.
+  2. Provide several single-disease prescription examples covering typical combination regimens across different treatment stages and patient scenarios, reflecting regimen composition and route-of-administration design.
+  3. Provide several prescription examples for patients with comorbidities or special situations, explaining the rationale for drug selection and dose/interval adjustments considering organ function, complication risks, prior toxicities, drug–drug interactions, and monitorability.
+  4. Provide prominent alerts on key safety risks of formulary drugs, covering hematologic toxicities, infection and reactivation, infusion/hypersensitivity reactions, immune-related events, neurotoxicity, cardio-renal toxicity, thrombosis/bleeding, reproductive risks, and drug interactions.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

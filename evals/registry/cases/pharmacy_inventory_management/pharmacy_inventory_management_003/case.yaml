@@ -1,0 +1,47 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_003
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  You are a ward pharmacist and have received today’s ward dispensing list. For the same drug, the storeroom may have multiple batches, including near-expiry batches. You must prioritize dispensing using **FEFO (First-Expire, First-Out)**, and record in the dispensing log: storage location, batch number, expiry date, and quantity issued (units). Only if near-expiry stock is insufficient may you use later-expiry batches, and you must note the reason. Note: The stem will not show any drug generic name or brand name; you must first uniquely match each item to a specific product in the attached inventory list based on dosage form/specification/indication clues, and then perform calculations. The following 4 medication items are all “near-expiry injectable medications.” Complete the calculations, picking, and recording item by item.
+  
+  1) Dual-chamber bag antibacterial infusion preparation: A “dual-chamber bag antibacterial infusion preparation.” The powder chamber contains “a third-generation cephalosporin” 2.0 g per bag; the liquid chamber contains 0.9% sodium chloride 100 ml. Order: 2.0 g q8h IV drip, course 3 days. Please complete:
+  (1) Identify the generic name of this drug, and check inventory and unit price.
+  (2) Calculate the total number of bags to be issued for the full course.
+  (3) Using **FEFO (First-Expire, First-Out)**, pick from the near-expiry batch, and write the storage location, batch number, expiry date, and quantity issued for that near-expiry batch (fill in bag/vial according to the attachment’s unit of measure).
+  
+  2) Neuroprotective injection: A “neuroprotective injection,” specification clue **10 ml: 15 mg per ampoule/vial**. Order: 30 mg per dose, bid, course 14 days. Please complete:
+  (1) Identify the generic name of this drug, and check inventory and unit price.
+  (2) Calculate how many ampoules/vials are needed per dose (round up).
+  (3) Calculate how many ampoules/vials are needed for the full course.
+  (4) Using **FEFO (First-Expire, First-Out)**, pick from the near-expiry batch and record storage location, batch number, expiry date, and quantity issued.
+  (5) Verify whether the remaining inventory after dispensing is below the replenishment warning threshold, and state “whether replenishment is triggered.”
+  
+  3) Long-acting IM antibacterial prophylaxis preparation: A “long-acting IM antibacterial prophylaxis preparation,” specification clue **600,000 units per vial/ampoule**. Order: 1,200,000 units this time, single IM injection (today only). Please complete:
+  (1) Identify the generic name of this drug, and check inventory and unit price.
+  (2) Calculate the number of vials/ampoules to issue (round up).
+  (3) Using **FEFO (First-Expire, First-Out)**, pick the near-expiry batch and record storage location, batch number, expiry date, and quantity issued.
+  (4) Calculate the remaining inventory balance after dispensing, and determine whether it is below the warning threshold.
+  
+  4) Long-acting erythropoiesis-stimulating agent (ESA) prefilled syringe for renal anemia: A “long-acting ESA prefilled syringe for renal anemia,” specification clue **100 μg/0.3 ml per syringe**. Order: 100 μg subcutaneous injection, once every 4 weeks; this time is discharge take-home medication, total **2 doses**. Please complete:
+  (1) Identify the generic name of this drug, and check inventory and unit price.
+  (2) Calculate the total number of syringes to issue (calculate as “dose each time × number of times,” avoid missing the multiplication).
+  (3) Using **FEFO (First-Expire, First-Out)**, record the near-expiry batch storage location, batch number, expiry date, and quantity issued.
+  (4) Calculate whether the remaining inventory after dispensing is below the warning threshold.
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (278 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_003` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_003/01_inventory.xlsx
+mcp_question_id: v5_003

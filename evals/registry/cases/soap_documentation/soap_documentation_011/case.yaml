@@ -1,0 +1,48 @@
+case_id: soap_documentation/soap_documentation_011
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior otolaryngology (ENT) physician. On the morning of March 6, 2025, a 33-year-old woman, Lin Yating (pseudonym), presented for evaluation accompanied by her husband. Please analyze her condition based on the following clinic dialogue summary, chief complaint/history, and physical examination findings, and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient is thin and speaks with a “breathy,” hoarse voice. Chief complaint: “Severe sore throat, hoarseness for nearly one month, and progressively worsening difficulty swallowing.”
+  
+  As soon as she sat down, she frowned and said: “I’m a kindergarten teacher, and I have to shout at kids every day. At first, my voice would get hoarse after class, like sandpaper stuck in my throat. I thought it was ‘internal heat,’ but throat lozenges didn’t help. Then the longer I waited, the more it felt wrong—swallowing saliva feels like being cut by a knife; it hurts so much that at night I don’t even dare to swallow.” She added that for the past two weeks she has almost only dared to drink congee and soup: “Anything a bit solid won’t go down; even if it goes down, it hurts.”
+  
+  She produced a prescription list from an outside facility: “The first two times, small clinics said it was pharyngolaryngitis and reflux. They gave me anti-inflammatory medication and acid-suppressing medication and told me to speak less, but I can’t completely stop talking for work. After finishing the meds, it didn’t get better at all—instead it got more and more painful.”
+  
+  When asked about systemic symptoms, she hesitated: “Recently I’ve been extremely fatigued. In the afternoons I often feel feverish; when I measured it, it was only around 37-point-something—doesn’t count as a fever, right? Over this month my weight dropped four or five jin… oh no, about nine jin. A few nights ago I also sweated twice while sleeping; my clothes felt damp. I thought it was anxiety.” She denied smoking and alcohol use. Over the past week, at night she occasionally feels “throat tightness,” and she becomes somewhat short of breath when climbing stairs, but lying flat does not wake her from sleep with a feeling of suffocation. She denied significant cough or sputum production; she occasionally clears her throat and occasionally has one or two dry coughs: “like something is stuck.”
+  
+  Her husband added: “She’s been eating less, her complexion looks worse, and at night she tosses and turns from the pain. We have a lot of kids at home too, and she’s crowded together with kids at kindergarten all day. I’m worried it might be something bad growing there.”
+  
+  **Past Medical History and Family History:**
+  Past medical history: Type 2 diabetes mellitus for 6 years; recent glycemic control described as average (reports fasting glucose often 9–10 mmol/L). Systemic lupus erythematosus; long-term oral prednisone 7.5 mg/day and hydroxychloroquine. Iron-deficiency anemia with intermittent iron supplementation. No history of tuberculosis treatment; received BCG vaccination in childhood. No known drug allergies.
+  
+  Family history: Both parents alive; no family history of head and neck malignancy.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 37.8°C, heart rate 96/min, blood pressure 118/74 mmHg, respiratory rate 18/min, SpO2 97% on room air.
+  
+  General: Thin, fatigued appearance; effortful speech; hoarse, breathy voice; no obvious respiratory distress at rest.
+  
+  Ears/Nose/Throat: Oropharyngeal mucosa mildly hyperemic; no obvious tonsillar exudate or oral thrush. Neck palpation: a left level II lymph node ~1.2 cm, medium consistency, mobile, mildly tender to pressure.
+  
+  Laryngoscopy (office indirect laryngoscopy): Hyperemia and edema of the posterior laryngeal mucosa; superficial ulcer-like change with friable, easily bleeding granulation-like tissue at the posterior commissure/interarytenoid region; mild supraglottic edema. No definite anterior vocal fold exophytic/cauliflower-like mass visualized in this field of view.
+  
+  Cardiopulmonary: Regular rhythm, no murmurs. Breath sounds acceptable bilaterally; very faint fine crackles audible over the right upper back (requires careful auscultation).
+  
+  Abdomen: Soft, non-tender; no hepatosplenomegaly palpated.
+  
+  Available lab summary: CBC WBC 7.9×10^9/L, Hb 103 g/L, Plt 372×10^9/L; ESR 62 mm/h, CRP 28 mg/L; fasting glucose 9.8 mmol/L, HbA1c 8.6%.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_011/01_attachment.pdf

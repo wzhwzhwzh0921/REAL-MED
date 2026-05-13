@@ -1,0 +1,47 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_032
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  The hospital Pharmacy & Therapeutics (P&T) Committee plans a phased evaluation to supplement the medication formulary used by the Chest Pain Center. The evaluation will focus on “insurance priority, clinical-scenario fit, and cost-effectiveness (including inventory and near-expiry handling)” and will conduct formulary-selection justification for 4 products in the attached list whose **insurance attribute is non-reimbursable (non-insurance)**. Note: the stem will not provide any drug generic names or brand names; you must use the dosage form/specification/indication/route clues to uniquely match each product in the attached list before completing the calculations and justification. The Pharmacy Department should produce meeting-ready comparative conclusions according to the following sub-questions (each sub-question must state: whether it is recommended to be included in the Chest Pain Center formulary / recommended for restricted use / recommended not to be included, and provide at least one reason).
+  
+  Sub-question 1 (Matching or not): A topical preparation described as “**60 g aerosol spray in a bottle, containing two local anesthetic/antiseptic components; inventory shows obvious overstock and the unit price is relatively high**.”
+  (1) Identify the drug’s generic name, and query its inventory and unit price.
+  (2) Assess its relevance to the Chest Pain Center ACS antiplatelet pathway, and provide an evidence chain supporting “**do not include**.”
+  (3) Provide recommendations to draw down existing stock (including an expiry-risk warning).
+  
+  Sub-question 2 (Cost-effectiveness + inventory calculation, by the minimum dispensing unit): A product described as “**2.5 g tea sachets in a bag**, used for vomiting and diarrhea caused by wind-cold combined with food retention; inventory is flagged as near-expiry.” If the outpatient clinic plans a near-expiry drawdown program: calculate based on per-dose amount, daily frequency, and treatment-course days.
+  (1) Identify the drug’s generic name, and query its inventory and unit price.
+  (2) Verify against the package insert/physician order conventions and determine the dosing parameters for the near-expiry drawdown plan (dose per administration, times per day, consecutive days), and based on these calculate how many minimum units (“boxes/bags” as applicable) need to be dispensed.
+  (3) Based on this, calculate the remaining inventory after drawdown and whether it falls below the replenishment warning threshold (show the calculation process).
+  (4) Also provide the recommendation on whether to include this product in the Chest Pain Center formulary (and the trade-off decision).
+  
+  Sub-question 3 (Inventory-occupancy calculation): A pediatric oral pill described as “**small honeyed pills, 0.9 g per pill**,” with extremely high inventory and non-insurance. If planning to use an internal structured inventory-reduction program: calculate based on the dosing regimen and treatment course for children older than 1 year.
+  (1) Identify the drug’s generic name, and query its inventory and unit price.
+  (2) Verify against the package insert/the proposed internal plan and determine the dosing parameters (single dose for children older than 1 year, times per day, consecutive days), and calculate the total number of pills consumed.
+  (3) After consumption, would the inventory still be considered overstocked (judge in conjunction with the replenishment warning threshold)?
+  (4) Explain why this product should not enter the Chest Pain Center ACS formulary.
+  
+  Sub-question 4 (Indication mismatch explanation): A topical wash solution described as “**120 mL per bottle**,” used for infections/tinea, etc. related to damp-heat pouring downward; non-insurance and normal inventory.
+  (1) Identify the drug’s generic name, and query its inventory and unit price.
+  (2) From three aspects—indication, route/method of use, and the Chest Pain Center acute-phase medication closed-loop—provide reasons for not including it.
+  (3) If it is to be retained in the hospital formulary, propose which specialty formulary category it would be more appropriate to place under.
+  
+  Deliverables: 1 comparative table (insurance attribute, unit price, inventory/expiry status, replenishment warning threshold, recommendation on inclusion and reasons), plus a conclusion paragraph for each sub-question not exceeding 150 Chinese characters’ length equivalent (keep each conclusion concise).
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (280 drug rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_032` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_032/01_inventory.xlsx
+mcp_question_id: v5_035

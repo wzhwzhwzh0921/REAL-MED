@@ -1,0 +1,58 @@
+case_id: soap_documentation/soap_documentation_050
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of March 2, 2026, a 49-year-old woman, Liang Wenjing (pseudonym), a middle school music teacher, presented to the ENT clinic accompanied by her husband for evaluation of progressive nasal obstruction, snoring, and left-sided aural fullness with recent worsening hearing.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient sighed upon sitting down and reported a 2-month history of nasal obstruction: “My nose feels like it’s stuffed with cotton.” Symptoms are worse at night and when lying down, with markedly louder snoring, frequent mouth-breathing during sleep, and waking with a dry throat and thick, sticky phlegm requiring frequent throat-clearing. She noted this began after a prolonged cold about 2 months ago: “After that cold dragged on for a long time, I just never really got better.” Initially, the obstruction was primarily at night with relatively normal daytime breathing. She self-treated with an over-the-counter nasal spray “to open the nose,” which helped for 1–2 days but symptoms repeatedly recurred.
+  
+  She also reported that recently her voice has sounded “a bit muffled and nasal,” and students have asked whether her nose is blocked.
+  
+  One month ago, she developed left ear fullness described as a “blocked” sensation similar to being on an airplane, with intermittent “clicking/popping,” without significant pain. Over the past 5 days, she noticed worsened left-sided hearing: “When I’m teaching and playing the piano I can hear it, but when students talk I often need them to repeat; at home I keep turning the TV volume higher.”
+  
+  She repeatedly emphasized no epistaxis and denied weight loss, odynophagia, facial numbness, or diplopia. She became increasingly anxious and stated: “Doctor, I looked it up online—adults with nasal blockage and one-sided ear fullness…it says…that kind of nasopharyngeal tumor. I haven’t slept well the past two days; the more I think about it, the more scared I am.”
+  
+  Her husband added that she typically has sneezing and clear rhinorrhea in spring and autumn, and this is also occurring recently, with the pillow often “soaked.” She does not smoke. Work stress is high. Recently she has been waking at night feeling “choked” by her own snoring and is sleepy during the daytime while teaching.
+  
+  **Past Medical History and Family History:**
+  Past medical history:
+  - Intermittent allergic rhinitis (worse in spring and autumn).
+  - Recurrent episodes of ear fullness over the past 2 years; previously told there was “fluid behind the eardrum,” mostly treated conservatively.
+  - Acid reflux; takes acid-suppressing medication intermittently with relief.
+  
+  Allergies:
+  - Penicillin allergy (urticarial/wheal-like rash).
+  
+  Social history:
+  - Denies smoking.
+  - Alcohol: occasional small amounts.
+  
+  Family history:
+  - No definite family history of head and neck tumors.
+  
+  **Physical Examination Findings:**
+  Vital signs: T 36.8℃, HR 78/min, BP 126/80 mmHg, RR 16/min, SpO2 98%.
+  General: Alert, mildly fatigued; speech with mild hyponasality.
+  Anterior rhinoscopy: Pale, edematous nasal mucosa with abundant clear, watery secretions.
+  Oropharynx: Mild granular change of the posterior pharyngeal wall with small amount of adherent mucus.
+  Otoscopy: Left tympanic membrane with obscured light reflex, dull appearance, visible air–fluid level; right tympanic membrane grossly normal.
+  Neck: No palpable enlarged lymph nodes.
+  
+  Fiberoptic nasopharyngoscopy (initial outpatient exam; strong gag/cough reflex limited dwell time): A raised lesion was seen in the posterosuperior nasopharynx, slightly left of midline, partially obstructing the posterior choanae; surface relatively smooth with fine longitudinal striations; no obvious contact bleeding with light touch; exam was limited due to coughing/nausea reflex.
+  
+  Ancillary test summary:
+  - CBC: WBC and hemoglobin normal; eosinophil percentage slightly elevated.
+  - EBV DNA: not detected.
+  - Audiology: Mild conductive hearing loss on the left; tympanometry left type B, right type A.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_050/01_attachment.pdf

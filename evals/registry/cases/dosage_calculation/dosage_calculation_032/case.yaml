@@ -1,0 +1,18 @@
+case_id: dosage_calculation/dosage_calculation_032
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Mr. Wang, male, 84 years old, height 170 cm. He was admitted to the dialysis unit for evaluation due to “borderline urea clearance on recheck after maintenance hemodialysis.” Past history: end-stage kidney disease on regular dialysis. Over the past 2 weeks, he reports fatigue and poor appetite, without chest tightness or dyspnea, and without fever. Today he underwent routine hemodialysis for 3.5 hours (210 min). Post-dialysis weight was 60.0 kg, ultrafiltration volume 0.9 L, and vital signs were stable.
+  
+  Physical examination: alert; mild anemic appearance; bilateral lung breath sounds clear, no moist rales; regular heart rhythm; mild pitting edema in the lower extremities.
+  
+  Laboratory data: pre-dialysis blood urea nitrogen (BUN) 24.0 mmol/L, decreased to 10.8 mmol/L post-dialysis.
+  
+  Given his advanced age and dialysis parameters close to the minimum threshold, it is necessary to determine whether adequate dialysis targets are achieved and adjust the prescription accordingly.
+  
+  Please calculate this patient’s sp_kt_v, with the result rounded to two decimal places.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

@@ -1,0 +1,12 @@
+case_id: dosage_calculation/dosage_calculation_018
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Ms. Wang, a 41-year-old female, 2 weeks postpartum. Chief complaint: “nausea and vomiting with thirst and polyuria for 1 day.” Present illness: since yesterday she has had marked fatigue, slightly deep and rapid breathing; family measured persistently elevated blood glucose, so she was admitted to the ED urgently. Past history: diabetes mellitus. Postpartum she is more insulin-sensitive than before; she has had multiple episodes of mild hypoglycemia. The physician instructed not to overestimate the insulin dose based on her body weight of 92.0 kg. Physical exam: clear consciousness, dry lips, slightly deep and rapid breathing, tachycardia, blood pressure acceptable, abdomen soft without tenderness. Ancillary tests: markedly elevated blood glucose, urine ketones positive, arterial blood gas suggests metabolic acidosis; diagnosed with DKA. She was admitted to the ICU for fluid resuscitation and IV insulin infusion. After correction of acidosis, blood glucose has stabilized; for the past 6 hours, the IV insulin infusion has been maintained at 1.6 U/hour. She can now eat solid food and is planned to transition to a subcutaneous regimen; given her tendency toward hypoglycemia, a safety reduction factor of 0.6 is planned.
+  
+  Please calculate this patient’s overlap_hours_required.
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

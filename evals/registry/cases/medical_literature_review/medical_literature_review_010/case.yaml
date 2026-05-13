@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_010
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are an internal medicine physician who has seen multiple adult and pediatric patients with rare diseases in the outpatient clinic. Over the past two years, you have observed that some clinical trials of rare-disease drugs show “slow initiation after registration and uneven distribution of participating sites,” causing patients to miss enrollment windows. Therefore, you plan to write a scoping review for clinical and research audiences (e.g., clinicians, trial investigators, sponsors, and policymakers) to characterize trial-registration features and real-world translational efficiency, and to inform strategies that improve trial start-up and patient access in China.
+  
+  Topic: “Registration Characteristics and Translational Efficiency of China Rare-Disease Drug Clinical Trials (2024)”.
+  
+  The review must systematically compile and analyze the following core content:
+  1. Characteristics of time from registration to first patient enrollment (first-subject-in) (FSI);
+  2. Distribution of trial centers and regional disparities;
+  3. Trends in drug types and trial-design characteristics;
+  4. Regulatory policies and start-up efficiency (e.g., “60-day implied approval”) and their impact on patient accessibility.
+  
+  Search and inclusion keywords: rare disease/orphan drug、clinical trial registration、start-up time/activation、China、pediatric/adult. A standardized reference list is required at the end of the review; it is recommended to use a flowchart to display key nodes in “registration—ethics review—contracting—site activation,” use tables to summarize start-up time and center distribution by drug type/design, and use a map or bar chart to present regional differences.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

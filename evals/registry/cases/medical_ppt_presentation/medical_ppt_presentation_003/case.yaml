@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_003
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a dermatologist. Please prepare a lecture PPT on Th2 pathway–targeted therapy for atopic dermatitis, drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: Features of Th2 activation, IL-4/IL-13 pathogenic mechanisms, the vicious cycle of skin barrier defects and inflammation interaction, treatment risks and key monitoring points.
+  **Visual materials**: SCORAD stratified assessment flowchart; stepwise treatment pathway diagram (including sequential/combination strategies); barrier–Th2 vicious cycle schematic diagram.
+  **Constraints & format**: 14–16 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–16 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (Features of Th2 activation, IL-4/IL-13 pathogenic mechanisms, the vicious cycle of skin barrier defects and inflammation interaction, treatment risks and key monitoring points).
+  3. Include the visual materials specified (SCORAD stratified assessment flowchart; stepwise treatment pathway diagram (including sequential/combination strategies); barrier–Th2 vicious cycle schematic diagram).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_003/01_template.pptx

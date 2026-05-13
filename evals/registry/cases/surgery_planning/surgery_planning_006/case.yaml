@@ -1,0 +1,23 @@
+case_id: surgery_planning/surgery_planning_006
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior colorectal/anorectal surgeon. The case below describes a 36-year-old man with a long-standing complex cryptoglandular anal fistula with multiple external openings and more than one internal opening, requiring nuanced sphincter-sparing operative planning and early postoperative triage.
+  - 36-year-old man; no significant comorbidities.
+  - 10-year history of recurrent perianal “lumps” that become painful, rupture, and intermittently drain purulent fluid despite repeated medical therapy.
+  - Symptoms: ongoing intermittent pus discharge and local discomfort; no fever, weight loss, or diarrhea.
+  - Colonoscopy normal.
+  - Routine labs unremarkable; cultures negative for tuberculosis.
+  - Preoperative contrast MRI with 3D reconstruction: complex, branching fistula network with multiple external openings (1–3 o’clock, 5 o’clock, and 12 o’clock; 2–7 cm from the anal verge) and two true internal openings (approximately 2 o’clock at the dentate line and 7 o’clock above the sphincter complex in rectal mucosa).
+  
+  **Q1 — Intraoperative decision-making** Under anesthesia, probing and dye injection confirm a complex, multi-branch anal fistula: one dominant tract traverses a large portion of the external anal sphincter (>30% suspected); a separate posterior tract lies in the intersphincteric plane and leads to the high 7 o’clock internal opening; the 5 o’clock external opening appears to be a deep confluence point; multiple dependent secondary branches drain laterally to several 1–3 o’clock skin openings; and an anterior extension tracks toward the scrotal root with three scrotal openings. At this intraoperative stage, which tracts should be managed with drainage and/or seton placement versus definitive single-stage repair (e.g., limited fistulotomy, LIFT, or endorectal advancement flap), and how would you specifically address the high 7 o’clock internal opening and the scrotal/lateral secondary branches to balance cure, continence preservation, and reduced recurrence—what are the key steps and most common pitfalls?
+  
+  **Q2 — Postoperative complication management** Two weeks after operative treatment for this long-standing complex fistula (multiple external openings around the perineum and scrotal root with branching tracts and more than one internal communication), he reports ongoing daily purulent drainage from several external openings and increasing perianal discomfort, plus new difficulty controlling flatus and occasional soiling that was not present preoperatively; he is afebrile and denies chills. Exam shows perianal induration with several external openings that express pus with gentle pressure, mild erythema without crepitus, and mildly reduced resting tone on DRE; no palpable mass; basic labs show no leukocytosis. In this postoperative scenario, what is the most important complication to prioritize (new sphincter dysfunction with fecal incontinence versus persistent/recurrent fistula with ongoing sepsis), and how should it be evaluated early and managed in an evidence-based stepwise pathway while minimizing future risk?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop drainage/seton vs definitive repair planning; early prioritization/workup/stepwise evidence-based management). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_006/01_case_file.docx

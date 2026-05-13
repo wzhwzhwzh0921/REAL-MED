@@ -1,0 +1,17 @@
+case_id: medical_ppt_presentation/medical_ppt_presentation_024
+task_type: medical_ppt_presentation
+prompt: |
+  [Task Prompt]
+  You are a gynecologic oncology physician. Please prepare a lecture PPT on early-stage cervical cancer (minimally invasive/robotic hysterectomy and staging surgery), drawing on the latest authoritative guidelines.
+  **Core content (including but not limited to)**: HR-HPV carcinogenesis progression chain, key points of FIGO 2025 staging, controversies and indications of minimally invasive surgery.
+  **Visual materials**: HPV screening triage flowchart; staging → minimally invasive/open surgery → lymph node management decision tree; MRI diameter/radial-line measurement schematic.
+  **Constraints & format**: 14–20 slides, with speaker notes.
+  
+  [Answer Format]
+  [Template instructions] This task includes a PPTX template file (`01_template.pptx`). Please generate the PPT based on the overall style, layout constraints, and master slide system of this template, retaining the template's color scheme, fonts, and layout logic.
+  The `.pptx` deck must:
+  1. Be 14–20 slides total, each with speaker notes.
+  2. Cover the core content listed in the Task Prompt above (HR-HPV carcinogenesis progression chain, key points of FIGO 2025 staging, controversies and indications of minimally invasive surgery).
+  3. Include the visual materials specified (HPV screening triage flowchart; staging → minimally invasive/open surgery → lymph node management decision tree; MRI diameter/radial-line measurement schematic).
+attachments:
+  - medical_ppt_presentation/medical_ppt_presentation_024/01_template.pptx

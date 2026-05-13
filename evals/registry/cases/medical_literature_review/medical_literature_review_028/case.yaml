@@ -1,0 +1,22 @@
+case_id: medical_literature_review/medical_literature_review_028
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a cardiologist. During outpatient follow-up of multiple adult patients with valvular heart disease after transcatheter aortic valve replacement (TAVR), you have observed that, over the past six months, there has been marked disagreement in perioperative/postoperative antithrombotic medication selection between “stroke prevention” and “bleeding complications.” In addition, follow-up has revealed dual pressures of suspected valve thrombosis and gastrointestinal bleeding. Therefore, you plan to write a meta-analysis on this topic for clinical decision-making and academic dissemination to inform perioperative and post-TAVR antithrombotic management.
+  
+  Topic: Perioperative antithrombotic strategies for adult patients with valvular heart disease undergoing transcatheter aortic valve replacement (TAVR).
+  
+  The review must systematically compile and analyze the following core content:
+  1. Net clinical benefit of SAPT vs DAPT;
+  2. Stratified strategies for patients with concomitant indications for anticoagulation such as atrial fibrillation;
+  3. Outcome comparisons of DOAC vs VKA after TAVR;
+  4. Unified definitions and pooled analyses of endpoints including valve thrombosis/stroke/bleeding.
+  
+  Search and inclusion keywords: TAVR/TAVI, antithrombotic, antiplatelet, anticoagulation, randomized/meta-analysis. A standardized reference list must be provided at the end of the review; present the screening process using a PRISMA flow diagram, summarize major outcome effect sizes with a forest plot, and use comparative tables to synthesize the stroke–valve thrombosis–bleeding balance and subgroup results across different regimens.
+  
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

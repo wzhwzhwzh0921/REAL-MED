@@ -1,0 +1,22 @@
+case_id: medication_formulary_design/medication_formulary_design_007
+task_type: medication_formulary_design
+prompt: |
+  [Task Prompt]
+  You are the Medical Director of a Rare Disease Center at a tertiary (Grade III-A) hospital. You plan to establish an in-hospital standardized management clinic for Turner syndrome (TS), primarily serving pediatric and adolescent females. Families’ ability to pay varies substantially; some patients rely on NRDL Class B reimbursement or require full self-pay. There are real-world constraints regarding injection frequency, long-term adherence, and follow-up accessibility, and management often needs to simultaneously address high-risk cardiovascular issues and other risks.
+  
+  **Formulary construction principles:**
+  - Include medications within NMPA-approved indication scope; when off-label (outside approved indications) use is involved, annotate within the table the evidence source and evidence level, and clearly define evidence boundaries and prerequisites for use.
+  - Brand selection should prioritize insurance accessibility; for the same generic name, select 1 representative brand and specify substitution/alternatives information.
+  - Label reimbursement category (Class A / Class B / self-pay) and payment attributes for each item.
+  
+  **Tasks:**
+  1. Organize the TS formulary drug categories and stratify them by therapeutic positioning; specify each category’s NMPA approval status and the off-label evidence, including boundaries.
+  2. Provide several single-disease prescription examples covering typical combinations across different treatment stages, routes and frequency preferences, life-cycle differences, and adherence levels.
+  3. Provide several prescription examples for TS with comorbidities or special situations, explaining drug selection and dose-adjustment logic across dimensions such as organ function, perioperative/thrombosis risk, endocrine comorbidities, and fertility-related management.
+  4. Provide strong, prominent alerts on key safety risks of formulary medications, covering contraindicated and caution populations, treatment-course and growth/development-related limits, thrombosis/tumor and cardiovascular-event risks, drug–drug interactions, baseline assessments, and follow-up monitoring.
+  [Answer Format]
+  Submit a single Excel file (`.xlsx`) via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.xlsx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.xlsx` formulary must include the following columns:
+  - Drug category / Generic name / Representative brand / Dosage form & strength / Route of administration / Therapeutic positioning / Mechanism of action / NMPA-approved indication & approval status / Off-label evidence & applicable boundaries / Reimbursement category / Payment attributes & key restriction notes / Recommended regimen & dose / Course & adjustment notes / Key contraindications & warnings / Common adverse reactions / Key monitoring indicators / Applicable population & scenarios / Special-population precautions / Remarks
+  Charts may be added to visualize key data comparisons.

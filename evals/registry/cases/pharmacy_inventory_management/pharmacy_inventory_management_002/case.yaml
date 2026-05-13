@@ -1,0 +1,55 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_002
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  You are supervising a newly assigned pharmacist in completing “next-day centralized ward dispensing.” Recently, the pharmacy storeroom has multiple **injectable** medications that are “approaching expiry soon; if not prioritized for dispensing, they may accumulate and be written off due to expiration.” Without affecting ordered therapy, follow **FEFO (First-Expire, First-Out)**: among different batches of the same product, prioritize dispensing the batch with the earliest expiration date, and complete quantity reconciliation and inventory warning (reorder-threshold) checks. Note: the stem will not provide any drug generic or brand names; you must use the dosage form/specification/indication clues to uniquely match the specific product in the attachment list before calculating.
+  
+  Provide: the product-description matching results, the number of ampoules/vials to dispense calculated by patient/order, the batch number(s) and expiry date(s) selected per FEFO, the remaining inventory after dispensing, and whether the reorder warning line is triggered.
+  
+  1) Identification only (no calculations): For the following 7 “near-expiry” injectables, complete each item:
+  (1) Identify the drug’s **generic name**, and query **inventory** and **unit price**.
+  Also establish a one-to-one correspondence using “clinical use + dosage-form/specification features,” and enter it into the table:
+  A. A traditional Chinese medicine injection used for clearing heat and detoxifying, relieving cough, and relieving dysentery; **each ampoule 2 mL contains 50 mg**.
+  B. An amino acid injection for parenteral nutrition support; **250 mL contains total amino acids 25.9 g**.
+  C. An intramuscular analgesic/anti-inflammatory preparation for degenerative rheumatic disease/acute gout, etc.; **each vial contains 75 mg + 20 mg** as a compound.
+  D. An intravenous medication for hypertensive crisis, etc.; **50 mg per ampoule**.
+  E. An immunomodulatory medication; **1 mg per ampoule**, can be given IM or as a separate IV infusion.
+  F. An antiviral medication for infections related to immunocompromised patients; **0.64 g per ampoule**.
+  G. An antibacterial drug for IM use; **2 mL contains 0.5 g (500,000 units)**; treatment course is generally within 10 days.
+  
+  2) Calculation (injection; specification: 2 mL contains 50 mg): A ward’s next-day order is IV infusion **375 mg once daily (qd)** for **2 consecutive days**. Complete:
+  (1) Identify the drug’s generic name, and query inventory and unit price.
+  (2) Calculate the number of ampoules to dispense assuming “whole-ampoule dispensing.”
+  (3) Under FEFO, select the batch with the earliest expiry to dispense first (state batch number and expiry date).
+  (4) After dispensing, verify whether remaining inventory for this product is below the reorder warning line; and note in the table: “FEFO: must prioritize dispensing the earliest-expiring batch.”
+  
+  3) Calculation (antibacterial IM drug; specification: 2 mL contains 0.5 g): Pediatric patient weight **15 kg**. Order: **30 mg/kg/day**, divided into **2 IM doses**, for **7 days**. Complete:
+  (1) Identify the drug’s generic name, and query inventory and unit price.
+  (2) Calculate the total daily dose (mg) and the dose per administration (mg).
+  (3) Convert to how many ampoules of this specification are needed per administration (whole-ampoule dispensing; round up), and calculate the total number of ampoules to dispense for 7 days.
+  (4) Under FEFO, select the batch with the earliest expiry to dispense first (state batch number and expiry date; if dispensing must span batches, specify).
+  (5) Verify whether remaining inventory after dispensing triggers the reorder warning line.
+  
+  4) Calculation (immunomodulatory medication; specification: 1 mg per ampoule): Order: **1 ampoule per dose, twice daily**, treatment course **15 days**. Complete:
+  (1) Identify the drug’s generic name, and query inventory and unit price.
+  (2) Calculate the number of ampoules to dispense.
+  (3) Under FEFO, select the batch with the earliest expiry to dispense first (state batch number and expiry date; if dispensing must span batches, still follow FEFO by issuing the earliest-expiring batch first and explain in remarks).
+  (4) Check remaining inventory after dispensing and whether the reorder warning line is triggered.
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (274 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_002` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_002/01_inventory.xlsx
+mcp_question_id: v5_002

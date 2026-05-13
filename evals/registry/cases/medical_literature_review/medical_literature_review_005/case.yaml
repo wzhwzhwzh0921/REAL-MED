@@ -1,0 +1,21 @@
+case_id: medical_literature_review/medical_literature_review_005
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are an endocrinologist who, in outpatient practice, has managed multiple adult patients with osteoporosis who are planned to initiate or are already receiving denosumab/teriparatide/romosozumab. You have observed inconsistent implementation across departments regarding pre-treatment baseline assessment, monitoring frequency during therapy, and post-discontinuation sequential treatment plans, along with management problems such as hypocalcemia and conflicts with dental procedures. Therefore, you plan to write a scoping review on this topic to support evidence-based, standardized clinical management and to identify gaps between guideline recommendations and the evidence base for clinicians and related stakeholders.
+  
+  The scoping review topic is: “Consistency with Evidence-Based Medication Guidance and Evidence Gaps for Novel Biologic Agents in Osteoporosis (focusing on pre-treatment assessment, monitoring, and sequential therapy).”
+  
+  The review must systematically compile and analyze the following core content:
+  1. Evidence map of eligible populations and risk stratification;
+  2. Key elements of pre-treatment baseline assessment and comparison with the “Evidence-based Medication Guideline for Biologic Agents in the Clinical Treatment of Osteoporosis”;
+  3. Evidence and between-guideline/practice differences in monitoring indicators and monitoring frequency during treatment;
+  4. Evidence for sequential therapy and discontinuation/interval strategies (including management after denosumab discontinuation).
+  
+  Search and include literature using the following keywords: osteoporosis、denosumab/teriparatide/romosozumab、baseline assessment、monitoring、sequential therapy/discontinuation. A standardized reference list is required at the end of the review.
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

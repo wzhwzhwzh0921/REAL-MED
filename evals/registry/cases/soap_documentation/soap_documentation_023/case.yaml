@@ -1,0 +1,38 @@
+case_id: soap_documentation/soap_documentation_023
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 12, 2024, a 48-year-old middle-school history teacher, Li Xiuying (pseudonym), presented to the Oral and Maxillofacial Surgery clinic accompanied by her husband for evaluation of a progressively enlarging right mandibular swelling with new sensory symptoms.
+  **Chief Complaint and History of Present Illness:**
+  **Chief complaint:** “Painless swelling of the right mandible for over 1 year, recently accompanied by numbness of the lower lip.”
+  
+  The patient speaks extensively for work and, upon entering the clinic, unconsciously supported the right side of her chin with her right hand. She stated: “Doctor, actually about a year ago I felt something was a bit off on the right side of my face. When putting on makeup, it felt like the two sides weren’t symmetric. I thought it was middle-age weight gain or skin sagging, so I didn’t pay attention. But these past few months, the removable denture at that area (pointing to the right posterior mandibular tooth area) just won’t fit no matter how I wear it—it always pops up. Over the last two weeks, my right lower lip has felt numb and tingly, like the numbing shot hasn’t worn off. Sometimes I don’t even realize water is leaking out when I drink.”
+  
+  Her husband added: “She can really tolerate things. Fifteen years ago, she had a big tooth pulled there (right mandibular first molar). They said it was too decayed. We always thought the extraction site might be inflamed or that something was left behind. We were hoping you could prescribe some anti-inflammatory medication and also see if she can get a new denture.”
+  **Past Medical History and Family History:**
+  - **Past medical history:** Hypertension for 5 years, well controlled on amlodipine 5 mg/day.
+  - **Dental/surgical history:** Extraction of right mandibular first molar (#46) 15 years ago due to severe caries.
+  - **Medications:** Amlodipine 5 mg daily.
+  - **Allergies:** Penicillin allergy (history of rash).
+  - **Social history:** Denies smoking and alcohol use.
+  - **Family history:** No family history of similar jaw lesions or tumors.
+  **Physical Examination Findings:**
+  - **Vital signs:** T 36.8℃, HR 76/min, BP 138/82 mmHg, RR 16/min.
+  - **General:** Alert and oriented, well nourished.
+  - **Extraoral/head and neck:** Facial asymmetry with obvious bulging over the right mandibular body region; overlying skin normal in color without ulceration or sinus tract. Palpation revealed a hard mass in the right mandibular body corresponding to the 45–47 region, with relatively clear borders. At the point of maximal prominence, the cortex was thinned with a pronounced “ping-pong ball”/eggshell cracking sensation (crepitus) on pressure. Right submandibular lymph node(s) palpable, mobile, non-tender.
+  - **Intraoral:** Buccal and lingual alveolar expansion in the right mandibular 45–47 region, most evident at the vestibular sulcus. Mucosa intact but with a slightly dark bluish-purple discoloration. Tooth #46 missing; a denture pressure indentation noted on the alveolar ridge. Adjacent teeth #45 and #47 with mobility grade II; percussion pain negative; pulp vitality testing normal.
+  - **Neurologic:** In the distribution of the right mental nerve (right lower lip and chin skin), pinprick pain sensation and light touch were clearly decreased compared with the contralateral side.
+  - **Ancillary studies (outside panoramic radiograph and outpatient aspiration provided by patient):**
+    1. **Panoramic radiograph:** A very large, unilocular radiolucent (low-density) lesion in the right mandibular body with a clear border and a sclerotic radiopaque rim. Lesion extent involves the 44–48 region. Notably, roots of the involved teeth (#45 and #47) show “serrated”/“truncated” root resorption rather than simple displacement.
+    2. **Diagnostic aspiration:** Approximately 2 mL of brown, blood-tinged fluid aspirated; no cholesterol crystals observed.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_023/01_attachment.pdf

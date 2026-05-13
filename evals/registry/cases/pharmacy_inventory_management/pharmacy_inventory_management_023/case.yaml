@@ -1,0 +1,48 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_023
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  Anesthesiology Department / Pharmacy Department Joint Drill Notice (must submit 1 xlsx + 1 docx)
+  
+  Today, during a general-anesthesia surgery, a simulated sudden “anesthesia-related hypermetabolic crisis” occurs. Key features: rescue medication must be rapidly administered as an IV bolus based on the patient’s body weight and may be repeatedly re-dosed by weight; additionally, for certain antibacterial agents, dosing must be calculated using “standard body weight after removing excess fat” to avoid toxic accumulation. As the on-duty pharmacist, complete the following dose calculations and inventory verification, and organize the full calculation process for submission.
+  
+  Note: The stem will not provide any drug generic names or brand names. You must uniquely match the specific product in the attached list based on dosage form / strength / indication clues, and then perform the calculations.
+  
+  Patient information: Male, 38 years old; height 170 cm; actual body weight 92 kg; scheduled for laparoscopic surgery. At 20 minutes after anesthesia induction, CO₂ rises, muscle rigidity occurs, and body temperature rises rapidly; the above crisis is suspected.
+  
+  Subtask 1 (rescue drug initial dose + add-on doses + maximum cumulative dose; must convert to number of vials per strength): The crash cart contains a “lyophilized powder for injection used to prevent and treat anesthesia-related hypermetabolic crisis.” After confirmation, immediately give a rapid IV bolus of 1 mg/kg; if not improved, additional doses of 1 mg/kg may be given each time until symptoms resolve or the cumulative dose reaches the maximum of 7 mg/kg.
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) Calculate how many mg should be given for the initial bolus for this patient, and how many vials are needed (round up to whole vials).
+  (3) If there is still no improvement after the initial dose, plan to add 2 more doses at the same dose: calculate the cumulative total dose after the add-on doses (mg and mg/kg) and the total number of vials needed cumulatively.
+  (4) Before reaching the maximum cumulative dose, calculate the maximum number of additional doses that can still be given (each time at “1 mg/kg”), and provide the corresponding maximum cumulative number of vials.
+  
+  Subtask 2 (antibacterial dosing based on ideal body weight + inventory deduction and reorder threshold): Intraoperatively, an “aminoglycoside antibacterial IV infusion formulation” is also required, and it is noted that for severe infections the initial loading (shock) dose should be calculated based on ideal body weight. Use the commonly used IBW formula: male ideal body weight IBW(kg) = 50 + 0.9 × (height cm − 152). For this case, the initial loading dose is 2 mg/kg (based on IBW) as a single dose.
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) Calculate IBW, the single-dose amount in mg, and how many bags are needed (round up to whole bags).
+  (3) If today the drug is used once in total, after deduction, will the remaining inventory be below the reorder threshold? State the post-deduction inventory.
+  
+  Subtask 3 (near-expiry product: weight-based loading dose and check whether replenishment is triggered): The ICU requests an “inotropic injection for short-term IV use in acute decompensated heart failure.” Order: loading dose 50 μg/kg (based on actual body weight) IV bolus once.
+  (1) Identify the generic name of this drug, and query its current inventory and unit price.
+  (2) Calculate the loading dose for this case in mg, and how many vials should be used (round up).
+  (3) After deduction, will the remaining inventory be below the reorder threshold? Provide the post-deduction inventory.
+  
+  Clearly state all rounding rules: vials/bags must be whole units; for mg calculations, retain 2 decimal places first, then round up to whole vials/bags.
+  
+  Attachment: drug inventory list `01_inventory.xlsx` (291 items). The attachment data must be used as the source of truth.
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (291 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_023` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_023/01_inventory.xlsx
+mcp_question_id: v5_023

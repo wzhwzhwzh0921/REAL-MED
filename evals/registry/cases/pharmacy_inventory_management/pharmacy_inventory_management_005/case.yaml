@@ -1,0 +1,47 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_005
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  The emergency department calls: one patient with a hypertensive crisis has been admitted, and orders are placed for continuous IV fluid replacement and IV anti-infective therapy. The ward dispenser reports that the crash cart and medication cabinet currently contain many lots of the same type of injectable medications that are “approaching expiry and must be used first,” and some items have nearby storage locations and similar appearances, creating a risk of picking the wrong lot number. Please complete picking and verification according to the principle “use near-expiry first, then use longer-dated stock”: verify each medication label one by one for the **strength/specification numbers, storage location, lot number, and expiry date**. If you find a conflict between a near-expiry lot and the ordered quantity (e.g., the near-expiry lot has insufficient quantity, or the storage location does not match the system), you must note it in the record sheet and propose an alternative picking plan (same product/specification but a different lot). Note: the prompt will not include any generic or brand names; you must uniquely match the product in the attached list based on dosage form/strength/indication clues before performing calculations.
+  
+  Deliverables: submit 1 “Ward Unit-Dose Dispensing & FEFO Verification Form” (xlsx) and 1 “Exceptions & Corrective Actions Record” (docx). The spreadsheet must include at minimum: order ID, strength/specification, quantity to dispense, priority lot/expiry, actual picked lot/expiry, storage location, verifier, and reason for discrepancy.
+  
+  Sub-questions (write out calculation and verification results):
+  1) Identification question: Among the following 7 items to be picked, find the one that is “for hypertensive crisis, 5 mL contains 25 mg, administered by slow IV injection / pump infusion for maintenance,” and complete:
+  (1) Identify the generic name of this medication, and query its inventory and unit price.
+  (2) State the storage location and lot number that you should pick with priority, and explain why this lot should be used first (use clinical and management language).
+  
+  2) Calculation Question A (antiplatelet-related IV infusion): The order is “80 mg each time, twice daily, for 2 weeks; each dose must be added into 500 mL of carrier solution for IV infusion.” This drug is an “injection where each 4 mL contains 80 mg.” Complete:
+  (1) Identify the generic name of this medication, and query its inventory and unit price.
+  (2) How many ampoules/vials should be taken per dose (rounding up is allowed as clinically operable).
+  (3) Total number of ampoules/vials needed for 14 days.
+  (4) After dispensing according to FEFO, will the ward inventory fall below the replenishment warning threshold (state inventory before and after dispensing and your judgment)?
+  
+  3) Calculation Question B (parenteral nutrition weight-based conversion): The order is “a central venous infusion amino-acid/dipeptide injection, at 10 mL/kg/day; patient weight 62 kg; for 3 days; product specification 500 mL/bottle.” Complete:
+  (1) Identify the generic name of this medication, and query its inventory and unit price.
+  (2) Daily infusion volume (mL/day).
+  (3) Number of bottles to dispense per day and total bottles for 3 days (round up).
+  (4) After dispensing from the near-expiry lot first, does the inventory reach/touch the warning threshold (provide the calculation process)?
+  
+  4) Calculation Question C (ED fluid replacement verification): The order is “correct extracellular fluid deficiency; day-1 fluid replacement 1000 mL; use a compound electrolyte and glucose injection 250 mL/bottle.” Complete:
+  (1) Identify the generic name of this medication, and query its inventory and unit price.
+  (2) Calculate the number of bottles to dispense for day 1.
+  (3) List 3 key information points that must be verified when picking from the medication cabinet (must include at least storage location and lot number).
+  
+  Note: `Attachment: drug inventory list `01_inventory.xlsx` (306 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_005` — do not read the file directly.`
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_005/01_inventory.xlsx
+mcp_question_id: v5_005

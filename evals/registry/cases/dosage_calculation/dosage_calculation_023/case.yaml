@@ -1,0 +1,21 @@
+case_id: dosage_calculation/dosage_calculation_023
+task_type: dosage_calculation
+prompt: |
+  [Task Prompt]
+  Patient information: A 45-year-old male, height 1.72 m, weight 118 kg (obese), hematocrit (Hct) = 0.28. He is planned to undergo therapeutic plasma exchange (TPE). According to the standard protocol, the planned exchange volume is 1.5× the plasma volume.
+  
+  Calculation tasks:
+  1) Estimate total blood volume (TBV, L).
+  2) Calculate plasma volume (PV, L).
+  3) Calculate the total replacement fluid volume for this session (L).
+  4) Also provide the standard exchange-volume reference range corresponding to this PV (1.0–1.5×PV, in L) for cross-checking.
+  
+  Please provide a step-by-step calculation process (with units).
+  
+  (Constraint in this question: The HVPE total replacement-fluid volume per session = 8–12 L/session, OR = IBW × 15%.) Please calculate this patient’s tpe_hv_threshold_L_per_session.
+  
+  [Answer Format]
+  [Calculation requirement] All numerical computations must be performed by calling the medcal MCP tools provided by the system (tool names start with `medcal_`).
+  Producing numerical results from internal model knowledge alone is forbidden.
+  Save the complete calculation process and results as a Word document (.docx), and submit it through the `present_files` tool. Do not respond with plain text only.
+  **Hard scoring constraint: if no .docx is submitted via `present_files`, this question is automatically scored 0.**

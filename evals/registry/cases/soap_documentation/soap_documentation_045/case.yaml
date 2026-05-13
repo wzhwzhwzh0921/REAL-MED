@@ -1,0 +1,43 @@
+case_id: soap_documentation/soap_documentation_045
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior physician in Pulmonary and Sleep Medicine. On the morning of March 2, 2026, a 28-year-old male, Zhang Hao (pseudonym), presented to clinic accompanied by a coworker. Please analyze his condition based on the following clinic conversation summary, chief complaint details, and physical examination results, and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient entered the exam room yawning repeatedly; within less than two minutes of sitting down, his eyelids began to droop. Chief complaint: “I keep falling asleep uncontrollably during the daytime for two years, and it has gotten worse over the past three months.”
+  
+  Rubbing his eyes, he stated: “I do delivery-platform dispatching, with lots of night shifts. At first I thought it was just from staying up late, but now it doesn’t feel right. On the subway or while staring at a computer screen I’ll ‘nod off.’ Recently it’s been even more extreme—during meetings, while talking to people, even while eating, I can suddenly blank out and fall asleep for a few minutes. When a coworker pats me, I wake up and I’m pretty alert, like I’m recharged, and I can stay okay for a short while, but before long I get sleepy again.”
+  
+  He added: “At night I feel like my sleep isn’t restful—I toss and turn and wake easily. People in my dorm say I sometimes snore, but it’s not the earth-shaking kind. I haven’t gained weight; actually I’ve lost a bit over the past two years. The scariest thing is last week when I rode my electric scooter to deliver documents, I almost fell asleep while waiting at a red light—I broke out in a cold sweat.”
+  
+  His coworker interjected: “Doctor, he’s not lazy—he really suddenly goes quiet; he can even stop with his chopsticks hanging in midair. We thought he might be holding his breath at night, and we urged him to get a sleep study.”
+  
+  When asked for more details, Zhang Hao hesitated and said: “There’s another strange thing—occasionally in the morning I wake up and my mind is clear but my body feels pressed down; I can’t move and I can’t speak. It goes away in tens of seconds. I’ve always thought it was just ‘not fully awake.’ Also… once when I laughed hard with coworkers, my legs suddenly went weak and I almost dropped to my knees. I was conscious; I just suddenly had no strength.” He emphasized no persistent morning headaches recently, and he rarely wakes up “gasping/choking.”
+  
+  **Past Medical History and Family History:**
+  Past medical history: Seasonal allergic rhinitis; intermittent oral loratadine. Occasional gastroesophageal reflux.  
+  Allergies: Penicillin allergy (rash).  
+  Social history: Non-smoker. Coffee 1–2 cups daily. Occasional alcohol use.  
+  Family history: Father with prominent snoring but no systematic evaluation. No family history of neurologic diseases such as epilepsy.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.6°C, heart rate 76/min, blood pressure 118/72 mmHg, respiratory rate 16/min, SpO2 99%. Height 173 cm, weight 64 kg, BMI 21.3 kg/m².  
+  General: Alert and cooperative, but frequent yawning observed during waiting and between interview questions; easily becomes sleepy while seated.  
+  HEENT/oropharynx: Nasal mucosa mildly pale and edematous. Neck circumference 35 cm. Oropharynx Mallampati class II; tonsils not enlarged.  
+  Cardiopulmonary: Regular rate and rhythm; no murmurs. Lungs clear to auscultation bilaterally; no wheezes or crackles.  
+  Abdomen: Soft, non-tender, no rebound; liver and spleen not palpable.  
+  Neurologic: Consciousness clear; cranial nerves intact; normal muscle strength and tone; no pathologic reflexes elicited.  
+  Ancillary testing summary (brought from outpatient evaluation): CBC, liver and kidney function, fasting blood glucose, and thyroid function were all within normal ranges.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_045/01_attachment.pdf

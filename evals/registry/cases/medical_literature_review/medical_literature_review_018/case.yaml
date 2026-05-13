@@ -1,0 +1,22 @@
+case_id: medical_literature_review/medical_literature_review_018
+task_type: medical_literature_review
+prompt: |
+  [Task Prompt]
+  You are a physician in the Department of Respiratory and Critical Care Medicine. In outpatient practice, you have identified a group of adult patients with type 2 (T2) inflammation who have combined upper and lower airway comorbidities (e.g., asthma with CRSwNP, and a subset of COPD with asthma features) with recurrent acute exacerbations, refractory nasal symptoms, and dependence on oral corticosteroids (OCS). However, there is substantial variability in biologic-agent selection and switching strategies. Therefore, you plan to write a narrative literature review (optionally incorporating a scoping-review framework) to guide cross-disease comorbidity management.
+  
+  Review topic: “Biologic selection and sequential strategies in cross-disease comorbidity management of adult type 2 inflammatory respiratory diseases.”
+  
+  The review must systematically compile and analyze the following core content:
+  1. An evidence landscape of consistency in benefits across indications (cross-indication benefit consistency);
+  2. Comorbidity outcomes: nasal symptoms / acute exacerbations / OCS reduction;
+  3. Biomarkers and phenotype-based stratification (CTS asthma guideline 2024);
+  4. Timing of biologic selection and switching (switch) and evidence for sequencing strategies.
+  
+  Search and inclusion: include studies retrieved using the keywords type 2 inflammation、asthma、CRSwNP、biologics、switch/sequence. A standardized reference list is required at the end of the review; it is recommended to use an “evidence matrix table” to compare the effects of different targets across indications and comorbidity outcomes, and a “sequential decision flowchart” to present selection and switching pathways.
+  
+  [Answer Format]
+  Use the `docx` skill to save the complete literature review as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses, PDF, or markdown final deliverables are not accepted. Intermediate research notes may be `.md`, but the final deliverable must be `.docx`.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` review must include:
+  - A structured body covering all the content items listed in the [Task Prompt].
+  - A standardized reference list at the end with **≥15 references**, of which **≥50% are from the past 5 years**.

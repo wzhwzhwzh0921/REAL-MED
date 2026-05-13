@@ -1,0 +1,28 @@
+# Task type: pharmacy_aware_medication_management
+# Clinical pharmacist drug-management case: fill in a provided Word template; uses the attached patient + inventory xlsx.
+
+task_type: pharmacy_aware_medication_management
+description: "Clinical pharmacist drug-management case: fill in a provided Word template; uses the attached patient + inventory xlsx."
+
+# --- Runtime defaults ---
+defaults:
+  thinking: "on"
+  reasoning_effort: "high"
+  plan_mode: true
+  subagent: true
+  recursion_limit: 4000
+
+# --- Skills ---
+skills:
+  - code
+  - docx
+  - xlsx
+  - web-search
+
+# --- Expected outputs ---
+expected_outputs:
+  - pattern: "*.docx"
+    required: true
+
+# --- Judge profile ---
+judge_profile: junxiu_rubric_judge

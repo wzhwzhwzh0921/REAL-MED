@@ -1,0 +1,38 @@
+case_id: soap_documentation/soap_documentation_042
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior general surgeon. On the morning of November 12, 2024, a 68-year-old retired taxi driver, Liu Jianhua (pseudonym), came alone to the clinic. Based on the following clinic conversation summary, chief complaint, and physical examination findings, analyze the condition and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient walked into the exam room with a mildly stiff gait and deliberately sat leaning to one side. Chief complaint: “Recurrent redness, swelling, and purulent drainage in the sacrococcygeal area for 6 months, worsened with sitting pain for 3 days.”
+  
+  The patient stated helplessly: “Doctor, my ‘occupational disease’ is acting up again. I used to drive a taxi for thirty years, and this butt area has never really been good. Half a year ago, a lump grew near the tailbone. A community doctor said it was a ‘pilonidal sinus,’ said old drivers like us are most likely to get it, with hair rolled inside causing infection. Over the past six months it kept breaking open and draining some pus; it would scab over and be okay for a few days, so I didn’t take it seriously.”
+  
+  He paused and pointed behind him: “But this time it’s different. These past few days it’s really swollen—I can’t even sit. And I noticed something strange: it’s not only the broken skin area that hurts. Every time I strain to have a bowel movement, I feel a dull pain deep inside the anus, like a tendon is being pulled, with a heavy, dragging feeling. I’ve had diabetes for more than ten years, and wounds heal slowly anyway. Do you think that ‘hair follicle’ needs to be completely cut out?”
+  
+  **Past Medical History and Family History:**
+  Past medical history: Type 2 diabetes mellitus for 15 years; diet control is not strict with poor glycemic control (recent fasting glucose often 9–10 mmol/L). Hypertension for 10 years; takes medications regularly. Ten years ago, underwent incision and drainage for “perianal abscess” at another hospital; patient reports it “completely healed” at that time.  
+  Allergies: Allergic to sulfonamide drugs.  
+  Family history: No known hereditary diseases.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 37.4°C; heart rate 78/min; blood pressure 145/90 mmHg; respiratory rate 16/min. BMI 28.5 (overweight).  
+  General: Alert and oriented; obese body habitus; abdomen soft and non-tender. Moves cautiously when sitting; facial expression mildly painful.
+  
+  Focused exam (sacrococcygeal area and anus):  
+  Inspection: In the posterior midline of the sacrococcygeal region, approximately 5 cm from the anal verge, there is a sinus opening (appearance highly consistent with typical pilonidal sinus location). Surrounding skin is dark red with hyperpigmentation and lichenification. A small amount of thin purulent discharge is present. Granulation tissue proliferation is seen at the opening. Careful inspection shows no hair protruding from the opening.  
+  Palpation: Slightly increased skin temperature around the opening with firm induration. A cord-like indurated tract is palpable; notably, the tract does not extend cranially (toward the sacrum) but rather tracks caudally (toward the anus).  
+  Digital rectal examination (DRE): Normal anal sphincter tone. At the posterior midline at the dentate line (6 o’clock position), a clearly palpable depressed indurated lesion is present with marked tenderness. No blood on the glove after withdrawal. When pressing the intrarectal tender point, the amount of purulent drainage from the external sacrococcygeal opening increases markedly.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_042/01_attachment.pdf

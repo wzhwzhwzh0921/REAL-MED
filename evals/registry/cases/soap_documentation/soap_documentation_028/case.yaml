@@ -1,0 +1,44 @@
+case_id: soap_documentation/soap_documentation_028
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior dermatologist. On the afternoon of February 28, 2026, a 32-year-old woman, Zhang Yutong (pseudonym), an internet product manager, presents for evaluation. Based on the following clinic conversation summary, chief complaint/history, and physical examination findings, analyze her condition and write a professional SOAP note for this visit.
+  
+  **Chief Complaint and History of Present Illness:**
+  The patient enters the exam room scratching the area beside the nasal ala and states her chief complaint: “Red patches with peeling on my face and chest, very itchy, for two weeks.”
+  
+  She reports: “A while ago when the project launched, I stayed up late and worked overtime for days. First, the nasolabial folds and the area between my eyebrows got a little red with some fine flaking, like ‘seasonal allergy,’ and it wasn’t very itchy so I didn’t do anything. After a few days, a red patch appeared here on my chest over the sternum, and the edge was kind of arc-shaped and spreading outward. After sweating it gets especially itchy, and after showering it stings and itches even more. I got scared it might be ringworm from a dirty public yoga mat at the gym.”
+  
+  She adds: “I first applied the kind of compound steroid ointment we have at home, ‘Pi Yan Ping’ (皮炎平). The redness could fade a bit, but it came back the next day and was even redder, with some burning. Then I layered clotrimazole for two days; my face instead felt like it was scalded, the scale got thicker, and it also felt a bit oily to the touch.”
+  
+  When further questioned, she confirms: “Also, recently my scalp has been very oily, and dandruff suddenly increased a lot—if I pat my black clothes, it’s all flakes. It used to come and go before, but this time it’s more obvious.” She denies having pets at home, and no family members have developed similar rashes recently. She denies interdigital toe scaling or nail thickening/brittle crumbling.
+  
+  A coworker accompanying her comments: “She’s been under a lot of stress these two weeks, sleeping less, and she’s been a bit anxious/irritable. She keeps worrying it’s contagious—she even scalded her pillowcases and towels with boiling water.”
+  
+  **Past Medical History and Family History:**
+  Type 2 diabetes mellitus for 3 years; over the past 6 months she reports her control has been average. Depressive disorder; sertraline taken intermittently. Longstanding history of “oily scalp/increased dandruff.” No surgical history. No known drug allergies. Father has type 2 diabetes mellitus. Mother has a history of “skin that easily peels,” without a definitive diagnosis.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8°C, heart rate 84/min, blood pressure 128/82 mmHg, respiratory rate 16/min, SpO2 99%. BMI ~28.
+  
+  General: Alert and oriented, mildly anxious, no jaundice.
+  
+  Skin: Symmetric erythema over the supraorbital/eyebrow area, glabella, perinasal/nasal alar regions, and nasolabial folds, covered with light yellow, somewhat greasy scale; borders are relatively ill-defined. Over the presternal area and above the intermammary cleft: patchy erythema with scale, irregular morphology; no clearly raised, sharply demarcated “active border” at the periphery; central clearing is not typical. Scalp: diffuse fine scale; minimal excoriations; no obvious broken hairs/black-dot alopecic patches. Fingernails/toenails: no thickening or crumbling. Axillae and groin: no typical annular lesions.
+  
+  Cardiopulmonary: Heart sounds strong, regular rhythm; lungs clear to auscultation bilaterally.
+  
+  Abdomen: Soft, non-tender, no hepatosplenomegaly.
+  
+  Ancillary tests (completed in clinic): CBC: WBC 6.4×10^9/L, Neut 58%, Lymph 32%, Hb 128 g/L, PLT 248×10^9/L. Fasting glucose 8.2 mmol/L, HbA1c 7.8%. KOH direct microscopy of presternal scale: no hyphae seen; a small number of round spore-like structures seen.
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_028/01_attachment.pdf

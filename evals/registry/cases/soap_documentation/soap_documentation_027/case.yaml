@@ -1,0 +1,46 @@
+case_id: soap_documentation/soap_documentation_027
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of November 15, 2024, a 26-year-old man, Xiao Li (pseudonym), a software engineer, presented to the dermatology clinic appearing visibly anxious. He entered wearing a baseball cap, removed it immediately after sitting down, and pointed to his face, concerned that he might have vitiligo.
+  
+  **Chief Complaint and History of Present Illness:**
+  Chief complaint: “White patches on the face for 2 months, recently significantly worsened; concerned about vitiligo.”
+  
+  HPI: The patient reported progressive, asymptomatic hypopigmented patches on the face for approximately 2 months. He stated: “Doctor, please take a look—do I have vitiligo? About two months ago, when I was shaving, I noticed a small area on my left cheek where the skin color looked a bit lighter. I thought it was just dry, peeling skin and didn’t take it seriously. But last week I went hiking with friends and was in the sun all day. When I came back, my face got darker overall, but these white patches became extremely obvious—so white it really stood out!”
+  
+  He showed online search results on his phone and said: “I looked it up online, and it said that these white patches that don’t hurt or itch must be vitiligo and will spread to the whole body. I’m terrified. If it disfigures me, how will I find a partner in the future? Three days ago I dug out some ‘Qiangxiao Piyanping’ that an elderly family member used before and applied thick layers a few times. It didn’t help at all, and instead my face felt even drier.”
+  
+  He denied pain and pruritus. No oozing was reported.
+  
+  **Past Medical History and Family History:**
+  Past medical history: History of atopic dermatitis (eczema), mainly flaring during childhood; symptoms improved in adulthood, but he has persistent chronic dry skin. History of allergic rhinitis (“springtime sneezing” and nasal sensitivity). No known drug allergies.
+  
+  Family history: No family history of vitiligo, thyroid disease, or other autoimmune diseases.
+  
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8℃; heart rate 76 beats/min; blood pressure 124/78 mmHg; respiratory rate 16 breaths/min.
+  
+  General: Normally developed, well nourished; anxious affect; repeatedly checks his face in a mirror.
+  
+  Dermatologic examination:
+  1) Face: Three round-to-oval hypopigmented patches on the left cheek and the right mandibular angle; diameter approximately 1.5 cm to 2.0 cm.
+  2) Lesion color and border: Pale white to gray-white (“misty/cloudy” appearance), not chalk/porcelain white (not complete depigmentation). Contrast is prominent compared with surrounding recently tanned skin. Borders are ill-defined; no hyperpigmented rim.
+  3) Surface and scale: Surface not smooth. On tangential lighting, a very small amount of fine, thin, branny scale is present; gentle scraping increases scale. No erythema, swelling, or exudation.
+  4) Other sites: Dry skin over the extensor surfaces of both upper arms and the lateral thighs with mild keratosis pilaris.
+  
+  Point-of-care ancillary tests:
+  - Wood’s lamp examination: Lesions show faint white fluorescence; no typical bright blue-white strong fluorescence of vitiligo. Under Wood’s lamp, lesion borders remain indistinct without sharp demarcation.
+  - Fungal microscopy: Negative (-).
+  
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_027/01_attachment.pdf

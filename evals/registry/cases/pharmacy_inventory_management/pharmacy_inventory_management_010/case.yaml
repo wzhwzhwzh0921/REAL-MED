@@ -1,0 +1,46 @@
+case_id: pharmacy_inventory_management/pharmacy_inventory_management_010
+task_type: pharmacy_inventory_management
+prompt: |
+  [Task Prompt]
+  You are responsible for unit-dose ward dispensing for multiple wards (including oncology, cardiology, and neurosurgery). During the morning handover today, you were informed that a batch of commonly used injectable medications in the storeroom is approaching expiration. To reduce waste and ensure traceability, all picking for the same drug product in this shift must follow the principle of “dispense the earlier-expiring batch first.” At the same time, you must back-fill the storage location and batch/lot number of the picked drugs on the dispensing/picking sheet. If the remaining inventory after picking falls below the reorder (warning) threshold, you must submit a replenishment request at the same time. Note: The stem will not include any drug generic names or brand names; you must uniquely match the specific item in the attached list based on dosage form/specification/indication clues, and only then perform the calculations.
+  
+  Based on the following 3 patient medication orders, complete picking and verification, and provide:
+  1) “Ward Unit-Dose Dispensing Picking Record.xlsx” (must include: patient – drug description – specification – quantity to dispense (vials/amps) – storage location – batch/lot number – expiry date – post-pick inventory – whether below the reorder threshold);
+  2) “Near-Expiry First Dispensing Explanation.docx” (100–150 Chinese characters are stated in the original; write 100–150 words in English) explaining how you implemented “earlier expiry first” and how you verified batch/lot numbers and storage locations.
+  
+  Medication Order A (Neurosurgery, postoperative prevention of cerebral vasospasm): The order is “35 mg each time, IV infusion, 3 times daily, for 2 days.” The drug is a powder for injection, labeled “35 mg per vial.” Please complete:
+  (1) Identify the generic name of this drug, and query inventory and unit price.
+  (2) Calculate the number of vials to dispense for this order.
+  (3) Select the earlier-expiring batch from the storeroom, and record the storage location and batch/lot number.
+  (4) Determine whether the post-pick inventory falls below the reorder threshold.
+  
+  Medication Order B (Infectious Diseases, part of a combination antibacterial regimen): The order is “0.5 g each time, IV infusion, twice daily, for 5 days.” The drug is a sterile subdivided powder for injection; the vial label states “0.5 g per vial calculated as [a specified component].” Please complete:
+  (1) Identify the generic name of this drug, and query inventory and unit price.
+  (2) Convert 0.5 g to mg, then calculate the number of vials to dispense per dose and for the full course of therapy.
+  (3) Pick according to the earlier-expiring batch and record storage location and batch/lot number.
+  (4) Determine the relationship between post-pick inventory and the reorder threshold.
+  
+  Medication Order C (Daytime chemotherapy ward, antiemetic prophylaxis): Child aged ≥2 years, weight 18 kg. The order follows the package insert: “0.2 mg/kg, Day 1 IV administration (one time only).” The drug is a small-volume injection labeled “each ampoule 2 mL contains 6 mg (calculated as active ingredient).” Please complete:
+  (1) Identify the generic name of this drug, and query inventory and unit price.
+  (2) Calculate the child’s required mg dose for this administration.
+  (3) Calculate the number of ampoules to dispense (round up to a whole ampoule).
+  (4) Pick and record storage location and batch/lot number according to the earlier-expiring batch.
+  (5) Complete the post-pick inventory reconciliation and determine whether replenishment is triggered.
+  
+  Note: Attachment: drug inventory list `01_inventory.xlsx` (274 rows). Data should be queried via the MCP tool `pharmacy_ops` with `case_id: `pharmacy_inventory_management_010` — do not read the file directly.
+  [Answer Format]
+  Submit **both** of the following files via the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if both `.docx` and `.xlsx` are not submitted via `present_files`, this question is automatically scored 0.**
+  
+  ### 1. `.docx` — Analysis & Conclusions
+  Must fully document the analysis process and at minimum include:
+  1. **Drug identification**: how the cues in the question (dosage form / specification / indication / route, etc.) were matched to specific products in the drug catalog; state the matched generic names.
+  2. **Tool-call log**: list which MCP tools (e.g. `search_drug_catalog` / `get_drug_base_info` / `get_inventory_record`) were called and the key information returned by each (e.g. inventory count, unit price, reorder threshold, dosage, package-insert points).
+  3. **Computation and judgment steps**: for each sub-question, show the formula / unit conversion / comparison against the reorder threshold step by step with intermediate values — do not show the final result alone.
+  4. **Final conclusion**: an explicit answer for each sub-question (identified drug, computed value, whether the threshold was breached, reorder amount, etc.).
+  
+  ### 2. `.xlsx` — Calculation Results & Inventory Reconciliation
+  Calculation results, inventory verification, and structured operation records. If the problem does not require modifying the inventory details, you may return the original attached `.xlsx` while retaining necessary calculations/annotations.
+attachments:
+  - pharmacy_inventory_management/pharmacy_inventory_management_010/01_inventory.xlsx
+mcp_question_id: v5_010

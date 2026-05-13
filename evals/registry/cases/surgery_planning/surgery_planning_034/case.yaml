@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_034
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior thoracic surgeon. The case below describes a 58-year-old woman with progressive dysphagia due to an unusual mucin-producing intramural oesophageal neoplasm requiring oncologic resection and complex perioperative decision-making.
+  
+  - 58-year-old woman.
+  - Several weeks of progressive dysphagia (solids worse than liquids).
+  - Endoscopy: partially obstructing intraluminal oesophageal lesion with mucinous material.
+  - Biopsies: papillary mucin-producing neoplasm arising within the oesophageal wall with uncertain malignant potential.
+  - Cross-sectional imaging: no distant metastases identified.
+  - Target anatomy: mid-to-lower thoracic oesophageal lesion.
+  - Plan: operative oncologic resection with immediate reconstruction if margins are satisfactory.
+  
+  **Q1 — Intraoperative decision-making** During thoracic mobilisation and circumferential freeing of the oesophagus, you encounter an extensive intramural, gelatinous/mucinous-appearing process causing marked luminal narrowing; the lesion tracks longitudinally both proximally and distally far beyond the extent anticipated preoperatively, with atypical, poorly defined tissue planes, and it is grossly unclear whether this represents a benign mucinous cystic-type process versus widespread intramural dissemination of a mucin-secreting adenocarcinoma. In this intraoperative scenario, how would you make real-time decisions to maximise the chance of an R0 resection while avoiding reconstruction when margins and pathology are uncertain? Describe your key technical steps, including specimen sampling and frozen-section strategy, how you would define proximal/distal margins, what findings would trigger extending the resection or converting to an alternative plan (including staged resection or aborting reconstruction), and the most common pitfalls and how to prevent them?
+  
+  **Q2 — Postoperative complication management** On postoperative day 5 after major thoracic surgery for an obstructing oesophageal lesion with mediastinal dissection and placement of a pleural drain, her early recovery was uneventful until the last 12 hours when she developed fever (38.6°C), pleuritic chest pain, worsening shortness of breath, and tachycardia; chest drain output has abruptly increased to 1.2 L over 24 hours and is now opaque, milky-white; she is mildly hypotensive with reduced breath sounds on the operated side and increased work of breathing; labs show leukocytosis (WBC 15.8 ×10^9/L) and falling serum albumin compared with baseline; chest radiograph shows an enlarging pleural effusion on the side of the drain without pneumothorax; she has resumed enteral feeding. What is the most likely postoperative complication, what is its underlying mechanism and key risk factors in this setting, what evidence-based diagnostic criteria should be used to confirm it, and what stepwise, severity-stratified management plan (conservative, interventional, and operative—including indications and timing) should be instituted; additionally, what intraoperative prevention and postoperative monitoring measures reduce the risk of this complication?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop r0 strategy/margins/frozen sections; diagnosis/criteria and stratified management/prevention). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_034/01_case_file.docx

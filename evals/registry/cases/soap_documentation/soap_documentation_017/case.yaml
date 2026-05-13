@@ -1,0 +1,42 @@
+case_id: soap_documentation/soap_documentation_017
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  You are a senior Emergency Department physician. In the early morning of November 12, 2024, a 32-year-old male patient, Li Jun (pseudonym), was escorted into the exam room by a coworker, appearing to be in significant distress. Please analyze the condition based on the following clinic conversation summary, chief complaint/history, and physical examination findings, and write a professional SOAP note for this visit.
+  **Chief Complaint and History of Present Illness:**
+  Li Jun is a software engineer. At presentation he was pale, with bead-like sweat covering his forehead. He tightly clutched his epigastric/chest–upper abdominal area with both hands, appeared extremely anxious and restless, was unable to sit still in the chair, and repeatedly changed positions.
+  
+  He told you, gasping for breath: “Doctor, please save me! Here… the pit of my stomach and my back—it feels like someone is forcibly tearing me apart. It’s unbearable!”
+  
+  Regarding the onset and course, he stated: “Tonight our project went live. After 7 pm we went out with the team for a celebration dinner. I ate a lot of barbecue, and I was happy so I drank three to four bottles of beer. After eating I went back to the company to keep working overtime. About two hours ago, I was sitting in front of the computer writing code when suddenly—boom—there was severe pain in my chest and in the area between my shoulder blades in the back. This kind of pain is completely different from the stomach pain I used to have. There was no warning at all; it was at its worst right from the start, like a knife cutting. Just now I vomited once—mostly sour fluid and what I ate tonight—but it didn’t relieve it at all; it actually hurt more after vomiting.”
+  
+  The accompanying coworker added: “Li works under a lot of stress and smokes heavily—more than a pack a day. Just now I saw him rolling around at his desk from pain; his face was frighteningly white, so I drove him straight here. Doctor, did he drink and damage his pancreas? I read online that binge eating and drinking can cause acute pancreatitis.”
+  **Past Medical History and Family History:**
+  Baseline health status is average. He denies a history of diabetes mellitus or coronary artery disease. No prior surgeries. No known drug allergies.
+  
+  Smoking history: 10 years, averaging 1–2 packs/day. Alcohol: occasional episodes of heavy drinking.
+  
+  Two years ago, during a workplace physical exam, he was told his “blood pressure was a bit high”; exact values are unknown. The patient stated, “I felt I was young and didn’t take it seriously.” He has not taken antihypertensive medications and has not monitored his blood pressure.
+  
+  Both parents are alive; his father has a history of hypertension.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 37.0℃; heart rate 110 beats/min; blood pressure 195/110 mmHg (measured in the right upper limb); respiratory rate 22 breaths/min; SpO2 96% (on room air, not receiving supplemental oxygen).
+  
+  General: Alert and oriented; appears acutely ill and in severe pain; profuse diaphoresis; agitated/restless. Skin is cool and clammy. No cyanosis of the lips.
+  
+  Cardiopulmonary: Breath sounds clear bilaterally; no wheezes, crackles, or rhonchi. Tachycardic with regular rhythm. In the aortic area, the second heart sound (A2) is markedly accentuated. No pathological murmurs appreciated.
+  
+  Abdomen: Abdomen flat; no visible intestinal contours or peristaltic waves. Abdominal wall soft. Deep tenderness in the upper abdomen (subxiphoid/epigastric region), without rebound tenderness or guarding/rigidity. Murphy sign (-). No tenderness at McBurney point. Bowel sounds decreased, approximately 2–3/min.
+  
+  Vascular/neurologic: Normal strength in all extremities. On palpation, the left radial pulse is slightly weaker than the right. No edema in either lower extremity.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_017/01_attachment.pdf

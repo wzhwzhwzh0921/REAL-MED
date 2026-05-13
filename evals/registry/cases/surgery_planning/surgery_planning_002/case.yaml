@@ -1,0 +1,23 @@
+case_id: surgery_planning/surgery_planning_002
+task_type: surgery_planning
+prompt: |
+  [Task Prompt]
+  You are a senior breast surgeon. The case below describes a 34-year-old Chinese woman with a recurrent left-breast mass ultimately diagnosed as primary breast rhabdomyosarcoma, requiring operative and perioperative decision-making around local control and staging.
+  - 34-year-old Chinese woman; no significant comorbidities.
+  - History of prior left-breast excision 7 months ago at another hospital for a lesion reported as lymphocytic mastitis.
+  - Five months after that operation, she developed a new lump at/near the prior operative site that progressively enlarged.
+  - Symptoms/signs: denies fever, trauma, nipple discharge, or skin changes; exam shows a discrete, firm left-breast mass without erythema or peau d’orange; no definite palpable axillary lymphadenopathy.
+  - Imaging: targeted ultrasonography demonstrates a solid mass with suspicious features (BI-RADS suspicious) rather than recurrent inflammatory disease.
+  - Pathology: malignant small round/pleomorphic cell tumor with preliminary immunoprofile supporting skeletal-muscle differentiation consistent with rhabdomyosarcoma (primary breast sarcoma); final pathology also consistent with primary breast rhabdomyosarcoma with concern for close or positive margins.
+  - Plan/operation: taken to the operating room for oncologic breast excision for definitive tissue diagnosis and local control.
+  
+  **Q1 — Intraoperative decision-making** During the operation, the lesion is removed in a limited excision specimen and sent for frozen/urgent pathology; the intraoperative report returns as a malignant small round/pleomorphic cell tumor with epithelial markers non-diagnostic and preliminary immunoprofile supporting skeletal-muscle differentiation consistent with rhabdomyosarcoma, and no axillary procedure has been started. Given this intraoperative frozen/urgent diagnosis consistent with primary breast rhabdomyosarcoma after a limited excision and no axillary surgery begun, what should you do next in the operating room: proceed immediately to wider resection/mastectomy and/or sentinel lymph node biopsy, or stop and complete staging first? What specific operative steps are required to optimize sarcoma local control (including margin strategy and handling of the cavity/specimen), and what key pitfalls should be avoided (e.g., axillary surgery decisions and tumor seeding)?
+  
+  **Q2 — Postoperative complication management** Eight days after surgery, she presents with a rapidly recurrent left-breast mass and increasing swelling/tightness with mild serosanguinous drainage; she denies fever, chills, shortness of breath, or calf pain. Vitals: T 37.1°C, HR 96/min, BP 118/74 mmHg. Exam shows a tense, fluctuant collection deep to the incision with surrounding ecchymosis but no spreading erythema; wound edges intact; ipsilateral axilla mildly tender without a discrete palpable node. Point-of-care ultrasound shows a complex fluid collection consistent with hematoma/seroma with no gas. She asks whether the axilla should be “staged like breast cancer” and whether the collection should be drained immediately. What is the most appropriate immediate postoperative management of this complication, and what is the correct approach to regional nodal evaluation in primary breast rhabdomyosarcoma?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (intraop go/no-go logic, margins/specimen handling; postop complication management, regional nodal evaluation). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_002/01_case_file.docx

@@ -1,0 +1,25 @@
+case_id: surgery_planning/surgery_planning_013
+task_type: surgery_planning
+prompt: |
+  <<<
+  [Task Prompt]
+  You are a senior gastric surgeon. The case below describes a 52-year-old woman with persistent obstructive upper-GI symptoms and recurrent phytobezoar after prior bariatric gastric restrictive surgery, now requiring reoperative decision-making and postoperative leak management.
+  
+  - 52-year-old woman; history of morbid obesity (preoperative BMI 40.7 kg/m²) status post laparoscopic bariatric gastric restrictive operation 1 year ago.
+  - Postoperative course complicated by persistent nausea, postprandial vomiting, early satiety, and episodes of self-induced emesis, with marked progressive weight loss (BMI 30.7 kg/m² at 3 months; ~BMI 25–25.7 kg/m² by 1 year).
+  - Upper endoscopy: reflux esophagitis (Los Angeles grade B) and mild antral gastritis; later repeat endoscopy shows a medium sliding hiatal hernia and a large gastric phytobezoar.
+  - Upper GI contrast study: fixed narrowing at the incisura angularis suspicious for a mechanical stricture.
+  - Dietary history notable for frequent intake of indigestible high-fiber foods contributing to phytobezoar risk; bezoar previously treated with chemical dissolution plus endoscopic fragmentation/retrieval.
+  - Despite endoscopic clearance, obstructive symptoms persist and the incisura narrowing remains the leading anatomic abnormality with impaired gastric emptying/intermittent intragastric stasis.
+  - Planned operation: reoperative upper-GI procedure for definitive surgical management of suspected post-bariatric gastric outlet obstruction with associated reflux anatomy.
+  
+  **Q1 — Intraoperative decision-making** At reoperation, laparoscopic exploration confirms a fixed incisura stricture and a rotated/twisted gastric conduit with poor outflow. After a gastrotomy to assess the lumen, a substantial amount of recurrent phytobezoar material is encountered, and the hiatal hernia is confirmed. What definitive intraoperative strategy should be performed to relieve the obstruction and reduce recurrence, what are the critical technical steps (including management of the intragastric bezoar and repair of the hiatus), and which pitfalls must be avoided to prevent leak, recurrent stenosis, or persistent reflux?
+  
+  **Q2 — Postoperative complication management** Following the planned revisional upper-GI procedure to definitively relieve the functional obstruction and restore gastric drainage, on postoperative day 3 the patient develops tachycardia (HR 125/min), low-grade fever (38.2°C), increasing epigastric/left upper quadrant pain, and shortness of breath; she appears ill and mildly hypotensive with decreased urine output. Labs show leukocytosis with rising C-reactive protein and mildly elevated lactate; exam shows localized tenderness without frank peritonitis; and a surgical drain near the upper stomach begins producing cloudy fluid with an enteric odor, raising concern for an anastomotic or staple-line leak with evolving sepsis. In this postoperative scenario, (1) explain the pathophysiologic reasons a leak can occur after revisional bariatric upper-GI surgery in a patient with chronic obstruction/stasis; (2) list the key early clinical findings and the diagnostic workup you would use to confirm or exclude a leak; (3) present an evidence-based, severity-stratified management algorithm including antibiotics, source control (percutaneous/surgical drainage), endoscopic therapies, and indications/timing for reoperation; and (4) describe specific strategies to reduce leak risk in future cases across preoperative optimization, intraoperative technique, and postoperative care—what would you do?
+  
+  [Answer Format]
+  Save the complete clinical reasoning report as a Word document (`.docx`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.docx` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.docx` must contain two clearly labeled sections — **Q1 Intraoperative**, **Q2 Postoperative** — each addressing every aspect raised in the corresponding question (definitive strategy/technical steps/pitfalls; leak pathophysiology, early findings/workup, severity-stratified management, future risk-reduction). Cite at least one authoritative guideline or consensus per section.
+attachments:
+  - surgery_planning/surgery_planning_013/01_case_file.docx

@@ -1,0 +1,38 @@
+case_id: soap_documentation/soap_documentation_030
+task_type: soap_documentation
+prompt: |
+  [Task Prompt]
+  On the morning of May 20, 2024, a 28-year-old software engineer, Zhang Wei (pseudonym), presented to the neurology clinic alone. On entering the room, he had a shuffling gait with a slightly stooped posture and appeared older than his stated age.
+  **Chief Complaint and History of Present Illness:**
+  Chief complaint: “My brain feels like it won’t ‘turn,’ with extreme fatigue and memory decline for 3 months, worsening over the past 3 weeks.”
+  
+  The patient spoke slowly in a low tone and avoided eye contact. He stated: “Doctor, I feel like my CPU is completely burned out. I used to code very fast, but now I can stare at the screen for hours and can’t write a single line. I can’t even remember interface documentation that I used to recite backwards. I looked up information online and feel I must have ‘neurasthenia,’ or it’s burnout from long-term overtime work.”
+  
+  He further described: “I have no energy at all, and no matter how I rest I can’t recover. My neck and shoulders feel like there’s a stone pressing on them. I often feel dizzy, and my stomach always feels blocked and uncomfortable. The most torturous thing is sleep: I can fall asleep okay, but for the past month I wake up at exactly 4 a.m. every day, and once I’m awake I can’t fall back asleep. My mind feels blank but also chaotic. The moment I wake up in the morning feels the most hopeless—I feel panicky inside and think I can’t make it through the day. By evening after getting off work, that feeling gets a tiny bit better.”
+  
+  Regarding leisure activities, he gave a wry smile: “I used to be a basketball fan and I also loved gaming. But now I have absolutely no interest. Last week a friend asked me to play basketball and I declined—I feel exhausted even moving a little, and I’m not in the mood. I even sold my favorite game console, because now playing games feels like doing an Excel spreadsheet—boring, with no sense of pleasure at all.”
+  **Past Medical History and Family History:**
+  Past medical history: Chronic superficial gastritis for 2 years; takes omeprazole intermittently. History of tension-type headaches. Drug allergy: allergic to sulfonamide medications. Denies history of hypertension and diabetes.
+  
+  Family history: No family history of severe psychiatric disorders such as schizophrenia.
+  **Physical Examination Findings:**
+  Vital signs: Temperature 36.8℃; heart rate 76/min; blood pressure 124/78 mmHg; respiratory rate 16/min; oxygen saturation 99%.
+  
+  General: Normal development; average nutrition. Personal hygiene acceptable, but with several days of unshaven stubble; clothing slightly casual. Clear consciousness; intact orientation. During the examination, the patient’s responses were slowed (prolonged latency). Facial expression appeared distressed; affect was flat; no tears observed but明显 lack of smiling.
+  
+  Neurologic: Cranial nerve examination without abnormalities. Muscle strength 5/5 in all extremities; normal muscle tone. Deep tendon reflexes (++) bilaterally and symmetric. No pathologic reflexes elicited. Finger-to-nose test steady and accurate. Brain MRI performed at an outside facility 2 weeks ago reportedly showed “no obvious abnormalities.”
+  
+  Musculoskeletal: Palpation revealed tightness and tenderness in bilateral trapezius muscles and posterior cervical muscle groups; range of motion acceptable.
+  
+  Abdomen: Soft and non-distended. Deep tenderness (+) in the epigastric area under the xiphoid process; no rebound tenderness; no palpable masses.
+  [Analysis requirement] During diagnostic reasoning, proactively use search tools to look up diagnostic criteria, key differentiating features, and typical clinical presentations of the relevant diseases, and explicitly cite the search-derived information in the report as the basis for your diagnosis, explaining why this diagnostic conclusion was reached.
+  [Answer Format]
+  [Formatting Instructions] A SOAP note template file is provided for this question (`01_attachment.pdf`). Please write the medical record according to the structure and formatting specifications of that template, and output it as a Word document.
+  Save the complete diagnostic and management report as a Word document (`.pdf`) and submit it through the `present_files` tool. Plain-text-only responses are not accepted.
+  **Hard scoring constraint: if no `.pdf` is submitted via `present_files`, this question is automatically scored 0.**
+  The `.pdf` SOAP note must:
+  1. Follow the structure and formatting of the provided `01_attachment.pdf` template.
+  2. Include the four standard SOAP sections (Subjective / Objective / Assessment / Plan).
+  3. Cite search-derived diagnostic criteria and differential evidence in the Assessment section.
+attachments:
+  - soap_documentation/soap_documentation_030/01_attachment.pdf
