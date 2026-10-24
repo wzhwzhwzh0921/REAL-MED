@@ -16,7 +16,7 @@ class SandboxConfig(BaseModel):
         use: Class path of the sandbox provider (required)
 
     AioSandboxProvider specific options:
-        image: Docker image to use (default: enterprise-public-cn-beijing.cr.volces.com/vefaas-public/all-in-one-sandbox:latest)
+        image: Docker image to use (default: ghcr.io/agent-infra/sandbox:latest)
         port: Base port for sandbox containers (default: 8080)
         replicas: Maximum number of concurrent sandbox containers (default: 3). When the limit is reached the least-recently-used sandbox is evicted to make room.
         container_prefix: Prefix for container names (default: deer-flow-sandbox)

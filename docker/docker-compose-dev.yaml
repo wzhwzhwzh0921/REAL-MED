@@ -29,7 +29,7 @@ services:
       - ~/.kube/config:/root/.kube/config:ro
     environment:
       - K8S_NAMESPACE=deer-flow
-      - SANDBOX_IMAGE=enterprise-public-cn-beijing.cr.volces.com/vefaas-public/all-in-one-sandbox:latest
+      - SANDBOX_IMAGE=${SANDBOX_IMAGE:-ghcr.io/agent-infra/sandbox:latest}
       # Host paths for K8s HostPath volumes (must be absolute paths accessible by K8s node)
       # On Docker Desktop/OrbStack, use your actual host paths like /Users/username/...
       # Set these in your shell before running docker-compose:
@@ -130,6 +130,7 @@ services:
       - DEER_FLOW_HOST_BASE_DIR=${DEER_FLOW_ROOT}/backend/.deer-flow
       - DEER_FLOW_HOST_SKILLS_PATH=${DEER_FLOW_ROOT}/skills
       - DEER_FLOW_SANDBOX_HOST=host.docker.internal
+      - SANDBOX_PROVISIONER_URL=http://provisioner:8002
     env_file:
       - ../.env
     extra_hosts:
@@ -166,6 +167,7 @@ services:
       - DEER_FLOW_HOST_BASE_DIR=${DEER_FLOW_ROOT}/backend/.deer-flow
       - DEER_FLOW_HOST_SKILLS_PATH=${DEER_FLOW_ROOT}/skills
       - DEER_FLOW_SANDBOX_HOST=host.docker.internal
+      - SANDBOX_PROVISIONER_URL=http://provisioner:8002
     env_file:
       - ../.env
     extra_hosts:

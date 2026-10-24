@@ -36,41 +36,28 @@ export function Hero({ className }: { className?: string }) {
         flickerChance={0.25}
       />
       <div className="container-md relative z-10 mx-auto flex h-screen flex-col items-center justify-center">
-        <h1 className="flex items-center gap-2 text-4xl font-bold md:text-6xl">
+        <h1 className="flex flex-col items-center gap-2 text-center text-2xl font-bold md:text-4xl">
           <WordRotate
             words={[
-              "Deep Research",
-              "Collect Data",
-              "Analyze Data",
-              "Generate Webpages",
-              "Vibe Coding",
-              "Generate Slides",
-              "Generate Images",
-              "Generate Podcasts",
-              "Generate Videos",
-              "Generate Songs",
-              "Organize Emails",
-              "Do Anything",
-              "Learn Anything",
+              "Clinical Support",
+              "Patient Management",
+              "Pharmacy Management",
+              "Medical Education & Research",
             ]}
           />{" "}
-          <div>with DeerFlow</div>
+          <div>REAL-MED</div>
         </h1>
         <p
           className="mt-8 scale-105 text-center text-2xl text-shadow-sm"
           style={{ color: "rgb(184,184,192)" }}
         >
-          An open-source SuperAgent harness that researches, codes, and creates.
-          With
+          Benchmarking LLM agents on 405 real-world medical tasks.
           <br />
-          the help of sandboxes, memories, tools, skills and subagents, it
-          handles
-          <br />
-          different levels of tasks that could take minutes to hours.
+          A shared harness for tools, medical documents, and expert rubric evaluation.
         </p>
         <Link href="/workspace">
           <Button className="size-lg mt-8 scale-108" size="lg">
-            <span className="text-md">Get Started with 2.0</span>
+            <span className="text-md">Open Workspace</span>
             <ChevronRightIcon className="size-4" />
           </Button>
         </Link>

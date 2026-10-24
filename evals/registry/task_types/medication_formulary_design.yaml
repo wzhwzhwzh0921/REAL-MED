@@ -15,9 +15,15 @@ defaults:
 # --- Skills ---
 skills:
   - code
-  - xlsx
-  - docx
   - web-search
+  - web-search-mm
+  - pdf
+  - docx
+  - xlsx
+  - pptx
+  - pptx-design
+  - nano-banana-pro
+  - draw-io-diagram-generator
 
 # --- Expected outputs ---
 expected_outputs:
@@ -25,4 +31,6 @@ expected_outputs:
     required: true
 
 # --- Judge profile ---
-judge_profile: junxiu_rubric_judge
+judge_profile: rubric_judge
+
+extensions_config: task_types/extensions_configs/general.json

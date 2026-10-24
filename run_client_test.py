@@ -87,6 +87,7 @@ def main() -> int:
     outputs_dir_env = os.environ.get("OUTPUTS_DIR")
     outputs_dir = Path(outputs_dir_env).resolve() if outputs_dir_env else None
     max_artifact_reminders = 10
+    presented_files: set[str] = set()
 
     def _list_output_files() -> list[str]:
         if outputs_dir is None or not outputs_dir.exists():
@@ -99,7 +100,10 @@ def main() -> int:
         output_files = _list_output_files()
         missing = []
         for pattern in expected_patterns:
-            if not any(fnmatch.fnmatch(name, pattern) for name in output_files):
+            # HIS submission is persisted by the scenario tool. Other formats
+            # must also be submitted via present_files, as required by the cases.
+            eligible = output_files if pattern == "his_result.jsonl" else [name for name in output_files if name in presented_files]
+            if not any(fnmatch.fnmatch(name, pattern) for name in eligible):
                 missing.append(pattern)
         return missing
 
@@ -140,6 +144,7 @@ def main() -> int:
             "artifact_reminder_count": reminder_count,
             "artifact_delivered_after_reminder": reminder_count > 0 and not missing_patterns,
             "missing_required_outputs": missing_patterns,
+            "presented_output_files": sorted(presented_files),
             "output_files": _list_output_files(),
         }
         (log_dir / "delivery_status.json").write_text(
@@ -153,6 +158,8 @@ def main() -> int:
             thread_id=args.thread_id,
             recursion_limit=args.recursion_limit,
         ):
+            if event.type == "values":
+                presented_files.update(Path(path).name for path in event.data.get("artifacts", []) if isinstance(path, str))
             events.append(
                 {
                     "event_index": len(events),

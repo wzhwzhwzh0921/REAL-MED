@@ -104,7 +104,7 @@ cloud-deploy/
 └── references/
     ├── aws.md
     ├── gcp.md
-    └── azure.md
+    └── openrouter.md
 ```
 Claude reads only the relevant reference file.
 

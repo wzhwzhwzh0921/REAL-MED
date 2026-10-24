@@ -40,6 +40,11 @@ def collect_run_data(run_dir: Path) -> dict | None:
     run_spec = _load_json_safe(run_dir / "run.json")
     summary = _load_json_safe(run_dir / "summary.json")
     score_data = _load_json_safe(run_dir / "judge" / "score.json")
+    image_data = _load_json_safe(run_dir / "judge" / "score_image.json")
+    rubric_tracks = [track for track in (score_data, image_data) if "max_score" in track]
+    total_score = sum(track.get("total_score", 0) for track in rubric_tracks)
+    max_score = sum(track.get("max_score", 0) for track in rubric_tracks)
+    overall = 100 * total_score / max_score if max_score else score_data.get("overall")
 
     if not run_spec or not summary:
         return None
@@ -55,7 +60,9 @@ def collect_run_data(run_dir: Path) -> dict | None:
         "event_count": summary.get("event_count", 0),
         "tool_errors": summary.get("tool_errors", 0),
         "output_files": summary.get("output_files", []),
-        "overall_score": score_data.get("overall"),
+        "overall_score": overall,
+        "total_score": total_score if max_score else None,
+        "max_score": max_score or None,
         "scores": score_data.get("scores"),
         "rationale": score_data.get("rationale", ""),
         "issues": score_data.get("issues", []),
@@ -65,16 +72,17 @@ def collect_run_data(run_dir: Path) -> dict | None:
 
 
 def build_leaderboard(runs: list[dict]) -> list[dict]:
-    """Compute per-model aggregate stats, sorted by avg_score desc."""
+    """Aggregate equally weighted binary rubric items across both judge tracks."""
     buckets: dict[str, list[dict]] = defaultdict(list)
     for r in runs:
-        if r["status"] == "ok":
-            buckets[r["model"]].append(r)
+        buckets[r["model"]].append(r)
 
     rows = []
     for model, model_runs in sorted(buckets.items()):
         scored = [r for r in model_runs if r["overall_score"] is not None]
-        avg_score = (sum(r["overall_score"] for r in scored) / len(scored)) if scored else None
+        total_rubrics = sum(r.get("max_score") or 0 for r in scored)
+        total_points = sum(r.get("total_score") or 0 for r in scored)
+        avg_score = (100 * total_points / total_rubrics) if total_rubrics else ((sum(r["overall_score"] for r in scored) / len(scored)) if scored else None)
         avg_elapsed = (sum(r["elapsed_s"] for r in model_runs) / len(model_runs)) if model_runs else 0
         total_tool_errors = sum(r["tool_errors"] for r in model_runs)
 
@@ -100,7 +108,7 @@ def build_leaderboard(runs: list[dict]) -> list[dict]:
             "criterion_avgs": criterion_avgs,
         })
 
-    rows.sort(key=lambda r: (r["avg_score"] or -1), reverse=True)
+    rows.sort(key=lambda r: r["avg_score"] if r["avg_score"] is not None else -1, reverse=True)
     return rows
 
 

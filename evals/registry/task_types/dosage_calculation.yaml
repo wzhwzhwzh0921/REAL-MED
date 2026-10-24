@@ -15,7 +15,15 @@ defaults:
 # --- Skills ---
 skills:
   - code
+  - web-search
+  - web-search-mm
+  - pdf
   - docx
+  - xlsx
+  - pptx
+  - pptx-design
+  - nano-banana-pro
+  - draw-io-diagram-generator
 
 extensions_config: task_types/extensions_configs/dosage_calculation.json
 
@@ -25,4 +33,4 @@ expected_outputs:
     required: true
 
 # --- Judge profile ---
-judge_profile: junxiu_rubric_judge
+judge_profile: rubric_judge

@@ -201,18 +201,6 @@ Use the AWS4 library. Common shapes:
 | VPC | `shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;` |
 | Region | `shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_region;` |
 
-### Azure Shapes (`mxgraph.azure.*`)
-
-| Shape | Style String |
-| ------- | ------------- |
-| App Service | `shape=mxgraph.azure.app_service;` |
-| Function App | `shape=mxgraph.azure.function_apps;` |
-| SQL Database | `shape=mxgraph.azure.sql_database;` |
-| Blob Storage | `shape=mxgraph.azure.blob_storage;` |
-| API Management | `shape=mxgraph.azure.api_management;` |
-| Service Bus | `shape=mxgraph.azure.service_bus;` |
-| AKS | `shape=mxgraph.azure.aks;` |
-| Container Registry | `shape=mxgraph.azure.container_registry_registries;` |
 
 ### GCP Shapes (`mxgraph.gcp2.*`)
 

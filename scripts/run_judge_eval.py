@@ -75,7 +75,7 @@ def load_task_type(task_type: str) -> dict:
 def lookup_rubric(case_id: str) -> dict | None:
     """在 rubrics/*.jsonl 里按 case 名查询 rubric。
 
-    case_id 形如 "chronic_junxiu_423/HIS_高血压_011"，取最后一段与 jsonl
+    case_id 形如 "chronic_disease_management/chronic_disease_management_011"，取最后一段与 jsonl
     每行的 `question` 字段匹配。返回 {"category": "chronic", "rubrics": [...]} 或 None。
     """
     if not RUBRICS_DIR.exists():
@@ -121,6 +121,22 @@ def lookup_image_rubric(case_id: str) -> dict | None:
     return None
 
 
+def _missing_deliverables(run_spec: dict, summary: dict, outputs_dir: Path) -> list[str]:
+    """Check the per-case file and submission contract before rubric judging."""
+    required = summary.get("expected_output_patterns") or [
+        item["pattern"] for item in run_spec.get("expected_outputs", [])
+        if item.get("required", True)
+    ]
+    presented = summary.get("presented_output_files")
+    existing = [name for name in summary.get("output_files", []) if (outputs_dir / name).is_file()]
+    missing = []
+    for pattern in required:
+        eligible = existing if pattern == "his_result.jsonl" or presented is None else [name for name in existing if name in presented]
+        if not any(fnmatch.fnmatch(name, pattern) for name in eligible):
+            missing.append(pattern)
+    return missing
+
+
 def build_judge_prompt(run_spec: dict, run_summary: dict, judge_profile: dict, outputs_dir: Path) -> str:
     """默认（非 rubric）judge prompt builder。
     rubric 路径的两阶段 prompt 由 judge_run_rubric 内部直接构造，不走这里。
@@ -137,12 +153,11 @@ def build_judge_prompt(run_spec: dict, run_summary: dict, judge_profile: dict, o
 
     output_schema_text = json.dumps(output_schema, ensure_ascii=False, indent=2)
 
-    # Default mode: criteria-based scoring (0-10 per criterion)
+    # Fallback mode: equally weighted binary criteria
     criteria_text = ""
     for key, cfg in criteria.items():
-        weight = cfg.get("weight", 0)
         desc = cfg.get("description", "").strip()
-        criteria_text += f"\n### {key} (weight={weight})\n{desc}\n"
+        criteria_text += f"\n### {key}\n{desc}\n"
 
     prompt = f"""You are an expert evaluator for AI-generated content. Score the following DeerFlow task run.
 
@@ -163,8 +178,8 @@ def build_judge_prompt(run_spec: dict, run_summary: dict, judge_profile: dict, o
 
 ## Instructions
 1. Review the attached output artifact(s).
-2. Score each criterion from 0 to 10 (0 = completely fails, 10 = perfect).
-3. Compute a weighted overall score.
+2. Score each criterion as 0 or 1 based on explicit evidence in the artifact.
+3. Compute the fraction of satisfied criteria; all criteria have equal weight.
 4. Provide a brief rationale and list any concrete issues found.
 5. Return ONLY a JSON object matching this schema:
 {output_schema_text}
@@ -176,7 +191,7 @@ def _make_openai_client(judge_model: str) -> tuple:
     """Build a langchain BaseChatModel via the deerflow model factory.
 
     Using the factory rather than a raw OpenAI client lets the judge also call
-    deerflow's custom wrappers (e.g. ChatGPT52Azure, the Responses-style proxy)
+    the configured OpenRouter adapters
     in addition to OpenAI-compatible chat models. Returns (BaseChatModel, model_name).
     """
     backend_dir = REPO_ROOT / "backend"
@@ -202,13 +217,13 @@ def _call_judge(client, prompt: str, judge_model_name: str, _max_retries: int = 
     """Invoke a langchain BaseChatModel; auto-retries with exponential backoff on 429 QPM.
 
     We use the langchain interface (rather than a stock openai client) so that
-    deerflow's custom wrappers (e.g. ChatGPT52Azure, the Responses-style proxy)
+    the configured OpenRouter adapters
     work transparently alongside plain OpenAI-compatible models.
     """
     from langchain_core.messages import HumanMessage
     for attempt in range(_max_retries + 1):
         try:
-            resp = client.invoke([HumanMessage(content=prompt)])
+            resp = client.invoke([HumanMessage(content=prompt)], **api_kwargs)
             return resp.content if hasattr(resp, "content") else str(resp)
         except Exception as exc:
             msg = str(exc)
@@ -281,15 +296,6 @@ def _split_rubrics_by_visual(rubrics: list, client, model_name: str,
     text_list = [r for r, v in zip(rubrics, flags) if not v]
     visual_list = [r for r, v in zip(rubrics, flags) if v]
     return text_list, visual_list
-
-
-def _get_artifact_penalty(summary: dict) -> int:
-    """One-point penalty per artifact reminder, capped at 3."""
-    try:
-        count = int(summary.get("artifact_reminder_count", 0) or 0)
-    except (TypeError, ValueError):
-        count = 0
-    return max(0, min(3, count))
 
 
 def _coerce_numeric_score(value) -> float | None:
@@ -428,7 +434,7 @@ def _select_deliverable_files(outputs_dir: Path, summary: dict) -> tuple[list[st
 
     Returns:
     - selected output file names to read
-    - duplicate-format penalty (0 or 1)
+    - duplicate-format diagnostic flag (0 or 1)
     - duplicate candidates keyed by format suffix
     """
     output_files = [str(f) for f in summary.get("output_files", [])]
@@ -477,7 +483,7 @@ def judge_run_rubric(run_dir: Path, rubric_entry: dict, judge_profile: dict,
     输出结构：
     {
       "question": "HIS_高血压_011",
-      "model": "kimi-k2.5-azure",
+      "model": "kimi-k2.6",
       "rubric": {
         "rubric1": {"text": "...", "score": 0, "reason": "..."},
         ...
@@ -504,7 +510,7 @@ def judge_run_rubric(run_dir: Path, rubric_entry: dict, judge_profile: dict,
     outputs_dir = run_dir / "outputs"
     his_content = _inline_his_submission(outputs_dir)
 
-    judge_model = judge_profile.get("judge_model", "glm-5-azure")
+    judge_model = judge_profile.get("judge_model", "gpt-5.4-mini")
     openai_client, judge_model_name = _make_openai_client(judge_model)
 
     # Build extra API kwargs from judge profile (reasoning_effort for reasoning models)
@@ -545,7 +551,7 @@ def judge_run_rubric(run_dir: Path, rubric_entry: dict, judge_profile: dict,
         i, rubric_text = args
         prompt = f"""You are a strict medical reviewer. Score the single rubric point below against the model's output, then give a concise justification.
 
-## Case (original Chinese prompt)
+## Case
 {prompt_text}
 
 ## Rubric point (item {i} of {n})
@@ -602,21 +608,21 @@ def judge_run_rubric(run_dir: Path, rubric_entry: dict, judge_profile: dict,
             model_output = his_content
     else:
         model_output = doc_text if doc_text else None
-    artifact_penalty = _get_artifact_penalty(summary)
+    artifact_penalty = 0  # Reminders are reported separately, not deducted from rubric scores.
     deliverable_penalty = 0
     selected_output_files = []
     duplicate_candidates = {}
     if not his_content:
         selected_output_files, deliverable_penalty, duplicate_candidates = _select_deliverable_files(outputs_dir, summary)
     raw_total_score = sum(scores)
-    adjusted_total_score = max(0, raw_total_score - artifact_penalty - deliverable_penalty)
+    adjusted_total_score = raw_total_score
     result = {
         "question": question,
         "model": model_name,
         "rubric": rubric_out,
         "raw_total_score": raw_total_score,
-        "artifact_reminder_penalty": artifact_penalty,
-        "duplicate_deliverable_penalty": deliverable_penalty,
+        "artifact_reminder_penalty": 0,
+        "duplicate_deliverable_penalty": 0,
         "total_score": adjusted_total_score,
         "max_score": n,
         "model_output": model_output,
@@ -634,7 +640,7 @@ def judge_run_rubric(run_dir: Path, rubric_entry: dict, judge_profile: dict,
     score_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print(
         f"  [done]  {result['total_score']}/{n}"
-        f" (raw={raw_total_score}, reminder_penalty={artifact_penalty}, duplicate_penalty={deliverable_penalty})"
+        f" (raw={raw_total_score})"
         f"  elapsed={elapsed:.0f}s  -> {score_path}"
     )
     return result
@@ -662,7 +668,7 @@ def _call_vision_judge(client, prompt_text: str, image_paths: list[Path],
         })
     for attempt in range(_max_retries + 1):
         try:
-            resp = client.invoke([HumanMessage(content=content)])
+            resp = client.invoke([HumanMessage(content=content)], **api_kwargs)
             return resp.content if hasattr(resp, "content") else str(resp)
         except Exception as exc:
             msg = str(exc)
@@ -730,7 +736,7 @@ def judge_run_rubric_image(run_dir: Path, image_entry: dict, judge_profile: dict
 
     judge_dir.mkdir(exist_ok=True)
 
-    judge_model = judge_profile.get("judge_model", "gpt-5.2-azure")
+    judge_model = judge_profile.get("judge_model", "gpt-5.4-mini")
     image_max = int(judge_profile.get("image_max", 20))
     openai_client, judge_model_name = _make_openai_client(judge_model)
 
@@ -759,7 +765,7 @@ def judge_run_rubric_image(run_dir: Path, image_entry: dict, judge_profile: dict
 
         prompt = f"""You are a strict medical reviewer. Score the single VISUAL rubric point below against the image(s) of the model's submitted artifact, then give a concise justification.
 
-## Case (original Chinese prompt)
+## Case
 {prompt_text}
 
 ## Visual rubric point (item {i} of {n})
@@ -817,9 +823,7 @@ The next {len(image_paths)} blocks are the rendered images (0-indexed). The tota
 
     elapsed = time.time() - t0
     raw_total_score = sum(scores)
-    # Image judge uses the same penalty rules: a missing-deliverable already shows up
-    # as image_paths=[] → all zeros, so no extra penalty needed here. Reminder/duplicate
-    # penalties live with the text track to avoid double-counting.
+    # Both tracks count each satisfied criterion once.
     result = {
         "question": question,
         "model": model_name,
@@ -869,10 +873,30 @@ def judge_run(run_dir: Path, judge_profile: dict, force: bool = False) -> dict |
     rubric_entry = lookup_rubric(case_id)
     image_entry = lookup_image_rubric(case_id)  # legacy explicit image rubrics (may be None)
 
+    missing = _missing_deliverables(run_spec, summary, run_dir / "outputs")
+    if missing and (rubric_entry or image_entry):
+        # The paper's task examples require zero credit when a required final
+        # format is absent. No model calls or router calls are needed here.
+        judge_dir.mkdir(exist_ok=True)
+        reason = "Missing required submitted deliverable: " + ", ".join(missing)
+        result = None
+        for entry, filename in [(rubric_entry, "score.json"), (image_entry, "score_image.json")]:
+            criteria = (entry or {}).get("rubrics", [])
+            scored = {
+                "question": case_id.split("/")[-1], "model": run_spec.get("model_name", ""),
+                "rubric": {f"rubric{i+1}": {"text": criterion.get("text", "") if isinstance(criterion, dict) else criterion, "score": 0, "reason": reason} for i, criterion in enumerate(criteria)},
+                "total_score": 0, "max_score": len(criteria),
+                "_meta": {"reason": "missing_required_delivery", "missing_required_outputs": missing},
+            }
+            (judge_dir / filename).write_text(json.dumps(scored, ensure_ascii=False, indent=2), encoding="utf-8")
+            if filename == "score.json":
+                result = scored
+        return result
+
     # 用 router 把 rubric_entry.rubrics 拆成 text vs visual 两组
     if rubric_entry and rubric_entry.get("rubrics"):
         router_model = judge_profile.get(
-            "router_model", judge_profile.get("judge_model", "gpt-5.2-azure"))
+            "router_model", judge_profile.get("judge_model", "gpt-5.4-mini"))
         router_client, router_model_name = _make_openai_client(router_model)
         text_rubs, visual_rubs = _split_rubrics_by_visual(
             rubric_entry["rubrics"], router_client, router_model_name,
@@ -905,7 +929,7 @@ def judge_run(run_dir: Path, judge_profile: dict, force: bool = False) -> dict |
     if image_entry and image_entry.get("rubrics"):
         try:
             vision_profile_name = judge_profile.get(
-                "vision_profile", "junxiu_rubric_judge_vision")
+                "vision_profile", "rubric_judge_vision")
             try:
                 vision_profile = load_judge_profile(vision_profile_name)
             except FileNotFoundError:
@@ -958,15 +982,15 @@ def judge_run(run_dir: Path, judge_profile: dict, force: bool = False) -> dict |
     elapsed = time.time() - t0
     score_data = _extract_json(response_text) or {"raw_response": response_text, "parse_error": True}
 
-    artifact_penalty = _get_artifact_penalty(summary)
+    artifact_penalty = 0  # Reminders are reported separately, not deducted from rubric scores.
     overall_raw = _coerce_numeric_score(score_data.get("overall"))
     if overall_raw is not None:
-        adjusted = max(0.0, overall_raw - artifact_penalty - deliverable_penalty)
+        adjusted = overall_raw
         if adjusted.is_integer():
             adjusted = int(adjusted)
         score_data["overall_raw"] = overall_raw if not float(overall_raw).is_integer() else int(overall_raw)
         score_data["artifact_reminder_penalty"] = artifact_penalty
-        score_data["duplicate_deliverable_penalty"] = deliverable_penalty
+        score_data["duplicate_deliverable_penalty"] = 0
         score_data["overall_adjusted"] = adjusted
 
     score_data["_meta"] = {
@@ -1046,7 +1070,7 @@ def main() -> int:
         is_rubric = bool(lookup_rubric(case_id))
         is_image_rubric = bool(lookup_image_rubric(case_id))
         # 同时只有 image rubric 也走 rubric profile (judge_run 内部会路由)
-        judge_profile_name = ("junxiu_rubric_judge"
+        judge_profile_name = ("rubric_judge"
                               if (is_rubric or is_image_rubric)
                               else task_cfg.get("judge_profile", f"{task_type}_judge"))
 

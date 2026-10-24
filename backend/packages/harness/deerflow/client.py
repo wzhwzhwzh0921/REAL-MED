@@ -204,8 +204,11 @@ class DeerFlowClient:
         subagent_enabled = cfg.get("subagent_enabled", False)
         max_concurrent_subagents = cfg.get("max_concurrent_subagents", 3)
 
+        model_kwargs = {}
+        if cfg.get("reasoning_effort"):
+            model_kwargs["reasoning_effort"] = cfg["reasoning_effort"]
         kwargs: dict[str, Any] = {
-            "model": create_chat_model(name=model_name, thinking_enabled=thinking_enabled),
+            "model": create_chat_model(name=model_name, thinking_enabled=thinking_enabled, **model_kwargs),
             "tools": self._get_tools(model_name=model_name, subagent_enabled=subagent_enabled),
             "middleware": _build_middlewares(config, model_name=model_name),
             "system_prompt": apply_prompt_template(

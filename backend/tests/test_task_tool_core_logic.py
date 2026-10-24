@@ -32,7 +32,7 @@ def _make_runtime() -> SimpleNamespace:
             },
         },
         context={"thread_id": "thread-1"},
-        config={"metadata": {"model_name": "ark-model", "trace_id": "trace-1"}},
+        config={"metadata": {"model_name": "openrouter-model", "trace_id": "trace-1"}},
     )
 
 
@@ -126,11 +126,11 @@ def test_task_tool_emits_running_and_completed_events(monkeypatch):
     assert captured["prompt"] == "collect diagnostics"
     assert captured["task_id"] == "tc-123"
     assert captured["executor_kwargs"]["thread_id"] == "thread-1"
-    assert captured["executor_kwargs"]["parent_model"] == "ark-model"
-    assert captured["executor_kwargs"]["config"].max_turns == 7
+    assert captured["executor_kwargs"]["parent_model"] == "openrouter-model"
+    assert captured["executor_kwargs"]["config"].max_turns == 50  # Configured floor is retained.
     assert "Skills Appendix" in captured["executor_kwargs"]["config"].system_prompt
 
-    get_available_tools.assert_called_once_with(model_name="ark-model", subagent_enabled=False)
+    get_available_tools.assert_called_once_with(model_name="openrouter-model", subagent_enabled=False)
 
     event_types = [e["type"] for e in events]
     assert event_types == ["task_started", "task_running", "task_running", "task_completed"]

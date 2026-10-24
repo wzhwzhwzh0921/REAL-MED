@@ -39,7 +39,7 @@ Harness 是 agent 的构建与编排框架，回答 **"如何构建和运行 age
 App 是面向用户的产品代码，回答 **"如何将 agent 呈现给用户"** 的问题：
 
 - Gateway API（FastAPI REST 接口）
-- IM Channels（飞书、Slack、Telegram 集成）
+- IM Channels（Slack、Telegram 集成）
 - Custom Agent 的 CRUD 管理
 - 文件上传/下载的 HTTP 接口
 
@@ -111,7 +111,6 @@ backend/
 │       ├── service.py
 │       ├── store.py
 │       ├── message_bus.py
-│       ├── feishu.py
 │       ├── slack.py
 │       └── telegram.py
 ├── pyproject.toml                  # uv workspace root
@@ -197,7 +196,7 @@ App 的唯一消费者是 DeerFlow 项目自身，没有独立发布的需求。
 ┌─────────────────────────────────────┐
 │  app/  (不打包，直接运行)             │
 │  ├── fastapi, uvicorn               │
-│  ├── slack-sdk, lark-oapi, ...      │
+│  ├── slack-sdk, ...      │
 │  └── import deerflow.*              │
 └──────────────┬──────────────────────┘
                │
@@ -215,7 +214,7 @@ App 的唯一消费者是 DeerFlow 项目自身，没有独立发布的需求。
 | 分类 | 依赖包 |
 |------|--------|
 | Harness only | agent-sandbox, langchain*, langgraph*, markdownify, markitdown, pydantic, pyyaml, readabilipy, tavily-python, firecrawl-py, tiktoken, ddgs, duckdb, httpx, kubernetes, dotenv |
-| App only | fastapi, uvicorn, sse-starlette, python-multipart, lark-oapi, slack-sdk, python-telegram-bot, markdown-to-mrkdwn |
+| App only | fastapi, uvicorn, sse-starlette, python-multipart, slack-sdk, python-telegram-bot, markdown-to-mrkdwn |
 | Shared | langgraph-sdk（channels 用 HTTP client）, pydantic, httpx |
 
 ### 3.5 Workspace 配置
@@ -233,7 +232,7 @@ dependencies = ["deerflow-harness"]
 dev = ["pytest>=8.0.0", "ruff>=0.14.11"]
 # App 的额外依赖（fastapi 等）也声明在 workspace root，因为 app 不打包
 app = ["fastapi", "uvicorn", "sse-starlette", "python-multipart"]
-channels = ["lark-oapi", "slack-sdk", "python-telegram-bot"]
+channels = ["slack-sdk", "python-telegram-bot"]
 
 [tool.uv.workspace]
 members = ["packages/harness"]

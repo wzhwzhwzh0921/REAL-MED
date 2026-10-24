@@ -5,10 +5,10 @@ Reads an experiment YAML, expands it into a list of (model, case) runs,
 and executes them using run_client_test.py as a subprocess.
 
 Usage:
-    python scripts/run_batch_eval.py evals/experiments/exp_baseline.yaml
-    python scripts/run_batch_eval.py evals/experiments/exp_baseline.yaml --dry-run
-    python scripts/run_batch_eval.py evals/experiments/exp_baseline.yaml --model glm-5
-    python scripts/run_batch_eval.py evals/experiments/exp_baseline.yaml --case pptx/zhuyuanzhang_001
+    python scripts/run_batch_eval.py evals/experiments/exp_realmed_405case_11model.yaml
+    python scripts/run_batch_eval.py evals/experiments/exp_realmed_405case_11model.yaml --dry-run
+    python scripts/run_batch_eval.py evals/experiments/exp_realmed_405case_11model.yaml --model glm-5
+    python scripts/run_batch_eval.py evals/experiments/exp_realmed_405case_11model.yaml --case medical_ppt_presentation/medical_ppt_presentation_001
 """
 
 from __future__ import annotations
@@ -64,13 +64,13 @@ PYTHON = REPO_ROOT / "backend" / ".venv" / "bin" / "python"
 
 @dataclass
 class CaseSpec:
-    case_id: str          # e.g. "pptx/zhuyuanzhang_001"
+    case_id: str          # e.g. "medical_ppt_presentation/medical_ppt_presentation_001"
     task_type: str
     prompt: str
     attachments: list = field(default_factory=list)   # paths relative to evals/registry/attachments/
     overrides: dict = field(default_factory=dict)
     golden_notes: str = ""
-    junxiu_rubric: dict = field(default_factory=dict)  # optional item-by-item scoring rubric
+    rubric_items: dict = field(default_factory=dict)  # optional item-by-item scoring rubric
 
 
 @dataclass
@@ -123,7 +123,7 @@ def load_case(case_id: str) -> CaseSpec:
         attachments=data.get("attachments") or [],
         overrides=data.get("overrides") or {},
         golden_notes=data.get("golden_notes", ""),
-        junxiu_rubric=data.get("junxiu_rubric") or {},
+        rubric_items=data.get("rubric_items") or {},
     )
 
 
@@ -230,7 +230,7 @@ class BatchPlanner:
                         attachments=case.attachments,
                         overrides=case.overrides,
                         golden_notes=case.golden_notes,
-                        junxiu_rubric=case.junxiu_rubric,
+                        rubric_items=case.rubric_items,
                     )
 
                 # Priority: model_cfg > exp_runtime > case.overrides > task_defaults
@@ -387,6 +387,7 @@ def run_one(spec: RunSpec, runs_dir: Path) -> RunResult:
             summary["artifact_delivered_after_reminder"] = result.artifact_delivered_after_reminder
             summary["expected_output_patterns"] = delivery_status.get("expected_output_patterns", [])
             summary["missing_required_outputs"] = delivery_status.get("missing_required_outputs", [])
+            summary["presented_output_files"] = delivery_status.get("presented_output_files", [])
         except Exception as exc:
             print(f"  [WARN] failed to parse delivery_status.json: {exc}")
 

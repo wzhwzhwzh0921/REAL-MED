@@ -21,7 +21,7 @@ from typing import Any
 from langchain_core.language_models import LanguageModelInput
 from langchain_core.messages import AIMessage, AIMessageChunk
 from langchain_core.outputs import ChatGeneration, ChatGenerationChunk, ChatResult
-from langchain_openai import AzureChatOpenAI, ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_openai.chat_models.base import (
     _convert_delta_to_message_chunk,
     _create_usage_metadata,
@@ -40,9 +40,7 @@ def _with_reasoning(
     additional_kwargs = dict(message.additional_kwargs)
     if preserve_whitespace:
         existing = additional_kwargs.get("reasoning_content")
-        additional_kwargs["reasoning_content"] = (
-            f"{existing}{reasoning}" if isinstance(existing, str) else reasoning
-        )
+        additional_kwargs["reasoning_content"] = f"{existing}{reasoning}" if isinstance(existing, str) else reasoning
     else:
         existing = additional_kwargs.get("reasoning_content")
         if existing and isinstance(existing, str):
@@ -136,11 +134,7 @@ class PatchedChatOpenAI(ChatOpenAI):
 
         token_usage = chunk.get("usage")
         choices = chunk.get("choices", []) or chunk.get("chunk", {}).get("choices", [])
-        usage_metadata = (
-            _create_usage_metadata(token_usage, chunk.get("service_tier"))
-            if token_usage
-            else None
-        )
+        usage_metadata = _create_usage_metadata(token_usage, chunk.get("service_tier")) if token_usage else None
 
         if len(choices) == 0:
             generation_chunk = ChatGenerationChunk(
@@ -174,122 +168,9 @@ class PatchedChatOpenAI(ChatOpenAI):
             if usage_metadata:
                 message_chunk.usage_metadata = usage_metadata
             if isinstance(reasoning_text, str) and reasoning_text:
-                message_chunk = _with_reasoning(
-                    message_chunk, reasoning_text, preserve_whitespace=True
-                )
+                message_chunk = _with_reasoning(message_chunk, reasoning_text, preserve_whitespace=True)
 
         return ChatGenerationChunk(
             message=message_chunk,
             generation_info=generation_info or None,
         )
-
-
-class PatchedAzureChatOpenAI(AzureChatOpenAI):
-    """AzureChatOpenAI adapter that captures reasoning_content (Kimi-K2.5, GLM-5 etc.).
-
-    Some models served via an Azure-style proxy return thinking content in
-    ``choices[0].message.reasoning_content`` rather than the OpenAI standard
-    ``choices[0].message.reasoning``.  This adapter:
-    1. Extracts both fields and stores in ``additional_kwargs.reasoning_content``.
-    2. Passes ``reasoning_content`` back on assistant messages in multi-turn
-       conversations (required by Kimi-K2.5 when thinking is enabled).
-    """
-
-    def _get_request_payload(
-        self,
-        input_: LanguageModelInput,
-        *,
-        stop: list[str] | None = None,
-        **kwargs: Any,
-    ) -> dict:
-        original_messages = self._convert_input(input_).to_messages()
-        payload = super()._get_request_payload(input_, stop=stop, **kwargs)
-
-        # Pass reasoning_content back on assistant messages (multi-turn requirement)
-        payload_messages = payload.get("messages", [])
-        if len(payload_messages) == len(original_messages):
-            for payload_msg, orig_msg in zip(payload_messages, original_messages):
-                if payload_msg.get("role") == "assistant" and isinstance(orig_msg, AIMessage):
-                    rc = orig_msg.additional_kwargs.get("reasoning_content")
-                    if rc is not None:
-                        payload_msg["reasoning_content"] = rc
-        else:
-            ai_messages = [m for m in original_messages if isinstance(m, AIMessage)]
-            assistant_payloads = [(i, m) for i, m in enumerate(payload_messages) if m.get("role") == "assistant"]
-            for (idx, payload_msg), ai_msg in zip(assistant_payloads, ai_messages):
-                rc = ai_msg.additional_kwargs.get("reasoning_content")
-                if rc is not None:
-                    payload_messages[idx]["reasoning_content"] = rc
-
-        return payload
-
-    def _create_chat_result(
-        self,
-        response: dict | Any,
-        generation_info: dict | None = None,
-    ) -> ChatResult:
-        result = super()._create_chat_result(response, generation_info)
-        response_dict = response if isinstance(response, dict) else response.model_dump()
-        choices = response_dict.get("choices", [])
-
-        generations: list[ChatGeneration] = []
-        for index, generation in enumerate(result.generations):
-            choice = choices[index] if index < len(choices) else {}
-            message = generation.message
-            if isinstance(message, AIMessage):
-                choice_message = choice.get("message", {}) if isinstance(choice, Mapping) else {}
-                # Try both field names
-                reasoning_text = choice_message.get("reasoning_content") or choice_message.get("reasoning")
-                if isinstance(reasoning_text, str) and reasoning_text.strip():
-                    message = _with_reasoning(message, reasoning_text)
-                    generation = ChatGeneration(
-                        message=message,
-                        generation_info=generation.generation_info,
-                    )
-            generations.append(generation)
-
-        return ChatResult(generations=generations, llm_output=result.llm_output)
-
-
-class MiniMaxAzureChatOpenAI(PatchedAzureChatOpenAI):
-    """PatchedAzureChatOpenAI variant for MiniMax models.
-
-    MiniMax rejects ``system`` role messages with error code -4316.
-    This class merges any system message into the first user message
-    before sending, so the rest of the pipeline can still use SystemMessage
-    as usual.
-    """
-
-    def _get_request_payload(self, input_: LanguageModelInput, *, stop=None, **kwargs) -> dict:
-        payload = super()._get_request_payload(input_, stop=stop, **kwargs)
-        messages = payload.get("messages", [])
-
-        # Collect system texts and remove system-role entries
-        system_texts: list[str] = []
-        non_system: list[dict] = []
-        for msg in messages:
-            if msg.get("role") == "system":
-                content = msg.get("content", "")
-                if isinstance(content, list):
-                    content = " ".join(p.get("text", "") if isinstance(p, dict) else str(p) for p in content)
-                if content:
-                    system_texts.append(content)
-            else:
-                non_system.append(msg)
-
-        if system_texts:
-            prefix = "\n\n".join(system_texts)
-            # Prepend to the first user message, or insert a new one
-            for msg in non_system:
-                if msg.get("role") == "user":
-                    existing = msg.get("content", "")
-                    if isinstance(existing, list):
-                        msg["content"] = [{"type": "text", "text": prefix + "\n\n"}] + existing
-                    else:
-                        msg["content"] = f"{prefix}\n\n{existing}"
-                    break
-            else:
-                non_system.insert(0, {"role": "user", "content": prefix})
-
-        payload["messages"] = non_system
-        return payload

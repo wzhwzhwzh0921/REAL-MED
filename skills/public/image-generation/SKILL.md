@@ -12,10 +12,9 @@ This skill generates high-quality images using structured prompts and a Python s
 ## API Key
 
 The script checks for API key in this order:
-1. `OPENROUTER_API_KEY` environment variable (preferred)
-2. `GEMINI_API_KEY` environment variable (fallback)
+`OPENROUTER_API_KEY` environment variable.
 
-The default model is `google/gemini-2.5-flash-preview:thinking` via OpenRouter. Override with `--model` or `IMAGE_GEN_MODEL` env var.
+The default model is `google/gemini-3-pro-image` via OpenRouter. Override with `--model` or `OPENROUTER_IMAGE_MODEL` env var.
 
 ## Core Capabilities
 

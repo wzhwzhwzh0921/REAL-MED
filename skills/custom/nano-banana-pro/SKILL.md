@@ -53,7 +53,7 @@ Map user requests to API parameters:
 The script checks for API key in this order:
 1. `--api-key` argument (use if user provided key in chat)
 2. `OPENROUTER_API_KEY` environment variable
-3. `GEMINI_API_KEY` environment variable (fallback)
+3. `OPENROUTER_API_KEY` environment variable (fallback)
 
 If none is available, the script exits with an error message.
 

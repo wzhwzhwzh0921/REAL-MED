@@ -36,6 +36,7 @@ def create_chat_model(name: str | None = None, thinking_enabled: bool = False, *
             "when_thinking_enabled",
             "thinking",
             "supports_vision",
+            "context_window",
         },
     )
     # Compute effective when_thinking_enabled by merging in the `thinking` shortcut field.
@@ -68,7 +69,8 @@ def create_chat_model(name: str | None = None, thinking_enabled: bool = False, *
         default_retries = getattr(config, "llm_max_retries", 10)
         kwargs["max_retries"] = int(default_retries)
 
-    model_instance = model_class(**kwargs, **model_settings_from_config)
+    # Explicit call settings override defaults without duplicate keyword arguments.
+    model_instance = model_class(**{**model_settings_from_config, **kwargs})
 
     if is_tracing_enabled():
         try:

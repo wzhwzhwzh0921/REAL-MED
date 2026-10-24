@@ -114,12 +114,12 @@ task(description="Industry & market trends", prompt="...", subagent_type="genera
 **Usage Example 2 - Multiple Batches (>{n} sub-tasks):**
 
 ```python
-# User asks: "Compare AWS, Azure, GCP, Alibaba Cloud, and Oracle Cloud"
+# User asks: "Compare five medical evidence sources"
 # Thinking: 5 sub-tasks → need multiple batches (max {n} per batch)
 
 # Turn 1: Launch first batch of {n}
 task(description="AWS analysis", prompt="...", subagent_type="general-purpose")
-task(description="Azure analysis", prompt="...", subagent_type="general-purpose")
+task(description="Guideline analysis", prompt="...", subagent_type="general-purpose")
 task(description="GCP analysis", prompt="...", subagent_type="general-purpose")
 
 # Turn 2: Launch remaining batch (after first batch completes)
@@ -295,7 +295,7 @@ Recent breakthroughs in language models have also accelerated progress
 ## Executive Summary
 
 DeerFlow is an open-source AI agent framework that gained significant traction in early 2026
-[citation:GitHub Repository](https://github.com/bytedance/deer-flow). The project focuses on
+[citation:GitHub Repository](https://github.com/wzhwzhwzh0921/REAL-MED). The project focuses on
 providing a production-ready agent system with sandbox execution and memory management
 [citation:DeerFlow Documentation](https://deer-flow.dev/docs).
 
@@ -309,7 +309,7 @@ combined with a FastAPI gateway for REST API access [citation:FastAPI](https://f
 ## Sources
 
 ### Primary Sources
-- [GitHub Repository](https://github.com/bytedance/deer-flow) - Official source code and documentation
+- [GitHub Repository](https://github.com/wzhwzhwzh0921/REAL-MED) - Official source code and documentation
 - [DeerFlow Documentation](https://deer-flow.dev/docs) - Technical specifications
 
 ### Media Coverage
@@ -322,7 +322,7 @@ combined with a FastAPI gateway for REST API access [citation:FastAPI](https://f
 - The `[citation:Title](URL)` format is ONLY for inline citations within the report body
 - ❌ WRONG: `GitHub 仓库 - 官方源代码和文档` (no URL!)
 - ❌ WRONG in Sources: `[citation:GitHub Repository](url)` (citation prefix is for inline only!)
-- ✅ RIGHT in Sources: `[GitHub Repository](https://github.com/bytedance/deer-flow) - 官方源代码和文档`
+- ✅ RIGHT in Sources: `[GitHub Repository](https://github.com/wzhwzhwzh0921/REAL-MED) - 官方源代码和文档`
 
 **WORKFLOW for Research Tasks:**
 1. Use web_search to find sources → Extract {{title, url, snippet}} from results

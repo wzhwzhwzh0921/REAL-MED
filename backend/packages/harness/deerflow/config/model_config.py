@@ -12,6 +12,7 @@ class ModelConfig(BaseModel):
         description="Class path of the model provider(e.g. langchain_openai.ChatOpenAI)",
     )
     model: str = Field(..., description="Model name")
+    context_window: int | None = Field(default=None, gt=0, description="Context capacity used for the benchmark summarization trigger")
     model_config = ConfigDict(extra="allow")
     supports_thinking: bool = Field(default_factory=lambda: False, description="Whether the model supports thinking")
     supports_reasoning_effort: bool = Field(default_factory=lambda: False, description="Whether the model supports reasoning effort")

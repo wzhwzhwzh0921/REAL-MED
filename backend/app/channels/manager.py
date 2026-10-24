@@ -27,7 +27,6 @@ DEFAULT_RUN_CONTEXT: dict[str, Any] = {
 STREAM_UPDATE_MIN_INTERVAL_SECONDS = 0.35
 
 CHANNEL_CAPABILITIES = {
-    "feishu": {"supports_streaming": True},
     "slack": {"supports_streaming": False},
     "telegram": {"supports_streaming": False},
 }

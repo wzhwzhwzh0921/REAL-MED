@@ -5,15 +5,14 @@
 扫描 evals/runs/{experiment_id}/*/conversation_*.jsonl，对每条 AI 消息的
 usage_metadata 累加 input_tokens / output_tokens；
 读 OpenRouter /api/v1/models 实时定价（模型名取自 run.json 的 model_name），
-对非 OpenRouter 模型（azure / 内网）按 cost=0 处理。
+缺少模型映射或实时价格时终止，避免把未知费用误报为零。
 
 输出:
   evals/reports/{experiment_id}/usage_cost.jsonl   每 run 一条
   evals/reports/{experiment_id}/usage_cost.xlsx    表格 + 汇总
 
 用法:
-  python scripts/compute_usage_cost.py exp_junxiu_0424_glm5_or_smoke
-  python scripts/compute_usage_cost.py exp_junxiu_0424_glm5_or_smoke --with-judge-scores
+  python scripts/compute_usage_cost.py exp_realmed_405case_11model
 """
 from __future__ import annotations
 import argparse, json, sys
@@ -36,14 +35,6 @@ HEADER_FILL = PatternFill(start_color="305496", end_color="305496", fill_type="s
 HEADER_FONT = Font(bold=True, color="FFFFFF")
 TOTAL_FILL  = PatternFill(start_color="FFF2CC", end_color="FFF2CC", fill_type="solid")
 
-# Fallback pricing ($/token) if OpenRouter /models 不可达
-FALLBACK_PRICING = {
-    "z-ai/glm-5":   {"prompt": 0.60e-6, "completion": 2.08e-6},
-    "z-ai/glm-4.7": {"prompt": 0.38e-6, "completion": 1.74e-6},
-    "z-ai/glm-4.6": {"prompt": 0.39e-6, "completion": 1.90e-6},
-}
-
-
 # ── model_name → openrouter model id 映射（从 config.yaml 的 models.[].model 字段取）──
 def build_name_to_openrouter_id() -> Dict[str, str]:
     if not CONFIG_YAML.exists():
@@ -57,7 +48,7 @@ def build_name_to_openrouter_id() -> Dict[str, str]:
         use = (m.get("use") or "").lower()
         # OpenRouter 模型识别：要么 base_url 里有 "openrouter"（chat/completions 路径），
         # 要么 use 指向 openrouter_responses（Responses API 路径，URL 硬编码在 adapter 里）
-        is_openrouter = "openrouter" in base or "openrouter_responses" in use
+        is_openrouter = "openrouter" in base or "deerflow.models.openrouter" in use
         if name and model_id and is_openrouter:
             mapping[name] = model_id
     return mapping
@@ -73,8 +64,7 @@ def fetch_openrouter_pricing() -> Dict[str, Dict[str, float]]:
         with urllib.request.urlopen(req, timeout=15) as resp:
             data = json.load(resp)
     except Exception as e:
-        print(f"[warn] 拉 OpenRouter /models 失败，使用 fallback 定价: {e}", file=sys.stderr)
-        return FALLBACK_PRICING
+        raise RuntimeError("OpenRouter pricing unavailable; no cost estimate was produced") from e
     out: Dict[str, Dict[str, float]] = {}
     for m in data.get("data", []):
         mid = m.get("id")
@@ -90,9 +80,6 @@ def fetch_openrouter_pricing() -> Dict[str, Dict[str, float]]:
             }
         except (TypeError, ValueError):
             continue
-    # 合并 fallback，避免某些 id 在 API 返回里缺失
-    for k, v in FALLBACK_PRICING.items():
-        out.setdefault(k, v)
     return out
 
 
@@ -206,8 +193,10 @@ def compute(experiment_id: str, with_judge: bool = True) -> list[dict]:
         meta = load_run_meta(run_dir)
         usage = accumulate_run_usage(run_dir)
 
-        or_model_id = name_to_or.get(meta["model_name"], "")  # may be empty for azure
-        p = pricing.get(or_model_id, {"prompt": 0.0, "completion": 0.0, "cache_read": 0.0, "cache_write": 0.0})
+        or_model_id = name_to_or.get(meta["model_name"], "")
+        if not or_model_id or or_model_id not in pricing:
+            raise ValueError(f"Missing OpenRouter model mapping or price for {meta['model_name']}")
+        p = pricing[or_model_id]
         # 拆分价格: cache_read 走 cache_read 价, 其余 input 走 prompt 价 (cache_write 在 langchain 不可见, 暂按 prompt 价吸收)
         cache_read_tok = usage.get("cache_read_tokens", 0) or 0
         non_cache_input = max(0, usage["input_tokens"] - cache_read_tok)
@@ -314,7 +303,7 @@ def write_xlsx(rows: list[dict], path: Path, experiment_id: str):
     # 备注 sheet
     ws2 = wb.create_sheet("Meta")
     ws2["A1"] = "experiment_id"; ws2["B1"] = experiment_id
-    ws2["A2"] = "pricing_source"; ws2["B2"] = "https://openrouter.ai/api/v1/models (fallback: hardcoded)"
+    ws2["A2"] = "pricing_source"; ws2["B2"] = "https://openrouter.ai/api/v1/models (current estimate, not a billing receipt)"
     ws2["A3"] = "tokens_source"; ws2["B3"] = "evals/runs/{exp}/{run}/conversation_*.jsonl (usage_metadata)"
     ws2.column_dimensions["A"].width = 18
     ws2.column_dimensions["B"].width = 80
@@ -325,7 +314,7 @@ def write_xlsx(rows: list[dict], path: Path, experiment_id: str):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("experiment_id", help="experiment id (目录名), e.g. exp_junxiu_0424_glm5_or_smoke")
+    ap.add_argument("experiment_id", help="experiment id, e.g. exp_realmed_405case_11model")
     ap.add_argument("--no-judge", action="store_true", help="不合并 judge 分数")
     args = ap.parse_args()
 

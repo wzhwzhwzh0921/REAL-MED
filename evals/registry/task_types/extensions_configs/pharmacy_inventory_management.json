@@ -14,19 +14,85 @@
     }
   },
   "skills": {
+    "bootstrap": {
+      "enabled": false
+    },
+    "chart-visualization": {
+      "enabled": false
+    },
+    "claude-to-deerflow": {
+      "enabled": false
+    },
     "code": {
       "enabled": true
+    },
+    "consulting-analysis": {
+      "enabled": false
+    },
+    "data-analysis": {
+      "enabled": false
+    },
+    "deep-research": {
+      "enabled": false
     },
     "docx": {
       "enabled": true
     },
-    "xlsx": {
+    "draw-io-diagram-generator": {
+      "enabled": true
+    },
+    "find-skills": {
+      "enabled": false
+    },
+    "frontend-design": {
+      "enabled": false
+    },
+    "github-deep-research": {
+      "enabled": false
+    },
+    "html2pptx": {
+      "enabled": false
+    },
+    "image-generation": {
+      "enabled": false
+    },
+    "nano-banana-pro": {
       "enabled": true
     },
     "pdf": {
       "enabled": true
     },
+    "ppt-generation": {
+      "enabled": false
+    },
+    "pptx": {
+      "enabled": true
+    },
+    "pptx-design": {
+      "enabled": true
+    },
+    "skill-creator": {
+      "enabled": false
+    },
+    "surprise-me": {
+      "enabled": false
+    },
+    "vercel-deploy": {
+      "enabled": false
+    },
+    "video-generation": {
+      "enabled": false
+    },
+    "web-design-guidelines": {
+      "enabled": false
+    },
     "web-search": {
+      "enabled": true
+    },
+    "web-search-mm": {
+      "enabled": true
+    },
+    "xlsx": {
       "enabled": true
     }
   }

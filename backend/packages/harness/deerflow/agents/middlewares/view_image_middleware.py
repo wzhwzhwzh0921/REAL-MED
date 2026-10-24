@@ -41,10 +41,10 @@ class ViewImageMiddleware(AgentMiddleware[ViewImageMiddlewareState]):
         self._supports_vision: bool = model_config.supports_vision if model_config else False
 
         # Find proxy vision model for non-vision models.
-        # Preference order: gemini-3-flash → first model with supports_vision=True
+        # Preference order: benchmark vision helper → first vision-capable model
         self._proxy_model_name: str | None = None
         if not self._supports_vision:
-            preferred = ["gemini-3-flash"]
+            preferred = ["gpt-5.4-mini", "gemini-3-flash"]
             model_names = {m.name for m in config.models if m.supports_vision}
             for name in preferred:
                 if name in model_names:

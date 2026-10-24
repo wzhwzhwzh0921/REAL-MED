@@ -55,7 +55,8 @@ def task_tool(
         description: A short (3-5 word) description of the task for logging/display. ALWAYS PROVIDE THIS PARAMETER FIRST.
         prompt: The task description for the subagent. Be specific and clear about what needs to be done. ALWAYS PROVIDE THIS PARAMETER SECOND.
         subagent_type: The type of subagent to use. ALWAYS PROVIDE THIS PARAMETER THIRD.
-        max_turns: Optional maximum number of agent turns. Defaults to the subagent's configured max (500 for general-purpose, 30 for bash). Only override this if the task is unusually large; passing a value lower than the subagent's default has no effect — the floor is the subagent's own default.
+        max_turns: Optional maximum number of agent turns. Defaults to the subagent's configured maximum.
+            Only higher values override the configured floor.
     """
     # Get subagent configuration
     config = get_subagent_config(subagent_type)

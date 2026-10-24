@@ -46,7 +46,8 @@ class ChatOpenRouterAnthropic(ChatAnthropic):
     ) -> dict:
         payload = super()._get_request_payload(input_, stop=stop, **kwargs)
         _inject_cache_control(payload)
-        import os, json as _j
+        import json as _j
+        import os
         if os.environ.get("DEERFLOW_DEBUG_CACHE"):
             sys_field = payload.get("system")
             tools = payload.get("tools") or []

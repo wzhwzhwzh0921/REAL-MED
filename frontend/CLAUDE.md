@@ -87,3 +87,9 @@ NEXT_PUBLIC_LANGGRAPH_BASE_URL=http://localhost:2024
 ```
 
 Requires Node.js 22+ and pnpm 10.26.2+.
+
+## REAL-MED release
+
+User-facing links target the REAL-MED repository. Mock model and MCP lists reflect
+the benchmark registry; describe the four benchmark categories and workflow
+deliverables consistently with the main README. Model credentials stay server-side.

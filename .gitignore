@@ -56,3 +56,11 @@ web/
 # Deployment artifacts
 backend/Dockerfile.langgraph
 config.yaml.bak
+
+# Local credentials and generated evaluation data
+.cache/
+.env.*
+!.env.example
+evals/runs/
+evals/reports/
+backend/.pytest_cache/

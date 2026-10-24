@@ -60,5 +60,5 @@ judge:
   build_excel: true
 
 scheduler:
-  max_parallel_models: 6
-  max_parallel_cases: 5
+  max_parallel_models: 4
+  max_parallel_cases: 4

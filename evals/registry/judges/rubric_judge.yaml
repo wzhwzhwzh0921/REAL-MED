@@ -1,12 +1,12 @@
-# Judge profile: junxiu_rubric_judge
+# Judge profile: rubric_judge
 # 按 rubrics/<category>.jsonl 里的评分点列表逐点打分。
 # 每个评分点独立 1 分，踩到即得分，不踩到 0 分。
 # 参考实现：scripts/run_judge_eval.py:build_judge_prompt
 
-judge_profile: junxiu_rubric_judge
-judge_model: "gpt-5.2-azure"
+judge_profile: rubric_judge
+judge_model: "gpt-5.4-mini"
 thinking: "off"
-reasoning_effort: "low"
+reasoning_effort: "medium"
 
 output_schema:
   type: object

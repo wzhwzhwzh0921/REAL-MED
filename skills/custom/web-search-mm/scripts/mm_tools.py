@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Multimodal Search Tools - Image Search with Vision Model
-Uses Serper API for image search and ARK API for vision model
+Uses Serper for image search and OpenRouter for image understanding
 """
 
 import os
@@ -277,14 +277,8 @@ def click_visual(index: int) -> Dict[str, Any]:
 class ImageDescriber:
     """Use vision-language model to describe images"""
 
-    # OpenRouter API configuration (preferred)
-    DEFAULT_API_BASE = os.getenv("OPENROUTER_API_BASE", "https://openrouter.ai/api/v1")
-    DEFAULT_VISION_MODEL = "openai/gpt-4o"
-
-    # ARK API fallback
-    ARK_API_KEY = os.getenv("ARK_API_KEY", "")
-    ARK_API_BASE = os.getenv("ARK_API_BASE", "https://ark-cn-beijing.bytedance.net/api/v3")
-    ARK_VISION_MODEL = "ep-20260116160300-kq8ft"
+    DEFAULT_API_BASE = "https://openrouter.ai/api/v1"
+    DEFAULT_VISION_MODEL = "openai/gpt-5.4-mini"
 
     # Default image save directory
     DEFAULT_IMAGE_DIR = "downloaded_images"
@@ -315,32 +309,9 @@ class ImageDescriber:
         model: Optional[str] = None,
         image_save_dir: Optional[str] = None
     ):
-        # Prefer OpenRouter, fall back to ARK
-        self.api_key = (
-            api_key
-            or os.environ.get("VISION_API_KEY")
-            or os.environ.get("OPENROUTER_API_KEY")
-            or self.ARK_API_KEY
-        )
-        # If using OpenRouter key, use OpenRouter base; if using ARK key, use ARK base
-        resolved_key = self.api_key
-        if api_base:
-            self.api_base = api_base
-        elif os.environ.get("VISION_API_BASE"):
-            self.api_base = os.environ["VISION_API_BASE"]
-        elif resolved_key == self.ARK_API_KEY:
-            self.api_base = self.ARK_API_BASE
-        else:
-            self.api_base = self.DEFAULT_API_BASE
-
-        if model:
-            self.model = model
-        elif os.environ.get("VISION_MODEL"):
-            self.model = os.environ["VISION_MODEL"]
-        elif resolved_key == self.ARK_API_KEY:
-            self.model = self.ARK_VISION_MODEL
-        else:
-            self.model = self.DEFAULT_VISION_MODEL
+        self.api_key = api_key or os.environ.get("OPENROUTER_API_KEY", "")
+        self.api_base = api_base or os.environ.get("OPENROUTER_API_BASE", self.DEFAULT_API_BASE)
+        self.model = model or os.environ.get("VISION_MODEL", self.DEFAULT_VISION_MODEL)
         self.image_save_dir = image_save_dir or self.DEFAULT_IMAGE_DIR
 
         # Track downloaded images

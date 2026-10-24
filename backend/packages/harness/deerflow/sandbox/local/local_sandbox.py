@@ -1,7 +1,6 @@
 import os
 import shutil
 import subprocess
-from pathlib import Path
 
 from deerflow.sandbox.local.list_dir import list_dir
 from deerflow.sandbox.sandbox import Sandbox

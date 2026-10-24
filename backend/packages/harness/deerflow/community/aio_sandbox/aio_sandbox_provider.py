@@ -34,7 +34,7 @@ from .sandbox_info import SandboxInfo
 logger = logging.getLogger(__name__)
 
 # Default configuration
-DEFAULT_IMAGE = "enterprise-public-cn-beijing.cr.volces.com/vefaas-public/all-in-one-sandbox:latest"
+DEFAULT_IMAGE = "ghcr.io/agent-infra/sandbox:latest"
 DEFAULT_PORT = 8080
 DEFAULT_CONTAINER_PREFIX = "deer-flow-sandbox"
 DEFAULT_IDLE_TIMEOUT = 600  # 10 minutes in seconds
@@ -107,7 +107,7 @@ class AioSandboxProvider(SandboxProvider):
         provisioner_url = self._config.get("provisioner_url")
         if provisioner_url:
             logger.info(f"Using remote sandbox backend with provisioner at {provisioner_url}")
-            return RemoteSandboxBackend(provisioner_url=provisioner_url)
+            return RemoteSandboxBackend(provisioner_url=provisioner_url, environment=self._config["environment"])
 
         logger.info("Using local container sandbox backend")
         return LocalContainerBackend(

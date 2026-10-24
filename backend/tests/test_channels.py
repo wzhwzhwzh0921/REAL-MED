@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import asyncio
-import json
 import tempfile
 from pathlib import Path
 from types import SimpleNamespace
@@ -168,13 +167,13 @@ class TestChannelStore:
 
     def test_list_entries_all(self, store):
         store.set_thread_id("slack", "ch1", "t1")
-        store.set_thread_id("feishu", "ch2", "t2")
+        store.set_thread_id("telegram", "ch2", "t2")
         entries = store.list_entries()
         assert len(entries) == 2
 
     def test_list_entries_filtered(self, store):
         store.set_thread_id("slack", "ch1", "t1")
-        store.set_thread_id("feishu", "ch2", "t2")
+        store.set_thread_id("telegram", "ch2", "t2")
         entries = store.list_entries(channel_name="slack")
         assert len(entries) == 1
         assert entries[0]["channel_name"] == "slack"
@@ -564,7 +563,9 @@ class TestChannelManager:
 
         _run(go())
 
-    def test_handle_feishu_chat_streams_multiple_outbound_updates(self, monkeypatch):
+    def test_handle_test_streaming_chat_streams_multiple_outbound_updates(self, monkeypatch):
+        from app.channels.manager import CHANNEL_CAPABILITIES
+        monkeypatch.setitem(CHANNEL_CAPABILITIES, "test_streaming", {"supports_streaming": True})
         from app.channels.manager import ChannelManager
 
         monkeypatch.setattr("app.channels.manager.STREAM_UPDATE_MIN_INTERVAL_SECONDS", 0.0)
@@ -615,7 +616,7 @@ class TestChannelManager:
             await manager.start()
 
             inbound = InboundMessage(
-                channel_name="feishu",
+                channel_name="test_streaming",
                 chat_id="chat1",
                 user_id="user1",
                 text="hi",
@@ -632,8 +633,10 @@ class TestChannelManager:
 
         _run(go())
 
-    def test_handle_feishu_stream_error_still_sends_final(self, monkeypatch):
+    def test_handle_test_streaming_stream_error_still_sends_final(self, monkeypatch):
         """When the stream raises mid-way, a final outbound with is_final=True must still be published."""
+        from app.channels.manager import CHANNEL_CAPABILITIES
+        monkeypatch.setitem(CHANNEL_CAPABILITIES, "test_streaming", {"supports_streaming": True})
         from app.channels.manager import ChannelManager
 
         monkeypatch.setattr("app.channels.manager.STREAM_UPDATE_MIN_INTERVAL_SECONDS", 0.0)
@@ -667,7 +670,7 @@ class TestChannelManager:
             await manager.start()
 
             inbound = InboundMessage(
-                channel_name="feishu",
+                channel_name="test_streaming",
                 chat_id="chat1",
                 user_id="user1",
                 text="hi",
@@ -1034,8 +1037,10 @@ class TestChannelManager:
 
         _run(go())
 
-    def test_handle_command_bootstrap_feishu_uses_streaming(self, monkeypatch):
-        """/bootstrap from feishu should go through the streaming path."""
+    def test_handle_command_bootstrap_test_streaming_uses_streaming(self, monkeypatch):
+        """/bootstrap from test_streaming should go through the streaming path."""
+        from app.channels.manager import CHANNEL_CAPABILITIES
+        monkeypatch.setitem(CHANNEL_CAPABILITIES, "test_streaming", {"supports_streaming": True})
         from app.channels.manager import ChannelManager
 
         monkeypatch.setattr("app.channels.manager.STREAM_UPDATE_MIN_INTERVAL_SECONDS", 0.0)
@@ -1072,7 +1077,7 @@ class TestChannelManager:
             await manager.start()
 
             inbound = InboundMessage(
-                channel_name="feishu",
+                channel_name="test_streaming",
                 chat_id="chat1",
                 user_id="user1",
                 text="/bootstrap hello",
@@ -1450,178 +1455,6 @@ class TestHandleChatWithArtifacts:
         _run(go())
 
 
-class TestFeishuChannel:
-    def test_prepare_inbound_publishes_without_waiting_for_running_card(self):
-        from app.channels.feishu import FeishuChannel
-
-        async def go():
-            bus = MessageBus()
-            bus.publish_inbound = AsyncMock()
-            channel = FeishuChannel(bus, config={})
-
-            reply_started = asyncio.Event()
-            release_reply = asyncio.Event()
-
-            async def slow_reply(message_id: str, text: str) -> str:
-                reply_started.set()
-                await release_reply.wait()
-                return "om-running-card"
-
-            channel._add_reaction = AsyncMock()
-            channel._reply_card = AsyncMock(side_effect=slow_reply)
-
-            inbound = InboundMessage(
-                channel_name="feishu",
-                chat_id="chat-1",
-                user_id="user-1",
-                text="hello",
-                thread_ts="om-source-msg",
-            )
-
-            prepare_task = asyncio.create_task(channel._prepare_inbound("om-source-msg", inbound))
-
-            await _wait_for(lambda: bus.publish_inbound.await_count == 1)
-            await prepare_task
-
-            assert reply_started.is_set()
-            assert "om-source-msg" in channel._running_card_tasks
-            assert channel._reply_card.await_count == 1
-
-            release_reply.set()
-            await _wait_for(lambda: channel._running_card_ids.get("om-source-msg") == "om-running-card")
-            await _wait_for(lambda: "om-source-msg" not in channel._running_card_tasks)
-
-        _run(go())
-
-    def test_prepare_inbound_and_send_share_running_card_task(self):
-        from app.channels.feishu import FeishuChannel
-
-        async def go():
-            bus = MessageBus()
-            bus.publish_inbound = AsyncMock()
-            channel = FeishuChannel(bus, config={})
-            channel._api_client = MagicMock()
-
-            reply_started = asyncio.Event()
-            release_reply = asyncio.Event()
-
-            async def slow_reply(message_id: str, text: str) -> str:
-                reply_started.set()
-                await release_reply.wait()
-                return "om-running-card"
-
-            channel._add_reaction = AsyncMock()
-            channel._reply_card = AsyncMock(side_effect=slow_reply)
-            channel._update_card = AsyncMock()
-
-            inbound = InboundMessage(
-                channel_name="feishu",
-                chat_id="chat-1",
-                user_id="user-1",
-                text="hello",
-                thread_ts="om-source-msg",
-            )
-
-            prepare_task = asyncio.create_task(channel._prepare_inbound("om-source-msg", inbound))
-            await _wait_for(lambda: bus.publish_inbound.await_count == 1)
-            await _wait_for(reply_started.is_set)
-
-            send_task = asyncio.create_task(
-                channel.send(
-                    OutboundMessage(
-                        channel_name="feishu",
-                        chat_id="chat-1",
-                        thread_id="thread-1",
-                        text="Hello",
-                        is_final=False,
-                        thread_ts="om-source-msg",
-                    )
-                )
-            )
-
-            await asyncio.sleep(0)
-            assert channel._reply_card.await_count == 1
-
-            release_reply.set()
-            await prepare_task
-            await send_task
-
-            assert channel._reply_card.await_count == 1
-            channel._update_card.assert_awaited_once_with("om-running-card", "Hello")
-            assert "om-source-msg" not in channel._running_card_tasks
-
-        _run(go())
-
-    def test_streaming_reuses_single_running_card(self):
-        from lark_oapi.api.im.v1 import (
-            CreateMessageReactionRequest,
-            CreateMessageReactionRequestBody,
-            Emoji,
-            PatchMessageRequest,
-            PatchMessageRequestBody,
-            ReplyMessageRequest,
-            ReplyMessageRequestBody,
-        )
-
-        from app.channels.feishu import FeishuChannel
-
-        async def go():
-            bus = MessageBus()
-            channel = FeishuChannel(bus, config={})
-
-            channel._api_client = MagicMock()
-            channel._ReplyMessageRequest = ReplyMessageRequest
-            channel._ReplyMessageRequestBody = ReplyMessageRequestBody
-            channel._PatchMessageRequest = PatchMessageRequest
-            channel._PatchMessageRequestBody = PatchMessageRequestBody
-            channel._CreateMessageReactionRequest = CreateMessageReactionRequest
-            channel._CreateMessageReactionRequestBody = CreateMessageReactionRequestBody
-            channel._Emoji = Emoji
-
-            reply_response = MagicMock()
-            reply_response.data.message_id = "om-running-card"
-            channel._api_client.im.v1.message.reply = MagicMock(return_value=reply_response)
-            channel._api_client.im.v1.message.patch = MagicMock()
-            channel._api_client.im.v1.message_reaction.create = MagicMock()
-
-            await channel._send_running_reply("om-source-msg")
-
-            await channel.send(
-                OutboundMessage(
-                    channel_name="feishu",
-                    chat_id="chat-1",
-                    thread_id="thread-1",
-                    text="Hello",
-                    is_final=False,
-                    thread_ts="om-source-msg",
-                )
-            )
-            await channel.send(
-                OutboundMessage(
-                    channel_name="feishu",
-                    chat_id="chat-1",
-                    thread_id="thread-1",
-                    text="Hello world",
-                    is_final=True,
-                    thread_ts="om-source-msg",
-                )
-            )
-
-            assert channel._api_client.im.v1.message.reply.call_count == 1
-            assert channel._api_client.im.v1.message.patch.call_count == 2
-            assert channel._api_client.im.v1.message_reaction.create.call_count == 1
-            assert "om-source-msg" not in channel._running_card_ids
-            assert "om-source-msg" not in channel._running_card_tasks
-
-            first_patch_request = channel._api_client.im.v1.message.patch.call_args_list[0].args[0]
-            final_patch_request = channel._api_client.im.v1.message.patch.call_args_list[1].args[0]
-            assert first_patch_request.message_id == "om-running-card"
-            assert final_patch_request.message_id == "om-running-card"
-            assert json.loads(first_patch_request.body.content)["elements"][0]["content"] == "Hello"
-            assert json.loads(final_patch_request.body.content)["elements"][0]["content"] == "Hello world"
-            assert json.loads(final_patch_request.body.content)["config"]["update_multi"] is True
-
-        _run(go())
 
 
 class TestChannelService:
@@ -1648,11 +1481,11 @@ class TestChannelService:
         async def go():
             service = ChannelService(
                 channels_config={
-                    "feishu": {"enabled": False, "app_id": "x", "app_secret": "y"},
+                    "telegram": {"enabled": False, "bot_token": "x"},
                 }
             )
             await service.start()
-            assert "feishu" not in service._channels
+            assert "telegram" not in service._channels
             await service.stop()
 
         _run(go())

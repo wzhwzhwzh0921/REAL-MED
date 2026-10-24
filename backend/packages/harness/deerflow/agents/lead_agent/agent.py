@@ -40,67 +40,22 @@ def _resolve_model_name(requested_model_name: str | None = None) -> str:
 # Native context lengths for known models. Used to derive a per-agent
 # summarization trigger of "half the model's native context" so summarization
 # fires less often and doesn't repeatedly invalidate prompt caches mid-flow.
-# Values for the 11 OpenRouter primary-eval models updated 2026-05-04 against
-# the exact integers returned by OpenRouter /api/v1/models.
+# Reference capacities follow Appendix C, Table 7 of the REAL-MED paper.
+# A model registry context_window can override these reproducibility defaults.
 # Unknown models fall back to 200_000 (typical for current frontier models).
 _MODEL_CONTEXT_LENGTH: dict[str, int] = {
-    # Anthropic (OpenRouter 1M long-context for opus-4.7; 200K for others)
-    "claude-opus-4.7": 1_000_000,   # OpenRouter
-    "claude-opus-4.6": 200_000,
-    "claude-opus-4":   200_000,
-    "claude-sonnet-4": 200_000,
-    "claude-haiku-3.5": 200_000,
-    # OpenAI GPT-5 series (OpenRouter reports ~1.05M for gpt-5.5; older 400K)
-    "gpt-5.5": 1_050_000,           # OpenRouter
-    "gpt-5.4": 400_000,
-    "gpt-5.1": 400_000,
-    "gpt-5.5-azure":      400_000,
-    "gpt-5.4-azure":      400_000,
-    "gpt-5.4-pro-azure":  400_000,
-    "gpt-5.3-codex-azure":400_000,
-    "gpt-5.2-azure":      400_000,
-    # OpenAI 4o
-    "gpt-4o": 128_000,
-    "gpt-4o-mini": 128_000,
-    # Z.AI GLM
-    "glm-5":     202_752,
-    "glm-5.1":   202_752,           # OpenRouter (was 202_000)
-    "glm-5-azure":   128_000,
-    "glm-5.1-azure": 200_000,
-    "glm-4.7":   128_000,
-    "glm-4.7-azure": 128_000,
-    # Moonshot Kimi
-    "kimi-k2.5-azure": 256_000,
-    "kimi-k2.6":       262_142,     # OpenRouter (was 262_000)
-    "kimi-k2.6-azure": 256_000,
-    # MiniMax
-    "minimax-m2.1-azure":    200_000,
-    "minimax-m2.5-hs-azure": 200_000,
-    "minimax-m2.7":          196_608,  # OpenRouter (was 197_000)
-    "minimax-m2.7-azure":    200_000,
-    # Gemini
-    "gemini-2.5-pro":   1_000_000,
-    "gemini-2.5-flash": 1_000_000,
-    "gemini-3-flash":   1_000_000,
-    "gemini-3.0-azure": 1_000_000,
-    "gemini-3.1-p-azure": 1_000_000,
-    "gemini-3.1":         1_048_576,  # OpenRouter (was 1_048_000)
-    "gemini-3.1-pro-preview": 1_048_576,  # OpenRouter (was 1_048_000)
-    # DeepSeek
-    "deepseek-v3":   128_000,
-    "deepseek-v3.2": 131_072,       # OpenRouter (was 131_000)
-    "deepseek-r1":   128_000,
-    # Qwen (1M long-context on OpenRouter)
-    "qwen3.6-plus":  1_000_000,     # OpenRouter
-    "qwen-3":        128_000,
-    # xAI Grok (2M long-context on OpenRouter)
-    "grok-4.20":     2_000_000,     # OpenRouter
-    # Xiaomi MiMo (1M context)
-    "mimo-v2.5-pro": 1_048_576,     # OpenRouter (was 1_048_000)
-    # Tencent Hunyuan (262K)
-    "hy3-preview":   262_144,       # OpenRouter (was 262_000)
-    # Meta Llama
-    "llama-4-maverick": 128_000,
+    "claude-opus-4.7": 1000000,
+    "gpt-5.5": 1050000,
+    "gemini-3.1": 1048000,
+    "qwen3.6-plus": 1000000,
+    "deepseek-v3.2": 131000,
+    "kimi-k2.6": 262000,
+    "minimax-m2.7": 197000,
+    "glm-5.1": 202000,
+    "hy3-preview": 262000,
+    "grok-4.20": 2000000,
+    "mimo-v2.5-pro": 1048000,
+    "gpt-5.4-mini": 400000,
 }
 _DEFAULT_CONTEXT_LENGTH = 200_000
 
@@ -121,7 +76,8 @@ def _create_summarization_middleware(model_name: str | None = None) -> Summariza
         return None
 
     # Half-of-native-context trigger
-    ctx_len = _MODEL_CONTEXT_LENGTH.get(model_name or "", _DEFAULT_CONTEXT_LENGTH)
+    model_config = get_app_config().get_model_config(model_name) if model_name else None
+    ctx_len = (model_config.context_window if model_config else None) or _MODEL_CONTEXT_LENGTH.get(model_name or "", _DEFAULT_CONTEXT_LENGTH)
     half_ctx = ctx_len // 2
 
     # Static trigger from config.yaml is the floor; raise to half_ctx if larger
@@ -135,21 +91,13 @@ def _create_summarization_middleware(model_name: str | None = None) -> Summariza
                 break
     effective_value = max(half_ctx, static_trigger_value or 0)
     trigger = ("tokens", effective_value)
-    logger.info(
-        f"summarization trigger for model={model_name}: ctx_len={ctx_len}, half={half_ctx}, "
-        f"static_floor={static_trigger_value}, effective={effective_value}"
-    )
+    logger.info(f"summarization trigger for model={model_name}: ctx_len={ctx_len}, half={half_ctx}, static_floor={static_trigger_value}, effective={effective_value}")
 
     # Prepare keep parameter
     keep = config.keep.to_tuple()
 
-    # Prepare model parameter
-    if config.model_name:
-        model = config.model_name
-    else:
-        # Use a lightweight model for summarization to save costs
-        # Falls back to default model if not explicitly specified
-        model = create_chat_model(thinking_enabled=False)
+    # Resolve a registry entry through the same OpenRouter model factory.
+    model = create_chat_model(config.model_name or model_name, thinking_enabled=False)
 
     # Prepare kwargs
     kwargs = {
@@ -158,8 +106,9 @@ def _create_summarization_middleware(model_name: str | None = None) -> Summariza
         "keep": keep,
     }
 
-    if config.trim_tokens_to_summarize is not None:
-        kwargs["trim_tokens_to_summarize"] = config.trim_tokens_to_summarize
+    # Pass None explicitly; omitting it would silently restore the middleware's
+    # 4K default and discard earlier evidence before it can be summarized.
+    kwargs["trim_tokens_to_summarize"] = config.trim_tokens_to_summarize
 
     if config.summary_prompt is not None:
         kwargs["summary_prompt"] = config.summary_prompt
@@ -328,6 +277,7 @@ def _build_middlewares(config: RunnableConfig, model_name: str | None, agent_nam
     # Add DeferredToolFilterMiddleware to hide deferred tool schemas from model binding
     if app_config.tool_search.enabled:
         from deerflow.agents.middlewares.deferred_tool_filter_middleware import DeferredToolFilterMiddleware
+
         middlewares.append(DeferredToolFilterMiddleware())
 
     # Add SubagentLimitMiddleware to truncate excess parallel task calls

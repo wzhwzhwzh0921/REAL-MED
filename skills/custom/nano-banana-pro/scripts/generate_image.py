@@ -25,7 +25,7 @@ def get_api_key(provided_key: str | None) -> str | None:
     """Get API key from argument first, then environment."""
     if provided_key:
         return provided_key
-    return os.environ.get("OPENROUTER_API_KEY") or os.environ.get("GEMINI_API_KEY")
+    return os.environ.get("OPENROUTER_API_KEY")
 
 
 def encode_image_to_base64(image_path: str) -> tuple[str, str]:
@@ -72,12 +72,12 @@ def main():
     )
     parser.add_argument(
         "--base-url",
-        default="https://openrouter.ai/api/v1",
+        default=os.environ.get("OPENROUTER_API_BASE", "https://openrouter.ai/api/v1"),
         help="API base URL (default: OpenRouter)"
     )
     parser.add_argument(
         "--model",
-        default="google/gemini-2.5-flash-preview:thinking",
+        default=os.environ.get("OPENROUTER_IMAGE_MODEL", "google/gemini-3-pro-image"),
         help="Model to use for image generation"
     )
 
@@ -171,6 +171,7 @@ def main():
             model=args.model,
             messages=messages,
             max_tokens=4096,
+            extra_body={"modalities": ["image", "text"], "image_config": {"image_size": args.resolution}},
         )
 
         # Process response - look for image content
@@ -178,7 +179,16 @@ def main():
         choice = response.choices[0]
         content = choice.message.content
 
-        if content:
+        # OpenRouter image models return generated data in message.images.
+        for generated in getattr(choice.message, "images", None) or []:
+            url = generated.get("image_url", {}).get("url", "")
+            if url.startswith("data:image/"):
+                image_data = base64.b64decode(url.split(",", 1)[1])
+                PILImage.open(BytesIO(image_data)).save(str(output_path), 'PNG')
+                image_saved = True
+                break
+
+        if isinstance(content, str) and content and not image_saved:
             # Check if response contains base64 image data
             # Some models return images as markdown: ![...](data:image/png;base64,...)
             # Or as plain base64 blocks
@@ -230,9 +240,9 @@ def main():
             print(f"\nImage saved: {full_path}")
         else:
             print("Warning: No image found in model response. The model may not support image generation.", file=sys.stderr)
-            print("Try using a model that supports image output (e.g., google/gemini-2.5-flash-preview:thinking).", file=sys.stderr)
+            print("Select an image-output model, such as google/gemini-3-pro-image.", file=sys.stderr)
             # Save the text response for debugging
-            if content:
+            if isinstance(content, str) and content:
                 text_path = output_path.with_suffix('.txt')
                 text_path.write_text(content)
                 print(f"Text response saved to: {text_path}", file=sys.stderr)

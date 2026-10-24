@@ -1,13 +1,13 @@
-# Judge profile: junxiu_rubric_judge_vision
+# Judge profile: rubric_judge_vision
 # 视觉评分点（rubrics_image/<category>.jsonl）逐条打分。
 # 每条 rubric 独立调用一次多模态 LLM，输入: case prompt + rubric + 一组渲染图。
 # 输出: {"score": 0/1, "image_index": int, "reason": "..."}
 # 参考实现: scripts/run_judge_eval.py:judge_run_rubric_image
 
-judge_profile: junxiu_rubric_judge_vision
-judge_model: "gemini-3.1-p-azure"   # 必须是支持多模态输入的模型 (supports_vision: true)
+judge_profile: rubric_judge_vision
+judge_model: "gpt-5.4-mini"
 thinking: "off"
-reasoning_effort: "low"
+reasoning_effort: "medium"
 
 # 单条 rubric 最多投喂多少张图（pptx 总页数太多时均匀采样）
 image_max: 20

@@ -69,7 +69,7 @@ def generate_image(
     reference_images: list[str],
     output_file: str,
     aspect_ratio: str = "16:9",
-    model: str = "google/gemini-2.5-flash-preview:thinking",
+    model: str = "google/gemini-3-pro-image",
     base_url: str = "https://openrouter.ai/api/v1",
 ) -> str:
     from openai import OpenAI
@@ -79,9 +79,9 @@ def generate_image(
         prompt_text = f.read()
 
     # Get API key
-    api_key = os.getenv("OPENROUTER_API_KEY") or os.getenv("GEMINI_API_KEY")
+    api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
-        return "Error: No API key. Set OPENROUTER_API_KEY or GEMINI_API_KEY environment variable."
+        return "Error: No API key. Set OPENROUTER_API_KEY."
 
     # Filter valid reference images
     valid_refs = []
@@ -144,6 +144,7 @@ def generate_image(
             model=model,
             messages=messages,
             max_tokens=4096,
+            extra_body={"modalities": ["image", "text"], "image_config": {"aspect_ratio": aspect_ratio}},
         )
     except Exception as e:
         return f"Error calling API: {e}"
@@ -153,7 +154,19 @@ def generate_image(
     content = choice.message.content
     image_saved = False
 
-    if content:
+    for generated in getattr(choice.message, "images", None) or []:
+        url = generated.get("image_url", {}).get("url", "")
+        if url.startswith("data:image/"):
+            image = Image.open(BytesIO(base64.b64decode(url.split(",", 1)[1])))
+            Path(output_file).parent.mkdir(parents=True, exist_ok=True)
+            if output_file.lower().endswith(".png"):
+                image.save(output_file, "PNG")
+            else:
+                image.convert("RGB").save(output_file, "JPEG", quality=95)
+            image_saved = True
+            break
+
+    if isinstance(content, str) and content and not image_saved:
         img_data = extract_image_from_response(content)
         if img_data:
             image = Image.open(BytesIO(img_data))
@@ -191,14 +204,14 @@ def generate_image(
         return f"Successfully generated image to {output_file}"
     else:
         # Save text response for debugging
-        if content:
+        if isinstance(content, str) and content:
             debug_path = Path(output_file).with_suffix('.debug.txt')
             debug_path.write_text(content[:2000])
             print(f"Debug: Model text response saved to {debug_path}")
         return (
             f"Error: No image found in model response. "
             f"The model ({model}) may not support image output via this API. "
-            f"Try: google/gemini-2.5-flash-preview:thinking or google/gemini-2.5-pro-preview"
+            f"Try: google/gemini-3-pro-image"
         )
 
 
@@ -229,7 +242,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model",
         default=None,
-        help="Model to use (default: google/gemini-2.5-flash-preview:thinking)",
+        help="Model to use (default: google/gemini-3-pro-image)",
     )
     parser.add_argument(
         "--base-url",
@@ -239,8 +252,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    model = args.model or os.getenv("IMAGE_GEN_MODEL", "google/gemini-2.5-flash-preview:thinking")
-    base_url = args.base_url or os.getenv("IMAGE_GEN_BASE_URL", "https://openrouter.ai/api/v1")
+    model = args.model or os.getenv("OPENROUTER_IMAGE_MODEL", "google/gemini-3-pro-image")
+    base_url = args.base_url or os.getenv("OPENROUTER_API_BASE", "https://openrouter.ai/api/v1")
 
     try:
         result = generate_image(
